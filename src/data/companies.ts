@@ -1,0 +1,17 @@
+export const companies = [
+  "SoftwareOne",
+  "Westbridge Advisory GmbH",
+  "Krones AG",
+  "Symrise AG",
+  "Tiemeyer automobile GmbH & Co. KG",
+  "TSCNET Services GmbH",
+  "TAKKT Group AG",
+  "think-cell GmbH",
+  "ID Now GmbH",
+  "TRB Chemedica",
+  "ICIG Business Services",
+  "Harrer Ingenieure GmbH",
+  "AMSilk GmbH",
+  "ST Engineering Applied Solutions",
+  "ARMEDANGELS",
+];
