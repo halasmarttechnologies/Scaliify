@@ -46,17 +46,6 @@ export function Hero() {
           "-=0.9"
         );
 
-      // Subtle ambient floating animation on the phone
-      if (phoneRef.current) {
-        gsap.to(phoneRef.current, {
-          y: "-=8",
-          duration: 3,
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
-          delay: 1.2,
-        });
-      }
 
       // Stacked sticky scroll effect: scale back & fade hero content on scroll
       if (contentRef.current && heroRef.current) {
