@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main className="w-full min-h-screen relative">
       {/* Sticky Hero Layer */}
-      <div className="w-full sticky top-0 z-10">
+      <div className="w-full h-screen sticky top-0 z-10 overflow-hidden">
         <Hero />
       </div>
 

@@ -29,11 +29,11 @@ export function Hero() {
   }, []);
 
   return (
-    <div ref={heroRef} className="w-full relative bg-[#0C241D] text-white">
+    <div ref={heroRef} className="w-full h-full relative bg-[#0C241D] text-white">
 
 
       {/* Main Content wrapper */}
-      <section ref={contentRef} className="relative z-10 w-full overflow-hidden">
+      <section ref={contentRef} className="relative z-10 w-full min-h-screen flex flex-col justify-between">
         <Navbar />
         
         <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12 pt-24 pb-20 lg:pt-32 lg:pb-32 relative min-h-[85vh] flex flex-col justify-center">
