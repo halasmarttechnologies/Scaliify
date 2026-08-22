@@ -23,21 +23,7 @@ export function Hero() {
         { opacity: 1, x: 0, duration: 1, ease: "power3.out" }
       );
 
-      // Stacked sticky scroll effect: scale back & fade hero content on scroll
-      if (contentRef.current && heroRef.current) {
-        gsap.to(contentRef.current, {
-          scale: 0.92,
-          opacity: 0.4,
-          y: -40,
-          ease: "power1.out",
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: "top top",
-            end: "+=600",
-            scrub: 0.5,
-          },
-        });
-      }
+
     }, heroRef);
     return () => ctx.revert();
   }, []);
