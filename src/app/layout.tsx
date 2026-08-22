@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/layout/Footer";
+import { LenisProvider } from "@/components/providers/LenisProvider";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -20,15 +21,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <body
         className={`${plusJakartaSans.variable} antialiased min-h-screen flex flex-col font-sans bg-[#F7F9F8] text-foreground`}
       >
-        <div className="flex-1">
-          {children}
-        </div>
-        <Footer />
+        <LenisProvider>
+          <div className="flex-1">
+            {children}
+          </div>
+          <Footer />
+        </LenisProvider>
       </body>
     </html>
   );
 }
+

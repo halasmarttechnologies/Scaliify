@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ChevronDown, ArrowRight, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -11,7 +12,7 @@ export function Navbar() {
 
   return (
     <header className="w-full bg-transparent text-white z-50">
-      <div className="w-full flex items-center justify-between px-6 sm:px-10 lg:px-14 py-6">
+      <div className="w-full max-w-[1440px] mx-auto flex items-center justify-between px-6 sm:px-10 lg:px-12 py-6">
         {/* Brand Logo matching screenshot style */}
         <Link href="/" className="flex items-center gap-3 group">
           <div className="w-8 h-8 rounded-lg bg-[#81D8D0] flex items-center justify-center text-[#0c241d]">
@@ -35,71 +36,93 @@ export function Navbar() {
         {/* Center Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-200">
           {/* Services Dropdown */}
-          <div className="relative group py-2">
+          <div 
+            className="relative py-2"
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
+          >
             <button className="flex items-center gap-1.5 hover:text-[#81D8D0] transition-colors focus:outline-none">
               <span>Services</span>
-              <ChevronDown className="w-4 h-4 text-gray-400 group-hover:text-[#81D8D0] group-hover:rotate-180 transition-transform duration-200" />
+              <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-300 ${servicesOpen ? 'text-[#81D8D0] rotate-180' : ''}`} />
             </button>
 
-            <div className="absolute top-full left-0 w-72 bg-white text-gray-900 rounded-2xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 p-3 mt-1 shadow-none z-50">
-              <div className="px-3 py-1.5 text-xs font-bold text-gray-400 uppercase tracking-wider">
-                HR Technology
-              </div>
-              <Link
-                href="/services/hr-it-selection"
-                className="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-[#0c241d] transition-colors"
-              >
-                HR IT Selection
-              </Link>
-              <Link
-                href="/services/implementation-optimisation"
-                className="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-[#0c241d] transition-colors"
-              >
-                Implementation & Optimisation
-              </Link>
-              <Link
-                href="/services/hr-it-integrations"
-                className="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-[#0c241d] transition-colors"
-              >
-                HR IT Integrations
-              </Link>
-              <Link
-                href="/services/hr-it-audit"
-                className="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-[#0c241d] transition-colors"
-              >
-                HR IT Audit
-              </Link>
+            <AnimatePresence>
+              {servicesOpen && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 5, scale: 0.95 }}
+                  transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+                  className="absolute top-full left-0 w-72 bg-white text-gray-900 rounded-2xl border border-gray-200 p-3 mt-1 shadow-xl z-50 origin-top-left"
+                >
+                  <div className="px-3 py-1.5 text-xs font-bold text-gray-400 uppercase tracking-wider">
+                    HR Technology
+                  </div>
+                  <Link
+                    href="/services/hr-it-selection"
+                    onClick={() => setServicesOpen(false)}
+                    className="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-[#0c241d] transition-colors"
+                  >
+                    HR IT Selection
+                  </Link>
+                  <Link
+                    href="/services/implementation-optimisation"
+                    onClick={() => setServicesOpen(false)}
+                    className="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-[#0c241d] transition-colors"
+                  >
+                    Implementation & Optimisation
+                  </Link>
+                  <Link
+                    href="/services/hr-it-integrations"
+                    onClick={() => setServicesOpen(false)}
+                    className="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-[#0c241d] transition-colors"
+                  >
+                    HR IT Integrations
+                  </Link>
+                  <Link
+                    href="/services/hr-it-audit"
+                    onClick={() => setServicesOpen(false)}
+                    className="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-[#0c241d] transition-colors"
+                  >
+                    HR IT Audit
+                  </Link>
 
-              <div className="h-px bg-gray-200 my-2" />
+                  <div className="h-px bg-gray-200 my-2" />
 
-              <div className="px-3 py-1.5 text-xs font-bold text-gray-400 uppercase tracking-wider">
-                Advisory & Leadership
-              </div>
-              <Link
-                href="/services/interim-management"
-                className="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-[#0c241d] transition-colors"
-              >
-                Interim Management
-              </Link>
-              <Link
-                href="/services/outsourced-hr"
-                className="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-[#0c241d] transition-colors"
-              >
-                Outsourced HR Management
-              </Link>
-              <Link
-                href="/services/hr-advisory"
-                className="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-[#0c241d] transition-colors"
-              >
-                HR Advisory
-              </Link>
-              <Link
-                href="/services/scheinselbststaendigkeit"
-                className="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-[#0c241d] transition-colors"
-              >
-                Scheinselbstständigkeit
-              </Link>
-            </div>
+                  <div className="px-3 py-1.5 text-xs font-bold text-gray-400 uppercase tracking-wider">
+                    Advisory & Leadership
+                  </div>
+                  <Link
+                    href="/services/interim-management"
+                    onClick={() => setServicesOpen(false)}
+                    className="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-[#0c241d] transition-colors"
+                  >
+                    Interim Management
+                  </Link>
+                  <Link
+                    href="/services/outsourced-hr"
+                    onClick={() => setServicesOpen(false)}
+                    className="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-[#0c241d] transition-colors"
+                  >
+                    Outsourced HR Management
+                  </Link>
+                  <Link
+                    href="/services/hr-advisory"
+                    onClick={() => setServicesOpen(false)}
+                    className="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-[#0c241d] transition-colors"
+                  >
+                    HR Advisory
+                  </Link>
+                  <Link
+                    href="/services/scheinselbststaendigkeit"
+                    onClick={() => setServicesOpen(false)}
+                    className="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-[#0c241d] transition-colors"
+                  >
+                    Scheinselbstständigkeit
+                  </Link>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           <Link href="/tool-finder" className="hover:text-[#81D8D0] transition-colors">
@@ -115,32 +138,49 @@ export function Navbar() {
           </Link>
 
           {/* Insights Dropdown */}
-          <div className="relative group py-2">
+          <div 
+            className="relative py-2"
+            onMouseEnter={() => setInsightsOpen(true)}
+            onMouseLeave={() => setInsightsOpen(false)}
+          >
             <button className="flex items-center gap-1.5 hover:text-[#81D8D0] transition-colors focus:outline-none">
               <span>Insights</span>
-              <ChevronDown className="w-4 h-4 text-gray-400 group-hover:text-[#81D8D0] group-hover:rotate-180 transition-transform duration-200" />
+              <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-300 ${insightsOpen ? 'text-[#81D8D0] rotate-180' : ''}`} />
             </button>
 
-            <div className="absolute top-full left-0 w-56 bg-white text-gray-900 rounded-2xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 p-3 mt-1 shadow-none z-50">
-              <Link
-                href="/insights/blog"
-                className="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-[#0c241d] transition-colors"
-              >
-                Blog
-              </Link>
-              <Link
-                href="/insights/guides"
-                className="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-[#0c241d] transition-colors"
-              >
-                Guides & Checklists
-              </Link>
-              <Link
-                href="/insights/resources"
-                className="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-[#0c241d] transition-colors"
-              >
-                HR Resources
-              </Link>
-            </div>
+            <AnimatePresence>
+              {insightsOpen && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 5, scale: 0.95 }}
+                  transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+                  className="absolute top-full left-0 w-56 bg-white text-gray-900 rounded-2xl border border-gray-200 p-3 mt-1 shadow-xl z-50 origin-top-left"
+                >
+                  <Link
+                    href="/insights/blog"
+                    onClick={() => setInsightsOpen(false)}
+                    className="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-[#0c241d] transition-colors"
+                  >
+                    Blog
+                  </Link>
+                  <Link
+                    href="/insights/guides"
+                    onClick={() => setInsightsOpen(false)}
+                    className="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-[#0c241d] transition-colors"
+                  >
+                    Guides & Checklists
+                  </Link>
+                  <Link
+                    href="/insights/resources"
+                    onClick={() => setInsightsOpen(false)}
+                    className="block px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 hover:text-[#0c241d] transition-colors"
+                  >
+                    HR Resources
+                  </Link>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </nav>
 
