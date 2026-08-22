@@ -51,7 +51,7 @@ export function Hero() {
         <Navbar />
         
         <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12 pt-24 pb-20 lg:pt-32 lg:pb-32 relative min-h-[85vh] flex flex-col justify-center">
-          <div className="flex flex-col items-center justify-center relative z-10 text-center mt-8 lg:mt-12">
+          <div className="flex flex-col items-center justify-center relative z-10 text-center mt-4 lg:mt-6">
             
             {/* ONLY COLUMN: Text */}
             <div ref={leftContentRef} className="flex flex-col items-center gap-6 lg:gap-8 max-w-4xl mx-auto">
