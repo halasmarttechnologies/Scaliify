@@ -96,7 +96,7 @@ export function Hero() {
               
               <h1 
                 ref={headingRef}
-                className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] sm:leading-[1.08]"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] sm:leading-[1.08] whitespace-nowrap"
               >
                 Transforming HR <br />
                 Through <span className="text-[#81D8D0]">Strategy.</span>
