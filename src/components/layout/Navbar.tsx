@@ -11,7 +11,7 @@ export function Navbar() {
   const [insightsOpen, setInsightsOpen] = useState(false);
 
   return (
-    <header className="w-full bg-[#FAF9F6] border-b border-gray-200/60 text-gray-900 z-50">
+    <header className="w-full bg-transparent text-white z-50 absolute top-0 left-0">
       <div className="w-full max-w-[1440px] mx-auto flex items-center justify-between px-6 sm:px-10 lg:px-12 py-6">
         {/* Brand Logo matching screenshot style */}
         <Link href="/" className="flex items-center gap-3 group">
@@ -28,22 +28,22 @@ export function Navbar() {
               <circle cx="17" cy="17" r="4" />
             </svg>
           </div>
-          <span className="font-bold text-xl sm:text-2xl tracking-tight text-gray-900 group-hover:text-[#81D8D0] transition-colors">
+          <span className="font-bold text-xl sm:text-2xl tracking-tight text-white group-hover:text-[#81D8D0] transition-colors">
             Scaliify
           </span>
         </Link>
 
         {/* Center Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+        <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-300">
           {/* Services Dropdown */}
           <div 
             className="relative py-2"
             onMouseEnter={() => setServicesOpen(true)}
             onMouseLeave={() => setServicesOpen(false)}
           >
-            <button className="flex items-center gap-1.5 hover:text-gray-900 transition-colors focus:outline-none">
+            <button className="flex items-center gap-1.5 hover:text-white transition-colors focus:outline-none">
               <span>Services</span>
-              <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-300 ${servicesOpen ? 'text-gray-900 rotate-180' : ''}`} />
+              <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-300 ${servicesOpen ? 'text-white rotate-180' : ''}`} />
             </button>
 
             <AnimatePresence>
@@ -125,15 +125,15 @@ export function Navbar() {
             </AnimatePresence>
           </div>
 
-          <Link href="/tool-finder" className="hover:text-gray-900 transition-colors">
+          <Link href="/tool-finder" className="hover:text-white transition-colors">
             HR Tool Finder
           </Link>
 
-          <Link href="/case-studies" className="hover:text-gray-900 transition-colors">
+          <Link href="/case-studies" className="hover:text-white transition-colors">
             Case Studies
           </Link>
 
-          <Link href="/about" className="hover:text-gray-900 transition-colors">
+          <Link href="/about" className="hover:text-white transition-colors">
             About Us
           </Link>
 
@@ -143,9 +143,9 @@ export function Navbar() {
             onMouseEnter={() => setInsightsOpen(true)}
             onMouseLeave={() => setInsightsOpen(false)}
           >
-            <button className="flex items-center gap-1.5 hover:text-gray-900 transition-colors focus:outline-none">
+            <button className="flex items-center gap-1.5 hover:text-white transition-colors focus:outline-none">
               <span>Insights</span>
-              <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-300 ${insightsOpen ? 'text-gray-900 rotate-180' : ''}`} />
+              <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-300 ${insightsOpen ? 'text-white rotate-180' : ''}`} />
             </button>
 
             <AnimatePresence>
@@ -184,28 +184,20 @@ export function Navbar() {
           </div>
         </nav>
 
-        {/* Right CTA / Auth area matching screenshot */}
-        <div className="hidden lg:flex items-center gap-6">
-          <Link
-            href="/login"
-            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            Log In
-          </Link>
+        {/* Right CTA Button & Mobile Menu Toggle */}
+        <div className="flex items-center gap-4">
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center bg-[#81D8D0] text-[#0c241d] hover:bg-white font-semibold text-sm px-5 py-2.5 rounded-full transition-all duration-150"
+            className="hidden lg:flex items-center gap-2 bg-white text-[#0c241d] px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-100 transition-all shadow-sm"
           >
-            Get Started
+            <span>Let&apos;s Talk</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
-        </div>
 
-        {/* Mobile Menu Toggle Button */}
-        <div className="lg:hidden flex items-center">
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2.5 text-gray-600 hover:text-gray-900 focus:outline-none rounded-lg active:scale-95 transition-transform"
-            aria-label="Toggle menu"
+            className="lg:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
