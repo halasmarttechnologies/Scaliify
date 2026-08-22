@@ -89,10 +89,10 @@ export function Hero() {
           ref={contentRef}
           className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 pt-4 pb-12 sm:pt-8 sm:pb-20 lg:pt-10 lg:pb-24 origin-top relative z-10"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-8 items-center justify-items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-8 items-center justify-items-center lg:pl-12 xl:pl-24">
             
             {/* Left Column: Copy & Actions */}
-            <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-5 sm:gap-7 z-10 max-w-xl lg:max-w-none lg:pl-12 xl:pl-24">
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-5 sm:gap-7 z-10 max-w-xl lg:max-w-none">
               
               <h1 
                 ref={headingRef}
