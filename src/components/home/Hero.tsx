@@ -73,13 +73,6 @@ export function Hero() {
                   <span>Book a Consultation</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                
-                <Link href="/services" className="inline-flex items-center gap-3 bg-transparent border border-white/30 text-white hover:border-white font-bold px-6 py-3.5 rounded-full transition-all group shadow-sm">
-                  <div className="w-6 h-6 rounded-full border border-white flex items-center justify-center group-hover:bg-white group-hover:text-[#0C241D] transition-colors">
-                    <Play className="w-2.5 h-2.5 ml-0.5 fill-current" />
-                  </div>
-                  <span>See How We Help</span>
-                </Link>
               </div>
 
               {/* Trusted Logos */}
