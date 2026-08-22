@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { ArrowRight, Play, Briefcase, Users, BarChart3, Compass } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Navbar } from "@/components/layout/Navbar";
@@ -12,7 +12,6 @@ export function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const leftContentRef = useRef<HTMLDivElement>(null);
-  const rightContentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -22,12 +21,6 @@ export function Hero() {
         leftContentRef.current,
         { opacity: 0, x: -30 },
         { opacity: 1, x: 0, duration: 1, ease: "power3.out" }
-      );
-      
-      gsap.fromTo(
-        rightContentRef.current,
-        { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 1, ease: "power3.out", delay: 0.2 }
       );
 
       // Stacked sticky scroll effect: scale back & fade hero content on scroll
@@ -51,37 +44,22 @@ export function Hero() {
 
   return (
     <div ref={heroRef} className="w-full relative bg-[#FAF9F6]">
-      {/* 50/50 Split Background */}
-      <div className="absolute top-0 right-0 bottom-0 w-1/2 bg-[#0C241D] hidden lg:block origin-right z-0" />
-      
-      {/* Abstract green circle matching screenshot */}
-      <div className="absolute top-20 right-[40%] w-[350px] h-[350px] bg-[#1a4035] rounded-full hidden lg:block opacity-50 z-0" />
-      
-      {/* Dot patterns */}
-      <div className="absolute top-24 right-12 opacity-20 hidden lg:grid grid-cols-5 gap-3 z-0">
-        {Array.from({ length: 25 }).map((_, i) => (
-          <div key={i} className="w-1.5 h-1.5 rounded-full bg-white" />
-        ))}
-      </div>
-      <div className="absolute bottom-24 left-[52%] opacity-20 hidden lg:grid grid-cols-4 gap-3 z-0">
-        {Array.from({ length: 16 }).map((_, i) => (
-          <div key={i} className="w-1.5 h-1.5 rounded-full bg-white" />
-        ))}
-      </div>
+
 
       {/* Main Content wrapper */}
       <section ref={contentRef} className="relative z-10 w-full overflow-hidden">
         <Navbar />
         
         <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12 pt-10 pb-20 lg:pt-16 lg:pb-32 relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center relative z-10">
+          <div className="flex flex-col items-center justify-center relative z-10 text-center">
             
-            {/* LEFT COLUMN: Text */}
-            <div ref={leftContentRef} className="flex flex-col gap-6 lg:gap-8 max-w-xl">
+            {/* ONLY COLUMN: Text */}
+            <div ref={leftContentRef} className="flex flex-col items-center gap-6 lg:gap-8 max-w-3xl mx-auto">
               {/* Kicker */}
-              <div className="flex items-center gap-4">
+              <div className="flex items-center justify-center gap-4 w-full">
+                <div className="h-px bg-gray-300 w-12 hidden sm:block"></div>
                 <span className="text-[11px] font-bold tracking-widest text-[#81D8D0] uppercase">Strategic HR. Measurable Impact.</span>
-                <div className="h-px bg-gray-300 flex-1 max-w-[120px]"></div>
+                <div className="h-px bg-gray-300 w-12 hidden sm:block"></div>
               </div>
 
               {/* Heading */}
@@ -91,12 +69,12 @@ export function Hero() {
               </h1>
 
               {/* Paragraph */}
-              <p className="text-gray-700 text-lg sm:text-xl max-w-lg leading-relaxed font-medium">
+              <p className="text-gray-700 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed font-medium">
                 Scaliify is your strategic partner for all things HR. From selecting and implementing the right HR technology, to expert interim management and holistic advisory, we optimize your people operations for the future.
               </p>
 
               {/* Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
                 <Link href="/contact" className="inline-flex items-center gap-3 bg-[#0C241D] text-white hover:bg-gray-800 font-medium px-8 py-3.5 rounded-full transition-all group shadow-md">
                   <span>Book a Consultation</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -111,11 +89,11 @@ export function Hero() {
               </div>
 
               {/* Trusted Logos */}
-              <div className="pt-12 lg:pt-20">
-                <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-6">
+              <div className="pt-12 lg:pt-20 w-full flex flex-col items-center">
+                <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-6 text-center">
                   Trusted by forward-thinking organizations
                 </p>
-                <div className="flex items-center gap-6 sm:gap-10 flex-wrap opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                <div className="flex items-center justify-center gap-6 sm:gap-10 flex-wrap opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
                   <div className="flex items-center gap-2">
                     <CompanyLogo id="softwareone" />
                     <span className="font-bold text-gray-700 text-[15px] tracking-tight">SoftwareOne</span>
@@ -140,98 +118,6 @@ export function Hero() {
                     <span className="font-bold text-gray-700 text-[15px] tracking-tight">TIEMEYER<br/><span className="text-[9px] font-normal text-gray-500 leading-none block">We mobilize.</span></span>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            {/* RIGHT COLUMN: Mockup */}
-            <div className="w-full flex justify-center lg:justify-end relative mt-10 lg:mt-0">
-              
-              <div 
-                ref={rightContentRef} 
-                className="w-full max-w-[380px] bg-[#FAF9F6] rounded-[40px] p-7 relative overflow-hidden flex flex-col gap-6" 
-                style={{ boxShadow: "0 30px 60px -12px rgba(0, 0, 0, 0.4), inset 0 0 0 4px rgba(255,255,255,0.8)" }}
-              >
-                
-                {/* Header */}
-                <div className="flex justify-between items-start pt-2">
-                  <div>
-                    <p className="text-[10px] font-bold text-[#3ea89d] tracking-widest uppercase mb-1">Scalify</p>
-                    <h3 className="font-bold text-gray-900 text-[22px] tracking-tight">HR Advisory Portal</h3>
-                  </div>
-                  <div className="w-11 h-11 rounded-full bg-[#111827] flex items-center justify-center text-white shadow-md">
-                    <Briefcase className="w-5 h-5" />
-                  </div>
-                </div>
-
-                {/* Dark Score Card */}
-                <div className="bg-[#102a22] rounded-[20px] p-6 text-white flex justify-between items-center shadow-lg mt-2">
-                  <div>
-                    <p className="text-[11px] text-gray-400 mb-1">Welcome back</p>
-                    <p className="font-semibold text-[15px] mb-2 tracking-tight">Your HR Strategy</p>
-                    <p className="text-[10px] text-gray-400">3 actions pending</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-4xl font-light mb-1 tracking-tighter">92%</p>
-                    <p className="text-[10px] text-gray-400">HR Maturity Score</p>
-                  </div>
-                </div>
-
-                {/* Services Grid */}
-                <div className="mt-2">
-                  <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-4">Our Services</p>
-                  <div className="grid grid-cols-2 gap-4">
-                    
-                    {/* Card 1 */}
-                    <div className="bg-white border border-gray-100/80 rounded-[20px] p-5 shadow-sm flex flex-col gap-4">
-                      <div className="w-10 h-10 rounded-full bg-[#f0f9f8] text-[#3ea89d] flex items-center justify-center">
-                        <Users className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <p className="text-[12px] font-bold text-gray-900 mb-1">HR Technology</p>
-                        <p className="text-[10px] text-gray-500 leading-tight mb-3">System audits & implementation</p>
-                        <ArrowRight className="w-3.5 h-3.5 text-gray-400" />
-                      </div>
-                    </div>
-
-                    {/* Card 2 */}
-                    <div className="bg-white border border-gray-100/80 rounded-[20px] p-5 shadow-sm flex flex-col gap-4">
-                      <div className="w-10 h-10 rounded-full bg-[#f0f9f8] text-[#3ea89d] flex items-center justify-center">
-                        <BarChart3 className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <p className="text-[12px] font-bold text-gray-900 mb-1">Process Optimisation</p>
-                        <p className="text-[10px] text-gray-500 leading-tight mb-3">Streamline your HR operations</p>
-                        <ArrowRight className="w-3.5 h-3.5 text-gray-400" />
-                      </div>
-                    </div>
-
-                    {/* Card 3 */}
-                    <div className="bg-white border border-gray-100/80 rounded-[20px] p-5 shadow-sm flex flex-col gap-4">
-                      <div className="w-10 h-10 rounded-full bg-[#f0f9f8] text-[#3ea89d] flex items-center justify-center">
-                        <Users className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <p className="text-[12px] font-bold text-gray-900 mb-1">Interim Management</p>
-                        <p className="text-[10px] text-gray-500 leading-tight mb-3">Expert HR leadership</p>
-                        <ArrowRight className="w-3.5 h-3.5 text-gray-400" />
-                      </div>
-                    </div>
-
-                    {/* Card 4 (Dark) */}
-                    <div className="bg-[#111827] text-white rounded-[20px] p-5 shadow-md flex flex-col gap-4 relative overflow-hidden">
-                      <div className="w-10 h-10 rounded-full bg-[#1f2937] text-[#81D8D0] flex items-center justify-center">
-                        <Compass className="w-5 h-5" />
-                      </div>
-                      <div className="relative z-10">
-                        <p className="text-[12px] font-bold text-white mb-1">Strategy & Advisory</p>
-                        <p className="text-[10px] text-gray-400 leading-tight mb-3">Long-term HR roadmapping</p>
-                        <ArrowRight className="w-3.5 h-3.5 text-gray-300" />
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-
               </div>
             </div>
           </div>
