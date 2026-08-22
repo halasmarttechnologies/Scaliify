@@ -183,12 +183,12 @@ export function TrustedCompanies() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="companies" className="w-full bg-[#fafafa] py-12 md:py-16 px-8 sm:px-16 md:px-24 lg:px-36 xl:px-44">
+    <section ref={sectionRef} id="companies" className="w-full bg-[#fafafa] py-12 md:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         {/* Section Heading matching screenshot */}
         <h2 
           ref={headingRef}
-          className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 text-center mb-10 sm:mb-12"
+          className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 text-center mb-8 sm:mb-12"
         >
           Trusted by growing teams worldwide
         </h2>

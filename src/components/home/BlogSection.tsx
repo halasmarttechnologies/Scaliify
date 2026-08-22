@@ -131,18 +131,18 @@ export function BlogSection() {
     <section
       ref={sectionRef}
       id="blog"
-      className="w-full bg-[#fafafa] py-12 md:py-16 px-8 sm:px-16 md:px-24 lg:px-36 xl:px-44 border-t border-gray-100"
+      className="w-full bg-[#fafafa] py-12 md:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 border-t border-gray-100"
     >
       <div className="max-w-6xl mx-auto flex flex-col">
         
         {/* Section Header */}
-        <div ref={headerRef} className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 sm:mb-16">
+        <div ref={headerRef} className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10 sm:mb-14">
           <div className="flex flex-col items-start">
             <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#0C241D] tracking-wide mb-3">
               <span className="w-2 h-2 rounded-full bg-[#0C241D]" />
               <span>Insights & Articles</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-[1.12]">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-[1.15]">
               Latest Insights to <br className="hidden sm:inline" />
               Scale Your People Operations
             </h2>

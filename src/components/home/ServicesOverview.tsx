@@ -94,25 +94,25 @@ export function ServicesOverview() {
 
   return (
     <section ref={sectionRef} id="services" className="w-full bg-transparent">
-      <div className="w-full bg-[#fafafa] rounded-t-[40px] sm:rounded-t-[60px] text-[#0c241d] py-12 md:py-20 px-4 sm:px-6 md:px-8 shadow-[0_-20px_50px_rgba(0,0,0,0.25)]">
+      <div className="w-full bg-[#fafafa] rounded-t-[32px] sm:rounded-t-[50px] md:rounded-t-[60px] text-[#0c241d] py-12 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 shadow-[0_-20px_50px_rgba(0,0,0,0.25)]">
         <div className="max-w-[1280px] mx-auto flex flex-col items-center">
         
         {/* Header Section */}
-        <div ref={headerRef} className="flex flex-col items-center text-center mb-16 md:mb-20">
-          <div className="bg-[#81D8D0] text-[#0c241d] font-bold text-sm px-5 py-2.5 rounded-full mb-8 cursor-pointer">
+        <div ref={headerRef} className="flex flex-col items-center text-center mb-12 sm:mb-16 md:mb-20">
+          <div className="bg-[#81D8D0] text-[#0c241d] font-bold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full mb-6 sm:mb-8 cursor-pointer">
             <TextRoll>Our Services</TextRoll>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 cursor-pointer flex flex-col items-center">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 sm:mb-6 cursor-pointer flex flex-col items-center">
             <TextRoll>Tailored services.</TextRoll>
             <TextRoll>Scaliify does it perfectly.</TextRoll>
           </h2>
-          <p className="text-gray-500 max-w-2xl text-lg md:text-xl">
+          <p className="text-gray-500 max-w-2xl text-sm sm:text-base md:text-lg lg:text-xl">
             Scaliify works wherever you need growth. Any platform, device, or market.
           </p>
         </div>
 
         {/* Main Card */}
-        <div ref={cardRef} className="w-full bg-white rounded-[32px] sm:rounded-[40px] border border-gray-200 shadow-sm p-6 sm:p-10 lg:p-16 mb-12">
+        <div ref={cardRef} className="w-full bg-white rounded-[24px] sm:rounded-[32px] md:rounded-[40px] border border-gray-200 shadow-sm p-5 sm:p-8 lg:p-14 mb-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
             
             {/* Column 1: HR Technology */}

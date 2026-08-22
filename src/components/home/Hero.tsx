@@ -87,16 +87,16 @@ export function Hero() {
         {/* Hero Main Content with Stacked Scroll Ref */}
         <div 
           ref={contentRef}
-          className="w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12 lg:pl-36 pt-6 pb-16 sm:pt-10 sm:pb-24 lg:pt-12 lg:pb-28 origin-top relative z-10"
+          className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 pt-4 pb-12 sm:pt-8 sm:pb-20 lg:pt-10 lg:pb-24 origin-top relative z-10"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center justify-items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-8 items-center justify-items-center">
             
             {/* Left Column: Copy & Actions */}
-            <div className="flex flex-col items-start gap-6 sm:gap-7 z-10">
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-5 sm:gap-7 z-10 max-w-xl lg:max-w-none">
               
               <h1 
                 ref={headingRef}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08]"
+                className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] sm:leading-[1.08]"
               >
                 Transforming HR <br />
                 Through <span className="text-[#81D8D0]">Strategy.</span>
@@ -113,7 +113,7 @@ export function Hero() {
               <div ref={ctaRef} className="pt-2">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-3 bg-[#81D8D0] text-[#0C241D] hover:bg-white font-bold text-sm sm:text-base px-7 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all group"
+                  className="inline-flex items-center gap-3 bg-[#81D8D0] text-[#0C241D] hover:bg-white font-bold text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all group active:scale-95"
                 >
                   <span>Book a Consultation</span>
                   <div className="w-6 sm:w-7 h-6 sm:h-7 rounded-full bg-[#0C241D] text-white flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
@@ -125,7 +125,7 @@ export function Hero() {
             </div>
 
             {/* Right Column: iPhone 17 Pro Max Mockup */}
-            <div className="relative w-full flex items-center justify-center">
+            <div className="relative w-full flex items-center justify-center pt-2 sm:pt-0">
               
               {/* iPhone 17 Pro Max Shell */}
               <div ref={phoneRef} className="relative" style={{ width: "240px", height: "500px" }}>

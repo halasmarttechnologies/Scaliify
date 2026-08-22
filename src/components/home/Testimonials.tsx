@@ -134,28 +134,28 @@ export function Testimonials() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="testimonials" className="w-full bg-[#fafafa] py-12 md:py-16 px-8 sm:px-16 md:px-24 lg:px-36 xl:px-44">
+    <section ref={sectionRef} id="testimonials" className="w-full bg-[#fafafa] py-12 md:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
       <div className="max-w-6xl mx-auto flex flex-col items-center">
-        <div ref={headerRef} className="flex flex-col items-center text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-[42px] font-bold tracking-tight text-gray-900 text-center mb-4">
+        <div ref={headerRef} className="flex flex-col items-center text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-bold tracking-tight text-gray-900 text-center mb-3">
             Loved by Teams Like Yours
           </h2>
-          <p className="text-gray-500 max-w-2xl text-center text-[15px] sm:text-base mb-12 sm:mb-16">
+          <p className="text-gray-500 max-w-2xl text-center text-sm sm:text-base">
             See how companies are transforming their HR with Scaliify.
           </p>
         </div>
 
         <div 
           ref={gridRef}
-          className="w-full grid grid-cols-1 md:grid-cols-3 gap-0 max-w-[1100px] bg-white rounded-2xl border border-gray-100 overflow-hidden"
+          className="w-full grid grid-cols-1 md:grid-cols-3 gap-0 max-w-[1100px] bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm"
         >
           {testimonials.map((t, index) => (
             <div 
               key={t.id} 
-              className={`flex flex-col p-8 sm:p-10 ${index !== testimonials.length - 1 ? 'border-b md:border-b-0 md:border-r border-gray-100' : ''}`}
+              className={`flex flex-col p-6 sm:p-8 lg:p-10 ${index !== testimonials.length - 1 ? 'border-b md:border-b-0 md:border-r border-gray-100' : ''}`}
             >
                <CompanyLogo company={t.company} />
-               <p className="text-gray-600 text-[15px] leading-relaxed">
+               <p className="text-gray-600 text-sm sm:text-[15px] leading-relaxed">
                  "{t.quote}"
                </p>
                <Avatar name={t.author} role={t.title} />

@@ -62,12 +62,12 @@ export function CoreFeatures() {
     <section 
       ref={sectionRef} 
       id="core-features" 
-      className="w-full bg-[#fafafa] py-12 md:py-16 px-8 sm:px-16 md:px-24 lg:px-36 xl:px-44"
+      className="w-full bg-[#fafafa] py-12 md:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16"
     >
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         
         {/* Header Section */}
-        <div ref={headerRef} className="flex flex-col items-center text-center mb-12 sm:mb-16">
+        <div ref={headerRef} className="flex flex-col items-center text-center mb-10 sm:mb-14">
           {/* Top Pill / Dot */}
           <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#0C241D] tracking-wide mb-4">
             <span className="w-2 h-2 rounded-full bg-[#0C241D]" />
@@ -75,7 +75,7 @@ export function CoreFeatures() {
           </div>
 
           {/* Main Title */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 max-w-3xl leading-[1.12]">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 max-w-3xl leading-[1.15]">
             Your One-Stop Shop for <br className="hidden sm:inline" />
             All Things HR Related
           </h2>
@@ -88,9 +88,9 @@ export function CoreFeatures() {
         >
           
           {/* Card 1: HR Tech & Process Optimisation */}
-          <div className="bg-white rounded-3xl p-8 sm:p-10 flex flex-col justify-between border border-gray-200/70 shadow-sm min-h-[380px]">
+          <div className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 flex flex-col justify-between border border-gray-200/70 shadow-sm min-h-[360px] sm:min-h-[380px]">
             <div>
-              <h3 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-3">
+              <h3 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-gray-900 tracking-tight mb-3">
                 HR Tech & Process Optimisation
               </h3>
               <p className="text-gray-500 text-sm sm:text-[15px] leading-relaxed mb-8">

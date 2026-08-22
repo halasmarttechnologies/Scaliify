@@ -106,18 +106,18 @@ export function FAQ() {
     <section 
       ref={sectionRef} 
       id="faq" 
-      className="w-full bg-[#fafafa] py-12 md:py-16 px-8 sm:px-16 md:px-24 lg:px-36 xl:px-44"
+      className="w-full bg-[#fafafa] py-12 md:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16"
     >
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
         
         {/* Left Column: Heading */}
         <div className="lg:col-span-5 lg:sticky lg:top-24">
           <h2 
             ref={headingRef}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-[1.12]"
+            className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-[1.15]"
           >
-            Got Questions?<br />
-            We&apos;ve Got<br />
+            Got Questions?<br className="hidden sm:inline" />{" "}
+            We&apos;ve Got<br className="hidden sm:inline" />{" "}
             Answers
           </h2>
         </div>

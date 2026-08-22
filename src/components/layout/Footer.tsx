@@ -105,7 +105,7 @@ export function Footer() {
   };
 
   return (
-    <footer ref={footerRef} className="w-full bg-black text-white pt-20 pb-12 px-6 sm:px-10 lg:px-16 border-t border-white/10 relative overflow-hidden">
+    <footer ref={footerRef} className="w-full bg-black text-white pt-16 sm:pt-20 pb-12 px-4 sm:px-8 lg:px-16 border-t border-white/10 relative overflow-hidden">
       {/* Background Graphic Image */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
         <Image
@@ -122,18 +122,18 @@ export function Footer() {
       <div className="max-w-[1360px] mx-auto flex flex-col relative z-10">
         
         {/* Main Call-To-Action (CTA) */}
-        <div ref={ctaRef} className="flex flex-col items-center text-center mb-24 md:mb-28">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-5 whitespace-nowrap leading-tight">
+        <div ref={ctaRef} className="flex flex-col items-center text-center mb-16 sm:mb-24 md:mb-28">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-5 sm:whitespace-nowrap leading-tight">
             Ready to simplify your HR?
           </h2>
-          <p className="text-gray-400 text-sm sm:text-base md:text-lg max-w-xl mb-10 leading-relaxed">
+          <p className="text-gray-400 text-sm sm:text-base md:text-lg max-w-xl mb-8 sm:mb-10 leading-relaxed px-4 sm:px-0">
             Join thousands of teams already using Scaliify to manage their workforce smarter.
           </p>
 
           {/* CTA Pill Button */}
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3.5 bg-[#81D8D0] text-black font-bold text-sm sm:text-base pl-8 pr-3.5 py-3 rounded-full hover:bg-white hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg shadow-[#81D8D0]/10 group"
+            className="inline-flex items-center gap-3.5 bg-[#81D8D0] text-black font-bold text-sm sm:text-base pl-7 sm:pl-8 pr-3 sm:pr-3.5 py-3 rounded-full hover:bg-white hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg shadow-[#81D8D0]/10 group"
           >
             <span>Start Free Trial</span>
             <div className="w-8 h-8 rounded-full bg-black text-[#81D8D0] flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
@@ -143,10 +143,10 @@ export function Footer() {
         </div>
 
         {/* 3. Divider Line */}
-        <div className="w-full h-px bg-white/10 mb-16 md:mb-20" />
+        <div className="w-full h-px bg-white/10 mb-12 sm:mb-16 md:mb-20" />
 
         {/* 4. Footer Links Grid */}
-        <div ref={linksRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
+        <div ref={linksRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-16">
           
           {/* Brand Column (Spans 2 columns on lg) */}
           <div className="lg:col-span-2 flex flex-col items-start pr-0 lg:pr-12">
