@@ -61,15 +61,15 @@ export function Hero() {
       // Stacked sticky scroll effect: scale back & fade hero content on scroll
       if (contentRef.current && heroRef.current) {
         gsap.to(contentRef.current, {
-          scale: 0.92,
-          opacity: 0.35,
-          y: -30,
-          ease: "none",
+          scale: 0.88,
+          opacity: 0.25,
+          y: -40,
+          ease: "power1.out",
           scrollTrigger: {
             trigger: heroRef.current,
             start: "top top",
-            end: "bottom top",
-            scrub: true,
+            end: "+=600",
+            scrub: 0.5,
           },
         });
       }

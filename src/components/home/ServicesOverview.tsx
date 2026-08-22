@@ -93,8 +93,8 @@ export function ServicesOverview() {
   };
 
   return (
-    <section ref={sectionRef} id="services" className="w-full bg-transparent">
-      <div className="w-full bg-[#fafafa] rounded-t-[32px] sm:rounded-t-[50px] md:rounded-t-[60px] text-[#0c241d] py-12 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 shadow-[0_-20px_50px_rgba(0,0,0,0.25)]">
+    <section ref={sectionRef} id="services" className="w-full bg-transparent relative z-20">
+      <div className="w-full bg-[#fafafa] rounded-t-[36px] sm:rounded-t-[50px] md:rounded-t-[64px] text-[#0c241d] py-12 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 shadow-[0_-25px_60px_rgba(0,0,0,0.35)] border-t border-white/20">
         <div className="max-w-[1280px] mx-auto flex flex-col items-center">
         
         {/* Header Section */}

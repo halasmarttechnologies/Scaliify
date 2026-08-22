@@ -11,7 +11,7 @@ import { BlogSection } from "@/components/home/BlogSection";
 
 export default function Home() {
   return (
-    <main className="w-full flex flex-col min-h-screen items-center relative">
+    <main className="w-full min-h-screen relative">
       {/* Sticky Hero Layer */}
       <div className="w-full sticky top-0 z-10">
         <Hero />
