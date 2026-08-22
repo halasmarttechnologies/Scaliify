@@ -92,7 +92,7 @@ export function Hero() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-8 items-center justify-items-center">
             
             {/* Left Column: Copy & Actions */}
-            <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-5 sm:gap-7 z-10 max-w-xl lg:max-w-none">
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-5 sm:gap-7 z-10 max-w-xl lg:max-w-none lg:pl-12 xl:pl-24">
               
               <h1 
                 ref={headingRef}
