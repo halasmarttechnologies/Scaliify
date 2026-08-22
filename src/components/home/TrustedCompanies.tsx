@@ -6,7 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Custom SVG Logo Marks for each company
-function CompanyLogo({ id }: { id: string }) {
+export function CompanyLogo({ id }: { id: string }) {
   switch (id) {
     case "softwareone":
       return (

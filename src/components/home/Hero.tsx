@@ -2,56 +2,39 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Users, BarChart3, Settings, ChevronRight, Briefcase } from "lucide-react";
-import { Navbar } from "@/components/layout/Navbar";
+import { ArrowRight, Play, Briefcase, Users, BarChart3, Compass } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Navbar } from "@/components/layout/Navbar";
+import { CompanyLogo } from "./TrustedCompanies";
 
 export function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const headingRef = useRef<HTMLHeadingElement>(null);
-  const textRef = useRef<HTMLParagraphElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
-  const phoneRef = useRef<HTMLDivElement>(null);
+  const leftContentRef = useRef<HTMLDivElement>(null);
+  const rightContentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-
-      // Staggered entrance animation for hero elements
-      tl.fromTo(
-        headingRef.current,
-        { opacity: 0, y: 35 },
-        { opacity: 1, y: 0, duration: 1, delay: 0.1 }
-      )
-        .fromTo(
-          textRef.current,
-          { opacity: 0, y: 25 },
-          { opacity: 1, y: 0, duration: 0.9 },
-          "-=0.7"
-        )
-        .fromTo(
-          ctaRef.current,
-          { opacity: 0, y: 20, scale: 0.96 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.8 },
-          "-=0.6"
-        )
-        .fromTo(
-          phoneRef.current,
-          { opacity: 0, y: 45, scale: 0.94 },
-          { opacity: 1, y: 0, scale: 1, duration: 1.1, ease: "power2.out" },
-          "-=0.9"
-        );
-
+      // Entrance animations
+      gsap.fromTo(
+        leftContentRef.current,
+        { opacity: 0, x: -30 },
+        { opacity: 1, x: 0, duration: 1, ease: "power3.out" }
+      );
+      
+      gsap.fromTo(
+        rightContentRef.current,
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 1, ease: "power3.out", delay: 0.2 }
+      );
 
       // Stacked sticky scroll effect: scale back & fade hero content on scroll
       if (contentRef.current && heroRef.current) {
         gsap.to(contentRef.current, {
-          scale: 0.88,
-          opacity: 0.25,
+          scale: 0.92,
+          opacity: 0.4,
           y: -40,
           ease: "power1.out",
           scrollTrigger: {
@@ -63,231 +46,196 @@ export function Hero() {
         });
       }
     }, heroRef);
-
     return () => ctx.revert();
   }, []);
 
   return (
-    <div ref={heroRef} className="w-full">
-      {/* Full-width Superhero Container with solid #0C241D background matching SoftwareStack */}
-      <section className="w-full bg-[#0C241D] text-white relative overflow-hidden">
-        <Navbar />
+    <div ref={heroRef} className="w-full relative bg-[#FAF9F6]">
+      {/* 50/50 Split Background */}
+      <div className="absolute top-0 right-0 bottom-0 w-1/2 bg-[#0C241D] hidden lg:block origin-right z-0" />
+      
+      {/* Abstract green circle matching screenshot */}
+      <div className="absolute top-20 right-[40%] w-[350px] h-[350px] bg-[#1a4035] rounded-full hidden lg:block opacity-50 z-0" />
+      
+      {/* Dot patterns */}
+      <div className="absolute top-24 right-12 opacity-20 hidden lg:grid grid-cols-5 gap-3 z-0">
+        {Array.from({ length: 25 }).map((_, i) => (
+          <div key={i} className="w-1.5 h-1.5 rounded-full bg-white" />
+        ))}
+      </div>
+      <div className="absolute bottom-24 left-[52%] opacity-20 hidden lg:grid grid-cols-4 gap-3 z-0">
+        {Array.from({ length: 16 }).map((_, i) => (
+          <div key={i} className="w-1.5 h-1.5 rounded-full bg-white" />
+        ))}
+      </div>
 
-        {/* Hero Main Content with Stacked Scroll Ref */}
-        <div 
-          ref={contentRef}
-          className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 pt-4 pb-12 sm:pt-8 sm:pb-20 lg:pt-10 lg:pb-24 origin-top relative z-10"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-8 items-center justify-items-center lg:pl-12 xl:pl-24">
+      {/* Main Content wrapper */}
+      <section ref={contentRef} className="relative z-10 w-full overflow-hidden">
+        <Navbar />
+        
+        <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12 pt-10 pb-20 lg:pt-16 lg:pb-32 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center relative z-10">
             
-            {/* Left Column: Copy & Actions */}
-            <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-5 sm:gap-7 z-10 max-w-xl lg:max-w-none">
-              
-              <h1 
-                ref={headingRef}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] sm:leading-[1.08] whitespace-nowrap"
-              >
+            {/* LEFT COLUMN: Text */}
+            <div ref={leftContentRef} className="flex flex-col gap-6 lg:gap-8 max-w-xl">
+              {/* Kicker */}
+              <div className="flex items-center gap-4">
+                <span className="text-[11px] font-bold tracking-widest text-[#81D8D0] uppercase">Strategic HR. Measurable Impact.</span>
+                <div className="h-px bg-gray-300 flex-1 max-w-[120px]"></div>
+              </div>
+
+              {/* Heading */}
+              <h1 className="text-5xl sm:text-6xl lg:text-[72px] font-medium text-gray-900 leading-[1.05] tracking-tight whitespace-nowrap">
                 Transforming HR <br />
-                Through <span className="text-[#81D8D0]">Strategy.</span>
+                Through <span className="italic text-[#0C241D]">Strategy.</span>
               </h1>
 
-              <p 
-                ref={textRef}
-                className="text-gray-300 text-sm sm:text-base lg:text-lg max-w-lg font-normal leading-relaxed"
-              >
+              {/* Paragraph */}
+              <p className="text-gray-700 text-lg sm:text-xl max-w-lg leading-relaxed font-medium">
                 Scaliify is your strategic partner for all things HR. From selecting and implementing the right HR technology, to expert interim management and holistic advisory, we optimize your people operations for the future.
               </p>
 
-              {/* Action Button */}
-              <div ref={ctaRef} className="pt-2">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-3 bg-[#81D8D0] text-[#0C241D] hover:bg-white font-bold text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all group active:scale-95"
-                >
+              {/* Buttons */}
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <Link href="/contact" className="inline-flex items-center gap-3 bg-[#0C241D] text-white hover:bg-gray-800 font-medium px-8 py-3.5 rounded-full transition-all group shadow-md">
                   <span>Book a Consultation</span>
-                  <div className="w-6 sm:w-7 h-6 sm:h-7 rounded-full bg-[#0C241D] text-white flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
-                    <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                
+                <Link href="/services" className="inline-flex items-center gap-3 bg-white border border-gray-300 text-gray-900 hover:border-gray-400 font-medium px-6 py-3.5 rounded-full transition-all group shadow-sm">
+                  <div className="w-6 h-6 rounded-full border border-gray-900 flex items-center justify-center group-hover:bg-gray-900 group-hover:text-white transition-colors">
+                    <Play className="w-2.5 h-2.5 ml-0.5 fill-current" />
                   </div>
+                  <span>See How We Help</span>
                 </Link>
               </div>
 
+              {/* Trusted Logos */}
+              <div className="pt-12 lg:pt-20">
+                <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-6">
+                  Trusted by forward-thinking organizations
+                </p>
+                <div className="flex items-center gap-6 sm:gap-10 flex-wrap opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                  <div className="flex items-center gap-2">
+                    <CompanyLogo id="softwareone" />
+                    <span className="font-bold text-gray-700 text-[15px] tracking-tight">SoftwareOne</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CompanyLogo id="westbridge" />
+                    <span className="font-bold text-gray-700 text-[15px] tracking-tight">Westbridge<br/><span className="text-[9px] font-normal uppercase tracking-widest text-gray-500 leading-none block">Advisory</span></span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    {/* Fallback for Krones since we don't have exact SVG */}
+                    <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 4l16 16M4 20L20 4" stroke="#475569" strokeWidth="2" strokeLinecap="round" />
+                    </svg>
+                    <span className="font-bold text-gray-700 text-[15px] tracking-wide">KRONES</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CompanyLogo id="symrise" />
+                    <span className="font-bold text-gray-700 text-[15px] tracking-tight">symrise</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CompanyLogo id="tiemeyer" />
+                    <span className="font-bold text-gray-700 text-[15px] tracking-tight">TIEMEYER<br/><span className="text-[9px] font-normal text-gray-500 leading-none block">We mobilize.</span></span>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Right Column: iPhone 17 Pro Max Mockup */}
-            <div className="relative w-full flex items-center justify-center pt-2 sm:pt-0">
+            {/* RIGHT COLUMN: Mockup */}
+            <div className="w-full flex justify-center lg:justify-end relative mt-10 lg:mt-0">
               
-              {/* iPhone 17 Pro Max Shell */}
-              <div ref={phoneRef} className="relative" style={{ width: "240px", height: "500px" }}>
-
-                {/* Outer Frame - Titanium border */}
-                <div
-                  className="absolute inset-0 rounded-[42px] border-[8px] border-[#2a2a2a]"
-                  style={{
-                    background: "linear-gradient(145deg, #3a3a3a 0%, #1a1a1a 40%, #2e2e2e 100%)",
-                    boxShadow: "inset 0 0 0 1px #444, 0 20px 60px rgba(0,0,0,0.5)",
-                  }}
-                />
-
-                {/* Side buttons */}
-                <div className="absolute left-[-10px] top-[88px] w-[3px] h-[30px] bg-[#2a2a2a] rounded-l-sm" />
-                <div className="absolute left-[-10px] top-[128px] w-[3px] h-[50px] bg-[#2a2a2a] rounded-l-sm" />
-                <div className="absolute left-[-10px] top-[188px] w-[3px] h-[50px] bg-[#2a2a2a] rounded-l-sm" />
-                <div className="absolute right-[-10px] top-[128px] w-[3px] h-[72px] bg-[#2a2a2a] rounded-r-sm" />
-
-                {/* Screen area */}
-                <div
-                  className="absolute rounded-[36px] overflow-hidden bg-white"
-                  style={{ inset: "7px" }}
-                >
-                  {/* Dynamic Island */}
-                  <div
-                    className="absolute top-[8px] left-1/2 -translate-x-1/2 z-30 bg-black rounded-full"
-                    style={{ width: "80px", height: "24px" }}
-                  />
-
-                  {/* Status Bar */}
-                  <div className="absolute top-0 left-0 right-0 h-[38px] bg-[#0C241D] z-20 flex items-end px-4 pb-1.5 justify-between">
-                    <span className="text-white text-[10px] font-semibold">9:41</span>
-                    <div className="flex items-center gap-1">
-                      <svg width="14" height="10" viewBox="0 0 14 10" fill="white">
-                        <rect x="0" y="4" width="2" height="6" rx="0.5" opacity="0.4"/>
-                        <rect x="3" y="2.5" width="2" height="7.5" rx="0.5" opacity="0.6"/>
-                        <rect x="6" y="1" width="2" height="9" rx="0.5" opacity="0.8"/>
-                        <rect x="9" y="0" width="2" height="10" rx="0.5"/>
-                      </svg>
-                      <svg width="14" height="10" viewBox="0 0 14 10" fill="white">
-                        <path d="M7 2C9.5 2 11.7 3.1 13.2 4.8L14 4C12.3 2.1 9.8 1 7 1C4.2 1 1.7 2.1 0 4L0.8 4.8C2.3 3.1 4.5 2 7 2Z" opacity="0.4"/>
-                        <path d="M7 4C8.8 4 10.4 4.7 11.6 5.9L12.4 5.1C11 3.8 9.1 3 7 3C4.9 3 3 3.8 1.6 5.1L2.4 5.9C3.6 4.7 5.2 4 7 4Z" opacity="0.7"/>
-                        <path d="M7 6C8.1 6 9.1 6.4 9.8 7.1L10.6 6.3C9.7 5.5 8.4 5 7 5C5.6 5 4.3 5.5 3.4 6.3L4.2 7.1C4.9 6.4 5.9 6 7 6Z"/>
-                        <circle cx="7" cy="9" r="1"/>
-                      </svg>
-                      <svg width="22" height="10" viewBox="0 0 22 10" fill="white">
-                        <rect x="0" y="1" width="18" height="8" rx="2" stroke="white" strokeWidth="1" fill="none" opacity="0.6"/>
-                        <rect x="1.5" y="2.5" width="13" height="5" rx="1" fill="white"/>
-                        <path d="M19.5 3.5C20.3 3.5 21 4.2 21 5C21 5.8 20.3 6.5 19.5 6.5V3.5Z" fill="white" opacity="0.6"/>
-                      </svg>
-                    </div>
+              <div 
+                ref={rightContentRef} 
+                className="w-full max-w-[380px] bg-[#FAF9F6] rounded-[40px] p-7 relative overflow-hidden flex flex-col gap-6" 
+                style={{ boxShadow: "0 30px 60px -12px rgba(0, 0, 0, 0.4), inset 0 0 0 4px rgba(255,255,255,0.8)" }}
+              >
+                
+                {/* Header */}
+                <div className="flex justify-between items-start pt-2">
+                  <div>
+                    <p className="text-[10px] font-bold text-[#3ea89d] tracking-widest uppercase mb-1">Scalify</p>
+                    <h3 className="font-bold text-gray-900 text-[22px] tracking-tight">HR Advisory Portal</h3>
                   </div>
+                  <div className="w-11 h-11 rounded-full bg-[#111827] flex items-center justify-center text-white shadow-md">
+                    <Briefcase className="w-5 h-5" />
+                  </div>
+                </div>
 
-                  {/* App Content - White Palette */}
-                  <div className="absolute top-[38px] left-0 right-0 bottom-0 bg-[#f7f8fa] overflow-hidden">
+                {/* Dark Score Card */}
+                <div className="bg-[#102a22] rounded-[20px] p-6 text-white flex justify-between items-center shadow-lg mt-2">
+                  <div>
+                    <p className="text-[11px] text-gray-400 mb-1">Welcome back</p>
+                    <p className="font-semibold text-[15px] mb-2 tracking-tight">Your HR Strategy</p>
+                    <p className="text-[10px] text-gray-400">3 actions pending</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-4xl font-light mb-1 tracking-tighter">92%</p>
+                    <p className="text-[10px] text-gray-400">HR Maturity Score</p>
+                  </div>
+                </div>
 
-                    {/* App Header */}
-                    <div className="bg-white px-4 pt-3 pb-3 border-b border-gray-100">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <p className="text-gray-400 text-[8px] font-semibold tracking-widest uppercase">Scaliify</p>
-                          <p className="text-gray-900 text-[13px] font-black leading-tight">HR Advisory Portal</p>
-                        </div>
-                        <div className="w-8 h-8 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center">
-                          <Briefcase className="w-4 h-4 text-gray-700" />
-                        </div>
+                {/* Services Grid */}
+                <div className="mt-2">
+                  <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-4">Our Services</p>
+                  <div className="grid grid-cols-2 gap-4">
+                    
+                    {/* Card 1 */}
+                    <div className="bg-white border border-gray-100/80 rounded-[20px] p-5 shadow-sm flex flex-col gap-4">
+                      <div className="w-10 h-10 rounded-full bg-[#f0f9f8] text-[#3ea89d] flex items-center justify-center">
+                        <Users className="w-5 h-5" />
                       </div>
-                    </div>
-
-                    {/* Welcome Card */}
-                    <div className="mx-3 mt-3 bg-gray-900 rounded-2xl px-4 py-3 flex items-center justify-between">
                       <div>
-                        <p className="text-gray-400 text-[9px]">Welcome back</p>
-                        <p className="text-white text-[11px] font-bold">Your HR Strategy</p>
-                        <p className="text-gray-300 text-[10px] font-medium mt-0.5">3 actions pending</p>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-[22px] font-black text-white">92%</div>
-                        <div className="text-[9px] text-gray-400">HR Maturity Score</div>
+                        <p className="text-[12px] font-bold text-gray-900 mb-1">HR Technology</p>
+                        <p className="text-[10px] text-gray-500 leading-tight mb-3">System audits & implementation</p>
+                        <ArrowRight className="w-3.5 h-3.5 text-gray-400" />
                       </div>
                     </div>
 
-                    {/* Services Grid */}
-                    <div className="px-3 mt-3">
-                      <p className="text-[9px] font-bold text-gray-400 uppercase tracking-wider mb-2">Our Services</p>
-                      <div className="grid grid-cols-2 gap-2">
-
-                        <div className="bg-white rounded-xl p-3 border border-gray-100">
-                          <div className="w-7 h-7 rounded-lg bg-gray-100 flex items-center justify-center mb-2">
-                            <Settings className="w-3.5 h-3.5 text-gray-700" />
-                          </div>
-                          <p className="text-[10px] font-bold text-gray-900 leading-tight">HR Technology</p>
-                          <p className="text-[8px] text-gray-400 mt-0.5 leading-tight">System audits & implementation</p>
-                          <div className="flex items-center gap-0.5 mt-1.5">
-                            <ChevronRight className="w-2.5 h-2.5 text-gray-500" />
-                            <span className="text-[8px] text-gray-500 font-semibold">Explore</span>
-                          </div>
-                        </div>
-
-                        <div className="bg-white rounded-xl p-3 border border-gray-100">
-                          <div className="w-7 h-7 rounded-lg bg-gray-100 flex items-center justify-center mb-2">
-                            <BarChart3 className="w-3.5 h-3.5 text-gray-700" />
-                          </div>
-                          <p className="text-[10px] font-bold text-gray-900 leading-tight">Process Optimisation</p>
-                          <p className="text-[8px] text-gray-400 mt-0.5 leading-tight">Streamline your HR ops</p>
-                          <div className="flex items-center gap-0.5 mt-1.5">
-                            <ChevronRight className="w-2.5 h-2.5 text-gray-500" />
-                            <span className="text-[8px] text-gray-500 font-semibold">Explore</span>
-                          </div>
-                        </div>
-
-                        <div className="bg-white rounded-xl p-3 border border-gray-100">
-                          <div className="w-7 h-7 rounded-lg bg-gray-100 flex items-center justify-center mb-2">
-                            <Users className="w-3.5 h-3.5 text-gray-700" />
-                          </div>
-                          <p className="text-[10px] font-bold text-gray-900 leading-tight">Interim Management</p>
-                          <p className="text-[8px] text-gray-400 mt-0.5 leading-tight">Expert HR leadership</p>
-                          <div className="flex items-center gap-0.5 mt-1.5">
-                            <ChevronRight className="w-2.5 h-2.5 text-gray-500" />
-                            <span className="text-[8px] text-gray-500 font-semibold">Explore</span>
-                          </div>
-                        </div>
-
-                        <div className="bg-gray-900 rounded-xl p-3">
-                          <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center mb-2">
-                            <Briefcase className="w-3.5 h-3.5 text-gray-200" />
-                          </div>
-                          <p className="text-[10px] font-bold text-white leading-tight">Strategy & Advisory</p>
-                          <p className="text-[8px] text-gray-400 mt-0.5 leading-tight">Long-term HR roadmapping</p>
-                          <div className="flex items-center gap-0.5 mt-1.5">
-                            <ChevronRight className="w-2.5 h-2.5 text-gray-300" />
-                            <span className="text-[8px] text-gray-300 font-semibold">Explore</span>
-                          </div>
-                        </div>
-
+                    {/* Card 2 */}
+                    <div className="bg-white border border-gray-100/80 rounded-[20px] p-5 shadow-sm flex flex-col gap-4">
+                      <div className="w-10 h-10 rounded-full bg-[#f0f9f8] text-[#3ea89d] flex items-center justify-center">
+                        <BarChart3 className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <p className="text-[12px] font-bold text-gray-900 mb-1">Process Optimisation</p>
+                        <p className="text-[10px] text-gray-500 leading-tight mb-3">Streamline your HR operations</p>
+                        <ArrowRight className="w-3.5 h-3.5 text-gray-400" />
                       </div>
                     </div>
 
-                    {/* Recent Milestones */}
-                    <div className="px-3 mt-3">
-                      <p className="text-[9px] font-bold text-gray-400 uppercase tracking-wider mb-2">Recent Milestones</p>
-                      <div className="bg-white rounded-xl divide-y divide-gray-50 border border-gray-100">
-                        {[
-                          { label: "HRIS Vendor Selected", sub: "Completed this week" },
-                          { label: "HR Audit Delivered", sub: "2 weeks ago" },
-                          { label: "Payroll Integrated", sub: "Last month" },
-                        ].map((item, i) => (
-                          <div key={i} className="flex items-center gap-2.5 px-3 py-2">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-gray-400 shrink-0" />
-                            <div>
-                              <p className="text-[10px] font-semibold text-gray-800">{item.label}</p>
-                              <p className="text-[8px] text-gray-400">{item.sub}</p>
-                            </div>
-                          </div>
-                        ))}
+                    {/* Card 3 */}
+                    <div className="bg-white border border-gray-100/80 rounded-[20px] p-5 shadow-sm flex flex-col gap-4">
+                      <div className="w-10 h-10 rounded-full bg-[#f0f9f8] text-[#3ea89d] flex items-center justify-center">
+                        <Users className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <p className="text-[12px] font-bold text-gray-900 mb-1">Interim Management</p>
+                        <p className="text-[10px] text-gray-500 leading-tight mb-3">Expert HR leadership</p>
+                        <ArrowRight className="w-3.5 h-3.5 text-gray-400" />
+                      </div>
+                    </div>
+
+                    {/* Card 4 (Dark) */}
+                    <div className="bg-[#111827] text-white rounded-[20px] p-5 shadow-md flex flex-col gap-4 relative overflow-hidden">
+                      <div className="w-10 h-10 rounded-full bg-[#1f2937] text-[#81D8D0] flex items-center justify-center">
+                        <Compass className="w-5 h-5" />
+                      </div>
+                      <div className="relative z-10">
+                        <p className="text-[12px] font-bold text-white mb-1">Strategy & Advisory</p>
+                        <p className="text-[10px] text-gray-400 leading-tight mb-3">Long-term HR roadmapping</p>
+                        <ArrowRight className="w-3.5 h-3.5 text-gray-300" />
                       </div>
                     </div>
 
                   </div>
-
-                  {/* Home Indicator */}
-                  <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-20 h-1 bg-black/10 rounded-full" />
                 </div>
 
               </div>
-              {/* End iPhone Shell */}
-
             </div>
-
           </div>
         </div>
-
       </section>
     </div>
   );

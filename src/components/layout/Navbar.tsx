@@ -11,7 +11,7 @@ export function Navbar() {
   const [insightsOpen, setInsightsOpen] = useState(false);
 
   return (
-    <header className="w-full bg-transparent text-white z-50">
+    <header className="w-full bg-[#FAF9F6] border-b border-gray-200/60 text-gray-900 z-50">
       <div className="w-full max-w-[1440px] mx-auto flex items-center justify-between px-6 sm:px-10 lg:px-12 py-6">
         {/* Brand Logo matching screenshot style */}
         <Link href="/" className="flex items-center gap-3 group">
@@ -28,22 +28,22 @@ export function Navbar() {
               <circle cx="17" cy="17" r="4" />
             </svg>
           </div>
-          <span className="font-bold text-xl sm:text-2xl tracking-tight text-white group-hover:text-[#81D8D0] transition-colors">
+          <span className="font-bold text-xl sm:text-2xl tracking-tight text-gray-900 group-hover:text-[#81D8D0] transition-colors">
             Scaliify
           </span>
         </Link>
 
         {/* Center Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-200">
+        <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
           {/* Services Dropdown */}
           <div 
             className="relative py-2"
             onMouseEnter={() => setServicesOpen(true)}
             onMouseLeave={() => setServicesOpen(false)}
           >
-            <button className="flex items-center gap-1.5 hover:text-[#81D8D0] transition-colors focus:outline-none">
+            <button className="flex items-center gap-1.5 hover:text-gray-900 transition-colors focus:outline-none">
               <span>Services</span>
-              <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-300 ${servicesOpen ? 'text-[#81D8D0] rotate-180' : ''}`} />
+              <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-300 ${servicesOpen ? 'text-gray-900 rotate-180' : ''}`} />
             </button>
 
             <AnimatePresence>
@@ -125,15 +125,15 @@ export function Navbar() {
             </AnimatePresence>
           </div>
 
-          <Link href="/tool-finder" className="hover:text-[#81D8D0] transition-colors">
+          <Link href="/tool-finder" className="hover:text-gray-900 transition-colors">
             HR Tool Finder
           </Link>
 
-          <Link href="/case-studies" className="hover:text-[#81D8D0] transition-colors">
+          <Link href="/case-studies" className="hover:text-gray-900 transition-colors">
             Case Studies
           </Link>
 
-          <Link href="/about" className="hover:text-[#81D8D0] transition-colors">
+          <Link href="/about" className="hover:text-gray-900 transition-colors">
             About Us
           </Link>
 
@@ -143,9 +143,9 @@ export function Navbar() {
             onMouseEnter={() => setInsightsOpen(true)}
             onMouseLeave={() => setInsightsOpen(false)}
           >
-            <button className="flex items-center gap-1.5 hover:text-[#81D8D0] transition-colors focus:outline-none">
+            <button className="flex items-center gap-1.5 hover:text-gray-900 transition-colors focus:outline-none">
               <span>Insights</span>
-              <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-300 ${insightsOpen ? 'text-[#81D8D0] rotate-180' : ''}`} />
+              <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-300 ${insightsOpen ? 'text-gray-900 rotate-180' : ''}`} />
             </button>
 
             <AnimatePresence>
@@ -188,7 +188,7 @@ export function Navbar() {
         <div className="hidden lg:flex items-center gap-6">
           <Link
             href="/login"
-            className="text-sm font-medium text-gray-200 hover:text-white transition-colors"
+            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
           >
             Log In
           </Link>
@@ -204,7 +204,7 @@ export function Navbar() {
         <div className="lg:hidden flex items-center">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2.5 text-gray-200 hover:text-[#81D8D0] focus:outline-none rounded-lg active:scale-95 transition-transform"
+            className="p-2.5 text-gray-600 hover:text-gray-900 focus:outline-none rounded-lg active:scale-95 transition-transform"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -220,64 +220,64 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden bg-[#0a1f18]/95 backdrop-blur-xl border-t border-white/10 px-6 py-6 space-y-4 rounded-b-3xl overflow-hidden shadow-2xl"
+            className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-200 px-6 py-6 space-y-4 rounded-b-3xl overflow-hidden shadow-2xl"
           >
             <div>
               <button
                 onClick={() => setServicesOpen(!servicesOpen)}
-                className="flex items-center justify-between w-full text-left font-semibold text-gray-100 py-2.5 text-base"
+                className="flex items-center justify-between w-full text-left font-semibold text-gray-900 py-2.5 text-base"
               >
                 <span>Services</span>
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${servicesOpen ? "rotate-180 text-[#81D8D0]" : ""}`} />
               </button>
               {servicesOpen && (
-                <div className="pl-4 mt-2 space-y-2 border-l-2 border-[#81D8D0]/40 text-sm text-gray-300">
-                  <div className="text-xs uppercase tracking-wider text-[#81D8D0] font-bold pt-1">HR Technology</div>
-                  <Link href="/services/hr-it-selection" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-white transition-colors">HR IT Selection</Link>
-                  <Link href="/services/implementation-optimisation" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-white transition-colors">Implementation & Optimisation</Link>
-                  <Link href="/services/hr-it-integrations" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-white transition-colors">HR IT Integrations</Link>
-                  <Link href="/services/hr-it-audit" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-white transition-colors">HR IT Audit</Link>
-                  <div className="text-xs uppercase tracking-wider text-[#81D8D0] font-bold pt-2">Advisory</div>
-                  <Link href="/services/interim-management" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-white transition-colors">Interim Management</Link>
-                  <Link href="/services/outsourced-hr" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-white transition-colors">Outsourced HR</Link>
-                  <Link href="/services/hr-advisory" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-white transition-colors">HR Advisory</Link>
-                  <Link href="/services/scheinselbststaendigkeit" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-white transition-colors">Scheinselbstständigkeit</Link>
+                <div className="pl-4 mt-2 space-y-2 border-l-2 border-gray-200 text-sm text-gray-600">
+                  <div className="text-xs uppercase tracking-wider text-gray-400 font-bold pt-1">HR Technology</div>
+                  <Link href="/services/hr-it-selection" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-gray-900 transition-colors">HR IT Selection</Link>
+                  <Link href="/services/implementation-optimisation" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-gray-900 transition-colors">Implementation & Optimisation</Link>
+                  <Link href="/services/hr-it-integrations" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-gray-900 transition-colors">HR IT Integrations</Link>
+                  <Link href="/services/hr-it-audit" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-gray-900 transition-colors">HR IT Audit</Link>
+                  <div className="text-xs uppercase tracking-wider text-gray-400 font-bold pt-2">Advisory</div>
+                  <Link href="/services/interim-management" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-gray-900 transition-colors">Interim Management</Link>
+                  <Link href="/services/outsourced-hr" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-gray-900 transition-colors">Outsourced HR</Link>
+                  <Link href="/services/hr-advisory" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-gray-900 transition-colors">HR Advisory</Link>
+                  <Link href="/services/scheinselbststaendigkeit" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-gray-900 transition-colors">Scheinselbstständigkeit</Link>
                 </div>
               )}
             </div>
 
-            <Link href="/tool-finder" onClick={() => setMobileMenuOpen(false)} className="block font-semibold text-gray-100 py-2.5 text-base hover:text-[#81D8D0] transition-colors">
+            <Link href="/tool-finder" onClick={() => setMobileMenuOpen(false)} className="block font-semibold text-gray-900 py-2.5 text-base hover:text-gray-600 transition-colors">
               HR Tool Finder
             </Link>
-            <Link href="/case-studies" onClick={() => setMobileMenuOpen(false)} className="block font-semibold text-gray-100 py-2.5 text-base hover:text-[#81D8D0] transition-colors">
+            <Link href="/case-studies" onClick={() => setMobileMenuOpen(false)} className="block font-semibold text-gray-900 py-2.5 text-base hover:text-gray-600 transition-colors">
               Case Studies
             </Link>
-            <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="block font-semibold text-gray-100 py-2.5 text-base hover:text-[#81D8D0] transition-colors">
+            <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="block font-semibold text-gray-900 py-2.5 text-base hover:text-gray-600 transition-colors">
               About Us
             </Link>
 
             <div>
               <button
                 onClick={() => setInsightsOpen(!insightsOpen)}
-                className="flex items-center justify-between w-full text-left font-semibold text-gray-100 py-2.5 text-base"
+                className="flex items-center justify-between w-full text-left font-semibold text-gray-900 py-2.5 text-base"
               >
                 <span>Insights</span>
-                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${insightsOpen ? "rotate-180 text-[#81D8D0]" : ""}`} />
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${insightsOpen ? "rotate-180 text-gray-900" : ""}`} />
               </button>
               {insightsOpen && (
-                <div className="pl-4 mt-2 space-y-2 border-l-2 border-[#81D8D0]/40 text-sm text-gray-300">
-                  <Link href="/insights/blog" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-white transition-colors">Blog</Link>
-                  <Link href="/insights/guides" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-white transition-colors">Guides & Checklists</Link>
-                  <Link href="/insights/resources" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-white transition-colors">HR Resources</Link>
+                <div className="pl-4 mt-2 space-y-2 border-l-2 border-gray-200 text-sm text-gray-600">
+                  <Link href="/insights/blog" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-gray-900 transition-colors">Blog</Link>
+                  <Link href="/insights/guides" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-gray-900 transition-colors">Guides & Checklists</Link>
+                  <Link href="/insights/resources" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 hover:text-gray-900 transition-colors">HR Resources</Link>
                 </div>
               )}
             </div>
 
-            <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
+            <div className="pt-4 border-t border-gray-200 flex flex-col gap-3">
               <Link
                 href="/login"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-center font-medium text-gray-200 py-2.5 hover:text-white text-base"
+                className="text-center font-medium text-gray-600 py-2.5 hover:text-gray-900 text-base"
               >
                 Log In
               </Link>
