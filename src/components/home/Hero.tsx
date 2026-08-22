@@ -62,7 +62,7 @@ export function Hero() {
               </div>
 
               {/* Trusted Logos */}
-              <div className="pt-8 lg:pt-12 w-full flex flex-col items-center pb-10">
+              <div className="pt-5 lg:pt-8 w-full flex flex-col items-center pb-10">
                 <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-6 text-center">
                   Trusted by forward-thinking organizations
                 </p>
