@@ -134,10 +134,10 @@ export function ToolFinderWizard() {
 
         <button
           onClick={() => setCurrentStep(1)}
-          className="inline-flex items-center justify-center gap-3 bg-white text-[#0C241D] hover:bg-gray-100 font-bold px-8 py-3.5 rounded-xl text-sm sm:text-base transition-colors group cursor-pointer w-full sm:w-auto"
+          className="inline-flex items-center justify-center gap-3 bg-[#81D8D0] text-black hover:bg-white font-bold px-8 py-3.5 rounded-xl text-sm sm:text-base transition-colors group cursor-pointer w-full sm:w-auto shadow-md"
         >
           <span>Start Assessment</span>
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#0C241D]" />
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-black" />
         </button>
       </div>
     );
@@ -247,9 +247,9 @@ export function ToolFinderWizard() {
 
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 bg-[#0C241D] text-white hover:bg-black font-bold text-xs sm:text-sm px-6 py-3 rounded-xl transition-colors text-center"
+                  className="inline-flex items-center justify-center gap-2 bg-[#81D8D0] text-black hover:bg-[#6ec2ba] font-bold text-xs sm:text-sm px-6 py-3 rounded-xl transition-colors text-center shadow-sm"
                 >
-                  <CalendarCheck className="w-4 h-4 text-white" />
+                  <CalendarCheck className="w-4 h-4 text-black" />
                   <span>Book Implementation Call</span>
                 </Link>
               </div>
@@ -269,7 +269,7 @@ export function ToolFinderWizard() {
           </div>
           <Link
             href="/contact"
-            className="shrink-0 bg-[#0C241D] text-white hover:bg-black font-bold text-xs sm:text-sm px-7 py-3.5 rounded-xl transition-colors w-full sm:w-auto text-center"
+            className="shrink-0 bg-[#81D8D0] text-black hover:bg-[#6ec2ba] font-bold text-xs sm:text-sm px-7 py-3.5 rounded-xl transition-colors w-full sm:w-auto text-center shadow-sm"
           >
             Speak with an Advisor
           </Link>
@@ -504,10 +504,10 @@ export function ToolFinderWizard() {
 
             <button
               onClick={currentStep === TOTAL_STEPS ? submitAssessment : handleNext}
-              className="inline-flex items-center gap-2 bg-white text-[#0C241D] hover:bg-gray-100 font-bold text-xs sm:text-sm px-8 py-3.5 rounded-xl transition-colors cursor-pointer w-full justify-center sm:w-auto"
+              className="inline-flex items-center gap-2 bg-[#81D8D0] text-black hover:bg-white font-bold text-xs sm:text-sm px-8 py-3.5 rounded-xl transition-colors cursor-pointer w-full justify-center sm:w-auto shadow-md"
             >
               <span>{currentStep === TOTAL_STEPS ? "Calculate Recommendations" : "Continue"}</span>
-              <ChevronRight className="w-4 h-4 text-[#0C241D]" />
+              <ChevronRight className="w-4 h-4 text-black" />
             </button>
           </div>
         </div>

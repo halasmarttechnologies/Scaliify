@@ -68,10 +68,10 @@ export function ToolFinderHero() {
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 pt-2 w-full sm:w-auto px-4 sm:px-0">
                 <button
                   onClick={scrollToAssessment}
-                  className="inline-flex items-center justify-center gap-3 bg-white text-[#0C241D] hover:bg-gray-100 font-bold px-6 sm:px-8 py-3.5 rounded-full transition-all group cursor-pointer shadow-md text-sm sm:text-base w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-3 bg-[#81D8D0] text-black hover:bg-white font-bold px-6 sm:px-8 py-3.5 rounded-full transition-all group cursor-pointer shadow-md text-sm sm:text-base w-full sm:w-auto"
                 >
                   <span>Start Free Assessment</span>
-                  <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform text-[#0C241D]" />
+                  <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform text-black" />
                 </button>
 
                 <Link

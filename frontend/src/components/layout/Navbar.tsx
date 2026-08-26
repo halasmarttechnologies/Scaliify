@@ -188,7 +188,7 @@ export function Navbar() {
         <div className="flex items-center gap-4">
           <Link
             href="/contact"
-            className="hidden lg:flex items-center gap-2 bg-white text-[#0c241d] px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-100 transition-all shadow-sm"
+            className="hidden lg:flex items-center gap-2 bg-[#81D8D0] text-black px-5 py-2.5 rounded-full text-sm font-bold hover:bg-white transition-all shadow-sm"
           >
             <span>Let&apos;s Talk</span>
             <ArrowRight className="w-4 h-4" />

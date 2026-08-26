@@ -55,7 +55,7 @@ export function Hero() {
 
               {/* Buttons */}
               <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-                <Link href="/contact" className="inline-flex items-center gap-3 bg-white text-[#0C241D] hover:bg-gray-100 font-bold px-8 py-3.5 rounded-full transition-all group shadow-md">
+                <Link href="/contact" className="inline-flex items-center gap-3 bg-[#81D8D0] text-black hover:bg-white font-bold px-8 py-3.5 rounded-full transition-all group shadow-md">
                   <span>Book a Consultation</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>

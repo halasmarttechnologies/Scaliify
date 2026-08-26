@@ -416,7 +416,7 @@ export function ToolFinderAreasCovered() {
 
               <button
                 onClick={scrollToAssessment}
-                className="inline-flex items-center justify-center gap-2 bg-black text-white hover:bg-gray-900 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-colors cursor-pointer self-start w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 bg-[#81D8D0] text-black hover:bg-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-colors cursor-pointer self-start w-full sm:w-auto shadow-md"
               >
                 <span>Take a product tour</span>
               </button>
