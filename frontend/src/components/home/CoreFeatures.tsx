@@ -62,14 +62,14 @@ export function CoreFeatures() {
     <section 
       ref={sectionRef} 
       id="core-features" 
-      className="w-full bg-[#fafafa] py-12 md:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16"
+      className="w-full bg-[#fafafa] py-10 sm:py-16 px-3.5 sm:px-6 md:px-8 lg:px-12 xl:px-16"
     >
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         
         {/* Header Section */}
-        <div ref={headerRef} className="flex flex-col items-center text-center mb-10 sm:mb-14">
+        <div ref={headerRef} className="flex flex-col items-center text-center mb-8 sm:mb-14 px-2">
           {/* Top Pill / Dot */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#0C241D] tracking-wide mb-4">
+          <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#0C241D] tracking-wide mb-3 sm:mb-4">
             <span className="w-2 h-2 rounded-full bg-[#0C241D]" />
             <span>Strategic HR Consultancy</span>
           </div>
@@ -84,16 +84,16 @@ export function CoreFeatures() {
         {/* 3-Column Features Grid matching screenshot */}
         <div 
           ref={cardsRef}
-          className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch max-w-[1140px]"
+          className="w-full grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 items-stretch max-w-[1140px]"
         >
           
           {/* Card 1: HR Tech & Process Optimisation */}
-          <div className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 flex flex-col justify-between border border-gray-200/70 shadow-sm min-h-[360px] sm:min-h-[380px]">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 flex flex-col justify-between border border-gray-200/70 shadow-sm min-h-[340px] sm:min-h-[380px]">
             <div>
-              <h3 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-gray-900 tracking-tight mb-3">
+              <h3 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-gray-900 tracking-tight mb-2 sm:mb-3">
                 HR Tech & Process Optimisation
               </h3>
-              <p className="text-gray-500 text-sm sm:text-[15px] leading-relaxed mb-8">
+              <p className="text-gray-500 text-xs sm:text-[15px] leading-relaxed mb-6 sm:mb-8">
                 From independent HR software selection and implementation to end-to-end workflow automation and process optimisation.
               </p>
 
@@ -106,18 +106,18 @@ export function CoreFeatures() {
             </div>
 
             {/* Big Stat at Bottom */}
-            <div className="pt-8">
-              <div className="text-5xl sm:text-6xl font-black text-gray-900 tracking-tighter leading-none mb-1">
+            <div className="pt-6 sm:pt-8">
+              <div className="text-4xl sm:text-6xl font-black text-gray-900 tracking-tighter leading-none mb-1">
                 100+
               </div>
-              <p className="text-gray-500 font-medium text-sm">
+              <p className="text-gray-500 font-medium text-xs sm:text-sm">
                 HR Transformation Projects Delivered
               </p>
             </div>
           </div>
 
           {/* Card 2: Visual Mountain Graphic with Metric Card */}
-          <div className="relative rounded-3xl overflow-hidden min-h-[400px] flex flex-col justify-end p-5 shadow-sm">
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden min-h-[360px] sm:min-h-[400px] flex flex-col justify-end p-3.5 sm:p-5 shadow-sm">
             
             {/* Scenic Background (Mountain Landscape Gradient SVG) */}
             <div className="absolute inset-0 z-0">
@@ -232,10 +232,10 @@ export function CoreFeatures() {
           </div>
 
           {/* Card 3: Testimonial Card */}
-          <div className="bg-[#f3f4f6] rounded-3xl p-8 sm:p-10 flex flex-col justify-between border border-gray-200/50 min-h-[380px]">
+          <div className="bg-[#f3f4f6] rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 flex flex-col justify-between border border-gray-200/50 min-h-[340px] sm:min-h-[380px]">
             
             {/* Top: Logo & Quote Marks */}
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-4 sm:mb-6">
               <div className="flex items-center gap-2">
                 {/* Flower/Honeycomb icon */}
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -247,24 +247,24 @@ export function CoreFeatures() {
                   <circle cx="6.8" cy="9" r="3" fill="#EA580C" />
                   <circle cx="12" cy="12" r="2.5" fill="#EA580C" />
                 </svg>
-                <span className="font-bold text-gray-900 text-base">Pollinate</span>
+                <span className="font-bold text-gray-900 text-sm sm:text-base">Pollinate</span>
               </div>
               
               {/* Huge quote mark */}
-              <div className="text-gray-300 font-serif text-4xl leading-none select-none font-bold">
+              <div className="text-gray-300 font-serif text-3xl sm:text-4xl leading-none select-none font-bold">
                 “
               </div>
             </div>
 
             {/* Testimonial Quote */}
-            <p className="text-gray-700 text-sm sm:text-[15px] leading-relaxed font-normal my-auto">
+            <p className="text-gray-700 text-xs sm:text-[15px] leading-relaxed font-normal my-auto">
               Scaliify is truly our one-stop shop for all things HR. From digitalising our HR tech stack to interim leadership and strategic advisory, they gave us clarity and accelerated our growth.
             </p>
 
             {/* Author */}
-            <div className="pt-6 mt-4 border-t border-gray-200/60">
-              <p className="font-bold text-gray-900 text-sm">Kathryn Murphy</p>
-              <p className="text-gray-500 text-xs mt-0.5">CEO, Pollinate Ltd.</p>
+            <div className="pt-4 sm:pt-6 mt-4 border-t border-gray-200/60">
+              <p className="font-bold text-gray-900 text-xs sm:text-sm">Kathryn Murphy</p>
+              <p className="text-gray-500 text-[11px] sm:text-xs mt-0.5">CEO, Pollinate Ltd.</p>
             </div>
 
           </div>

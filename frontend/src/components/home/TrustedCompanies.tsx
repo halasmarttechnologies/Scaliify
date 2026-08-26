@@ -63,25 +63,25 @@ export function TrustedCompanies() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="companies" className="w-full bg-[#fafafa] py-12 md:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+    <section ref={sectionRef} id="companies" className="w-full bg-[#fafafa] py-10 sm:py-16 px-3.5 sm:px-6 md:px-8 lg:px-12 xl:px-16">
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         {/* Section Heading matching screenshot */}
         <h2 
           ref={headingRef}
-          className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 text-center mb-8 sm:mb-12"
+          className="text-xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 text-center mb-6 sm:mb-12 px-2"
         >
           Trusted by growing teams worldwide
         </h2>
 
         {/* Clean Logo Grid - 15 cards (3 rows of 5 on desktop) */}
-        <div ref={gridRef} className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 max-w-[1240px]">
+        <div ref={gridRef} className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-4 max-w-[1240px]">
           {companies.map((company) => (
             <div
               key={company.id}
-              className="bg-white rounded-2xl border border-gray-200/80 hover:border-gray-300 transition-colors py-4 px-4 sm:px-5 flex items-center gap-3 cursor-default select-none group min-h-[64px]"
+              className="bg-white rounded-xl sm:rounded-2xl border border-gray-200/80 hover:border-gray-300 transition-colors py-3 px-3 sm:py-4 sm:px-5 flex items-center gap-2 sm:gap-3 cursor-default select-none group min-h-[54px] sm:min-h-[64px]"
             >
               <CompanyLogo id={company.id} />
-              <span className="font-semibold text-sm sm:text-[15px] text-gray-900 tracking-tight group-hover:text-black transition-colors truncate">
+              <span className="font-semibold text-xs sm:text-[15px] text-gray-900 tracking-tight group-hover:text-black transition-colors truncate">
                 {company.name}
               </span>
             </div>

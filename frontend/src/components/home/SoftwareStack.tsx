@@ -254,21 +254,21 @@ export function SoftwareStack() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="software" className="w-full bg-[#fafafa] py-12 md:py-16 px-4 sm:px-6 md:px-8 lg:px-12">
+    <section ref={sectionRef} id="software" className="w-full bg-[#fafafa] py-10 sm:py-16 px-3.5 sm:px-6 md:px-8 lg:px-12">
       <div 
         ref={cardRef} 
-        className="max-w-[1280px] mx-auto bg-[#0C241D] rounded-none text-white py-16 sm:py-20 md:py-24 px-6 sm:px-10 md:px-14 lg:px-16 flex flex-col items-center"
+        className="max-w-[1280px] mx-auto bg-[#0C241D] rounded-2xl sm:rounded-3xl lg:rounded-none text-white py-10 sm:py-16 md:py-24 px-4 sm:px-10 md:px-14 lg:px-16 flex flex-col items-center shadow-sm"
       >
         
         {/* Top Dot & Kicker */}
         <div ref={headerRef} className="flex flex-col items-center text-center">
-          <div className="flex items-center gap-2 text-sm text-gray-300 font-medium mb-5">
+          <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-300 font-medium mb-3 sm:mb-5">
             <span className="w-1.5 h-1.5 rounded-full bg-white" />
             <span>Software We Work With</span>
           </div>
 
           {/* Main Title */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white text-center max-w-3xl leading-[1.15] mb-4 flex flex-col items-center justify-center mx-auto gap-1">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white text-center max-w-3xl leading-[1.15] mb-3 sm:mb-4 flex flex-col items-center justify-center mx-auto gap-1">
             <TextRoll center className="text-white justify-center text-center">
               Connect Your Favorite Tools,
             </TextRoll>
@@ -278,7 +278,7 @@ export function SoftwareStack() {
           </h2>
 
           {/* Subtitle */}
-          <p className="text-gray-300 max-w-2xl text-center text-sm sm:text-base md:text-lg mb-12 leading-relaxed font-normal">
+          <p className="text-gray-300 max-w-2xl text-center text-xs sm:text-base md:text-lg mb-8 sm:mb-12 leading-relaxed font-normal px-2 sm:px-0">
             From core HRIS and recruiting platforms to performance management and specialized tools, Scaliify helps you implement, optimize, and connect your complete HR software stack.
           </p>
         </div>
@@ -286,15 +286,15 @@ export function SoftwareStack() {
         {/* Clean Logo Grid - 20 cards with logo & name */}
         <div 
           ref={gridRef}
-          className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-3.5 max-w-5xl"
+          className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 sm:gap-3.5 max-w-5xl"
         >
           {softwareList.map((tool) => (
             <div
               key={tool.id}
-              className="bg-white rounded-2xl py-3.5 px-4 flex items-center gap-3 cursor-default select-none min-h-[58px]"
+              className="bg-white rounded-xl sm:rounded-2xl py-3 px-3 sm:py-3.5 sm:px-4 flex items-center gap-2 sm:gap-3 cursor-default select-none min-h-[52px] sm:min-h-[58px]"
             >
               <ToolLogo id={tool.id} />
-              <span className="font-semibold text-sm text-gray-900 tracking-tight truncate">
+              <span className="font-semibold text-xs sm:text-sm text-gray-900 tracking-tight truncate">
                 {tool.name}
               </span>
             </div>

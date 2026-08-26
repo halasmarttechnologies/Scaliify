@@ -131,14 +131,14 @@ export function BlogSection() {
     <section
       ref={sectionRef}
       id="blog"
-      className="w-full bg-[#fafafa] py-12 md:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 border-t border-gray-100"
+      className="w-full bg-[#fafafa] py-10 sm:py-16 px-3.5 sm:px-6 md:px-8 lg:px-12 xl:px-16 border-t border-gray-100"
     >
       <div className="max-w-6xl mx-auto flex flex-col">
         
         {/* Section Header */}
-        <div ref={headerRef} className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10 sm:mb-14">
+        <div ref={headerRef} className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-14 px-1 sm:px-0">
           <div className="flex flex-col items-start">
-            <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#0C241D] tracking-wide mb-3">
+            <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#0C241D] tracking-wide mb-2 sm:mb-3">
               <span className="w-2 h-2 rounded-full bg-[#0C241D]" />
               <span>Insights & Articles</span>
             </div>
@@ -150,28 +150,28 @@ export function BlogSection() {
 
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 text-sm font-bold text-[#0C241D] hover:text-black border-b border-[#0C241D] pb-1 self-start sm:self-end transition-colors group cursor-pointer"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0C241D] hover:text-black border-b border-[#0C241D] pb-1 self-start sm:self-end transition-colors group cursor-pointer"
           >
             <span>Explore all insights</span>
-            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
         </div>
 
         {/* 3 Blog Cards Grid */}
         <div
           ref={cardsRef}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch"
+          className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 items-stretch"
         >
           {blogs.map((blog, idx) => {
             const Icon = blog.categoryIcon;
             return (
               <article
                 key={idx}
-                className="bg-white rounded-3xl border border-gray-200/80 overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-gray-300 hover:-translate-y-1 group shadow-sm"
+                className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200/80 overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-gray-300 hover:-translate-y-1 group shadow-sm"
               >
                 {/* Top Image Container */}
-                <div className="p-4 pb-0">
-                  <div className="relative w-full h-48 sm:h-52 rounded-2xl overflow-hidden bg-gray-100">
+                <div className="p-3 sm:p-4 pb-0">
+                  <div className="relative w-full h-44 sm:h-52 rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100">
                     <Image
                       src={blog.image}
                       alt={blog.title}
@@ -181,9 +181,9 @@ export function BlogSection() {
                     />
                     
                     {/* Category Tag Overlay */}
-                    <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/60 shadow-xs">
-                      <Icon className="w-3.5 h-3.5 text-[#0C241D]" />
-                      <span className="text-[11px] font-bold text-gray-900 tracking-wide">
+                    <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10 flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full border border-white/60 shadow-xs">
+                      <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#0C241D]" />
+                      <span className="text-[10px] sm:text-[11px] font-bold text-gray-900 tracking-wide">
                         {blog.category}
                       </span>
                     </div>
@@ -191,7 +191,7 @@ export function BlogSection() {
                 </div>
 
                 {/* Article Content */}
-                <div className="p-6 sm:p-7 flex flex-col flex-grow justify-between">
+                <div className="p-4 sm:p-7 flex flex-col flex-grow justify-between">
                   <div>
                     {/* Meta info */}
                     <div className="flex items-center gap-3 text-xs text-gray-500 font-medium mb-3">

@@ -122,11 +122,11 @@ export function Footer() {
       <div className="max-w-[1360px] mx-auto flex flex-col relative z-10">
         
         {/* Main Call-To-Action (CTA) */}
-        <div ref={ctaRef} className="flex flex-col items-center text-center mb-16 sm:mb-24 md:mb-28">
-          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-5 sm:whitespace-nowrap leading-tight">
+        <div ref={ctaRef} className="flex flex-col items-center text-center mb-12 sm:mb-24 md:mb-28 px-2">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 sm:mb-5 leading-tight text-center">
             Ready to simplify your HR?
           </h2>
-          <p className="text-gray-400 text-sm sm:text-base md:text-lg max-w-xl mb-8 sm:mb-10 leading-relaxed px-4 sm:px-0">
+          <p className="text-gray-400 text-xs sm:text-base md:text-lg max-w-xl mb-6 sm:mb-10 leading-relaxed px-2 sm:px-0">
             Join thousands of teams already using Scaliify to manage their workforce smarter.
           </p>
 

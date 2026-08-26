@@ -33,7 +33,7 @@ export function Navbar() {
           : "bg-transparent py-5 sm:py-6"
       }`}
     >
-      <div className="w-full max-w-[1440px] mx-auto flex items-center justify-between px-6 sm:px-10 lg:px-12">
+      <div className="w-full max-w-[1440px] mx-auto flex items-center justify-between px-4 sm:px-10 lg:px-12">
         {/* Brand Logo matching screenshot style */}
         <Link href="/" className="flex items-center gap-3 group">
           <div className="w-8 h-8 rounded-lg bg-[#81D8D0] flex items-center justify-center text-[#0c241d]">
@@ -233,7 +233,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-200 px-6 py-6 space-y-4 rounded-b-3xl overflow-hidden shadow-2xl"
+            className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-200 px-5 sm:px-6 py-5 space-y-3.5 rounded-b-2xl sm:rounded-b-3xl overflow-y-auto max-h-[calc(100vh-80px)] shadow-2xl"
           >
             <div>
               <button
