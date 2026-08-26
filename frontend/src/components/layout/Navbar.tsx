@@ -7,15 +7,12 @@ import {
   ArrowRight,
   Menu,
   X,
-  Play,
-  ShieldCheck,
-  Compass,
-  Megaphone,
-  Sparkles,
   BookOpen,
   FileText,
   Calculator,
   BarChart3,
+  Sparkles,
+  ShieldCheck,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -173,7 +170,7 @@ export function Navbar() {
         </div>
 
         {/* ========================================================================= */}
-        {/* DESKTOP MEGA DROPDOWN 1: PLATFORM (CENTERED ON SCREEN) */}
+        {/* DESKTOP MEGA DROPDOWN 1: PLATFORM (CLEAN 3-COLUMN LAYOUT) */}
         {/* ========================================================================= */}
         <AnimatePresence>
           {activeMenu === "platform" && (
@@ -182,14 +179,14 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 8, scale: 0.98 }}
               transition={{ type: "spring", bounce: 0, duration: 0.35 }}
-              className="absolute top-[calc(100%+10px)] left-1/2 -translate-x-1/2 w-[1040px] xl:w-[1080px] max-w-[calc(100vw-32px)] bg-white text-gray-900 rounded-3xl border border-gray-100/90 shadow-[0_25px_70px_rgba(0,0,0,0.22)] p-7 z-50 origin-top"
+              className="absolute top-[calc(100%+10px)] left-1/2 -translate-x-1/2 w-[840px] xl:w-[880px] max-w-[calc(100vw-32px)] bg-white text-gray-900 rounded-3xl border border-gray-100/90 shadow-[0_25px_70px_rgba(0,0,0,0.20)] p-7 z-50 origin-top"
               onMouseEnter={() => setActiveMenu("platform")}
               onMouseLeave={() => setActiveMenu(null)}
             >
-              <div className="grid grid-cols-12 gap-7 items-stretch">
+              <div className="grid grid-cols-3 gap-7 items-stretch">
                 
                 {/* Column 1: Core HR */}
-                <div className="col-span-3 flex flex-col justify-between">
+                <div className="flex flex-col justify-between">
                   <div>
                     <h4 className="text-[15px] font-bold text-gray-900 tracking-tight">
                       Core HR
@@ -263,7 +260,7 @@ export function Navbar() {
                 </div>
 
                 {/* Column 2: + Grow your platform */}
-                <div className="col-span-3 flex flex-col justify-between border-l border-gray-100 pl-6">
+                <div className="flex flex-col justify-between border-l border-gray-100 pl-6">
                   <div>
                     <h4 className="text-[15px] font-bold text-gray-900 tracking-tight flex items-center gap-1">
                       <span className="text-gray-400 font-normal">+</span>
@@ -342,7 +339,7 @@ export function Navbar() {
                 </div>
 
                 {/* Column 3: + Pay your people */}
-                <div className="col-span-3 flex flex-col justify-between border-l border-gray-100 pl-6">
+                <div className="flex flex-col justify-between border-l border-gray-100 pl-6">
                   <div>
                     <h4 className="text-[15px] font-bold text-gray-900 tracking-tight flex items-center gap-1">
                       <span className="text-gray-400 font-normal">+</span>
@@ -395,86 +392,13 @@ export function Navbar() {
                   </Link>
                 </div>
 
-                {/* Column 4: Platform highlights (Dark / Deep Card) */}
-                <div className="col-span-3 bg-gradient-to-br from-[#1C122C] via-[#141A24] to-[#0C241D] text-white rounded-2xl p-4.5 flex flex-col justify-between shadow-md">
-                  <div>
-                    <div className="text-xs font-bold text-white mb-3.5 tracking-wide">
-                      Platform highlights
-                    </div>
-
-                    <div className="space-y-2">
-                      {/* Highlight 1 */}
-                      <Link
-                        href="/tool-finder"
-                        onClick={() => setActiveMenu(null)}
-                        className="flex items-center gap-2.5 bg-white/10 hover:bg-white/15 border border-white/10 rounded-xl p-2.5 text-xs font-semibold text-white transition-all group"
-                      >
-                        <div className="w-6 h-6 rounded-lg bg-[#81D8D0] text-black flex items-center justify-center shrink-0">
-                          <Play className="w-3 h-3 fill-current ml-0.5" />
-                        </div>
-                        <span className="group-hover:text-[#81D8D0] transition-colors">
-                          Take a 2 minute tour
-                        </span>
-                      </Link>
-
-                      {/* Highlight 2 */}
-                      <Link
-                        href="/services/scheinselbststaendigkeit"
-                        onClick={() => setActiveMenu(null)}
-                        className="flex items-center gap-2.5 bg-white/10 hover:bg-white/15 border border-white/10 rounded-xl p-2.5 text-xs font-semibold text-white transition-all group"
-                      >
-                        <ShieldCheck className="w-4 h-4 text-[#81D8D0] shrink-0" />
-                        <span className="group-hover:text-[#81D8D0] transition-colors">
-                          Security & Compliance
-                        </span>
-                      </Link>
-
-                      {/* Highlight 3 */}
-                      <Link
-                        href="/services/hr-it-integrations"
-                        onClick={() => setActiveMenu(null)}
-                        className="flex items-center gap-2.5 bg-white/10 hover:bg-white/15 border border-white/10 rounded-xl p-2.5 text-xs font-semibold text-white transition-all group"
-                      >
-                        <Compass className="w-4 h-4 text-[#81D8D0] shrink-0" />
-                        <span className="group-hover:text-[#81D8D0] transition-colors">
-                          Integrations & Marketplace
-                        </span>
-                      </Link>
-
-                      {/* Highlight 4 */}
-                      <Link
-                        href="/insights/blog"
-                        onClick={() => setActiveMenu(null)}
-                        className="flex items-center gap-2.5 bg-white/10 hover:bg-white/15 border border-white/10 rounded-xl p-2.5 text-xs font-semibold text-white transition-all group"
-                      >
-                        <Megaphone className="w-4 h-4 text-[#81D8D0] shrink-0" />
-                        <span className="group-hover:text-[#81D8D0] transition-colors">
-                          Quarterly Product Updates
-                        </span>
-                      </Link>
-
-                      {/* Highlight 5 */}
-                      <Link
-                        href="/tool-finder"
-                        onClick={() => setActiveMenu(null)}
-                        className="flex items-center gap-2.5 bg-white/10 hover:bg-white/15 border border-[#81D8D0]/40 rounded-xl p-2.5 text-xs font-semibold text-white transition-all group"
-                      >
-                        <Sparkles className="w-4 h-4 text-[#81D8D0] shrink-0" />
-                        <span className="group-hover:text-[#81D8D0] transition-colors">
-                          AI at Scaliify
-                        </span>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-
               </div>
             </motion.div>
           )}
         </AnimatePresence>
 
         {/* ========================================================================= */}
-        {/* DESKTOP MEGA DROPDOWN 2: RESOURCES (REDESIGNED & CENTERED ON SCREEN) */}
+        {/* DESKTOP MEGA DROPDOWN 2: RESOURCES (CLEAN 2-COLUMN LAYOUT) */}
         {/* ========================================================================= */}
         <AnimatePresence>
           {activeMenu === "resources" && (
@@ -483,14 +407,14 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 8, scale: 0.98 }}
               transition={{ type: "spring", bounce: 0, duration: 0.35 }}
-              className="absolute top-[calc(100%+10px)] left-1/2 -translate-x-1/2 w-[900px] xl:w-[940px] max-w-[calc(100vw-32px)] bg-white text-gray-900 rounded-3xl border border-gray-100/90 shadow-[0_25px_70px_rgba(0,0,0,0.22)] p-7 z-50 origin-top"
+              className="absolute top-[calc(100%+10px)] left-1/2 -translate-x-1/2 w-[640px] xl:w-[680px] max-w-[calc(100vw-32px)] bg-white text-gray-900 rounded-3xl border border-gray-100/90 shadow-[0_25px_70px_rgba(0,0,0,0.20)] p-7 z-50 origin-top"
               onMouseEnter={() => setActiveMenu("resources")}
               onMouseLeave={() => setActiveMenu(null)}
             >
-              <div className="grid grid-cols-12 gap-7 items-stretch">
+              <div className="grid grid-cols-2 gap-7 items-stretch">
                 
                 {/* Column 1: Learn & Insights */}
-                <div className="col-span-4 flex flex-col justify-between">
+                <div className="flex flex-col justify-between">
                   <div>
                     <h4 className="text-[15px] font-bold text-gray-900 tracking-tight">
                       Learn & Insights
@@ -556,7 +480,7 @@ export function Navbar() {
                 </div>
 
                 {/* Column 2: Tools & Free Resources */}
-                <div className="col-span-4 flex flex-col justify-between border-l border-gray-100 pl-6">
+                <div className="flex flex-col justify-between border-l border-gray-100 pl-6">
                   <div>
                     <h4 className="text-[15px] font-bold text-gray-900 tracking-tight flex items-center gap-1">
                       <span className="text-gray-400 font-normal">+</span>
@@ -622,34 +546,6 @@ export function Navbar() {
                   </Link>
                 </div>
 
-                {/* Column 3: Featured Resource Dark Card */}
-                <div className="col-span-4 bg-gradient-to-br from-[#1C122C] via-[#141A24] to-[#0C241D] text-white rounded-2xl p-5 flex flex-col justify-between shadow-md">
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="bg-[#81D8D0]/20 text-[#81D8D0] border border-[#81D8D0]/40 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                        FEATURED REPORT
-                      </span>
-                    </div>
-
-                    <h5 className="text-sm font-bold text-white leading-snug mb-2">
-                      2026 European HR Tech Benchmark Guide
-                    </h5>
-
-                    <p className="text-xs text-gray-300 leading-relaxed font-normal">
-                      A comprehensive independent evaluation comparing Personio, Deel, Factorial, and 15+ top systems on features, compliance, and pricing.
-                    </p>
-                  </div>
-
-                  <Link
-                    href="/tool-finder"
-                    onClick={() => setActiveMenu(null)}
-                    className="mt-5 flex items-center justify-center gap-2 bg-[#81D8D0] text-black font-bold text-xs py-2.5 px-4 rounded-xl hover:bg-white transition-colors text-center shadow-sm"
-                  >
-                    <span>Start Free Benchmark</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-
               </div>
             </motion.div>
           )}
@@ -684,7 +580,7 @@ export function Navbar() {
               </button>
 
               {mobilePlatformOpen && (
-                <div className="mt-3 space-y-3.5 text-sm text-gray-700 pl-1">
+                <div className="mt-3 space-y-3 text-sm text-gray-700 pl-1">
                   {/* Core HR */}
                   <div className="bg-gray-50/80 rounded-xl p-3.5 border border-gray-100">
                     <div className="font-bold text-gray-900 text-[13px] mb-0.5">Core HR</div>
@@ -719,38 +615,8 @@ export function Navbar() {
                     <div className="space-y-1.5 pl-2 border-l border-gray-200 text-xs">
                       <Link href="/services/outsourced-hr" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-black">Preliminary Payroll</Link>
                       <Link href="/services/hr-it-integrations" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-black">Xero & DATEV Sync</Link>
+                      <Link href="/services/interim-management" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-black">Sage 50 & Local EU</Link>
                     </div>
-                  </div>
-
-                  {/* Mobile Platform Highlights Card */}
-                  <div className="bg-gradient-to-br from-[#1C122C] to-[#0C241D] text-white rounded-xl p-4 space-y-2">
-                    <div className="text-xs font-bold text-white mb-2">Platform highlights</div>
-                    <Link
-                      href="/tool-finder"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center gap-2.5 bg-white/10 rounded-lg p-2 text-xs font-semibold text-white"
-                    >
-                      <div className="w-5 h-5 rounded-md bg-[#81D8D0] text-black flex items-center justify-center">
-                        <Play className="w-2.5 h-2.5 fill-current ml-0.5" />
-                      </div>
-                      <span>Take a 2 minute tour</span>
-                    </Link>
-                    <Link
-                      href="/services/scheinselbststaendigkeit"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center gap-2.5 bg-white/10 rounded-lg p-2 text-xs font-semibold text-white"
-                    >
-                      <ShieldCheck className="w-4 h-4 text-[#81D8D0]" />
-                      <span>Security & Compliance</span>
-                    </Link>
-                    <Link
-                      href="/tool-finder"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center gap-2.5 bg-white/10 rounded-lg p-2 text-xs font-semibold text-white"
-                    >
-                      <Sparkles className="w-4 h-4 text-[#81D8D0]" />
-                      <span>AI at Scaliify</span>
-                    </Link>
                   </div>
                 </div>
               )}
