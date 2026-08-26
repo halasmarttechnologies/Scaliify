@@ -2,11 +2,11 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Navbar } from "@/components/layout/Navbar";
-import { CompanyLogo } from "./TrustedCompanies";
+import { CompanyLogo } from "@/components/ui/CompanyLogo";
 
 export function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);

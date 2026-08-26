@@ -156,7 +156,7 @@ export function Testimonials() {
             >
                <CompanyLogo company={t.company} />
                <p className="text-gray-600 text-sm sm:text-[15px] leading-relaxed">
-                 "{t.quote}"
+                 &ldquo;{t.quote}&rdquo;
                </p>
                <Avatar name={t.author} role={t.title} />
             </div>
