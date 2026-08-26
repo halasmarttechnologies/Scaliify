@@ -5,7 +5,6 @@ import Link from "next/link";
 import { ArrowDown, ArrowRight } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Navbar } from "@/components/layout/Navbar";
 import { CompanyLogo } from "@/components/ui/CompanyLogo";
 
 export function ToolFinderHero() {
@@ -47,7 +46,6 @@ export function ToolFinderHero() {
     <div ref={heroRef} className="w-full h-full relative bg-[#0C241D] text-white">
       {/* Main Content wrapper matching Home Hero */}
       <section ref={contentRef} className="relative z-10 w-full min-h-screen flex flex-col justify-between">
-        <Navbar />
 
         <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 pt-20 pb-12 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-32 relative min-h-[85vh] flex flex-col justify-center">
           <div className="flex flex-col items-center justify-center relative z-10 text-center mt-2 sm:mt-4 lg:mt-6">

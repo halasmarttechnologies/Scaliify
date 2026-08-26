@@ -5,7 +5,6 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Navbar } from "@/components/layout/Navbar";
 import { CompanyLogo } from "@/components/ui/CompanyLogo";
 
 export function Hero() {
@@ -34,7 +33,6 @@ export function Hero() {
 
       {/* Main Content wrapper */}
       <section ref={contentRef} className="relative z-10 w-full min-h-screen flex flex-col justify-between">
-        <Navbar />
         
         <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-12 pt-24 pb-20 lg:pt-32 lg:pb-32 relative min-h-[85vh] flex flex-col justify-center">
           <div className="flex flex-col items-center justify-center relative z-10 text-center mt-4 lg:mt-6">
