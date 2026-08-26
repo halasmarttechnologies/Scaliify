@@ -275,12 +275,14 @@ export function useToolFinderPersistence() {
 
         // Clean up temporary in-progress draft
         localStorage.removeItem(STORAGE_IN_PROGRESS_KEY);
+      } else if (response && response.error) {
+        setErrorMsg(response.error);
       } else {
         throw new Error("No recommendation data received");
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error("Assessment submission error:", err);
-      setErrorMsg("Failed to calculate recommendations. Please try again.");
+      setErrorMsg(err?.message || "Failed to calculate recommendations. Please try again.");
     } finally {
       isSubmittingRef.current = false;
       setIsSubmitting(false);

@@ -214,11 +214,11 @@ const TOOL_CATALOG: Omit<ToolRecommendation, 'matchPercentage'>[] = [
 // REFACTOR: Basic Input Validation
 // ---------------------------------------------------------
 function validateInput(answers: AssessmentAnswers, lead: LeadContact): string | null {
-  if (!lead.email || !/^\\S+@\\S+\\.\\S+$/.test(lead.email)) {
-    return "Invalid email address.";
+  if (!lead.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email.trim())) {
+    return "Please enter a valid email address.";
   }
-  if (!lead.firstName || !lead.lastName || !lead.companyName) {
-    return "Missing required lead contact fields.";
+  if (!lead.firstName?.trim() || !lead.lastName?.trim() || !lead.companyName?.trim()) {
+    return "Please fill in all required contact fields.";
   }
   if (!answers.companySize || !answers.currentStatus) {
     return "Missing required assessment answers.";
