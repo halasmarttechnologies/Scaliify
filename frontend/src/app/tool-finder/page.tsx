@@ -16,14 +16,9 @@ export const metadata: Metadata = {
 export default function ToolFinderPage() {
   return (
     <main className="w-full min-h-screen relative">
-      {/* 1. Sticky Hero Layer */}
-      <div className="w-full h-screen sticky top-0 z-10 overflow-hidden">
-        <ToolFinderHero />
-      </div>
+      <ToolFinderHero />
 
-      {/* 2. Stacked Content Layer (Rounded top corners gliding up over the Hero) */}
-      <div className="w-full relative z-20 bg-[#FAFBFB] rounded-t-[36px] sm:rounded-t-[50px] md:rounded-t-[64px] border-t border-white/20 shadow-[0_-25px_60px_rgba(0,0,0,0.35)] overflow-hidden">
-        
+      <div className="w-full relative bg-[#FAFBFB]">
         {/* Section A: The Interactive Tool Assessment */}
         <section id="tool-finder-tool" className="w-full pt-12 sm:pt-16 pb-12 sm:pb-16 bg-white">
           <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

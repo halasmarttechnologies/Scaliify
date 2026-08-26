@@ -12,21 +12,14 @@ import { BlogSection } from "@/components/home/BlogSection";
 export default function Home() {
   return (
     <main className="w-full min-h-screen relative">
-      {/* Sticky Hero Layer */}
-      <div className="w-full h-screen sticky top-0 z-10 overflow-hidden">
-        <Hero />
-      </div>
-
-      {/* Stacked Content Layer that smoothly glides up over the Hero */}
-      <div className="w-full relative z-20">
-        <ServicesOverview />
-        <CoreFeatures />
-        <TrustedCompanies />
-        <SoftwareStack />
-        <Testimonials />
-        <FAQ />
-        <BlogSection />
-      </div>
+      <Hero />
+      <ServicesOverview />
+      <CoreFeatures />
+      <TrustedCompanies />
+      <SoftwareStack />
+      <Testimonials />
+      <FAQ />
+      <BlogSection />
     </main>
   );
 }
