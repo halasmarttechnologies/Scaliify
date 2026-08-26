@@ -1,18 +1,39 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ChevronDown, ArrowRight, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [insightsOpen, setInsightsOpen] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="w-full bg-transparent text-white z-50 absolute top-0 left-0">
-      <div className="w-full max-w-[1440px] mx-auto flex items-center justify-between px-6 sm:px-10 lg:px-12 py-6">
+    <header
+      className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-[#0C241D]/90 backdrop-blur-md border-b border-white/10 shadow-lg py-3 sm:py-3.5"
+          : "bg-transparent py-5 sm:py-6"
+      }`}
+    >
+      <div className="w-full max-w-[1440px] mx-auto flex items-center justify-between px-6 sm:px-10 lg:px-12">
         {/* Brand Logo matching screenshot style */}
         <Link href="/" className="flex items-center gap-3 group">
           <div className="w-8 h-8 rounded-lg bg-[#81D8D0] flex items-center justify-center text-[#0c241d]">
