@@ -1,84 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
 
 export function Footer() {
-  const footerRef = useRef<HTMLElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
-  const linksRef = useRef<HTMLDivElement>(null);
-  const barRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      // CTA Animation
-      if (ctaRef.current) {
-        gsap.fromTo(
-          ctaRef.current,
-          { opacity: 0, y: 35 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.9,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: ctaRef.current,
-              start: "top 85%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      }
-
-      // Links Columns Stagger
-      if (linksRef.current) {
-        const cols = linksRef.current.children;
-        gsap.fromTo(
-          cols,
-          { opacity: 0, y: 25 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.7,
-            stagger: 0.08,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: linksRef.current,
-              start: "top 85%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      }
-
-      // Connect Bar
-      if (barRef.current) {
-        gsap.fromTo(
-          barRef.current,
-          { opacity: 0, y: 20 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.7,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: barRef.current,
-              start: "top 90%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      }
-    }, footerRef);
-
-    return () => ctx.revert();
-  }, []);
 
   const footerLinks = {
     product: [
@@ -105,7 +32,7 @@ export function Footer() {
   };
 
   return (
-    <footer ref={footerRef} className="w-full bg-black text-white pt-16 sm:pt-20 pb-12 px-4 sm:px-8 lg:px-16 border-t border-white/10 relative overflow-hidden">
+    <footer className="w-full bg-black text-white pt-16 sm:pt-20 pb-12 px-4 sm:px-8 lg:px-16 border-t border-white/10 relative overflow-hidden">
       {/* Background Graphic Image */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
         <Image
@@ -122,7 +49,13 @@ export function Footer() {
       <div className="max-w-[1360px] mx-auto flex flex-col relative z-10">
         
         {/* Main Call-To-Action (CTA) */}
-        <div ref={ctaRef} className="flex flex-col items-center text-center mb-12 sm:mb-24 md:mb-28 px-2">
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-15%" }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
+          className="flex flex-col items-center text-center mb-12 sm:mb-24 md:mb-28 px-2"
+        >
           <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 sm:mb-5 leading-tight text-center">
             Ready to simplify your HR?
           </h2>
@@ -142,13 +75,19 @@ export function Footer() {
               <ChevronRight className="w-4 h-4 stroke-[2.5]" />
             </div>
           </Link>
-        </div>
+        </motion.div>
 
         {/* 3. Divider Line */}
         <div className="w-full h-px bg-white/10 mb-12 sm:mb-16 md:mb-20" />
 
         {/* 4. Footer Links Grid */}
-        <div ref={linksRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-15%" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-16"
+        >
           
           {/* Brand Column (Spans 2 columns on lg) */}
           <div className="lg:col-span-2 flex flex-col items-start pr-0 lg:pr-12">
@@ -225,10 +164,16 @@ export function Footer() {
             </ul>
           </div>
 
-        </div>
+        </motion.div>
 
         {/* 5. Connect with Us Bar */}
-        <div ref={barRef} className="w-full flex flex-col sm:flex-row items-center justify-between gap-5 mb-10 py-2">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="w-full flex flex-col sm:flex-row items-center justify-between gap-5 mb-10 py-2"
+        >
           <span className="text-white font-medium text-sm sm:text-base text-center sm:text-left">
             Connect with Us:
           </span>
@@ -287,7 +232,7 @@ export function Footer() {
               </svg>
             </a>
           </div>
-        </div>
+        </motion.div>
 
         {/* 6. Copyright & Legal Policies */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-gray-500">

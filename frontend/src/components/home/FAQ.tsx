@@ -1,10 +1,8 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 interface FAQItem {
   question: string;
@@ -45,85 +43,42 @@ const faqs: FAQItem[] = [
 ];
 
 export function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0); // First item open like screenshot
-  const sectionRef = useRef<HTMLElement>(null);
-  const headingRef = useRef<HTMLHeadingElement>(null);
-  const listRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      // Heading reveal
-      if (headingRef.current) {
-        gsap.fromTo(
-          headingRef.current,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: headingRef.current,
-              start: "top 85%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      }
-
-      // FAQ Cards reveal
-      if (listRef.current) {
-        const cards = listRef.current.children;
-        gsap.fromTo(
-          cards,
-          { opacity: 0, y: 20 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.7,
-            stagger: 0.05,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: listRef.current,
-              start: "top 85%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section 
-      ref={sectionRef} 
-      id="faq" 
+    <section
+      id="faq"
       className="w-full bg-[#fafafa] py-10 sm:py-16 px-3.5 sm:px-6 md:px-8 lg:px-12 xl:px-16"
     >
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-16 items-start">
-        
+
         {/* Left Column: Heading */}
         <div className="lg:col-span-5 lg:sticky lg:top-24">
-          <h2 
-            ref={headingRef}
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-15%" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-[1.15]"
           >
             Got Questions?<br className="hidden sm:inline" />{" "}
             We&apos;ve Got<br className="hidden sm:inline" />{" "}
             Answers
-          </h2>
+          </motion.h2>
         </div>
 
         {/* Right Column: FAQ Accordion List */}
-        <div ref={listRef} className="lg:col-span-7 flex flex-col gap-2.5 sm:gap-3">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-15%" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="lg:col-span-7 flex flex-col gap-2.5 sm:gap-3"
+        >
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
@@ -164,7 +119,7 @@ export function FAQ() {
               </div>
             );
           })}
-        </div>
+        </motion.div>
 
       </div>
     </section>

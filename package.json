@@ -4,6 +4,7 @@
   "private": true,
   "description": "Scaliify HR Consultancy & HR Technology Platform Monorepo",
   "workspaces": [
+    "shared",
     "frontend",
     "backend"
   ],

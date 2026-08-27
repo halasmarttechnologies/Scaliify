@@ -1,58 +1,6 @@
-export interface AssessmentAnswers {
-  companySize: "size_startup" | "size_sme" | "size_midmarket" | "size_enterprise";
-  regions: string[];
-  currentStatus: "status_scratch" | "status_replace_hris" | "status_dedicated_ats" | "status_dedicated_perf";
-  coreHrNeeds: string[];
-  payrollModel: "payroll_datev" | "payroll_local_eu" | "payroll_global_eor" | "payroll_internal";
-  recruitingNeeds: string[];
-  performanceNeeds: string[];
-  timeAttendanceNeeds: string[];
-  integrations: string[];
-}
-
-export interface LeadContact {
-  firstName: string;
-  lastName: string;
-  email: string;
-  companyName: string;
-  jobTitle: string;
-  phone?: string;
-  comments?: string;
-}
-
-export interface ToolRecommendation {
-  toolId: string;
-  name: string;
-  slug: string;
-  category: string;
-  categoryLabel: string;
-  matchPercentage: number;
-  badge: string;
-  shortDescription: string;
-  whyRecommended: string;
-  matchedFeatures: string[];
-  strengths: string[];
-  websiteUrl: string;
-  pricingTier?: string | null;
-}
-
-export interface ToolFinderResponse {
-  success: boolean;
-  data?: {
-    submissionId: string;
-    leadId: string;
-    assessmentSummary: {
-      primaryFocus: string;
-      teamSize: string;
-      regionsCount: number;
-    };
-    answers?: AssessmentAnswers;
-    topRecommendations: ToolRecommendation[];
-    secondaryRecommendations?: ToolRecommendation[];
-    createdAt?: string;
-  };
-  error?: string;
-}
+export type { AssessmentAnswers, LeadContact, ToolRecommendation, ToolFinderResponse } from "@scaliify/shared";
+import type { AssessmentAnswers, LeadContact, ToolRecommendation, ToolFinderResponse } from "@scaliify/shared";
+import { STATUS_LABELS, SIZE_LABELS } from "@scaliify/shared";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5000";
 
@@ -68,22 +16,6 @@ export function isSafeHttpUrl(url: string): boolean {
   }
 }
 
-// ---------------------------------------------------------
-// REFACTOR: Lookup maps replacing brittle string munging
-// ---------------------------------------------------------
-const STATUS_LABELS: Record<string, string> = {
-  status_scratch: "STARTING FROM SCRATCH",
-  status_replace_hris: "REPLACING HRIS",
-  status_dedicated_ats: "DEDICATED ATS",
-  status_dedicated_perf: "DEDICATED PERFORMANCE",
-};
-
-const SIZE_LABELS: Record<string, string> = {
-  size_startup: "STARTUP (1-50)",
-  size_sme: "SME (51-250)",
-  size_midmarket: "MIDMARKET (251-1000)",
-  size_enterprise: "ENTERPRISE (1000+)",
-};
 
 // ---------------------------------------------------------
 // REFACTOR: Extract Tool Catalog & Copy from logic

@@ -1,74 +1,26 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import Image from "next/image";
 import { Star } from "lucide-react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
 
 export function ToolFinderPlatformOverview() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      // Header Animation
-      if (headerRef.current) {
-        gsap.fromTo(
-          headerRef.current,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: headerRef.current,
-              start: "top 85%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      }
-
-      // Cards Stagger Animation
-      if (cardsRef.current) {
-        const cards = cardsRef.current.children;
-        gsap.fromTo(
-          cards,
-          { opacity: 0, y: 35 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            stagger: 0.12,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: cardsRef.current,
-              start: "top 80%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section 
-      ref={sectionRef}
-      id="platform-overview" 
+    <section
+      id="platform-overview"
       className="w-full bg-white py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 border-t border-gray-100"
     >
       <div className="max-w-6xl mx-auto flex flex-col items-center">
-        
+
         {/* Header Section */}
-        <div ref={headerRef} className="flex flex-col items-center text-center mb-10 sm:mb-14">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-15%" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col items-center text-center mb-10 sm:mb-14"
+        >
           {/* Top Pill */}
           <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#0C241D] tracking-wide mb-4">
             <span className="w-2 h-2 rounded-full bg-[#0C241D]" />
@@ -79,16 +31,21 @@ export function ToolFinderPlatformOverview() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 max-w-3xl leading-[1.15]">
             Built for how HR really works
           </h2>
-        </div>
+        </motion.div>
 
         {/* 3-Column Features Grid */}
-        <div 
-          ref={cardsRef}
+        <div
           className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch max-w-[1140px]"
         >
-          
+
           {/* Card 1: Fast & Independent Selection */}
-          <div className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 flex flex-col justify-between border border-gray-200/70 shadow-sm min-h-[380px]">
+          <motion.div
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20%" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 flex flex-col justify-between border border-gray-200/70 shadow-sm min-h-[380px]"
+          >
             <div>
               <h3 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-gray-900 tracking-tight mb-3">
                 Independent Tool Selection
@@ -114,10 +71,16 @@ export function ToolFinderPlatformOverview() {
                 Leading HR Systems Benchmarked
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 2: Simple Scenic Landscape Image with Metric Card */}
-          <div className="relative rounded-3xl overflow-hidden min-h-[380px] flex flex-col justify-end p-5 shadow-sm">
+          <motion.div
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20%" }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.12 }}
+            className="relative rounded-3xl overflow-hidden min-h-[380px] flex flex-col justify-end p-5 shadow-sm"
+          >
             
             {/* Clean Photographic Background */}
             <Image
@@ -202,10 +165,16 @@ export function ToolFinderPlatformOverview() {
 
             </div>
 
-          </div>
+          </motion.div>
 
           {/* Card 3: Testimonial Card */}
-          <div className="bg-[#f3f4f6] rounded-3xl p-8 sm:p-10 flex flex-col justify-between border border-gray-200/50 min-h-[380px]">
+          <motion.div
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20%" }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.24 }}
+            className="bg-[#f3f4f6] rounded-3xl p-8 sm:p-10 flex flex-col justify-between border border-gray-200/50 min-h-[380px]"
+          >
             
             {/* Top: Logo & Quote Marks */}
             <div className="flex items-center justify-between mb-6">
@@ -233,7 +202,7 @@ export function ToolFinderPlatformOverview() {
               <p className="text-gray-500 text-xs mt-0.5">Head of People & Culture, SoftwareOne</p>
             </div>
 
-          </div>
+          </motion.div>
 
         </div>
 

@@ -1,88 +1,15 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Plus, Minus, ArrowRight, MonitorSmartphone, Target } from "lucide-react";
 import { hrTechnologyServices, advisoryServices } from "@/data/services";
 import { motion, AnimatePresence } from "framer-motion";
 import { TextRoll } from "@/components/ui/TextRoll";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export function ServicesOverview() {
   const [openTech, setOpenTech] = useState<number | null>(null);
   const [openAdvisory, setOpenAdvisory] = useState<number | null>(null);
-
-  const sectionRef = useRef<HTMLElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
-  const bannerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      // Header Animation
-      if (headerRef.current) {
-        gsap.fromTo(
-          headerRef.current,
-          { opacity: 0, y: 40 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.9,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: headerRef.current,
-              start: "top 85%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      }
-
-      // Main Card Animation
-      if (cardRef.current) {
-        gsap.fromTo(
-          cardRef.current,
-          { opacity: 0, y: 50, scale: 0.98 },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: cardRef.current,
-              start: "top 80%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      }
-
-      // Bottom Banner Animation
-      if (bannerRef.current) {
-        gsap.fromTo(
-          bannerRef.current,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: bannerRef.current,
-              start: "top 90%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
 
   const toggleTech = (index: number) => {
     setOpenTech(openTech === index ? null : index);
@@ -93,12 +20,18 @@ export function ServicesOverview() {
   };
 
   return (
-    <section ref={sectionRef} id="services" className="w-full bg-transparent relative z-20">
+    <section id="services" className="w-full bg-transparent relative z-20">
       <div className="w-full bg-[#fafafa] text-[#0c241d] py-10 sm:py-16 md:py-20 px-3.5 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-[1280px] mx-auto flex flex-col items-center">
-        
+
         {/* Header Section */}
-        <div ref={headerRef} className="flex flex-col items-center text-center mb-8 sm:mb-14 md:mb-20 px-2">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-15%" }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
+          className="flex flex-col items-center text-center mb-8 sm:mb-14 md:mb-20 px-2"
+        >
           <div className="bg-[#81D8D0] text-[#0c241d] font-bold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full mb-4 sm:mb-8 cursor-pointer">
             <TextRoll>Our Services</TextRoll>
           </div>
@@ -109,10 +42,16 @@ export function ServicesOverview() {
           <p className="text-gray-500 max-w-2xl text-xs sm:text-base md:text-lg lg:text-xl px-2 sm:px-0">
             Scaliify works wherever you need growth. Any platform, device, or market.
           </p>
-        </div>
+        </motion.div>
 
         {/* Main Card */}
-        <div ref={cardRef} className="w-full bg-white rounded-[20px] sm:rounded-[32px] md:rounded-[40px] border border-gray-200 shadow-sm p-4 sm:p-8 lg:p-14 mb-8 sm:mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 50, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: "-20%" }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="w-full bg-white rounded-[20px] sm:rounded-[32px] md:rounded-[40px] border border-gray-200 shadow-sm p-4 sm:p-8 lg:p-14 mb-8 sm:mb-12"
+        >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20">
             
             {/* Column 1: HR Technology */}
@@ -240,10 +179,16 @@ export function ServicesOverview() {
             </div>
 
           </div>
-        </div>
+        </motion.div>
 
           {/* Bottom CTA Banner */}
-        <div ref={bannerRef} className="w-full bg-[#0C241D] text-white rounded-3xl lg:rounded-full p-4 sm:p-5 lg:p-3 pl-4 lg:pl-6 flex flex-col lg:flex-row items-center justify-between gap-6 border border-white/10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="w-full bg-[#0C241D] text-white rounded-3xl lg:rounded-full p-4 sm:p-5 lg:p-3 pl-4 lg:pl-6 flex flex-col lg:flex-row items-center justify-between gap-6 border border-white/10"
+        >
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 text-center sm:left mt-2 lg:mt-0">
             <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10">
               <div className="w-4 h-4 border-2 border-gray-500 border-t-[#81D8D0] rounded-full animate-spin" />
@@ -259,7 +204,7 @@ export function ServicesOverview() {
             <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-full pointer-events-none" />
             <span className="relative z-10">BOOK A CALL</span>
           </Link>
-        </div>
+        </motion.div>
 
       </div>
       </div>

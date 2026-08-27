@@ -1,5 +1,3 @@
-"use client";
-
 import { Hero } from "@/components/home/Hero";
 import { ServicesOverview } from "@/components/home/ServicesOverview";
 import { CoreFeatures } from "@/components/home/CoreFeatures";

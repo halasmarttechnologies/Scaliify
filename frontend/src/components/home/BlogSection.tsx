@@ -1,11 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Clock, Calendar, ArrowUpRight, Cpu, Layers, UserCheck } from "lucide-react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
 
 interface BlogPost {
   slug: string;
@@ -75,68 +73,21 @@ const blogs: BlogPost[] = [
 ];
 
 export function BlogSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      // Header Animation
-      if (headerRef.current) {
-        gsap.fromTo(
-          headerRef.current,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: headerRef.current,
-              start: "top 85%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      }
-
-      // Cards Stagger Animation
-      if (cardsRef.current) {
-        const cards = cardsRef.current.children;
-        gsap.fromTo(
-          cards,
-          { opacity: 0, y: 35 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            stagger: 0.1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: cardsRef.current,
-              start: "top 80%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section
-      ref={sectionRef}
       id="blog"
       className="w-full bg-[#fafafa] py-10 sm:py-16 px-3.5 sm:px-6 md:px-8 lg:px-12 xl:px-16 border-t border-gray-100"
     >
       <div className="max-w-6xl mx-auto flex flex-col">
-        
+
         {/* Section Header */}
-        <div ref={headerRef} className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-14 px-1 sm:px-0">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-15%" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-14 px-1 sm:px-0"
+        >
           <div className="flex flex-col items-start">
             <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#0C241D] tracking-wide mb-2 sm:mb-3">
               <span className="w-2 h-2 rounded-full bg-[#0C241D]" />
@@ -155,18 +106,21 @@ export function BlogSection() {
             <span>Explore all insights</span>
             <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
-        </div>
+        </motion.div>
 
         {/* 3 Blog Cards Grid */}
         <div
-          ref={cardsRef}
           className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 items-stretch"
         >
           {blogs.map((blog, idx) => {
             const Icon = blog.categoryIcon;
             return (
-              <article
+              <motion.article
                 key={idx}
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20%" }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: idx * 0.1 }}
                 className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200/80 overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-gray-300 hover:-translate-y-1 group shadow-sm"
               >
                 {/* Top Image Container */}
@@ -239,7 +193,7 @@ export function BlogSection() {
                   </div>
 
                 </div>
-              </article>
+              </motion.article>
             );
           })}
         </div>

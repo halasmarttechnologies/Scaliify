@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React from "react";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -81,77 +80,34 @@ function Avatar({ name, role }: { name: string, role: string }) {
 }
 
 export function Testimonials() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      // Header Animation
-      if (headerRef.current) {
-        gsap.fromTo(
-          headerRef.current,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: headerRef.current,
-              start: "top 85%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      }
-
-      // Testimonial Cards Animation
-      if (gridRef.current) {
-        const cards = gridRef.current.children;
-        gsap.fromTo(
-          cards,
-          { opacity: 0, y: 35 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.9,
-            stagger: 0.12,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: gridRef.current,
-              start: "top 80%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} id="testimonials" className="w-full bg-[#fafafa] py-10 sm:py-16 px-3.5 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+    <section id="testimonials" className="w-full bg-[#fafafa] py-10 sm:py-16 px-3.5 sm:px-6 md:px-8 lg:px-12 xl:px-16">
       <div className="max-w-6xl mx-auto flex flex-col items-center">
-        <div ref={headerRef} className="flex flex-col items-center text-center mb-6 sm:mb-12 px-2">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-15%" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col items-center text-center mb-6 sm:mb-12 px-2"
+        >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-bold tracking-tight text-gray-900 text-center mb-2 sm:mb-3">
             Loved by Teams Like Yours
           </h2>
           <p className="text-gray-500 max-w-2xl text-center text-xs sm:text-base">
             See how companies are transforming their HR with Scaliify.
           </p>
-        </div>
+        </motion.div>
 
-        <div 
-          ref={gridRef}
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-20%" }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
           className="w-full grid grid-cols-1 md:grid-cols-3 gap-0 max-w-[1100px] bg-white rounded-2xl sm:rounded-3xl border border-gray-100 overflow-hidden shadow-sm"
         >
           {testimonials.map((t, index) => (
-            <div 
-              key={t.id} 
+            <div
+              key={t.id}
               className={`flex flex-col p-5 sm:p-8 lg:p-10 ${index !== testimonials.length - 1 ? 'border-b md:border-b-0 md:border-r border-gray-100' : ''}`}
             >
                <CompanyLogo company={t.company} />
@@ -161,7 +117,7 @@ export function Testimonials() {
                <Avatar name={t.author} role={t.title} />
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

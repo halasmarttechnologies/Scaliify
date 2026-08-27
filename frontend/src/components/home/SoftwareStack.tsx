@@ -1,9 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { TextRoll } from "@/components/ui/TextRoll";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
 
 interface SoftwareTool {
   id: string;
@@ -199,69 +197,18 @@ function ToolLogo({ id }: { id: string }) {
 }
 
 export function SoftwareStack() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      // Main container entrance
-      if (cardRef.current) {
-        gsap.fromTo(
-          cardRef.current,
-          { opacity: 0, y: 40 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.9,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: cardRef.current,
-              start: "top 85%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      }
-
-      // Grid items staggered entrance
-      if (gridRef.current) {
-        const items = gridRef.current.children;
-        gsap.fromTo(
-          items,
-          { opacity: 0, y: 20, scale: 0.96 },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.6,
-            stagger: 0.025,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: gridRef.current,
-              start: "top 85%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} id="software" className="w-full bg-[#fafafa] py-10 sm:py-16 px-3.5 sm:px-6 md:px-8 lg:px-12">
-      <div 
-        ref={cardRef} 
+    <section id="software" className="w-full bg-[#fafafa] py-10 sm:py-16 px-3.5 sm:px-6 md:px-8 lg:px-12">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-15%" }}
+        transition={{ duration: 0.9, ease: "easeOut" }}
         className="max-w-[1280px] mx-auto bg-[#0C241D] rounded-2xl sm:rounded-3xl lg:rounded-none text-white py-10 sm:py-16 md:py-24 px-4 sm:px-10 md:px-14 lg:px-16 flex flex-col items-center shadow-sm"
       >
         
         {/* Top Dot & Kicker */}
-        <div ref={headerRef} className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center">
           <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-300 font-medium mb-3 sm:mb-5">
             <span className="w-1.5 h-1.5 rounded-full bg-white" />
             <span>Software We Work With</span>
@@ -284,8 +231,7 @@ export function SoftwareStack() {
         </div>
 
         {/* Clean Logo Grid - 20 cards with logo & name */}
-        <div 
-          ref={gridRef}
+        <div
           className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 sm:gap-3.5 max-w-5xl"
         >
           {softwareList.map((tool) => (
@@ -301,7 +247,7 @@ export function SoftwareStack() {
           ))}
         </div>
 
-      </div>
+      </motion.div>
     </section>
   );
 }

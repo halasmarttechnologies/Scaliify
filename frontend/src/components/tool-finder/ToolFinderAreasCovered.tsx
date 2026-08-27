@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   Sparkles,
@@ -21,75 +20,6 @@ export function ToolFinderAreasCovered() {
   const [emailInput, setEmailInput] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  const sectionRef = useRef<HTMLElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
-  const showcaseRef = useRef<HTMLDivElement>(null);
-  const featuresRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      if (headerRef.current) {
-        gsap.fromTo(
-          headerRef.current,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: headerRef.current,
-              start: "top 85%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      }
-
-      if (showcaseRef.current) {
-        gsap.fromTo(
-          showcaseRef.current,
-          { opacity: 0, scale: 0.96, y: 30 },
-          {
-            opacity: 1,
-            scale: 1,
-            y: 0,
-            duration: 0.9,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: showcaseRef.current,
-              start: "top 80%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      }
-
-      if (featuresRef.current) {
-        const items = featuresRef.current.children;
-        gsap.fromTo(
-          items,
-          { opacity: 0, y: 25 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.7,
-            stagger: 0.1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: featuresRef.current,
-              start: "top 85%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
 
   const scrollToAssessment = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -144,9 +74,15 @@ export function ToolFinderAreasCovered() {
   const currentModule = moduleData[activeTab];
 
   return (
-    <section ref={sectionRef} className="w-full relative overflow-hidden bg-white">
+    <section className="w-full relative overflow-hidden bg-white">
       {/* 1. Top Header Section */}
-      <div ref={headerRef} className="w-full pt-16 sm:pt-20 pb-12 sm:pb-16 px-4 sm:px-6 md:px-8 lg:px-12 text-center max-w-4xl mx-auto flex flex-col items-center">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-15%" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="w-full pt-16 sm:pt-20 pb-12 sm:pb-16 px-4 sm:px-6 md:px-8 lg:px-12 text-center max-w-4xl mx-auto flex flex-col items-center"
+      >
         <span className="text-gray-500 text-xs font-bold uppercase tracking-widest block mb-3">
           AREAS COVERED
         </span>
@@ -164,7 +100,7 @@ export function ToolFinderAreasCovered() {
           <span>Benchmark all 4 areas in 2 minutes</span>
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </button>
-      </div>
+      </motion.div>
 
       {/* 2. Deep Gradient Backdrop with Central Interactive Assistant & Tree Showcase */}
       <div className="w-full bg-gradient-to-b from-white via-[#164E43] to-[#0C241D] pt-8 sm:pt-12 pb-16 sm:pb-20 px-4 sm:px-6 md:px-8 lg:px-12">
@@ -196,7 +132,13 @@ export function ToolFinderAreasCovered() {
           </div>
 
           {/* Central Interactive Card with Tree Connector Lines */}
-          <div ref={showcaseRef} className="relative w-full max-w-4xl flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 my-2 sm:my-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96, y: 30 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20%" }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            className="relative w-full max-w-4xl flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 my-2 sm:my-4"
+          >
             
             {/* Main Interactive Card Container */}
             <div className="relative w-full max-w-[460px] bg-white rounded-3xl p-5 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-gray-100 shrink-0">
@@ -306,10 +248,16 @@ export function ToolFinderAreasCovered() {
 
             </div>
 
-          </div>
+          </motion.div>
 
           {/* 3. 5-Feature Indicators Strip (Deep dive into all covered areas) */}
-          <div ref={featuresRef} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-4 w-full max-w-5xl mt-14 mb-14 pt-10 border-t border-white/15">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-15%" }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-4 w-full max-w-5xl mt-14 mb-14 pt-10 border-t border-white/15"
+          >
             
             <div className="flex flex-col items-start text-left">
               <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center mb-2.5">
@@ -361,7 +309,7 @@ export function ToolFinderAreasCovered() {
               </p>
             </div>
 
-          </div>
+          </motion.div>
 
           {/* 4. Bottom Dual Action CTAs */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-5 w-full max-w-5xl">
