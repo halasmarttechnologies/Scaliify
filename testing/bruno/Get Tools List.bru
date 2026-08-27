@@ -1,0 +1,15 @@
+meta {
+  name: Get Tools List
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/api/v1/tools
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+}

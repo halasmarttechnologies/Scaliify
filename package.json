@@ -20,6 +20,11 @@
     "db:studio": "npm run db:studio --prefix backend",
     "db:migrate": "npm run db:migrate --prefix backend",
     "db:seed": "npm run db:seed --prefix backend",
-    "test:security": "npm run test:security --prefix backend"
+    "test": "npm run test --prefix frontend",
+    "test:watch": "npm run test:watch --prefix frontend",
+    "test:e2e": "npm run test:e2e --prefix frontend",
+    "test:e2e:ui": "npm run test:e2e:ui --prefix frontend",
+    "test:security": "npm run test:security --prefix backend",
+    "test:all": "npm run test --prefix frontend && npm run test:security --prefix backend"
   }
 }

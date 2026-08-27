@@ -1,0 +1,104 @@
+{
+  "info": {
+    "_postman_id": "scaliify-api-suite-v1",
+    "name": "Scaliify API Test Suite",
+    "description": "Comprehensive automated API collection for Scaliify HR Advisory Platform (Health, Tool Finder, Tool Catalog, and Lead Ingestion).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["health"]
+        },
+        "description": "Checks backend server availability and health status."
+      },
+      "response": []
+    },
+    {
+      "name": "Tool Finder - Calculate & Assess Fit",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"companySize\": \"size_sme\",\n  \"regions\": [\"region_dach\", \"region_eu\"],\n  \"primaryChallenge\": \"Core HR & Employee Database\",\n  \"payrollProvider\": \"DATEV\",\n  \"budget\": \"standard\",\n  \"timeline\": \"immediate\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/tool-finder/assess",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "tool-finder", "assess"]
+        },
+        "description": "Calculates weighted vendor matches and returns ranked list with match percentages."
+      },
+      "response": []
+    },
+    {
+      "name": "Tools Catalog - Get All Platforms",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/tools",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "tools"]
+        },
+        "description": "Fetches verified list of HR tech tools and integrations."
+      },
+      "response": []
+    },
+    {
+      "name": "Leads - Ingest Contact Lead",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Alexander Becker\",\n  \"email\": \"alexander.becker@fintech-berlin.de\",\n  \"company\": \"FinTech Berlin AG\",\n  \"serviceInterest\": \"HR Tool Advisory\",\n  \"message\": \"We need DATEV + Workday migration guidance for 250 headcount.\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/leads",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "leads"]
+        },
+        "description": "Submits high-intent client advisory inquiry."
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "pm.test('Status code is 2xx', function () {",
+          "    pm.response.to.be.success;",
+          "});"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000",
+      "type": "string"
+    }
+  ]
+}

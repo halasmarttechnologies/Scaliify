@@ -1,0 +1,31 @@
+meta {
+  name: Tool Finder Assess
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/v1/tool-finder/assess
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "companySize": "size_sme",
+    "regions": ["region_dach", "region_eu"],
+    "primaryChallenge": "Core HR & Employee Database",
+    "payrollProvider": "DATEV",
+    "budget": "standard",
+    "timeline": "immediate"
+  }
+}
+
+assert {
+  res.status: eq 200
+  res.body.success: eq true
+}

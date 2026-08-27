@@ -1,0 +1,29 @@
+meta {
+  name: Submit Lead
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/api/v1/leads
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Sarah Connor",
+    "email": "sarah@techcorp.de",
+    "company": "TechCorp GmbH",
+    "serviceInterest": "HR Tool Advisory",
+    "message": "Interested in evaluating Personio vs HiBob for DACH operations."
+  }
+}
+
+assert {
+  res.status: eq 201
+}
