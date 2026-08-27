@@ -184,8 +184,8 @@ export function ToolFinderHero() {
             <div className="w-full bg-[#FAF9FF] rounded-xl sm:rounded-2xl border border-gray-200/80 text-gray-900 overflow-hidden shadow-lg">
               <div className="flex flex-col md:flex-row bg-white">
               
-              {/* Sidebar (Scaliify Assessment Navigator) */}
-              <div className="w-full md:w-52 bg-[#F6F8F7] p-3 sm:p-4 flex flex-col justify-between shrink-0 border-b md:border-b-0 md:border-r border-gray-200">
+              {/* Sidebar (Hidden on mobile to preserve original compact aspect ratio, visible on desktop) */}
+              <div className="hidden md:flex md:w-52 bg-[#F6F8F7] p-3 sm:p-4 flex-col justify-between shrink-0 border-r border-gray-200">
                 <div className="space-y-3.5">
                   {/* Brand */}
                   <div className="flex items-center gap-2 px-1 py-0.5">
@@ -342,11 +342,11 @@ export function ToolFinderHero() {
                   </div>
                 </div>
 
-                {/* Two-Column Grid Content (Assessment Breakdown) */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-3.5 pt-0.5">
+                {/* Two-Column Grid Content (Compact Balanced 16:9 Height across Mobile & Desktop) */}
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 pt-0.5">
                   
                   {/* Left Column: Top Matched Platforms Assessment */}
-                  <div className="lg:col-span-8 space-y-3 min-w-0">
+                  <div className="sm:col-span-7 lg:col-span-8 space-y-2.5 min-w-0">
                     
                     {/* Card 1: #1 Matched System (Personio) */}
                     <div className="bg-[#F8FAF9] rounded-xl p-3.5 sm:p-4 border border-gray-200">
@@ -430,7 +430,7 @@ export function ToolFinderHero() {
                   </div>
 
                   {/* Right Column: Organization Profile, Projected ROI, Connectors */}
-                  <div className="lg:col-span-4 space-y-3">
+                  <div className="sm:col-span-5 lg:col-span-4 space-y-2.5 min-w-0">
                     
                     {/* Organization Assessment Card */}
                     <div className="bg-[#F8FAF9] rounded-xl p-3 border border-gray-200 flex items-center gap-2.5">
