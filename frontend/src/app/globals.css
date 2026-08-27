@@ -187,3 +187,17 @@ html.lenis, html.lenis body {
 .animate-marquee-right:hover {
   animation-play-state: paused;
 }
+
+/* Border Beam Continuous Loop Animation */
+@keyframes border-beam {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-border-beam {
+  animation: border-beam 4s linear infinite;
+}

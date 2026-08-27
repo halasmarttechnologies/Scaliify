@@ -94,7 +94,7 @@ export function ServicesOverview() {
 
   return (
     <section ref={sectionRef} id="services" className="w-full bg-transparent relative z-20">
-      <div className="w-full bg-[#fafafa] rounded-t-[28px] sm:rounded-t-[50px] md:rounded-t-[64px] text-[#0c241d] py-10 sm:py-16 md:py-20 px-3.5 sm:px-6 md:px-8 lg:px-12 shadow-[0_-25px_60px_rgba(0,0,0,0.35)] border-t border-white/20">
+      <div className="w-full bg-[#fafafa] text-[#0c241d] py-10 sm:py-16 md:py-20 px-3.5 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-[1280px] mx-auto flex flex-col items-center">
         
         {/* Header Section */}
@@ -242,8 +242,8 @@ export function ServicesOverview() {
           </div>
         </div>
 
-        {/* Bottom CTA Banner */}
-        <div ref={bannerRef} className="w-full bg-[#0C241D] text-white rounded-3xl lg:rounded-full p-4 sm:p-5 lg:p-3 pl-4 lg:pl-6 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-lg">
+          {/* Bottom CTA Banner */}
+        <div ref={bannerRef} className="w-full bg-[#0C241D] text-white rounded-3xl lg:rounded-full p-4 sm:p-5 lg:p-3 pl-4 lg:pl-6 flex flex-col lg:flex-row items-center justify-between gap-6 border border-white/10">
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 text-center sm:left mt-2 lg:mt-0">
             <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10">
               <div className="w-4 h-4 border-2 border-gray-500 border-t-[#81D8D0] rounded-full animate-spin" />
@@ -252,8 +252,12 @@ export function ServicesOverview() {
               Need reliable HR technology or strategic advisory? You&apos;re in the right place.
             </p>
           </div>
-          <Link href="/contact" className="w-full lg:w-auto flex-shrink-0 bg-[#81D8D0] text-[#0c241d] hover:bg-white transition-colors font-bold text-xs uppercase tracking-wide px-8 py-4 rounded-2xl lg:rounded-full text-center">
-            BOOK A CALL
+          <Link
+            href="/contact"
+            className="group relative w-full lg:w-auto flex-shrink-0 bg-gradient-to-b from-[#A8F5EE] via-[#81D8D0] to-[#5BC7BC] text-[#0C241D] font-extrabold text-xs uppercase tracking-wide px-8 py-4 rounded-2xl lg:rounded-full text-center border border-white/70 shadow-[0_3px_18px_rgba(129,216,208,0.55)] hover:shadow-[0_4px_24px_rgba(129,216,208,0.85)] hover:scale-[1.03] active:scale-[0.98] transition-all overflow-hidden"
+          >
+            <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-full pointer-events-none" />
+            <span className="relative z-10">BOOK A CALL</span>
           </Link>
         </div>
 

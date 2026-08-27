@@ -287,27 +287,32 @@ export function ToolFinderWizard() {
   return (
     <div id="tool-finder-tool" className="w-full flex flex-col gap-4">
       {/* Top Steps Progress Tab Strip */}
-      <div className="w-full bg-[#0C241D] rounded-2xl border border-white/10 p-3 overflow-x-auto select-none">
-        <div className="flex items-center justify-between gap-2 min-w-[650px] sm:min-w-[700px]">
+      <div className="w-full bg-[#0C241D] rounded-2xl border border-white/10 p-2.5 sm:p-3 overflow-x-auto select-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="flex items-center justify-between gap-1.5 sm:gap-2 min-w-max">
           {STEP_METADATA.map((meta) => {
             const isCompleted = meta.step < currentStep;
             const isCurrent = meta.step === currentStep;
 
             return (
-              <div
+              <button
                 key={meta.step}
-                className={`flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-bold transition-colors ${
+                type="button"
+                onClick={() => isCompleted && setCurrentStep(meta.step)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap shrink-0 ${
                   isCurrent
-                    ? "text-white border-b-2 border-white"
+                    ? "group relative bg-gradient-to-b from-[#A8F5EE] via-[#81D8D0] to-[#5BC7BC] text-[#0C241D] font-extrabold border border-white/70 shadow-[0_2px_14px_rgba(129,216,208,0.6)] overflow-hidden scale-[1.03]"
                     : isCompleted
-                    ? "text-gray-300"
-                    : "text-gray-500"
+                    ? "bg-white/10 text-white hover:bg-white/20 cursor-pointer"
+                    : "text-gray-400 bg-white/5 opacity-60 cursor-default"
                 }`}
               >
-                <span>{meta.step < 10 ? `0${meta.step}` : meta.step}</span>
-                <span>{meta.label}</span>
-                {isCompleted && <Check className="w-3 h-3 text-white" />}
-              </div>
+                {isCurrent && (
+                  <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-full pointer-events-none" />
+                )}
+                <span className="relative z-10 font-bold">{meta.step < 10 ? `0${meta.step}` : meta.step}</span>
+                <span className="relative z-10">{meta.label}</span>
+                {isCompleted && <Check className="w-3 h-3 text-[#81D8D0] shrink-0" />}
+              </button>
             );
           })}
         </div>

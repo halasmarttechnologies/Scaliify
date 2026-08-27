@@ -13,7 +13,7 @@ export function CTA() {
         <p className="text-2xl text-gray-400 max-w-2xl leading-relaxed">
           Get in touch with us today to see how Scaliify can streamline your business operations and tech stack.
         </p>
-        <Button size="lg" className="mt-8 bg-[#81D8D0] text-black hover:bg-white font-bold px-12 h-16 rounded-full text-xl transition-all shadow-lg hover:shadow-xl hover:scale-105">
+        <Button size="lg" variant="glossy" className="mt-8 px-12 h-16 rounded-full text-xl hover:scale-105">
           Contact Us Now
         </Button>
       </div>

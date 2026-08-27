@@ -130,13 +130,15 @@ export function Footer() {
             Join thousands of teams already using Scaliify to manage their workforce smarter.
           </p>
 
-          {/* CTA Pill Button */}
+          {/* CTA Pill Button (Glossy Tiffany Blue Let's Talk Style) */}
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3.5 bg-[#81D8D0] text-black font-bold text-sm sm:text-base pl-7 sm:pl-8 pr-3 sm:pr-3.5 py-3 rounded-full hover:bg-white hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg shadow-[#81D8D0]/10 group"
+            className="group relative inline-flex items-center gap-3.5 bg-gradient-to-b from-[#A8F5EE] via-[#81D8D0] to-[#5BC7BC] text-[#0C241D] font-extrabold text-sm sm:text-base pl-7 sm:pl-8 pr-3 sm:pr-3.5 py-3 rounded-full border border-white/70 shadow-[0_4px_22px_rgba(129,216,208,0.6)] hover:shadow-[0_6px_28px_rgba(129,216,208,0.9)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
           >
-            <span>Start Free Trial</span>
-            <div className="w-8 h-8 rounded-full bg-black text-[#81D8D0] flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors">
+            {/* Top Glossy Specular Sheen */}
+            <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-full pointer-events-none" />
+            <span className="relative z-10">Start Free Trial • Reach Us</span>
+            <div className="relative z-10 w-8 h-8 rounded-full bg-[#0C241D] text-[#81D8D0] flex items-center justify-center group-hover:bg-white group-hover:text-[#0C241D] transition-colors shadow-xs">
               <ChevronRight className="w-4 h-4 stroke-[2.5]" />
             </div>
           </Link>

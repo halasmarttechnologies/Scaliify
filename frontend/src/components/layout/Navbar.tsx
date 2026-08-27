@@ -46,23 +46,21 @@ export function Navbar() {
   }, [mobileMenuOpen]);
 
   return (
-    <header
-      className={`w-full fixed top-0 left-0 z-[100] transition-all duration-300 ${
-        isScrolled
-          ? "bg-[#0C241D]/90 backdrop-blur-md border-b border-white/10 shadow-lg py-3 sm:py-3.5"
-          : "bg-transparent py-5 sm:py-6"
-      }`}
-    >
+    <header className="fixed top-6 sm:top-8 left-0 right-0 z-[100] px-3 sm:px-4 pointer-events-none flex justify-center">
       <div 
-        className="w-full max-w-[1440px] mx-auto flex items-center justify-between px-4 sm:px-10 lg:px-12 relative"
+        className={`w-full max-w-4xl flex items-center justify-between px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-300 pointer-events-auto border shadow-lg ${
+          isScrolled
+            ? "bg-[#0C241D]/95 backdrop-blur-md border-white/20 text-white shadow-xl"
+            : "bg-white text-gray-900 border-gray-200/80 shadow-md"
+        } relative`}
         onMouseLeave={() => setActiveMenu(null)}
       >
         {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-8 h-8 rounded-lg bg-[#81D8D0] flex items-center justify-center text-[#0c241d]">
+        <Link href="/" className="flex items-center gap-2 group">
+          <div className="w-7 h-7 rounded-lg bg-[#81D8D0] flex items-center justify-center text-[#0C241D] shadow-xs">
             <svg
               viewBox="0 0 24 24"
-              className="w-5 h-5 fill-current"
+              className="w-4 h-4 fill-current"
               xmlns="http://www.w3.org/2000/svg"
             >
               <circle cx="7" cy="7" r="4" />
@@ -71,31 +69,41 @@ export function Navbar() {
               <circle cx="17" cy="17" r="4" />
             </svg>
           </div>
-          <span className="font-bold text-xl sm:text-2xl tracking-tight text-white group-hover:text-[#81D8D0] transition-colors">
+          <span className={`font-bold text-base sm:text-lg tracking-tight transition-colors ${
+            isScrolled ? "text-white group-hover:text-[#81D8D0]" : "text-gray-900 group-hover:text-[#0C241D]"
+          }`}>
             Scaliify
           </span>
         </Link>
 
         {/* Center Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-medium text-gray-300">
+        <nav className={`hidden lg:flex items-center gap-3.5 xl:gap-5 text-xs sm:text-[13px] font-semibold transition-colors ${
+          isScrolled ? "text-gray-300" : "text-gray-700"
+        }`}>
           
           {/* 1. Services Dropdown Trigger */}
           <div
-            className="py-2"
+            className="py-1"
             onMouseEnter={() => setActiveMenu("services")}
           >
             <button
               onClick={() => setActiveMenu(activeMenu === "services" ? null : "services")}
-              className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full transition-all duration-200 focus:outline-none ${
+              className={`flex items-center gap-1 px-3 py-1 rounded-full transition-all duration-200 focus:outline-none ${
                 activeMenu === "services"
-                  ? "bg-white text-gray-900 font-bold shadow-md scale-[1.02]"
-                  : "text-gray-200 hover:text-white font-medium hover:bg-white/10"
+                  ? isScrolled 
+                    ? "bg-white text-gray-900 font-bold shadow-xs scale-[1.02]"
+                    : "bg-[#0C241D] text-white font-bold shadow-xs scale-[1.02]"
+                  : isScrolled
+                  ? "text-gray-200 hover:text-white hover:bg-white/10"
+                  : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
               }`}
             >
               <span>Services</span>
               <ChevronDown
                 className={`w-3.5 h-3.5 transition-transform duration-300 ${
-                  activeMenu === "services" ? "rotate-180 text-gray-900" : "text-gray-400"
+                  activeMenu === "services"
+                    ? isScrolled ? "rotate-180 text-gray-900" : "rotate-180 text-white"
+                    : isScrolled ? "text-gray-400" : "text-gray-500"
                 }`}
               />
             </button>
@@ -104,7 +112,9 @@ export function Navbar() {
           {/* 2. HR Tool Finder */}
           <Link
             href="/tool-finder"
-            className="hover:text-white transition-colors px-2 py-1"
+            className={`transition-colors px-1.5 py-1 ${
+              isScrolled ? "hover:text-white" : "hover:text-gray-900 hover:text-[#0C241D]"
+            }`}
             onMouseEnter={() => setActiveMenu(null)}
           >
             HR Tool Finder
@@ -113,7 +123,9 @@ export function Navbar() {
           {/* 3. Case Studies */}
           <Link
             href="/case-studies"
-            className="hover:text-white transition-colors px-2 py-1"
+            className={`transition-colors px-1.5 py-1 ${
+              isScrolled ? "hover:text-white" : "hover:text-gray-900 hover:text-[#0C241D]"
+            }`}
             onMouseEnter={() => setActiveMenu(null)}
           >
             Case Studies
@@ -122,7 +134,9 @@ export function Navbar() {
           {/* 4. About Us */}
           <Link
             href="/about"
-            className="hover:text-white transition-colors px-2 py-1"
+            className={`transition-colors px-1.5 py-1 ${
+              isScrolled ? "hover:text-white" : "hover:text-gray-900 hover:text-[#0C241D]"
+            }`}
             onMouseEnter={() => setActiveMenu(null)}
           >
             About Us
@@ -130,21 +144,27 @@ export function Navbar() {
 
           {/* 5. Insights Dropdown Trigger */}
           <div
-            className="py-2"
+            className="py-1"
             onMouseEnter={() => setActiveMenu("insights")}
           >
             <button
               onClick={() => setActiveMenu(activeMenu === "insights" ? null : "insights")}
-              className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full transition-all duration-200 focus:outline-none ${
+              className={`flex items-center gap-1 px-3 py-1 rounded-full transition-all duration-200 focus:outline-none ${
                 activeMenu === "insights"
-                  ? "bg-white text-gray-900 font-bold shadow-md scale-[1.02]"
-                  : "text-gray-200 hover:text-white font-medium hover:bg-white/10"
+                  ? isScrolled 
+                    ? "bg-white text-gray-900 font-bold shadow-xs scale-[1.02]"
+                    : "bg-[#0C241D] text-white font-bold shadow-xs scale-[1.02]"
+                  : isScrolled
+                  ? "text-gray-200 hover:text-white hover:bg-white/10"
+                  : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
               }`}
             >
               <span>Insights</span>
               <ChevronDown
                 className={`w-3.5 h-3.5 transition-transform duration-300 ${
-                  activeMenu === "insights" ? "rotate-180 text-gray-900" : "text-gray-400"
+                  activeMenu === "insights"
+                    ? isScrolled ? "rotate-180 text-gray-900" : "rotate-180 text-white"
+                    : isScrolled ? "text-gray-400" : "text-gray-500"
                 }`}
               />
             </button>
@@ -152,29 +172,26 @@ export function Navbar() {
         </nav>
 
         {/* Right Action Buttons */}
-        <div className="flex items-center gap-3 sm:gap-4">
+        <div className="flex items-center gap-2 sm:gap-2.5">
           <Link
             href="/contact"
-            className="hidden sm:inline-flex text-xs lg:text-sm font-medium text-gray-200 hover:text-white transition-colors px-2"
+            className="group relative hidden lg:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold text-[#0C241D] bg-gradient-to-b from-[#A8F5EE] via-[#81D8D0] to-[#5BC7BC] shadow-[0_2px_15px_rgba(129,216,208,0.55)] border border-white/70 hover:shadow-[0_4px_22px_rgba(129,216,208,0.85)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 overflow-hidden"
           >
-            Login
-          </Link>
-
-          <Link
-            href="/contact"
-            className="hidden lg:flex items-center gap-2 bg-[#81D8D0] text-black px-5 py-2.5 rounded-full text-sm font-bold hover:bg-white transition-all shadow-sm"
-          >
-            <span>Let&apos;s Talk</span>
-            <ArrowRight className="w-4 h-4" />
+            {/* Top Glossy Specular Reflection */}
+            <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-full pointer-events-none" />
+            <span className="relative z-10 tracking-tight font-extrabold">Let&apos;s Talk</span>
+            <ArrowRight className="relative z-10 w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
           </Link>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(true)}
             aria-label="Open mobile menu"
-            className="lg:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
+            className={`lg:hidden p-1.5 rounded-lg transition-colors ${
+              isScrolled ? "text-white hover:bg-white/10" : "text-gray-900 hover:bg-gray-100"
+            }`}
           >
-            <Menu className="w-6 h-6" />
+            <Menu className="w-5 h-5" />
           </button>
         </div>
 
@@ -461,15 +478,6 @@ export function Navbar() {
                       <ChevronRight className="w-5 h-5 text-gray-900 stroke-[2] group-hover:translate-x-0.5 transition-transform" />
                     </button>
 
-                    {/* Login Link */}
-                    <Link
-                      href="/contact"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="w-full flex items-center justify-between py-4 border-b border-gray-100 text-base font-bold text-gray-900 hover:text-[#0C241D] transition-colors"
-                    >
-                      <span>Login</span>
-                    </Link>
-
                     {/* Language Switcher */}
                     <div className="w-full flex items-center justify-between py-4 border-b border-gray-100 text-base font-bold text-gray-900 cursor-pointer">
                       <span>EN · English</span>
@@ -629,10 +637,11 @@ export function Navbar() {
                   setMobileMenuOpen(false);
                   setMobileSubView(null);
                 }}
-                className="w-full bg-[#81D8D0] text-[#0c241d] font-bold py-4 rounded-2xl flex items-center justify-center text-base hover:bg-white border border-[#81D8D0] active:scale-[0.99] transition-all shadow-md"
+                className="group relative w-full bg-gradient-to-b from-[#A8F5EE] via-[#81D8D0] to-[#5BC7BC] text-[#0C241D] font-extrabold py-3.5 rounded-2xl flex items-center justify-center text-base border border-white/70 active:scale-[0.99] transition-all shadow-[0_4px_20px_rgba(129,216,208,0.6)] overflow-hidden"
               >
-                <span>Let&apos;s Talk</span>
-                <ArrowRight className="w-4 h-4 ml-2" />
+                <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-2xl pointer-events-none" />
+                <span className="relative z-10">Let&apos;s Talk</span>
+                <ArrowRight className="relative z-10 w-4 h-4 ml-2" />
               </Link>
             </div>
           </motion.div>
