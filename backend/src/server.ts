@@ -3,7 +3,8 @@ import cors from "cors";
 import helmet from "helmet";
 import { config } from "./config/index.js";
 import apiRouter from "./routes/index.js";
-import { globalRateLimiter, sanitizeRequestBody } from "./middleware/security.middleware.js";
+import { sanitizeRequestBody } from "./middleware/security.middleware.js";
+import { upstashGlobalRateLimiterMiddleware } from "./middleware/upstashRateLimit.middleware.js";
 
 const app = express();
 
@@ -73,8 +74,8 @@ app.use(
 app.use(express.json({ limit: "100kb" }));
 app.use(express.urlencoded({ extended: true, limit: "100kb" }));
 
-// 4. Global API Rate Limiter
-app.use("/api", globalRateLimiter);
+// 4. Global Distributed API Rate Limiter (Upstash Redis + Fallback)
+app.use("/api", upstashGlobalRateLimiterMiddleware);
 
 // 5. Global Input Sanitizer
 app.use(sanitizeRequestBody);
