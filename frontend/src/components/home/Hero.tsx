@@ -180,12 +180,12 @@ export function Hero() {
           />
 
           {/* Frosted Glass Inner Frame */}
-          <div className="relative z-10 w-full p-1.5 sm:p-3 rounded-[22px] sm:rounded-[32px] bg-white/10 backdrop-blur-xl border border-white/20 overflow-hidden">
-            {/* Auto-scaling container for mobile/tablet to preserve authentic full desktop layout without vertical stretching */}
-            <div className="w-full flex justify-center items-start overflow-hidden h-[185px] min-[375px]:h-[200px] min-[420px]:h-[235px] sm:h-[350px] md:h-[420px] lg:h-auto">
-              <div className="w-[860px] md:w-[940px] lg:w-full shrink-0 origin-top scale-[0.35] min-[375px]:scale-[0.38] min-[420px]:scale-[0.44] min-[520px]:scale-[0.56] sm:scale-[0.68] md:scale-[0.85] lg:scale-100">
-                <div className="w-full bg-[#FAF9FF] rounded-xl sm:rounded-2xl border border-gray-200/80 text-gray-900 overflow-hidden shadow-lg">
-                  <div className="flex flex-row bg-white">
+          <div className="relative z-10 w-full p-2 sm:p-3 rounded-[24px] sm:rounded-[34px] bg-white/10 backdrop-blur-xl border border-white/20 overflow-hidden">
+            {/* Auto-scaling container for mobile/tablet to preserve authentic full desktop layout without vertical stretching or cutoff */}
+            <div className="w-full flex justify-center items-start overflow-hidden h-[170px] min-[360px]:h-[180px] min-[390px]:h-[200px] min-[430px]:h-[220px] sm:h-[345px] md:h-[420px] lg:h-auto">
+              <div className="w-[840px] md:w-[920px] lg:w-full shrink-0 origin-top scale-[0.32] min-[360px]:scale-[0.34] min-[390px]:scale-[0.38] min-[430px]:scale-[0.42] min-[520px]:scale-[0.52] sm:scale-[0.66] md:scale-[0.84] lg:scale-100">
+                <div className="w-full bg-[#FAF9FF] rounded-[28px] sm:rounded-[32px] border border-gray-200/80 text-gray-900 overflow-hidden shadow-lg">
+                  <div className="flex flex-row bg-white rounded-[28px] sm:rounded-[32px] overflow-hidden">
                     
                     {/* Sidebar */}
                     <div className="w-48 sm:w-52 bg-[#F6F8F7] p-3 sm:p-4 flex flex-col justify-between shrink-0 border-r border-gray-200">
