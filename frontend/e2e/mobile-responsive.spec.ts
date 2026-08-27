@@ -14,11 +14,25 @@ test.describe("Mobile Responsive Layout Checks", () => {
     await expect(dashboardCard).toBeVisible();
   });
 
-  test("tool-finder mobile wizard step buttons display properly", async ({ page }) => {
-    await page.setViewportSize({ width: 390, height: 844 });
-    await page.goto("/tool-finder");
+  test("mobile menu button opens drawer and navigates correctly", async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.goto("/");
 
-    const activeStep = page.locator("button:has-text('01 Company Size')");
-    await expect(activeStep).toBeVisible();
+    // Click mobile hamburger menu
+    const menuButton = page.locator("button[aria-label='Open mobile menu']");
+    await expect(menuButton).toBeVisible();
+    await menuButton.click();
+
+    // Verify mobile drawer opened
+    const servicesButton = page.locator("button:has-text('Services')");
+    await expect(servicesButton).toBeVisible();
+
+    // Click close button
+    const closeButton = page.locator("button[aria-label='Close menu']");
+    await expect(closeButton).toBeVisible();
+    await closeButton.click();
+
+    // Verify drawer closed
+    await expect(servicesButton).not.toBeVisible();
   });
 });

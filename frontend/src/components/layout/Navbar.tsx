@@ -185,9 +185,13 @@ export function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setMobileMenuOpen(true)}
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setMobileMenuOpen((prev) => !prev);
+            }}
             aria-label="Open mobile menu"
-            className={`lg:hidden p-1.5 rounded-lg transition-colors ${
+            className={`lg:hidden p-2 rounded-xl transition-colors cursor-pointer pointer-events-auto z-10 ${
               isScrolled ? "text-white hover:bg-white/10" : "text-gray-900 hover:bg-gray-100"
             }`}
           >
@@ -378,7 +382,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="fixed inset-0 z-[200] bg-white text-gray-900 flex flex-col justify-between overflow-hidden"
+            className="fixed inset-0 z-[200] bg-white text-gray-900 flex flex-col justify-between overflow-hidden pointer-events-auto"
           >
             {/* 1. Mobile Header Bar */}
             <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100 shrink-0">
@@ -396,8 +400,9 @@ export function Navbar() {
               ) : (
                 /* Sub-View Header with Back button */
                 <button
+                  type="button"
                   onClick={() => setMobileSubView(null)}
-                  className="flex items-center gap-2 text-base font-bold text-gray-900 hover:text-black py-1"
+                  className="flex items-center gap-2 text-base font-bold text-gray-900 hover:text-black py-1 cursor-pointer"
                 >
                   <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
                   <span>Back</span>
@@ -406,11 +411,13 @@ export function Navbar() {
 
               {/* Close (X) Button */}
               <button
-                onClick={() => {
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
                   setMobileMenuOpen(false);
                   setMobileSubView(null);
                 }}
-                className="p-2 -mr-2 text-gray-900 hover:bg-gray-100 rounded-full transition-colors"
+                className="p-2 -mr-2 text-gray-900 hover:bg-gray-100 rounded-full transition-colors cursor-pointer"
                 aria-label="Close menu"
               >
                 <X className="w-7 h-7 stroke-[1.75]" />
@@ -479,10 +486,13 @@ export function Navbar() {
                     </button>
 
                     {/* Language Switcher */}
-                    <div className="w-full flex items-center justify-between py-4 border-b border-gray-100 text-base font-bold text-gray-900 cursor-pointer">
+                    <button
+                      type="button"
+                      className="w-full flex items-center justify-between py-4 border-b border-gray-100 text-base font-bold text-gray-900 cursor-pointer text-left"
+                    >
                       <span>EN · English</span>
                       <ChevronRight className="w-5 h-5 text-gray-900 stroke-[2]" />
-                    </div>
+                    </button>
                   </motion.div>
                 )}
 
