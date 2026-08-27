@@ -40,6 +40,7 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  transpilePackages: ["@scaliify/shared"],
   poweredByHeader: false,
   images: {
     remotePatterns: [
