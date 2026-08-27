@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   ChevronDown,
+  ChevronRight,
+  ChevronLeft,
   ArrowRight,
   Menu,
   X,
@@ -19,9 +21,8 @@ import { motion, AnimatePresence } from "framer-motion";
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileSubView, setMobileSubView] = useState<"platform" | "solutions" | "resources" | "about" | null>(null);
   const [activeMenu, setActiveMenu] = useState<"platform" | "resources" | null>(null);
-  const [mobilePlatformOpen, setMobilePlatformOpen] = useState(false);
-  const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,6 +37,19 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      setMobileSubView(null);
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
 
   return (
     <header
@@ -162,10 +176,11 @@ export function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            onClick={() => setMobileMenuOpen(true)}
+            aria-label="Open mobile menu"
             className="lg:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <Menu className="w-6 h-6" />
           </button>
         </div>
 
@@ -554,147 +569,364 @@ export function Navbar() {
       </div>
 
       {/* ========================================================================= */}
-      {/* MOBILE DRAWER MENU (RESPONSIVE) */}
+      {/* FULL-SCREEN MOBILE OVERLAY (MATCHING EXACT PERSONIO DRILL-DOWN DESIGN) */}
       {/* ========================================================================= */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-200 px-4 sm:px-6 py-5 space-y-4 rounded-b-2xl sm:rounded-b-3xl overflow-y-auto max-h-[calc(100vh-80px)] shadow-2xl text-gray-900"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="fixed inset-0 z-[200] bg-white text-gray-900 flex flex-col justify-between overflow-hidden"
           >
-            {/* Mobile Platform Dropdown Section */}
-            <div className="border-b border-gray-100 pb-3">
-              <button
-                onClick={() => setMobilePlatformOpen(!mobilePlatformOpen)}
-                className="flex items-center justify-between w-full text-left font-bold text-gray-900 py-2 text-base"
-              >
-                <span>Platform</span>
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${
-                    mobilePlatformOpen ? "rotate-180 text-[#81D8D0]" : ""
-                  }`}
-                />
-              </button>
-
-              {mobilePlatformOpen && (
-                <div className="mt-3 space-y-3 text-sm text-gray-700 pl-1">
-                  {/* Core HR */}
-                  <div className="bg-gray-50/80 rounded-xl p-3.5 border border-gray-100">
-                    <div className="font-bold text-gray-900 text-[13px] mb-0.5">Core HR</div>
-                    <div className="text-[11px] text-gray-500 mb-2">Your foundation for HR productivity</div>
-                    <div className="space-y-1.5 pl-2 border-l border-gray-200 text-xs">
-                      <Link href="/services/hr-it-selection" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-black">Onboarding & Offboarding</Link>
-                      <Link href="/services/implementation-optimisation" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-black">Time Tracking</Link>
-                      <Link href="/services/hr-it-audit" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-black">Absence Management</Link>
-                      <Link href="/services/hr-it-integrations" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-black">People Analytics</Link>
-                      <Link href="/tool-finder" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-black">AI Assistant</Link>
-                    </div>
-                  </div>
-
-                  {/* Grow your platform */}
-                  <div className="bg-gray-50/80 rounded-xl p-3.5 border border-gray-100">
-                    <div className="font-bold text-gray-900 text-[13px] mb-0.5">+ Grow your platform</div>
-                    <div className="text-[11px] text-gray-500 mb-2">Add the tools you need to scale</div>
-                    <div className="space-y-1.5 pl-2 border-l border-gray-200 text-xs">
-                      <div className="text-[10px] font-bold text-gray-400 uppercase pt-1">Talent Management</div>
-                      <Link href="/services/hr-it-selection" onClick={() => setMobileMenuOpen(false)} className="block py-0.5 hover:text-black">Recruiting</Link>
-                      <Link href="/services/implementation-optimisation" onClick={() => setMobileMenuOpen(false)} className="block py-0.5 hover:text-black">Performance & Development</Link>
-                      <div className="text-[10px] font-bold text-gray-400 uppercase pt-1">Governance</div>
-                      <Link href="/services/scheinselbststaendigkeit" onClick={() => setMobileMenuOpen(false)} className="block py-0.5 hover:text-black">Whistleblowing</Link>
-                      <Link href="/services/interim-management" onClick={() => setMobileMenuOpen(false)} className="block py-0.5 hover:text-black">Employer of Record</Link>
-                    </div>
-                  </div>
-
-                  {/* Pay your people */}
-                  <div className="bg-gray-50/80 rounded-xl p-3.5 border border-gray-100">
-                    <div className="font-bold text-gray-900 text-[13px] mb-0.5">+ Pay your people</div>
-                    <div className="text-[11px] text-gray-500 mb-2">Run payroll with connected data</div>
-                    <div className="space-y-1.5 pl-2 border-l border-gray-200 text-xs">
-                      <Link href="/services/outsourced-hr" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-black">Preliminary Payroll</Link>
-                      <Link href="/services/hr-it-integrations" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-black">Xero & DATEV Sync</Link>
-                      <Link href="/services/interim-management" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-black">Sage 50 & Local EU</Link>
-                    </div>
-                  </div>
-                </div>
+            {/* 1. Mobile Header Bar */}
+            <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100 shrink-0">
+              {mobileSubView === null ? (
+                /* Root Header */
+                <Link
+                  href="/"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-2.5"
+                >
+                  <span className="text-2xl font-extrabold tracking-tight text-gray-900">
+                    Scaliify
+                  </span>
+                </Link>
+              ) : (
+                /* Sub-View Header with Back button */
+                <button
+                  onClick={() => setMobileSubView(null)}
+                  className="flex items-center gap-2 text-base font-bold text-gray-900 hover:text-black py-1"
+                >
+                  <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
+                  <span>Back</span>
+                </button>
               )}
+
+              {/* Close (X) Button */}
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setMobileSubView(null);
+                }}
+                className="p-2 -mr-2 text-gray-900 hover:bg-gray-100 rounded-full transition-colors"
+                aria-label="Close menu"
+              >
+                <X className="w-7 h-7 stroke-[1.75]" />
+              </button>
             </div>
 
-            <Link
-              href="/services"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block font-bold text-gray-900 py-2 text-base hover:text-gray-600 transition-colors"
-            >
-              Solutions
-            </Link>
+            {/* 2. Scrollable Body Content */}
+            <div className="flex-grow overflow-y-auto px-6 py-2">
+              <AnimatePresence mode="wait">
+                
+                {/* ----------------------------------------------------------------- */}
+                {/* ROOT MENU (SCREENSHOT 1) */}
+                {/* ----------------------------------------------------------------- */}
+                {mobileSubView === null && (
+                  <motion.div
+                    key="root-menu"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -10 }}
+                    transition={{ duration: 0.2 }}
+                    className="flex flex-col"
+                  >
+                    {/* Platform Drill-down */}
+                    <button
+                      onClick={() => setMobileSubView("platform")}
+                      className="w-full flex items-center justify-between py-4 border-b border-gray-100 text-base font-bold text-gray-900 text-left hover:text-[#0C241D] transition-colors group cursor-pointer"
+                    >
+                      <span>Platform</span>
+                      <ChevronRight className="w-5 h-5 text-gray-900 stroke-[2] group-hover:translate-x-0.5 transition-transform" />
+                    </button>
 
-            <Link
-              href="/tool-finder"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block font-bold text-gray-900 py-2 text-base hover:text-gray-600 transition-colors"
-            >
-              HR Tool Finder
-            </Link>
+                    {/* Solutions Drill-down */}
+                    <button
+                      onClick={() => setMobileSubView("solutions")}
+                      className="w-full flex items-center justify-between py-4 border-b border-gray-100 text-base font-bold text-gray-900 text-left hover:text-[#0C241D] transition-colors group cursor-pointer"
+                    >
+                      <span>Solutions</span>
+                      <ChevronRight className="w-5 h-5 text-gray-900 stroke-[2] group-hover:translate-x-0.5 transition-transform" />
+                    </button>
 
-            {/* Mobile Resources Dropdown Section */}
-            <div className="border-b border-gray-100 pb-3">
-              <button
-                onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
-                className="flex items-center justify-between w-full text-left font-bold text-gray-900 py-2 text-base"
-              >
-                <span>Resources</span>
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${
-                    mobileResourcesOpen ? "rotate-180 text-[#81D8D0]" : ""
-                  }`}
-                />
-              </button>
+                    {/* Resources Drill-down */}
+                    <button
+                      onClick={() => setMobileSubView("resources")}
+                      className="w-full flex items-center justify-between py-4 border-b border-gray-100 text-base font-bold text-gray-900 text-left hover:text-[#0C241D] transition-colors group cursor-pointer"
+                    >
+                      <span>Resources</span>
+                      <ChevronRight className="w-5 h-5 text-gray-900 stroke-[2] group-hover:translate-x-0.5 transition-transform" />
+                    </button>
 
-              {mobileResourcesOpen && (
-                <div className="mt-3 space-y-3 text-sm text-gray-700 pl-1">
-                  <div className="bg-gray-50/80 rounded-xl p-3 border border-gray-100 space-y-2">
-                    <div className="font-bold text-gray-900 text-xs">Learn & Insights</div>
-                    <Link href="/insights/blog" onClick={() => setMobileMenuOpen(false)} className="block text-xs py-1 hover:text-black">HR Tech Blog & Articles</Link>
-                    <Link href="/insights/guides" onClick={() => setMobileMenuOpen(false)} className="block text-xs py-1 hover:text-black">Buyer&apos;s Guides & Checklists</Link>
-                    <Link href="/case-studies" onClick={() => setMobileMenuOpen(false)} className="block text-xs py-1 hover:text-black">Customer Case Studies</Link>
-                  </div>
+                    {/* About Drill-down */}
+                    <button
+                      onClick={() => setMobileSubView("about")}
+                      className="w-full flex items-center justify-between py-4 border-b border-gray-100 text-base font-bold text-gray-900 text-left hover:text-[#0C241D] transition-colors group cursor-pointer"
+                    >
+                      <span>About</span>
+                      <ChevronRight className="w-5 h-5 text-gray-900 stroke-[2] group-hover:translate-x-0.5 transition-transform" />
+                    </button>
 
-                  <div className="bg-gray-50/80 rounded-xl p-3 border border-gray-100 space-y-2">
-                    <div className="font-bold text-gray-900 text-xs">Tools & Free Resources</div>
-                    <Link href="/tool-finder" onClick={() => setMobileMenuOpen(false)} className="block text-xs py-1 hover:text-black">Interactive HR Tool Finder</Link>
-                    <Link href="/insights/resources" onClick={() => setMobileMenuOpen(false)} className="block text-xs py-1 hover:text-black">RFP Decision Matrix Template</Link>
-                    <Link href="/services/scheinselbststaendigkeit" onClick={() => setMobileMenuOpen(false)} className="block text-xs py-1 hover:text-black">EU Compliance & Labor Check</Link>
-                  </div>
-                </div>
-              )}
+                    {/* Login Link */}
+                    <Link
+                      href="/contact"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="w-full flex items-center justify-between py-4 border-b border-gray-100 text-base font-bold text-gray-900 hover:text-[#0C241D] transition-colors"
+                    >
+                      <span>Login</span>
+                    </Link>
+
+                    {/* Language Switcher */}
+                    <div className="w-full flex items-center justify-between py-4 border-b border-gray-100 text-base font-bold text-gray-900 cursor-pointer">
+                      <span>EN · English</span>
+                      <ChevronRight className="w-5 h-5 text-gray-900 stroke-[2]" />
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* ----------------------------------------------------------------- */}
+                {/* SUB-VIEW: RESOURCES (SCREENSHOT 2) */}
+                {/* ----------------------------------------------------------------- */}
+                {mobileSubView === "resources" && (
+                  <motion.div
+                    key="resources-subview"
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="py-4"
+                  >
+                    {/* Purple Banner Header */}
+                    <div className="text-xl font-bold text-[#5c2d91] pb-3 border-b border-gray-100 mb-6">
+                      Resources
+                    </div>
+
+                    {/* Section 1: Connect & Learn */}
+                    <div className="mb-7">
+                      <h4 className="text-base font-bold text-gray-900 pb-2 border-b border-[#5c2d91]/50 mb-3">
+                        Connect & Learn
+                      </h4>
+                      <div className="space-y-3.5 text-[15px] font-medium text-gray-900">
+                        <Link
+                          href="/insights/blog"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="block hover:text-[#5c2d91] transition-colors"
+                        >
+                          HR Tech Blog & Insights
+                        </Link>
+                        <Link
+                          href="/insights/guides"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="block hover:text-[#5c2d91] transition-colors"
+                        >
+                          Buyer&apos;s Guides & Checklists
+                        </Link>
+                        <Link
+                          href="/case-studies"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="block hover:text-[#5c2d91] transition-colors"
+                        >
+                          Client Transformation Stories
+                        </Link>
+                        <Link
+                          href="/insights/resources"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="block hover:text-[#5c2d91] transition-colors"
+                        >
+                          European HR Market Benchmark
+                        </Link>
+                      </div>
+                    </div>
+
+                    {/* Section 2: HR Knowledge Centre */}
+                    <div>
+                      <h4 className="text-base font-bold text-gray-900 pb-2 border-b border-[#5c2d91]/50 mb-3">
+                        HR Knowledge Centre
+                      </h4>
+                      <div className="space-y-3.5 text-[15px] font-medium text-gray-900">
+                        <Link
+                          href="/tool-finder"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="block hover:text-[#5c2d91] transition-colors"
+                        >
+                          Interactive HR Tool Finder
+                        </Link>
+                        <Link
+                          href="/insights/resources"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="block hover:text-[#5c2d91] transition-colors"
+                        >
+                          RFP Decision Matrix Template
+                        </Link>
+                        <Link
+                          href="/services/scheinselbststaendigkeit"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="block hover:text-[#5c2d91] transition-colors"
+                        >
+                          EU Compliance & Labor Check
+                        </Link>
+                        <Link
+                          href="/contact"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="block hover:text-[#5c2d91] transition-colors"
+                        >
+                          ROI & Software Savings Calculator
+                        </Link>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* ----------------------------------------------------------------- */}
+                {/* SUB-VIEW: PLATFORM */}
+                {/* ----------------------------------------------------------------- */}
+                {mobileSubView === "platform" && (
+                  <motion.div
+                    key="platform-subview"
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="py-4"
+                  >
+                    <div className="text-xl font-bold text-[#5c2d91] pb-3 border-b border-gray-100 mb-6">
+                      Platform
+                    </div>
+
+                    {/* Section 1: Core HR */}
+                    <div className="mb-7">
+                      <h4 className="text-base font-bold text-gray-900 pb-2 border-b border-[#5c2d91]/50 mb-3">
+                        Core HR
+                      </h4>
+                      <div className="space-y-3.5 text-[15px] font-medium text-gray-900">
+                        <Link href="/services/hr-it-selection" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">Onboarding & Offboarding</Link>
+                        <Link href="/services/implementation-optimisation" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">Time Tracking</Link>
+                        <Link href="/services/hr-it-audit" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">Absence Management</Link>
+                        <Link href="/services/hr-it-integrations" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">People Analytics</Link>
+                        <Link href="/tool-finder" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">AI Assistant</Link>
+                        <Link href="/services/implementation-optimisation" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">Workflow Automation</Link>
+                        <Link href="/services/hr-it-selection" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">Documents & e-Signatures</Link>
+                      </div>
+                    </div>
+
+                    {/* Section 2: Grow your platform */}
+                    <div className="mb-7">
+                      <h4 className="text-base font-bold text-gray-900 pb-2 border-b border-[#5c2d91]/50 mb-3">
+                        + Grow your platform
+                      </h4>
+                      <div className="space-y-3.5 text-[15px] font-medium text-gray-900">
+                        <Link href="/services/hr-it-selection" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">Recruiting & ATS</Link>
+                        <Link href="/services/implementation-optimisation" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">Performance & Development</Link>
+                        <Link href="/services/hr-advisory" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">Compensation Management</Link>
+                        <Link href="/services/outsourced-hr" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">Employee Surveys</Link>
+                        <Link href="/services/scheinselbststaendigkeit" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">Whistleblowing</Link>
+                        <Link href="/services/interim-management" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">Employer of Record</Link>
+                      </div>
+                    </div>
+
+                    {/* Section 3: Pay your people */}
+                    <div>
+                      <h4 className="text-base font-bold text-gray-900 pb-2 border-b border-[#5c2d91]/50 mb-3">
+                        + Pay your people
+                      </h4>
+                      <div className="space-y-3.5 text-[15px] font-medium text-gray-900">
+                        <Link href="/services/outsourced-hr" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">Preliminary Payroll</Link>
+                        <Link href="/services/implementation-optimisation" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">Personio / Scaliify Payroll</Link>
+                        <Link href="/services/hr-it-integrations" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">Xero & DATEV Sync</Link>
+                        <Link href="/services/interim-management" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">Sage 50 & Local EU</Link>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* ----------------------------------------------------------------- */}
+                {/* SUB-VIEW: SOLUTIONS */}
+                {/* ----------------------------------------------------------------- */}
+                {mobileSubView === "solutions" && (
+                  <motion.div
+                    key="solutions-subview"
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="py-4"
+                  >
+                    <div className="text-xl font-bold text-[#5c2d91] pb-3 border-b border-gray-100 mb-6">
+                      Solutions
+                    </div>
+
+                    <div className="mb-7">
+                      <h4 className="text-base font-bold text-gray-900 pb-2 border-b border-[#5c2d91]/50 mb-3">
+                        HR Technology
+                      </h4>
+                      <div className="space-y-3.5 text-[15px] font-medium text-gray-900">
+                        <Link href="/services/hr-it-selection" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">HR IT Selection</Link>
+                        <Link href="/services/implementation-optimisation" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">Implementation & Optimisation</Link>
+                        <Link href="/services/hr-it-integrations" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">HR IT Integrations</Link>
+                        <Link href="/services/hr-it-audit" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">HR IT Audit</Link>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="text-base font-bold text-gray-900 pb-2 border-b border-[#5c2d91]/50 mb-3">
+                        Advisory & Leadership
+                      </h4>
+                      <div className="space-y-3.5 text-[15px] font-medium text-gray-900">
+                        <Link href="/services/interim-management" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">Interim Management</Link>
+                        <Link href="/services/outsourced-hr" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">Outsourced HR Management</Link>
+                        <Link href="/services/hr-advisory" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">HR Advisory</Link>
+                        <Link href="/services/scheinselbststaendigkeit" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">Scheinselbstständigkeit</Link>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* ----------------------------------------------------------------- */}
+                {/* SUB-VIEW: ABOUT */}
+                {/* ----------------------------------------------------------------- */}
+                {mobileSubView === "about" && (
+                  <motion.div
+                    key="about-subview"
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="py-4"
+                  >
+                    <div className="text-xl font-bold text-[#5c2d91] pb-3 border-b border-gray-100 mb-6">
+                      About
+                    </div>
+
+                    <div>
+                      <h4 className="text-base font-bold text-gray-900 pb-2 border-b border-[#5c2d91]/50 mb-3">
+                        Company
+                      </h4>
+                      <div className="space-y-3.5 text-[15px] font-medium text-gray-900">
+                        <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">About Scaliify</Link>
+                        <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">Our Methodology</Link>
+                        <Link href="/case-studies" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">Client Case Studies</Link>
+                        <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[#5c2d91]">Contact Our Team</Link>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
+              </AnimatePresence>
             </div>
 
-            <Link
-              href="/about"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block font-bold text-gray-900 py-2 text-base hover:text-gray-600 transition-colors"
-            >
-              About
-            </Link>
-
-            {/* Bottom Mobile CTAs */}
-            <div className="pt-4 border-t border-gray-200 flex flex-col gap-3">
+            {/* 3. Fixed Bottom Sticky CTA Button (Matching Screenshot) */}
+            <div className="p-6 pt-3 bg-white border-t border-gray-100 shrink-0">
               <Link
                 href="/contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-center font-semibold text-gray-700 py-2 hover:text-gray-900 text-sm"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setMobileSubView(null);
+                }}
+                className="w-full bg-black text-white font-bold py-4 rounded-2xl flex items-center justify-center text-base hover:bg-gray-900 active:scale-[0.99] transition-transform shadow-md"
               >
-                Log In
-              </Link>
-              <Link
-                href="/contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 w-full bg-[#81D8D0] text-black font-bold py-3.5 rounded-full text-sm active:scale-[0.98] transition-transform shadow-sm"
-              >
-                <span>Book your demo</span>
-                <ArrowRight className="w-4 h-4" />
+                Book your demo
               </Link>
             </div>
           </motion.div>
