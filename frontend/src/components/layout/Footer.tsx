@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { CrowdCanvas } from "@/components/ui/CrowdCanvas";
 
 export function Footer() {
   const footerRef = useRef<HTMLElement>(null);
@@ -117,6 +118,17 @@ export function Footer() {
         />
         {/* Subtle dark overlay for readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/85 pointer-events-none" />
+      </div>
+
+      {/* Animated OpenPeeps Crowd Canvas Marching Along Footer Bottom */}
+      <div className="absolute bottom-0 inset-x-0 h-72 sm:h-96 pointer-events-none z-0 opacity-45">
+        <CrowdCanvas
+          src="/images/peeps/all-peeps.png"
+          rows={10}
+          cols={6}
+          theme="light-on-dark"
+          className="absolute bottom-0 w-full h-full"
+        />
       </div>
 
       <div className="max-w-[1360px] mx-auto flex flex-col relative z-10">
