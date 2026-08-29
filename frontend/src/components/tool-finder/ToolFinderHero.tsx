@@ -65,10 +65,10 @@ export function ToolFinderHero() {
   };
 
   // Clean professional headshot for Catherine Muller
-  const profileImage = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=256&q=80";
+  const profileImage = "/avatars/catherine.jpg";
 
   return (
-    <div className="w-full min-h-screen relative bg-[#0C241D] text-white overflow-hidden flex flex-col justify-between">
+    <div className="w-full min-h-screen relative bg-brand-dark text-white overflow-hidden flex flex-col justify-between">
       {/* Top spacing to account for compact floating navbar */}
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-36 lg:pt-40 pb-16 sm:pb-24 flex flex-col items-center">
         
@@ -107,7 +107,7 @@ export function ToolFinderHero() {
             />
             <button
               type="submit"
-              className="group relative bg-gradient-to-b from-[#A8F5EE] via-[#81D8D0] to-[#5BC7BC] text-[#0C241D] text-xs sm:text-sm font-extrabold px-4 sm:px-5 py-2.5 rounded-xl border border-white/70 shadow-[0_2px_14px_rgba(129,216,208,0.55)] hover:shadow-[0_4px_22px_rgba(129,216,208,0.85)] hover:scale-[1.03] active:scale-[0.98] transition-all shrink-0 cursor-pointer whitespace-nowrap overflow-hidden"
+              className="group relative bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark text-xs sm:text-sm font-extrabold px-4 sm:px-5 py-2.5 rounded-xl border border-white/70 shadow-[0_2px_14px_rgba(129,216,208,0.55)] hover:shadow-[0_4px_22px_rgba(129,216,208,0.85)] hover:scale-[1.03] active:scale-[0.98] transition-all shrink-0 cursor-pointer whitespace-nowrap overflow-hidden"
             >
               {/* Glossy Top Specular Sheen */}
               <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-xl pointer-events-none" />
@@ -119,9 +119,9 @@ export function ToolFinderHero() {
         {/* 4. Trust Statement with Rotating Animated Logo */}
         <div className="mt-6 sm:mt-8 flex items-center justify-center gap-1.5 text-xs sm:text-sm text-gray-300 flex-wrap text-center">
           <span>Trusted by</span>
-          <span className="font-bold text-[#81D8D0]">1.6M+</span>
+          <span className="font-bold text-brand-teal">1.6M+</span>
           <span>employees at over</span>
-          <span className="font-bold text-[#81D8D0]">16,000</span>
+          <span className="font-bold text-brand-teal">16,000</span>
           <span>organisations:</span>
           
           <div className="inline-flex items-center min-w-[95px] h-6 overflow-hidden align-middle">
@@ -192,7 +192,7 @@ export function ToolFinderHero() {
                       <div className="space-y-3.5">
                         {/* Brand */}
                         <div className="flex items-center gap-2 px-1 py-0.5">
-                          <div className="w-6 h-6 rounded-full bg-black text-[#81D8D0] flex items-center justify-center font-bold text-xs shadow-xs">
+                          <div className="w-6 h-6 rounded-full bg-black text-brand-teal flex items-center justify-center font-bold text-xs shadow-xs">
                             S
                           </div>
                           <span className="font-bold text-gray-900 text-xs sm:text-sm tracking-tight">Scaliify Matcher</span>
@@ -236,14 +236,14 @@ export function ToolFinderHero() {
                                 key={idx}
                                 className={`group relative flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-[11px] font-semibold transition-all whitespace-nowrap overflow-hidden ${
                                   item.active
-                                    ? "bg-gradient-to-b from-[#A8F5EE] via-[#81D8D0] to-[#5BC7BC] text-[#0C241D] font-extrabold border border-white/70 shadow-[0_2px_12px_rgba(129,216,208,0.55)]"
+                                    ? "bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark font-extrabold border border-white/70 shadow-[0_2px_12px_rgba(129,216,208,0.55)]"
                                     : "text-gray-600 hover:bg-white hover:text-gray-900"
                                 }`}
                               >
                                 {item.active && (
                                   <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-lg pointer-events-none" />
                                 )}
-                                <ItemIcon className={`relative z-10 w-3.5 h-3.5 ${item.active ? "text-[#0C241D]" : "text-gray-500"}`} />
+                                <ItemIcon className={`relative z-10 w-3.5 h-3.5 ${item.active ? "text-brand-dark" : "text-gray-500"}`} />
                                 <span className="relative z-10">{item.label}</span>
                               </div>
                             );
@@ -292,7 +292,7 @@ export function ToolFinderHero() {
                               const elem = document.getElementById("tool-finder-tool");
                               if (elem) elem.scrollIntoView({ behavior: "smooth" });
                             }}
-                            className="group relative bg-gradient-to-b from-[#A8F5EE] via-[#81D8D0] to-[#5BC7BC] text-[#0C241D] text-xs font-extrabold px-3.5 py-1.5 rounded-lg border border-white/70 shadow-[0_2px_12px_rgba(129,216,208,0.5)] hover:shadow-[0_3px_16px_rgba(129,216,208,0.8)] hover:scale-[1.02] active:scale-[0.98] transition-all overflow-hidden flex items-center gap-1.5 whitespace-nowrap"
+                            className="group relative bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark text-xs font-extrabold px-3.5 py-1.5 rounded-lg border border-white/70 shadow-[0_2px_12px_rgba(129,216,208,0.5)] hover:shadow-[0_3px_16px_rgba(129,216,208,0.8)] hover:scale-[1.02] active:scale-[0.98] transition-all overflow-hidden flex items-center gap-1.5 whitespace-nowrap"
                           >
                             <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-lg pointer-events-none" />
                             <Download className="relative z-10 w-3 h-3" />
@@ -303,7 +303,7 @@ export function ToolFinderHero() {
 
                       {/* Performance Sub-Navigation Tabs */}
                       <div className="flex items-center gap-4 sm:gap-6 text-xs sm:text-[13px] border-b border-gray-200 overflow-x-auto [scrollbar-width:none] pb-1">
-                        <button className="font-bold text-[#0C241D] border-b-2 border-[#81D8D0] pb-1.5 -mb-1 px-1 whitespace-nowrap">
+                        <button className="font-bold text-brand-dark border-b-2 border-brand-teal pb-1.5 -mb-1 px-1 whitespace-nowrap">
                           Top Matched Platforms (3)
                         </button>
                         <button className="text-gray-500 hover:text-gray-900 pb-1.5 px-1 whitespace-nowrap font-medium transition-colors">
@@ -314,7 +314,7 @@ export function ToolFinderHero() {
                         </button>
                         <button className="text-gray-500 hover:text-gray-900 pb-1.5 px-1 flex items-center gap-1.5 whitespace-nowrap font-medium transition-colors">
                           <span>Integration Health</span>
-                          <span className="bg-[#D6EBE3] text-[#0C241D] text-[10px] font-bold px-1.5 py-0.5 rounded-full">
+                          <span className="bg-[#D6EBE3] text-brand-dark text-[10px] font-bold px-1.5 py-0.5 rounded-full">
                             100%
                           </span>
                         </button>
@@ -355,7 +355,7 @@ export function ToolFinderHero() {
                           <div className="bg-[#F8FAF9] rounded-xl p-3.5 sm:p-4 border border-gray-200">
                             <div className="flex items-start justify-between gap-2 pb-2.5 border-b border-gray-200">
                               <div className="flex items-start gap-2.5 min-w-0">
-                                <div className="w-8 h-8 rounded-lg bg-black text-[#81D8D0] font-bold text-xs flex items-center justify-center shrink-0">
+                                <div className="w-8 h-8 rounded-lg bg-black text-brand-teal font-bold text-xs flex items-center justify-center shrink-0">
                                   #1
                                 </div>
                                 <div className="min-w-0">
@@ -373,7 +373,7 @@ export function ToolFinderHero() {
                                   </div>
                                 </div>
                               </div>
-                              <span className="group relative bg-gradient-to-b from-[#A8F5EE] via-[#81D8D0] to-[#5BC7BC] text-[#0C241D] font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-white/70 shadow-[0_2px_10px_rgba(129,216,208,0.5)] shrink-0 overflow-hidden whitespace-nowrap">
+                              <span className="group relative bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-white/70 shadow-[0_2px_10px_rgba(129,216,208,0.5)] shrink-0 overflow-hidden whitespace-nowrap">
                                 <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-full pointer-events-none" />
                                 <span className="relative z-10">96% Compatibility Match</span>
                               </span>
@@ -396,7 +396,7 @@ export function ToolFinderHero() {
                                   </div>
                                   <div className="flex items-center gap-2 shrink-0">
                                     <span className="text-[10px] text-gray-400 hidden sm:inline whitespace-nowrap">{item.note}</span>
-                                    <span className="text-[10px] font-bold text-[#0C241D] bg-[#D6EBE3] px-1.5 py-0.5 rounded whitespace-nowrap">
+                                    <span className="text-[10px] font-bold text-brand-dark bg-[#D6EBE3] px-1.5 py-0.5 rounded whitespace-nowrap">
                                       {item.fit}
                                     </span>
                                   </div>
@@ -468,7 +468,7 @@ export function ToolFinderHero() {
                               </span>
                             </div>
                             <div className="flex items-center gap-1.5 text-[9px] text-gray-600">
-                              <div className="w-3.5 h-3.5 rounded-full bg-[#81D8D0] text-[#0C241D] font-bold text-[7px] flex items-center justify-center shrink-0">
+                              <div className="w-3.5 h-3.5 rounded-full bg-brand-teal text-brand-dark font-bold text-[7px] flex items-center justify-center shrink-0">
                                 ✓
                               </div>
                               <span className="truncate">~€32,400 saved annually in admin overhead</span>
@@ -541,7 +541,7 @@ export function ToolFinderHero() {
               <span className="font-bold text-base sm:text-lg tracking-tight text-white">SoftwareOne</span>
             </div>
             <p className="text-xs text-gray-300 font-medium">1000+ employees</p>
-            <p className="text-[11px] text-[#81D8D0]">80% faster onboarding</p>
+            <p className="text-[11px] text-brand-teal">80% faster onboarding</p>
           </div>
 
           <div className="flex flex-col items-center">
@@ -550,7 +550,7 @@ export function ToolFinderHero() {
               <span className="font-bold text-base sm:text-lg tracking-tight text-white">Westbridge</span>
             </div>
             <p className="text-xs text-gray-300 font-medium">450+ employees</p>
-            <p className="text-[11px] text-[#81D8D0]">Zero payroll errors</p>
+            <p className="text-[11px] text-brand-teal">Zero payroll errors</p>
           </div>
 
           <div className="flex flex-col items-center">
@@ -559,7 +559,7 @@ export function ToolFinderHero() {
               <span className="font-bold text-base sm:text-lg tracking-tight text-white">KRONES AG</span>
             </div>
             <p className="text-xs text-gray-300 font-medium">750+ employees</p>
-            <p className="text-[11px] text-[#81D8D0]">70% admin cut</p>
+            <p className="text-[11px] text-brand-teal">70% admin cut</p>
           </div>
 
           <div className="flex flex-col items-center">
@@ -568,7 +568,7 @@ export function ToolFinderHero() {
               <span className="font-bold text-base sm:text-lg tracking-tight text-white">symrise</span>
             </div>
             <p className="text-xs text-gray-300 font-medium">DACH & Global</p>
-            <p className="text-[11px] text-[#81D8D0]">Modern HRIS stack</p>
+            <p className="text-[11px] text-brand-teal">Modern HRIS stack</p>
           </div>
 
           <div className="flex flex-col items-center col-span-2 sm:col-span-1">
@@ -577,7 +577,7 @@ export function ToolFinderHero() {
               <span className="font-bold text-base sm:text-lg tracking-tight text-white">TIEMEYER</span>
             </div>
             <p className="text-xs text-gray-300 font-medium">200+ employees</p>
-            <p className="text-[11px] text-[#81D8D0]">Interim leadership</p>
+            <p className="text-[11px] text-brand-teal">Interim leadership</p>
           </div>
 
         </div>

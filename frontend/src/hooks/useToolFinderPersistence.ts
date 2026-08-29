@@ -89,7 +89,8 @@ export function useToolFinderPersistence() {
                 isInitializedRef.current = true;
               }
             }
-          } catch {
+          } catch (e) {
+            console.warn("Failed to parse cached completed result:", e);
             localStorage.removeItem(STORAGE_COMPLETED_RESULT_KEY);
           }
         }

@@ -89,8 +89,8 @@ export function BlogSection() {
           className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-14 px-1 sm:px-0"
         >
           <div className="flex flex-col items-start">
-            <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#0C241D] tracking-wide mb-2 sm:mb-3">
-              <span className="w-2 h-2 rounded-full bg-[#0C241D]" />
+            <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-brand-dark tracking-wide mb-2 sm:mb-3">
+              <span className="w-2 h-2 rounded-full bg-brand-dark" />
               <span>Insights & Articles</span>
             </div>
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-[1.15]">
@@ -101,7 +101,7 @@ export function BlogSection() {
 
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0C241D] hover:text-black border-b border-[#0C241D] pb-1 self-start sm:self-end transition-colors group cursor-pointer"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-brand-dark hover:text-black border-b border-brand-dark pb-1 self-start sm:self-end transition-colors group cursor-pointer"
           >
             <span>Explore all insights</span>
             <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -136,7 +136,7 @@ export function BlogSection() {
                     
                     {/* Category Tag Overlay */}
                     <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10 flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full border border-white/60 shadow-xs">
-                      <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#0C241D]" />
+                      <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-dark" />
                       <span className="text-[10px] sm:text-[11px] font-bold text-gray-900 tracking-wide">
                         {blog.category}
                       </span>
@@ -161,7 +161,7 @@ export function BlogSection() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 tracking-tight leading-snug mb-3 group-hover:text-[#0C241D] transition-colors">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 tracking-tight leading-snug mb-3 group-hover:text-brand-dark transition-colors">
                       {blog.title}
                     </h3>
 
@@ -174,7 +174,7 @@ export function BlogSection() {
                   {/* Author & Read Link */}
                   <div className="pt-4 border-t border-gray-100 flex items-center justify-between mt-auto">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-8 h-8 rounded-full bg-[#0C241D] text-white flex items-center justify-center font-bold text-xs">
+                      <div className="w-8 h-8 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-xs">
                         {blog.author.initials}
                       </div>
                       <div>
@@ -187,7 +187,7 @@ export function BlogSection() {
                       </div>
                     </div>
 
-                    <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-700 group-hover:bg-[#0C241D] group-hover:text-white group-hover:border-[#0C241D] transition-all">
+                    <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-700 group-hover:bg-brand-dark group-hover:text-white group-hover:border-brand-dark transition-all">
                       <ArrowRight className="w-3.5 h-3.5" />
                     </div>
                   </div>

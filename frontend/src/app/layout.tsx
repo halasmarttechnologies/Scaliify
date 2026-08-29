@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${plusJakartaSans.variable} antialiased min-h-screen flex flex-col font-sans bg-[#F7F9F8] text-foreground`}
+        className={`${plusJakartaSans.variable} antialiased min-h-screen flex flex-col font-sans bg-brand-surface text-foreground`}
       >
         <LenisProvider>
           <Navbar />

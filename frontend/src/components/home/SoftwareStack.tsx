@@ -204,7 +204,7 @@ export function SoftwareStack() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-15%" }}
         transition={{ duration: 0.9, ease: "easeOut" }}
-        className="max-w-[1280px] mx-auto bg-[#0C241D] rounded-2xl sm:rounded-3xl lg:rounded-none text-white py-10 sm:py-16 md:py-24 px-4 sm:px-10 md:px-14 lg:px-16 flex flex-col items-center shadow-sm"
+        className="max-w-[1280px] mx-auto bg-brand-dark rounded-2xl sm:rounded-3xl lg:rounded-none text-white py-10 sm:py-16 md:py-24 px-4 sm:px-10 md:px-14 lg:px-16 flex flex-col items-center shadow-sm"
       >
         
         {/* Top Dot & Kicker */}

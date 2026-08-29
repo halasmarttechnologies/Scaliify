@@ -95,7 +95,7 @@ export function ToolFinderAreasCovered() {
         </p>
         <button
           onClick={scrollToAssessment}
-          className="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-[#0C241D] hover:text-[#185343] transition-colors group cursor-pointer"
+          className="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-brand-dark hover:text-[#185343] transition-colors group cursor-pointer"
         >
           <span>Benchmark all 4 areas in 2 minutes</span>
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -103,7 +103,7 @@ export function ToolFinderAreasCovered() {
       </motion.div>
 
       {/* 2. Deep Gradient Backdrop with Central Interactive Assistant & Tree Showcase */}
-      <div className="w-full bg-gradient-to-b from-white via-[#164E43] to-[#0C241D] pt-8 sm:pt-12 pb-16 sm:pb-20 px-4 sm:px-6 md:px-8 lg:px-12">
+      <div className="w-full bg-gradient-to-b from-white via-[#164E43] to-brand-dark pt-8 sm:pt-12 pb-16 sm:pb-20 px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-[1240px] mx-auto flex flex-col items-center">
           
           {/* Mobile Module Switcher (Visible on < lg screens) */}
@@ -151,8 +151,8 @@ export function ToolFinderAreasCovered() {
               {/* Card Header */}
               <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-gray-100 mb-3 sm:mb-4">
                 <div className="flex items-center gap-2 sm:gap-2.5">
-                  <div className="w-6 h-6 rounded-full bg-[#0C241D] text-white flex items-center justify-center shrink-0">
-                    <Sparkles className="w-3.5 h-3.5 text-[#81D8D0]" />
+                  <div className="w-6 h-6 rounded-full bg-brand-dark text-white flex items-center justify-center shrink-0">
+                    <Sparkles className="w-3.5 h-3.5 text-brand-teal" />
                   </div>
                   <span className="font-bold text-gray-900 text-xs sm:text-sm tracking-tight truncate">
                     {currentModule.title} Overview
@@ -165,23 +165,23 @@ export function ToolFinderAreasCovered() {
 
               {/* Question Chat Bubble (Right aligned) */}
               <div className="flex justify-end mb-3">
-                <div className="bg-[#0C241D] text-white text-[11px] sm:text-xs font-semibold px-3.5 sm:px-4 py-2.5 rounded-2xl rounded-tr-sm max-w-[95%] sm:max-w-[90%] leading-snug">
+                <div className="bg-brand-dark text-white text-[11px] sm:text-xs font-semibold px-3.5 sm:px-4 py-2.5 rounded-2xl rounded-tr-sm max-w-[95%] sm:max-w-[90%] leading-snug">
                   {currentModule.question}
                 </div>
               </div>
 
               {/* Answer Response Bubble (Left aligned) */}
-              <div className="bg-[#FAFBFB] border border-gray-100 p-3 sm:p-3.5 rounded-2xl text-[11px] sm:text-xs text-gray-700 leading-relaxed mb-3 sm:mb-4">
+              <div className="bg-brand-section border border-gray-100 p-3 sm:p-3.5 rounded-2xl text-[11px] sm:text-xs text-gray-700 leading-relaxed mb-3 sm:mb-4">
                 <p>{currentModule.answer}</p>
               </div>
 
               {/* Chart / Analytics Display */}
-              <div className="bg-[#FAFBFB] rounded-2xl p-3.5 sm:p-4 border border-gray-100">
+              <div className="bg-brand-section rounded-2xl p-3.5 sm:p-4 border border-gray-100">
                 <div className="flex items-center justify-between mb-2 sm:mb-3">
                   <span className="text-[10px] sm:text-[11px] font-bold text-gray-800 uppercase tracking-wider">
                     {currentModule.chartLabel}
                   </span>
-                  <span className="text-[10px] sm:text-xs font-bold text-[#0C241D] bg-white border border-gray-200 px-2 py-0.5 rounded-md shrink-0">
+                  <span className="text-[10px] sm:text-xs font-bold text-brand-dark bg-white border border-gray-200 px-2 py-0.5 rounded-md shrink-0">
                     {currentModule.metric}
                   </span>
                 </div>
@@ -232,8 +232,8 @@ export function ToolFinderAreasCovered() {
                     onClick={() => setActiveTab(item.key)}
                     className={`border px-5 py-3 rounded-2xl text-left transition-all cursor-pointer select-none shadow-md min-w-[230px] ${
                       isActive
-                        ? "bg-[#0C241D] border-2 border-white text-white shadow-xl ring-2 ring-white/20"
-                        : "bg-[#0C241D]/85 hover:bg-[#0C241D] border-white/20 text-white"
+                        ? "bg-brand-dark border-2 border-white text-white shadow-xl ring-2 ring-white/20"
+                        : "bg-brand-dark/85 hover:bg-brand-dark border-white/20 text-white"
                     }`}
                   >
                     <span className="text-xs sm:text-sm font-bold text-white tracking-wide block mb-1">
@@ -261,7 +261,7 @@ export function ToolFinderAreasCovered() {
             
             <div className="flex flex-col items-start text-left">
               <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center mb-2.5">
-                <FileCheck className="w-3.5 h-3.5 text-[#81D8D0]" />
+                <FileCheck className="w-3.5 h-3.5 text-brand-teal" />
               </div>
               <h4 className="text-xs font-bold text-white mb-1">HR Admin / Core</h4>
               <p className="text-[11px] text-gray-300 leading-relaxed">
@@ -271,7 +271,7 @@ export function ToolFinderAreasCovered() {
 
             <div className="flex flex-col items-start text-left">
               <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center mb-2.5">
-                <Target className="w-3.5 h-3.5 text-[#81D8D0]" />
+                <Target className="w-3.5 h-3.5 text-brand-teal" />
               </div>
               <h4 className="text-xs font-bold text-white mb-1">Recruiting & ATS</h4>
               <p className="text-[11px] text-gray-300 leading-relaxed">
@@ -281,7 +281,7 @@ export function ToolFinderAreasCovered() {
 
             <div className="flex flex-col items-start text-left">
               <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center mb-2.5">
-                <LineChart className="w-3.5 h-3.5 text-[#81D8D0]" />
+                <LineChart className="w-3.5 h-3.5 text-brand-teal" />
               </div>
               <h4 className="text-xs font-bold text-white mb-1">Performance & OKRs</h4>
               <p className="text-[11px] text-gray-300 leading-relaxed">
@@ -291,7 +291,7 @@ export function ToolFinderAreasCovered() {
 
             <div className="flex flex-col items-start text-left">
               <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center mb-2.5">
-                <Clock className="w-3.5 h-3.5 text-[#81D8D0]" />
+                <Clock className="w-3.5 h-3.5 text-brand-teal" />
               </div>
               <h4 className="text-xs font-bold text-white mb-1">Time & Attendance</h4>
               <p className="text-[11px] text-gray-300 leading-relaxed">
@@ -301,7 +301,7 @@ export function ToolFinderAreasCovered() {
 
             <div className="flex flex-col items-start text-left col-span-2 sm:col-span-1">
               <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center mb-2.5">
-                <CreditCard className="w-3.5 h-3.5 text-[#81D8D0]" />
+                <CreditCard className="w-3.5 h-3.5 text-brand-teal" />
               </div>
               <h4 className="text-xs font-bold text-white mb-1">Payroll & DATEV</h4>
               <p className="text-[11px] text-gray-300 leading-relaxed">
@@ -315,23 +315,23 @@ export function ToolFinderAreasCovered() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-5 w-full max-w-5xl">
             
             {/* Left Card: Personalized Consultation (7 cols) */}
-            <div className="md:col-span-7 bg-[#C5E8E1] text-[#0C241D] rounded-3xl p-7 sm:p-9 flex flex-col justify-between shadow-lg">
+            <div className="md:col-span-7 bg-[#C5E8E1] text-brand-dark rounded-3xl p-7 sm:p-9 flex flex-col justify-between shadow-lg">
               <div>
-                <span className="inline-block bg-[#F89C6B] text-[#0C241D] px-3.5 py-1 rounded-full text-xs font-bold tracking-wide mb-3">
+                <span className="inline-block bg-[#F89C6B] text-brand-dark px-3.5 py-1 rounded-full text-xs font-bold tracking-wide mb-3">
                   Expert run, 30 minute tour
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#0C241D] mb-4">
+                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-brand-dark mb-4">
                   Book your personalised demo
                 </h3>
               </div>
 
               {submitted ? (
-                <div className="bg-white/80 p-4 rounded-2xl border border-[#0C241D]/10 flex items-center gap-3 text-sm font-semibold text-[#0C241D]">
-                  <CheckCircle2 className="w-5 h-5 text-[#0C241D] shrink-0" />
+                <div className="bg-white/80 p-4 rounded-2xl border border-brand-dark/10 flex items-center gap-3 text-sm font-semibold text-brand-dark">
+                  <CheckCircle2 className="w-5 h-5 text-brand-dark shrink-0" />
                   <span>Thank you! Our advisory team will reach out promptly.</span>
                 </div>
               ) : (
-                <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row items-center gap-2 bg-white rounded-full p-1.5 shadow-sm border border-[#0C241D]/10 w-full mt-4">
+                <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row items-center gap-2 bg-white rounded-full p-1.5 shadow-sm border border-brand-dark/10 w-full mt-4">
                   <input
                     type="email"
                     required
@@ -353,7 +353,7 @@ export function ToolFinderAreasCovered() {
             {/* Right Card: Interactive Product Tour (5 cols) */}
             <div className="md:col-span-5 bg-[#17463D] text-white rounded-3xl p-7 sm:p-9 flex flex-col justify-between border border-white/10 shadow-lg">
               <div>
-                <span className="inline-block bg-white text-[#0C241D] px-3.5 py-1 rounded-full text-xs font-bold tracking-wide mb-3">
+                <span className="inline-block bg-white text-brand-dark px-3.5 py-1 rounded-full text-xs font-bold tracking-wide mb-3">
                   Takes 2 minutes
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-6 leading-snug">
@@ -364,7 +364,7 @@ export function ToolFinderAreasCovered() {
 
               <button
                 onClick={scrollToAssessment}
-                className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-b from-[#A8F5EE] via-[#81D8D0] to-[#5BC7BC] text-[#0C241D] font-extrabold text-xs sm:text-sm px-6 py-3.5 rounded-full border border-white/70 shadow-[0_3px_16px_rgba(129,216,208,0.55)] hover:shadow-[0_4px_22px_rgba(129,216,208,0.85)] hover:scale-[1.03] active:scale-[0.98] transition-all cursor-pointer self-start w-full sm:w-auto overflow-hidden"
+                className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark font-extrabold text-xs sm:text-sm px-6 py-3.5 rounded-full border border-white/70 shadow-[0_3px_16px_rgba(129,216,208,0.55)] hover:shadow-[0_4px_22px_rgba(129,216,208,0.85)] hover:scale-[1.03] active:scale-[0.98] transition-all cursor-pointer self-start w-full sm:w-auto overflow-hidden"
               >
                 <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-full pointer-events-none" />
                 <span className="relative z-10">Take a product tour</span>

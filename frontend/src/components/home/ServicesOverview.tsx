@@ -32,7 +32,7 @@ export function ServicesOverview() {
           transition={{ duration: 0.9, ease: "easeOut" }}
           className="flex flex-col items-center text-center mb-8 sm:mb-14 md:mb-20 px-2"
         >
-          <div className="bg-[#81D8D0] text-[#0c241d] font-bold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full mb-4 sm:mb-8 cursor-pointer">
+          <div className="bg-brand-teal text-[#0c241d] font-bold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full mb-4 sm:mb-8 cursor-pointer">
             <TextRoll>Our Services</TextRoll>
           </div>
           <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-3 sm:mb-6 cursor-pointer flex flex-col items-center gap-1">
@@ -62,7 +62,7 @@ export function ServicesOverview() {
                   <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-[#0c241d] hover:bg-gray-50 transition-colors">
                     <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </button>
-                  <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#81D8D0] flex items-center justify-center text-[#0c241d] hover:brightness-105 transition-colors">
+                  <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-brand-teal flex items-center justify-center text-[#0c241d] hover:brightness-105 transition-colors">
                     <MonitorSmartphone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </button>
                 </div>
@@ -73,7 +73,7 @@ export function ServicesOverview() {
                   <div key={idx} className="border-b border-gray-200 last:border-0 overflow-hidden">
                     <button
                       onClick={() => toggleTech(idx)}
-                      className={`w-full flex items-center justify-between py-4 sm:py-5 text-left font-medium transition-colors ${openTech === idx ? 'hidden' : 'text-[#0c241d] hover:text-[#81D8D0]'}`}
+                      className={`w-full flex items-center justify-between py-4 sm:py-5 text-left font-medium transition-colors ${openTech === idx ? 'hidden' : 'text-[#0c241d] hover:text-brand-teal'}`}
                     >
                       <span className="text-sm sm:text-lg">{service.title}</span>
                       <Plus className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 shrink-0 ml-2" />
@@ -89,7 +89,7 @@ export function ServicesOverview() {
                         >
                           <div 
                             onClick={() => toggleTech(idx)}
-                            className="bg-[#0C241D] text-white rounded-2xl p-6 md:p-8 my-4 flex flex-col gap-4 shadow-xl cursor-pointer group/card"
+                            className="bg-brand-dark text-white rounded-2xl p-6 md:p-8 my-4 flex flex-col gap-4 shadow-xl cursor-pointer group/card"
                           >
                             <div className="flex items-center justify-between mb-1">
                               <h4 className="text-lg sm:text-xl font-bold">{service.title}</h4>
@@ -103,7 +103,7 @@ export function ServicesOverview() {
                             <Link 
                               href={service.link} 
                               onClick={(e) => e.stopPropagation()}
-                              className="inline-flex items-center gap-2 text-[#81D8D0] font-semibold text-xs uppercase tracking-wide hover:text-white transition-colors mt-4 w-fit"
+                              className="inline-flex items-center gap-2 text-brand-teal font-semibold text-xs uppercase tracking-wide hover:text-white transition-colors mt-4 w-fit"
                             >
                               Explore Page <ArrowRight className="w-4 h-4" />
                             </Link>
@@ -124,7 +124,7 @@ export function ServicesOverview() {
                   <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-[#0c241d] hover:bg-gray-50 transition-colors">
                     <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </button>
-                  <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#81D8D0] flex items-center justify-center text-[#0c241d] hover:brightness-105 transition-colors">
+                  <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-brand-teal flex items-center justify-center text-[#0c241d] hover:brightness-105 transition-colors">
                     <Target className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </button>
                 </div>
@@ -135,7 +135,7 @@ export function ServicesOverview() {
                   <div key={idx} className="border-b border-gray-200 last:border-0 overflow-hidden">
                     <button
                       onClick={() => toggleAdvisory(idx)}
-                      className={`w-full flex items-center justify-between py-4 sm:py-5 text-left font-medium transition-colors ${openAdvisory === idx ? 'hidden' : 'text-[#0c241d] hover:text-[#81D8D0]'}`}
+                      className={`w-full flex items-center justify-between py-4 sm:py-5 text-left font-medium transition-colors ${openAdvisory === idx ? 'hidden' : 'text-[#0c241d] hover:text-brand-teal'}`}
                     >
                       <span className="text-sm sm:text-lg">{service.title}</span>
                       <Plus className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 shrink-0 ml-2" />
@@ -151,7 +151,7 @@ export function ServicesOverview() {
                         >
                           <div 
                             onClick={() => toggleAdvisory(idx)}
-                            className="bg-[#0C241D] text-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 my-3 sm:my-4 flex flex-col gap-3 sm:gap-4 shadow-xl cursor-pointer group/card"
+                            className="bg-brand-dark text-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 my-3 sm:my-4 flex flex-col gap-3 sm:gap-4 shadow-xl cursor-pointer group/card"
                           >
                             <div className="flex items-center justify-between mb-1">
                               <h4 className="text-base sm:text-xl font-bold">{service.title}</h4>
@@ -165,7 +165,7 @@ export function ServicesOverview() {
                             <Link 
                               href={service.link} 
                               onClick={(e) => e.stopPropagation()}
-                              className="inline-flex items-center gap-2 text-[#81D8D0] font-semibold text-xs uppercase tracking-wide hover:text-white transition-colors mt-2 sm:mt-4 w-fit"
+                              className="inline-flex items-center gap-2 text-brand-teal font-semibold text-xs uppercase tracking-wide hover:text-white transition-colors mt-2 sm:mt-4 w-fit"
                             >
                               Explore Page <ArrowRight className="w-4 h-4" />
                             </Link>
@@ -187,11 +187,11 @@ export function ServicesOverview() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-10%" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="w-full bg-[#0C241D] text-white rounded-3xl lg:rounded-full p-4 sm:p-5 lg:p-3 pl-4 lg:pl-6 flex flex-col lg:flex-row items-center justify-between gap-6 border border-white/10"
+          className="w-full bg-brand-dark text-white rounded-3xl lg:rounded-full p-4 sm:p-5 lg:p-3 pl-4 lg:pl-6 flex flex-col lg:flex-row items-center justify-between gap-6 border border-white/10"
         >
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 text-center sm:left mt-2 lg:mt-0">
             <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10">
-              <div className="w-4 h-4 border-2 border-gray-500 border-t-[#81D8D0] rounded-full animate-spin" />
+              <div className="w-4 h-4 border-2 border-gray-500 border-t-brand-teal rounded-full animate-spin" />
             </div>
             <p className="font-semibold text-sm md:text-base">
               Need reliable HR technology or strategic advisory? You&apos;re in the right place.
@@ -199,7 +199,7 @@ export function ServicesOverview() {
           </div>
           <Link
             href="/contact"
-            className="group relative w-full lg:w-auto flex-shrink-0 bg-gradient-to-b from-[#A8F5EE] via-[#81D8D0] to-[#5BC7BC] text-[#0C241D] font-extrabold text-xs uppercase tracking-wide px-8 py-4 rounded-2xl lg:rounded-full text-center border border-white/70 shadow-[0_3px_18px_rgba(129,216,208,0.55)] hover:shadow-[0_4px_24px_rgba(129,216,208,0.85)] hover:scale-[1.03] active:scale-[0.98] transition-all overflow-hidden"
+            className="group relative w-full lg:w-auto flex-shrink-0 bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark font-extrabold text-xs uppercase tracking-wide px-8 py-4 rounded-2xl lg:rounded-full text-center border border-white/70 shadow-[0_3px_18px_rgba(129,216,208,0.55)] hover:shadow-[0_4px_24px_rgba(129,216,208,0.85)] hover:scale-[1.03] active:scale-[0.98] transition-all overflow-hidden"
           >
             <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-full pointer-events-none" />
             <span className="relative z-10">BOOK A CALL</span>

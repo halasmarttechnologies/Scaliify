@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { ErrorBoundary } from "@/components/providers/ErrorBoundary";
 import { ToolFinderHero } from "@/components/tool-finder/ToolFinderHero";
 import { ToolFinderWizard } from "@/components/tool-finder/ToolFinderWizard";
 import { ToolFinderPlatformOverview } from "@/components/tool-finder/ToolFinderPlatformOverview";
@@ -18,7 +19,7 @@ export default function ToolFinderPage() {
     <main className="w-full min-h-screen relative">
       <ToolFinderHero />
 
-      <div className="w-full relative bg-[#FAFBFB]">
+      <div className="w-full relative bg-brand-section">
         {/* Section A: The Interactive Tool Assessment */}
         <section id="tool-finder-tool" className="w-full pt-12 sm:pt-16 pb-12 sm:pb-16 bg-white">
           <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,7 +34,9 @@ export default function ToolFinderPage() {
             </div>
 
             {/* Interactive Assessment Workspace */}
-            <ToolFinderWizard />
+            <ErrorBoundary>
+              <ToolFinderWizard />
+            </ErrorBoundary>
           </div>
         </section>
 

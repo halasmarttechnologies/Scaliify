@@ -20,8 +20,8 @@ export function CoreFeatures() {
           className="flex flex-col items-center text-center mb-8 sm:mb-14 px-2"
         >
           {/* Top Pill / Dot */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#0C241D] tracking-wide mb-3 sm:mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#0C241D]" />
+          <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-brand-dark tracking-wide mb-3 sm:mb-4">
+            <span className="w-2 h-2 rounded-full bg-brand-dark" />
             <span>Strategic HR Consultancy</span>
           </div>
 
@@ -55,7 +55,7 @@ export function CoreFeatures() {
 
               {/* Slider Indicator Pill */}
               <div className="inline-flex items-center gap-1.5 bg-[#f0f2f5] px-3 py-1.5 rounded-full">
-                <span className="w-3.5 h-1.5 rounded-full bg-[#0C241D]" />
+                <span className="w-3.5 h-1.5 rounded-full bg-brand-dark" />
                 <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
                 <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
               </div>

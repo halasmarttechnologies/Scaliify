@@ -22,8 +22,8 @@ export function ToolFinderPlatformOverview() {
           className="flex flex-col items-center text-center mb-10 sm:mb-14"
         >
           {/* Top Pill */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#0C241D] tracking-wide mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#0C241D]" />
+          <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-brand-dark tracking-wide mb-4">
+            <span className="w-2 h-2 rounded-full bg-brand-dark" />
             <span>Independent HR Advisory</span>
           </div>
 
@@ -56,7 +56,7 @@ export function ToolFinderPlatformOverview() {
 
               {/* Slider Indicator Pill */}
               <div className="inline-flex items-center gap-1.5 bg-[#f0f2f5] px-3 py-1.5 rounded-full">
-                <span className="w-3.5 h-1.5 rounded-full bg-[#0C241D]" />
+                <span className="w-3.5 h-1.5 rounded-full bg-brand-dark" />
                 <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
                 <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
               </div>
@@ -157,8 +157,8 @@ export function ToolFinderPlatformOverview() {
               </div>
 
               {/* Increase Badge */}
-              <div className="mt-3 bg-[#E8F8F6] rounded-lg px-2.5 py-1 flex items-center justify-center border border-[#81D8D0]/30">
-                <p className="text-[11px] font-semibold text-[#0C241D] text-center">
+              <div className="mt-3 bg-[#E8F8F6] rounded-lg px-2.5 py-1 flex items-center justify-center border border-brand-teal/30">
+                <p className="text-[11px] font-semibold text-brand-dark text-center">
                   100% Free & Independent advisory engine
                 </p>
               </div>
@@ -179,7 +179,7 @@ export function ToolFinderPlatformOverview() {
             {/* Top: Logo & Quote Marks */}
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded-full bg-[#0C241D] flex items-center justify-center text-white font-bold text-xs">
+                <div className="w-6 h-6 rounded-full bg-brand-dark flex items-center justify-center text-white font-bold text-xs">
                   S
                 </div>
                 <span className="font-bold text-gray-900 text-base">SoftwareOne</span>

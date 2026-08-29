@@ -12,6 +12,8 @@
     "db:studio": "drizzle-kit studio",
     "db:migrate": "tsx src/db/migrate.ts",
     "db:seed": "tsx src/db/seed.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "test:security": "tsx src/tests/securityAudit.ts"
   },
   "dependencies": {
@@ -32,6 +34,7 @@
     "@types/node": "^22.13.5",
     "drizzle-kit": "^0.30.4",
     "tsx": "^4.19.3",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "vitest": "^3.2.7"
   }
 }

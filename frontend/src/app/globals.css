@@ -5,6 +5,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --color-brand-dark: #0C241D;
+  --color-brand-teal: #81D8D0;
+  --color-brand-teal-light: #A8F5EE;
+  --color-brand-teal-deep: #5BC7BC;
+  --color-brand-surface: #F7F9F8;
+  --color-brand-section: #FAFBFB;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-plus-jakarta);

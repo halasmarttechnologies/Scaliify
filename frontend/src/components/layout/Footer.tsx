@@ -66,12 +66,12 @@ export function Footer() {
           {/* CTA Pill Button (Glossy Tiffany Blue Let's Talk Style) */}
           <Link
             href="/contact"
-            className="group relative inline-flex items-center gap-3.5 bg-gradient-to-b from-[#A8F5EE] via-[#81D8D0] to-[#5BC7BC] text-[#0C241D] font-extrabold text-sm sm:text-base pl-7 sm:pl-8 pr-3 sm:pr-3.5 py-3 rounded-full border border-white/70 shadow-[0_4px_22px_rgba(129,216,208,0.6)] hover:shadow-[0_6px_28px_rgba(129,216,208,0.9)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
+            className="group relative inline-flex items-center gap-3.5 bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark font-extrabold text-sm sm:text-base pl-7 sm:pl-8 pr-3 sm:pr-3.5 py-3 rounded-full border border-white/70 shadow-[0_4px_22px_rgba(129,216,208,0.6)] hover:shadow-[0_6px_28px_rgba(129,216,208,0.9)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
           >
             {/* Top Glossy Specular Sheen */}
             <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-full pointer-events-none" />
             <span className="relative z-10">Start Free Trial • Reach Us</span>
-            <div className="relative z-10 w-8 h-8 rounded-full bg-[#0C241D] text-[#81D8D0] flex items-center justify-center group-hover:bg-white group-hover:text-[#0C241D] transition-colors shadow-xs">
+            <div className="relative z-10 w-8 h-8 rounded-full bg-brand-dark text-brand-teal flex items-center justify-center group-hover:bg-white group-hover:text-brand-dark transition-colors shadow-xs">
               <ChevronRight className="w-4 h-4 stroke-[2.5]" />
             </div>
           </Link>
@@ -92,7 +92,7 @@ export function Footer() {
           {/* Brand Column (Spans 2 columns on lg) */}
           <div className="lg:col-span-2 flex flex-col items-start pr-0 lg:pr-12">
             <Link href="/" className="flex items-center gap-3 mb-6 group">
-              <div className="w-8 h-8 rounded-lg bg-[#81D8D0] flex items-center justify-center text-black">
+              <div className="w-8 h-8 rounded-lg bg-brand-teal flex items-center justify-center text-black">
                 <svg
                   viewBox="0 0 24 24"
                   className="w-5 h-5 fill-current"
@@ -104,7 +104,7 @@ export function Footer() {
                   <circle cx="17" cy="17" r="4" />
                 </svg>
               </div>
-              <span className="font-bold text-2xl tracking-tight text-white group-hover:text-[#81D8D0] transition-colors">
+              <span className="font-bold text-2xl tracking-tight text-white group-hover:text-brand-teal transition-colors">
                 Scaliify
               </span>
             </Link>
@@ -121,7 +121,7 @@ export function Footer() {
                 <li key={idx}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 text-sm hover:text-[#81D8D0] transition-colors"
+                    className="text-gray-400 text-sm hover:text-brand-teal transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -138,7 +138,7 @@ export function Footer() {
                 <li key={idx}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 text-sm hover:text-[#81D8D0] transition-colors"
+                    className="text-gray-400 text-sm hover:text-brand-teal transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -155,7 +155,7 @@ export function Footer() {
                 <li key={idx}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 text-sm hover:text-[#81D8D0] transition-colors"
+                    className="text-gray-400 text-sm hover:text-brand-teal transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -183,7 +183,7 @@ export function Footer() {
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-black hover:bg-[#81D8D0] hover:border-[#81D8D0] transition-all"
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-black hover:bg-brand-teal hover:border-brand-teal transition-all"
               aria-label="Facebook"
             >
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -196,7 +196,7 @@ export function Footer() {
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-black hover:bg-[#81D8D0] hover:border-[#81D8D0] transition-all"
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-black hover:bg-brand-teal hover:border-brand-teal transition-all"
               aria-label="Twitter"
             >
               <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -209,7 +209,7 @@ export function Footer() {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-black hover:bg-[#81D8D0] hover:border-[#81D8D0] transition-all"
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-black hover:bg-brand-teal hover:border-brand-teal transition-all"
               aria-label="LinkedIn"
             >
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -222,7 +222,7 @@ export function Footer() {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-black hover:bg-[#81D8D0] hover:border-[#81D8D0] transition-all"
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-black hover:bg-brand-teal hover:border-brand-teal transition-all"
               aria-label="Instagram"
             >
               <svg className="w-4 h-4 fill-none stroke-current stroke-[2]" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">

@@ -31,7 +31,7 @@ export function ToolFinderIntegrationsMarquee() {
 
   // Row 2 App Badges
   const row2Apps: AppBadge[] = [
-    { name: "Personio", bg: "bg-[#0C241D]", text: "text-[#81D8D0]", label: "Personio" },
+    { name: "Personio", bg: "bg-brand-dark", text: "text-brand-teal", label: "Personio" },
     { name: "DATEV", bg: "bg-[#009E4D]", text: "text-white", label: "DATEV" },
     { name: "Deel", bg: "bg-[#15357A]", text: "text-white", label: "deel." },
     { name: "Factorial", bg: "bg-[#FF3B69]", text: "text-white", label: "factorial" },
@@ -57,10 +57,10 @@ export function ToolFinderIntegrationsMarquee() {
         </h3>
         <Link
           href="/services/hr-it-integrations"
-          className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0C241D] hover:text-black transition-colors"
+          className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-brand-dark hover:text-black transition-colors"
         >
           <span>Visit Integration Ecosystem</span>
-          <ArrowRight className="w-4 h-4 text-[#0C241D]" />
+          <ArrowRight className="w-4 h-4 text-brand-dark" />
         </Link>
       </div>
 

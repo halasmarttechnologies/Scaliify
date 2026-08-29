@@ -11,7 +11,8 @@ export function isSafeHttpUrl(url: string): boolean {
   try {
     const parsed = new URL(url);
     return parsed.protocol === "http:" || parsed.protocol === "https:";
-  } catch {
+  } catch (e) {
+    console.warn("isSafeHttpUrl: malformed URL rejected:", url, e);
     return false;
   }
 }
@@ -212,8 +213,8 @@ export async function fetchToolFinderSubmissionResult(
       if (stored) {
         return { status: "SUCCESS", data: JSON.parse(stored) };
       }
-    } catch {
-      // Ignored
+    } catch (e) {
+      console.warn("Failed to read local fallback submission from sessionStorage:", e);
     }
     return { status: "NOT_FOUND" };
   }
@@ -338,8 +339,8 @@ function generateClientFallbackRecommendations(answers: AssessmentAnswers): Tool
   // Cache locally
   try {
     sessionStorage.setItem(`toolfinder_${submissionId}`, JSON.stringify(data));
-  } catch {
-    // Ignored
+  } catch (e) {
+    console.warn("Failed to cache fallback submission to sessionStorage:", e);
   }
 
   return {
