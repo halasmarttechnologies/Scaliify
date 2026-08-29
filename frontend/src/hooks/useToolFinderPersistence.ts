@@ -21,6 +21,7 @@ export interface PersistedInProgressState {
 const STORAGE_IN_PROGRESS_KEY = "scaliify_tool_finder_in_progress";
 const STORAGE_SUBMISSION_ID_KEY = "scaliify_tool_finder_submission_id";
 const STORAGE_COMPLETED_RESULT_KEY = "scaliify_tool_finder_completed_result";
+const DRAFT_TTL_MS = 24 * 60 * 60 * 1000;
 
 export const DEFAULT_ANSWERS: AssessmentAnswers = {
   companySize: "size_sme",
@@ -134,7 +135,9 @@ export function useToolFinderPersistence() {
         if (rawDraft) {
           try {
             const draft: PersistedInProgressState = JSON.parse(rawDraft);
-            if (draft && draft.currentStep >= 1 && draft.currentStep <= 10 && draft.answers) {
+            if (draft && draft.lastUpdated && Date.now() - draft.lastUpdated > DRAFT_TTL_MS) {
+              localStorage.removeItem(STORAGE_IN_PROGRESS_KEY);
+            } else if (draft && draft.currentStep >= 1 && draft.currentStep <= 10 && draft.answers) {
               if (!isCancelled) {
                 setCurrentStep(draft.currentStep);
                 setAnswers(draft.answers);
@@ -281,9 +284,10 @@ export function useToolFinderPersistence() {
       } else {
         throw new Error("No recommendation data received");
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Assessment submission error:", err);
-      setErrorMsg(err?.message || "Failed to calculate recommendations. Please try again.");
+      const message = err instanceof Error ? err.message : "Failed to calculate recommendations. Please try again.";
+      setErrorMsg(message);
     } finally {
       isSubmittingRef.current = false;
       setIsSubmitting(false);

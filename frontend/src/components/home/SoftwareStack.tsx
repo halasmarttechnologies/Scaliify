@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { TextRoll } from "@/components/ui/TextRoll";
 import { motion } from "framer-motion";
 
@@ -38,7 +39,7 @@ const softwareList: SoftwareTool[] = [
   { id: "zep", name: "ZEP" },
 ];
 
-function ToolLogo({ id }: { id: string }) {
+const ToolLogo = React.memo(function ToolLogo({ id }: { id: string }) {
   switch (id) {
     case "personio":
       return (
@@ -194,7 +195,7 @@ function ToolLogo({ id }: { id: string }) {
         </div>
       );
   }
-}
+});
 
 export function SoftwareStack() {
   return (
@@ -216,12 +217,8 @@ export function SoftwareStack() {
 
           {/* Main Title */}
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white text-center max-w-3xl leading-[1.15] mb-3 sm:mb-4 flex flex-col items-center justify-center mx-auto gap-1">
-            <TextRoll center className="text-white justify-center text-center">
-              Connect Your Favorite Tools,
-            </TextRoll>
-            <TextRoll center className="text-white justify-center text-center">
-              Seamlessly
-            </TextRoll>
+            <span>Connect Your Favorite Tools,</span>
+            <span>Seamlessly</span>
           </h2>
 
           {/* Subtitle */}

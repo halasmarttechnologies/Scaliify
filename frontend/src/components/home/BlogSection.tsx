@@ -1,203 +1,68 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, Clock, Calendar, ArrowUpRight, Cpu, Layers, UserCheck } from "lucide-react";
-import { motion } from "framer-motion";
-
-interface BlogPost {
-  slug: string;
-  category: string;
-  categoryIcon: typeof Cpu;
-  readTime: string;
-  date: string;
-  title: string;
-  excerpt: string;
-  image: string;
-  author: {
-    name: string;
-    role: string;
-    initials: string;
-  };
-}
-
-const blogs: BlogPost[] = [
-  {
-    slug: "selecting-right-hris-guide",
-    category: "HR Technology",
-    categoryIcon: Cpu,
-    readTime: "5 min read",
-    date: "May 14, 2026",
-    title: "The Ultimate Guide to Selecting the Right HRIS for Scaling Teams",
-    excerpt:
-      "How to audit your business requirements, evaluate vendor pricing models, and avoid costly implementation mistakes.",
-    image: "/blog-1.jpg",
-    author: {
-      name: "Sarah Jenkins",
-      role: "Head of HR Tech Advisory",
-      initials: "SJ",
-    },
-  },
-  {
-    slug: "automate-people-ops-workflows",
-    category: "Process Optimisation",
-    categoryIcon: Layers,
-    readTime: "4 min read",
-    date: "Apr 28, 2026",
-    title: "How to Automate 70% of Your Repetitive People Operations Workflows",
-    excerpt:
-      "Step-by-step strategies to link applicant tracking, onboarding documents, and payroll sync without manual data entry.",
-    image: "/blog-2.jpg",
-    author: {
-      name: "Marcus Vance",
-      role: "Lead Systems Architect",
-      initials: "MV",
-    },
-  },
-  {
-    slug: "when-to-hire-interim-cpo",
-    category: "Strategy & Advisory",
-    categoryIcon: UserCheck,
-    readTime: "6 min read",
-    date: "Apr 10, 2026",
-    title: "When and Why Scaling Companies Need an Interim Chief People Officer",
-    excerpt:
-      "Navigating hypergrowth, executive vacancies, and organizational restructuring with on-demand strategic HR leadership.",
-    image: "/blog-3.jpg",
-    author: {
-      name: "Kathryn Murphy",
-      role: "Senior HR Advisor",
-      initials: "KM",
-    },
-  },
-];
+import { useState, useMemo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { BLOG_POSTS, BlogCategory } from "@/data/blogPosts";
+import { BlogCard, BlogFilter } from "./blog";
 
 export function BlogSection() {
+  const [selectedCategory, setSelectedCategory] = useState<BlogCategory>("All");
+
+  const filteredPosts = useMemo(() => {
+    if (selectedCategory === "All") {
+      return BLOG_POSTS;
+    }
+    return BLOG_POSTS.filter((post) => post.category === selectedCategory);
+  }, [selectedCategory]);
+
   return (
     <section
       id="blog"
-      className="w-full bg-[#fafafa] py-10 sm:py-16 px-3.5 sm:px-6 md:px-8 lg:px-12 xl:px-16 border-t border-gray-100"
+      className="w-full bg-[#fafafa] py-16 sm:py-24 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 border-t border-gray-100"
     >
       <div className="max-w-6xl mx-auto flex flex-col">
-
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-15%" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-14 px-1 sm:px-0"
-        >
-          <div className="flex flex-col items-start">
-            <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-brand-dark tracking-wide mb-2 sm:mb-3">
-              <span className="w-2 h-2 rounded-full bg-brand-dark" />
-              <span>Insights & Articles</span>
-            </div>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-[1.15]">
-              Latest Insights to <br className="hidden sm:inline" />
-              Scale Your People Operations
+        {/* 1. Header Section */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 sm:mb-8">
+          <div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-3">
+              Blog
             </h2>
+            <p className="text-sm sm:text-base text-gray-600 max-w-3xl leading-relaxed">
+              Stay informed and inspired with Scaliify&apos;s HR blog — your source for need-to-know trends, strategic insights, and helpful resources.
+            </p>
           </div>
-
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-brand-dark hover:text-black border-b border-brand-dark pb-1 self-start sm:self-end transition-colors group cursor-pointer"
+          <a
+            href="/blog"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-brand-dark hover:text-brand-teal transition-colors shrink-0 whitespace-nowrap"
           >
-            <span>Explore all insights</span>
-            <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </Link>
-        </motion.div>
-
-        {/* 3 Blog Cards Grid */}
-        <div
-          className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 items-stretch"
-        >
-          {blogs.map((blog, idx) => {
-            const Icon = blog.categoryIcon;
-            return (
-              <motion.article
-                key={idx}
-                initial={{ opacity: 0, y: 35 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-20%" }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: idx * 0.1 }}
-                className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200/80 overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-gray-300 hover:-translate-y-1 group shadow-sm"
-              >
-                {/* Top Image Container */}
-                <div className="p-3 sm:p-4 pb-0">
-                  <div className="relative w-full h-44 sm:h-52 rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100">
-                    <Image
-                      src={blog.image}
-                      alt={blog.title}
-                      fill
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 380px"
-                    />
-                    
-                    {/* Category Tag Overlay */}
-                    <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10 flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full border border-white/60 shadow-xs">
-                      <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-dark" />
-                      <span className="text-[10px] sm:text-[11px] font-bold text-gray-900 tracking-wide">
-                        {blog.category}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Article Content */}
-                <div className="p-4 sm:p-7 flex flex-col flex-grow justify-between">
-                  <div>
-                    {/* Meta info */}
-                    <div className="flex items-center gap-3 text-xs text-gray-500 font-medium mb-3">
-                      <span className="flex items-center gap-1">
-                        <Calendar className="w-3.5 h-3.5" />
-                        <span>{blog.date}</span>
-                      </span>
-                      <span>•</span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-3.5 h-3.5" />
-                        <span>{blog.readTime}</span>
-                      </span>
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 tracking-tight leading-snug mb-3 group-hover:text-brand-dark transition-colors">
-                      {blog.title}
-                    </h3>
-
-                    {/* Excerpt */}
-                    <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-                      {blog.excerpt}
-                    </p>
-                  </div>
-
-                  {/* Author & Read Link */}
-                  <div className="pt-4 border-t border-gray-100 flex items-center justify-between mt-auto">
-                    <div className="flex items-center gap-2.5">
-                      <div className="w-8 h-8 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-xs">
-                        {blog.author.initials}
-                      </div>
-                      <div>
-                        <p className="text-xs font-bold text-gray-900 leading-tight">
-                          {blog.author.name}
-                        </p>
-                        <p className="text-[11px] text-gray-500">
-                          {blog.author.role}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-700 group-hover:bg-brand-dark group-hover:text-white group-hover:border-brand-dark transition-all">
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </div>
-                  </div>
-
-                </div>
-              </motion.article>
-            );
-          })}
+            <span>Explore all articles &rarr;</span>
+          </a>
         </div>
 
+        {/* 2. Interactive Category Filters */}
+        <BlogFilter
+          selectedCategory={selectedCategory}
+          onSelectCategory={setSelectedCategory}
+        />
+
+        {/* 3. Horizontal Section Separator (Matching Screenshot) */}
+        <div className="w-full h-px bg-gray-200 mb-10 sm:mb-12" />
+
+        {/* 4. 3-Column Responsive Blog Cards Grid (Instant static rendering, no pop-in animation) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 sm:gap-y-14">
+          {filteredPosts.map((post) => (
+            <div key={post.id}>
+              <BlogCard post={post} />
+            </div>
+          ))}
+        </div>
+
+        {/* Empty state if filtered category has no posts */}
+        {filteredPosts.length === 0 && (
+          <div className="w-full py-16 text-center text-gray-500 text-sm">
+            No articles found in &ldquo;{selectedCategory}&rdquo;. Check back soon!
+          </div>
+        )}
       </div>
     </section>
   );

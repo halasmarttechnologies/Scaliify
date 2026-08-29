@@ -1,11 +1,13 @@
 import { Request, Response } from "express";
 import { eq } from "drizzle-orm";
+import { z } from "zod";
 import { toolFinderAssessmentSubmissionSchema } from "../schemas/toolFinder.schema.js";
 import { RecommendationEngine } from "../services/recommendationEngine.js";
 import { LeadService } from "../services/leadService.js";
 import { sendSuccess, sendError } from "../utils/response.js";
 import { db, schema } from "../db/index.js";
 import { initialToolsData } from "../db/seeds/tools.seed.js";
+import type { ToolData } from "@scaliify/shared";
 
 export class ToolFinderController {
   /**
@@ -40,7 +42,7 @@ export class ToolFinderController {
       }
 
       // 3. Compute Ranked Recommendations via Scoring Engine
-      const results = RecommendationEngine.calculate(answers, toolCatalog);
+      const results = RecommendationEngine.calculate(answers, toolCatalog as unknown as ToolData[]);
 
       // 4. Persist Lead and Submission
       const ipAddress = (req.headers["x-forwarded-for"] as string) || req.socket.remoteAddress;
@@ -69,10 +71,11 @@ export class ToolFinderController {
    */
   public static async getSubmission(req: Request, res: Response) {
     try {
-      const { id } = req.params;
-      if (!id || typeof id !== "string") {
-        return sendError(res, "Invalid submission ID parameter", 400);
+      const idParse = z.string().uuid().safeParse(req.params.id);
+      if (!idParse.success) {
+        return sendError(res, "Invalid submission ID format", 400);
       }
+      const id = idParse.data;
 
       const submission = await LeadService.getAssessmentSubmissionById(id);
       if (!submission) {

@@ -1,7 +1,7 @@
 import { redis, isUpstashConfigured } from "../config/redis.js";
 
 // In-Memory Fallback Cache for local development when Redis credentials are not provided
-const localMemoryCache = new Map<string, { value: any; expiresAt: number }>();
+const localMemoryCache = new Map<string, { value: unknown; expiresAt: number }>();
 
 export class CacheService {
   /**
@@ -31,7 +31,7 @@ export class CacheService {
   /**
    * Set item in cache with TTL in seconds
    */
-  static async set(key: string, value: any, ttlSeconds: number = 300): Promise<void> {
+  static async set<T>(key: string, value: T, ttlSeconds: number = 300): Promise<void> {
     try {
       if (isUpstashConfigured && redis) {
         await redis.set(key, value, { ex: ttlSeconds });

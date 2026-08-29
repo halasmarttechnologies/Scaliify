@@ -1,6 +1,6 @@
 import React from "react";
 
-export function CompanyLogo({ id, className = "w-5 h-5 flex-shrink-0" }: { id: string; className?: string }) {
+export const CompanyLogo = React.memo(function CompanyLogo({ id, className = "w-5 h-5 flex-shrink-0" }: { id: string; className?: string }) {
   switch (id) {
     case "softwareone":
       return (
@@ -120,4 +120,4 @@ export function CompanyLogo({ id, className = "w-5 h-5 flex-shrink-0" }: { id: s
         </div>
       );
   }
-}
+});

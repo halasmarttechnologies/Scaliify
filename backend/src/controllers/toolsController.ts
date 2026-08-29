@@ -1,8 +1,16 @@
 import { Request, Response } from "express";
+import { z } from "zod";
 import { db, schema } from "../db/index.js";
 import { initialToolsData } from "../db/seeds/tools.seed.js";
 import { sendSuccess, sendError } from "../utils/response.js";
 import { eq } from "drizzle-orm";
+
+const toolsQuerySchema = z.object({
+  category: z.string().max(50).regex(/^[a-z0-9_-]+$/).optional(),
+  region: z.string().max(50).regex(/^[a-z0-9_-]+$/).optional(),
+});
+
+const slugParamSchema = z.string().min(1).max(100).regex(/^[a-z0-9-]+$/);
 
 export class ToolsController {
   /**
@@ -11,7 +19,11 @@ export class ToolsController {
    */
   public static async getAllTools(req: Request, res: Response) {
     try {
-      const { category, region } = req.query;
+      const queryParse = toolsQuerySchema.safeParse(req.query);
+      if (!queryParse.success) {
+        return sendError(res, "Invalid query parameters", 400);
+      }
+      const { category, region } = queryParse.data;
 
       let allTools = initialToolsData;
       try {
@@ -24,10 +36,10 @@ export class ToolsController {
       }
 
       let filtered = allTools;
-      if (category && typeof category === "string") {
+      if (category) {
         filtered = filtered.filter((t) => t.category === category);
       }
-      if (region && typeof region === "string") {
+      if (region) {
         filtered = filtered.filter((t) => t.regions.includes(region));
       }
 
@@ -44,7 +56,11 @@ export class ToolsController {
    */
   public static async getToolBySlug(req: Request, res: Response) {
     try {
-      const slug = String(req.params.slug);
+      const slugParse = slugParamSchema.safeParse(req.params.slug);
+      if (!slugParse.success) {
+        return sendError(res, "Invalid tool slug", 400);
+      }
+      const slug = slugParse.data;
 
       let tool = initialToolsData.find((t) => t.slug === slug || t.id === slug);
       try {
@@ -53,7 +69,7 @@ export class ToolsController {
       } catch (err) {}
 
       if (!tool) {
-        return sendError(res, `Tool with slug '${slug}' not found`, 404);
+        return sendError(res, "Tool not found", 404);
       }
 
       return sendSuccess(res, tool, "Tool found");

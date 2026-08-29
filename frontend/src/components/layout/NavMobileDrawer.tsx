@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   ChevronRight,
   ChevronLeft,
@@ -44,6 +45,15 @@ export function NavMobileDrawer({
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center gap-2.5"
               >
+                <div className="relative w-8 h-8 shrink-0">
+                  <Image
+                    src="/company logo/logo.png"
+                    alt="Scaliify Logo"
+                    fill
+                    unoptimized
+                    className="object-contain"
+                  />
+                </div>
                 <span className="text-2xl font-extrabold tracking-tight text-gray-900">
                   Scaliify
                 </span>
@@ -135,6 +145,15 @@ export function NavMobileDrawer({
                     <span>Insights</span>
                     <ChevronRight className="w-5 h-5 text-gray-900 stroke-[2] group-hover:translate-x-0.5 transition-transform" />
                   </button>
+
+                  {/* Contact Direct Link */}
+                  <Link
+                    href="/contact"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full flex items-center justify-between py-4 border-b border-gray-100 text-base font-bold text-gray-900 hover:text-brand-dark transition-colors"
+                  >
+                    <span>Contact</span>
+                  </Link>
 
                   {/* Language Switcher */}
                   <button
@@ -262,7 +281,7 @@ export function NavMobileDrawer({
                     </h4>
                     <div className="space-y-3.5 text-[15px] font-medium text-gray-900">
                       <Link
-                        href="/insights/blog"
+                        href="/blog"
                         onClick={() => setMobileMenuOpen(false)}
                         className="block hover:text-brand-teal transition-colors"
                       >

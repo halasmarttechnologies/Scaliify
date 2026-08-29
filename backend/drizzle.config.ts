@@ -13,7 +13,7 @@ export default defineConfig({
   out: "./drizzle",
   dialect: "postgresql",
   dbCredentials: {
-    url: process.env.DATABASE_URL || "postgresql://postgres:123@localhost:5432/scaliify_db",
+    url: process.env.DATABASE_URL!,
   },
   verbose: true,
   strict: true,

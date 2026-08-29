@@ -46,34 +46,13 @@ export const softwareTools: SoftwareTool[] = [
   { id: "zep", name: "ZEP", category: "other", categoryLabel: "Other", description: "Project time tracking & reporting" },
 ];
 
-export const software = {
-  hris: [
-    "Personio",
-    "Deel",
-    "Factorial",
-    "Flair",
-    "Leapsome",
-    "Shapes",
-    "Tellent HR Manage",
-    "Rippling",
-    "Bayzat (MENA)",
-  ],
-  recruiting: [
-    "D.vinci",
-    "Greenhouse",
-    "Tellent Recruitee",
-    "Teamtailor",
-    "Ashby",
-  ],
-  performance: [
-    "Tellent HR Grow",
-    "Leapsome",
-  ],
-  other: [
-    "HRCast",
-    "Gradar",
-    "HR Autopilot",
-    "Workmotion",
-    "ZEP",
-  ],
-};
+/**
+ * Derived category → name[] mapping from softwareTools.
+ * Eliminates maintaining a separate plain-string copy of the same data.
+ */
+export const software: Record<string, string[]> = Object.fromEntries(
+  softwareCategories
+    .filter((c) => c.id !== "all")
+    .map((c) => [c.id, softwareTools.filter((t) => t.category === c.id).map((t) => t.name)])
+);
+

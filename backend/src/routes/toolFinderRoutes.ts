@@ -10,6 +10,5 @@ router.post("/assess", upstashSensitiveActionLimiterMiddleware, enforceJsonConte
 
 // GET /api/v1/tool-finder/submissions/:id (Retrieve saved authoritative submission)
 router.get("/submissions/:id", ToolFinderController.getSubmission);
-router.get("/results/:id", ToolFinderController.getSubmission);
 
 export default router;

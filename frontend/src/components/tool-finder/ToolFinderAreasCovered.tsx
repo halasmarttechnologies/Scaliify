@@ -15,28 +15,7 @@ import {
 
 type ModuleKey = "admin" | "recruiting" | "performance" | "time";
 
-export function ToolFinderAreasCovered() {
-  const [activeTab, setActiveTab] = useState<ModuleKey>("admin");
-  const [emailInput, setEmailInput] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-
-
-  const scrollToAssessment = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const elem = document.getElementById("tool-finder-tool");
-    if (elem) {
-      elem.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (emailInput.trim() && emailInput.includes("@")) {
-      setSubmitted(true);
-    }
-  };
-
-  const moduleData = {
+const moduleData: Record<ModuleKey, { title: string; question: string; answer: string; chartLabel: string; bars: number[]; metric: string }> = {
     admin: {
       title: "HR Admin / Core",
       question: "How does HR Admin & Core centralize team data?",
@@ -69,6 +48,26 @@ export function ToolFinderAreasCovered() {
       bars: [50, 70, 85, 95, 100],
       metric: "100% BAG-Compliant",
     },
+};
+
+export function ToolFinderAreasCovered() {
+  const [activeTab, setActiveTab] = useState<ModuleKey>("admin");
+  const [emailInput, setEmailInput] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
+  const scrollToAssessment = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const elem = document.getElementById("tool-finder-tool");
+    if (elem) {
+      elem.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleEmailSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (emailInput.trim() && emailInput.includes("@")) {
+      setSubmitted(true);
+    }
   };
 
   const currentModule = moduleData[activeTab];
@@ -95,16 +94,19 @@ export function ToolFinderAreasCovered() {
         </p>
         <button
           onClick={scrollToAssessment}
-          className="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-brand-dark hover:text-[#185343] transition-colors group cursor-pointer"
+          className="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-brand-dark hover:opacity-80 transition-opacity group cursor-pointer"
         >
           <span>Benchmark all 4 areas in 2 minutes</span>
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </button>
       </motion.div>
 
-      {/* 2. Deep Gradient Backdrop with Central Interactive Assistant & Tree Showcase */}
-      <div className="w-full bg-gradient-to-b from-white via-[#164E43] to-brand-dark pt-8 sm:pt-12 pb-16 sm:pb-20 px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="max-w-[1240px] mx-auto flex flex-col items-center">
+      {/* 2. Tiffany Blue Gradient Fade Backdrop with Central Interactive Assistant & Tree Showcase */}
+      <div className="w-full relative bg-gradient-to-b from-white via-[#81D8D0]/40 to-brand-dark pt-8 sm:pt-12 pb-16 sm:pb-20 px-4 sm:px-6 md:px-8 lg:px-12 overflow-hidden">
+        {/* Soft Tiffany Blue Ambient Radial Glow */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[radial-gradient(circle,rgba(129,216,208,0.4)_0%,transparent_70%)] pointer-events-none blur-3xl -z-0" />
+
+        <div className="max-w-[1240px] mx-auto flex flex-col items-center relative z-10">
           
           {/* Mobile Module Switcher (Visible on < lg screens) */}
           <div className="flex lg:hidden items-center justify-start sm:justify-center gap-2 overflow-x-auto w-full max-w-[460px] pb-4 mb-2 select-none">
@@ -338,20 +340,22 @@ export function ToolFinderAreasCovered() {
                     value={emailInput}
                     onChange={(e) => setEmailInput(e.target.value)}
                     placeholder="What's your work email? *"
+                    aria-label="Work email address"
                     className="w-full bg-transparent px-4 py-2.5 text-xs sm:text-sm text-gray-900 placeholder-gray-500 focus:outline-none"
                   />
                   <button
                     type="submit"
-                    className="w-full sm:w-auto shrink-0 bg-black text-white hover:bg-gray-800 text-xs sm:text-sm font-bold px-6 py-3 rounded-full transition-colors cursor-pointer"
+                    className="group relative w-full sm:w-auto shrink-0 bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark text-xs sm:text-sm font-extrabold px-6 py-3 rounded-full border border-white/70 shadow-[0_2px_14px_rgba(129,216,208,0.55)] hover:shadow-[0_4px_24px_rgba(129,216,208,0.85)] hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer overflow-hidden whitespace-nowrap"
                   >
-                    Request free demo
+                    <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-full pointer-events-none" />
+                    <span className="relative z-10 tracking-tight">Request free demo</span>
                   </button>
                 </form>
               )}
             </div>
 
             {/* Right Card: Interactive Product Tour (5 cols) */}
-            <div className="md:col-span-5 bg-[#17463D] text-white rounded-3xl p-7 sm:p-9 flex flex-col justify-between border border-white/10 shadow-lg">
+            <div className="md:col-span-5 bg-brand-dark text-white rounded-3xl p-7 sm:p-9 flex flex-col justify-between border border-white/10 shadow-lg">
               <div>
                 <span className="inline-block bg-white text-brand-dark px-3.5 py-1 rounded-full text-xs font-bold tracking-wide mb-3">
                   Takes 2 minutes

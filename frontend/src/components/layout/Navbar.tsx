@@ -63,7 +63,7 @@ export function Navbar() {
         {/* Right Action Buttons */}
         <div className="flex items-center gap-2 sm:gap-2.5">
           <Link
-            href="/contact"
+            href="/lets-talk"
             className="group relative hidden lg:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold text-brand-dark bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep shadow-[0_2px_15px_rgba(129,216,208,0.55)] border border-white/70 hover:shadow-[0_4px_22px_rgba(129,216,208,0.85)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 overflow-hidden"
           >
             {/* Top Glossy Specular Reflection */}

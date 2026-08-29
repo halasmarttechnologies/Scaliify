@@ -43,7 +43,7 @@ export function CoreFeatures() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-20%" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 flex flex-col justify-between border border-gray-200/70 shadow-sm min-h-[340px] sm:min-h-[380px]"
+            className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 flex flex-col justify-between border border-gray-200/70 shadow-sm min-h-[300px] sm:min-h-[380px]"
           >
             <div>
               <h3 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-gray-900 tracking-tight mb-2 sm:mb-3">
@@ -78,7 +78,7 @@ export function CoreFeatures() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-20%" }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-            className="relative rounded-2xl sm:rounded-3xl overflow-hidden min-h-[360px] sm:min-h-[400px] flex flex-col justify-end p-3.5 sm:p-5 shadow-sm"
+            className="relative rounded-2xl sm:rounded-3xl overflow-hidden min-h-[320px] sm:min-h-[400px] flex flex-col justify-end p-3.5 sm:p-5 shadow-sm"
           >
             
             {/* Scenic Background (Mountain Landscape Gradient SVG) */}
@@ -199,7 +199,7 @@ export function CoreFeatures() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-20%" }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="bg-[#f3f4f6] rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 flex flex-col justify-between border border-gray-200/50 min-h-[340px] sm:min-h-[380px]"
+            className="bg-[#f3f4f6] rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 flex flex-col justify-between border border-gray-200/50 min-h-[300px] sm:min-h-[380px]"
           >
             
             {/* Top: Logo & Quote Marks */}

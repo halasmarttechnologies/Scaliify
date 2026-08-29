@@ -7,22 +7,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Search,
   Clock,
-  Calendar,
   FileText,
   Building,
   Zap,
-  BarChart2,
   Users,
   Briefcase,
   TrendingUp,
   CreditCard,
-  ClipboardList,
   Home as HomeIcon,
   Inbox as InboxIcon,
   Bot,
   ChevronRight,
   ChevronDown,
-  Eye,
   CheckCircle2,
   Sliders,
   ShieldCheck,
@@ -31,19 +27,8 @@ import {
 } from "lucide-react";
 
 import { CompanyLogo } from "@/components/ui/CompanyLogo";
-
-const rotatingCompanies = [
-  { name: "LUSH", type: "text", className: "font-black tracking-tight text-white text-xs sm:text-sm" },
-  { name: "SoftwareOne", type: "logo", id: "softwareone" },
-  { name: "orderbird", type: "orderbird" },
-  { name: "Westbridge", type: "logo", id: "westbridge" },
-  { name: "statista", type: "text", className: "font-bold tracking-tight text-white text-xs sm:text-sm lowercase" },
-  { name: "KRONES AG", type: "logo", id: "krones" },
-  { name: "polaroid", type: "text", className: "font-bold tracking-tight text-white text-xs sm:text-sm lowercase" },
-  { name: "symrise", type: "logo", id: "symrise" },
-  { name: "SPENDESK", type: "spendesk" },
-  { name: "TIEMEYER", type: "logo", id: "tiemeyer" },
-];
+import { HeroAuraWaves } from "@/components/ui/HeroAuraWaves";
+import { ROTATING_COMPANIES, COMPANY_ROTATION_INTERVAL_MS } from "@/lib/constants";
 
 export function ToolFinderHero() {
   const [email, setEmail] = useState("");
@@ -51,8 +36,8 @@ export function ToolFinderHero() {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCompanyIndex((prev) => (prev + 1) % rotatingCompanies.length);
-    }, 1000);
+      setCompanyIndex((prev) => (prev + 1) % ROTATING_COMPANIES.length);
+    }, COMPANY_ROTATION_INTERVAL_MS);
     return () => clearInterval(timer);
   }, []);
 
@@ -68,13 +53,16 @@ export function ToolFinderHero() {
   const profileImage = "/avatars/catherine.jpg";
 
   return (
-    <div className="w-full min-h-screen relative bg-brand-dark text-white overflow-hidden flex flex-col justify-between">
+    <div className="w-full min-h-screen relative bg-black text-white overflow-hidden flex flex-col justify-between">
+      {/* Rising Space Aura Waves Background Effect */}
+      <HeroAuraWaves />
+
       {/* Top spacing to account for compact floating navbar */}
-      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-36 lg:pt-40 pb-16 sm:pb-24 flex flex-col items-center">
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-36 lg:pt-40 pb-16 sm:pb-24 flex flex-col items-center relative z-10">
         
         {/* 1. Main Headline (H1) */}
         <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[68px] font-bold text-white text-center tracking-tight leading-[1.12] max-w-4xl mx-auto">
-          Find the Right HR Stack For Your Organization
+          Find the Right <span className="text-brand-teal">HR Stack</span> For Your Organization
         </h1>
 
         {/* 2. Subheading */}
@@ -82,26 +70,18 @@ export function ToolFinderHero() {
           Benchmark 20+ top HR platforms against your team size, workflows, and DATEV payroll in under 2 minutes.
         </p>
 
-        {/* 3. Single Clean Input with Tiffany Blue Border Beam & Glossy Tiffany Blue CTA Button */}
-        <div className="mt-7 sm:mt-8 w-full max-w-sm sm:max-w-md relative p-[2px] rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(129,216,208,0.35)]">
-          {/* Animated Tiffany Blue Border Beam Running in Continuous Loop */}
-          <div
-            className="absolute -inset-[200%] animate-border-beam pointer-events-none"
-            style={{
-              background:
-                "conic-gradient(from 0deg at 50% 50%, transparent 0deg 270deg, #81D8D0 320deg, #A8F5EE 345deg, #FFFFFF 360deg)",
-            }}
-          />
-
+        {/* 3. Clean Input with Glossy Tiffany Blue CTA Button (No beam) */}
+        <div className="mt-7 sm:mt-8 w-full max-w-sm sm:max-w-md relative p-[1px] rounded-2xl bg-white/20 border border-white/30 shadow-[0_4px_24px_rgba(0,0,0,0.4)]">
           <form
             onSubmit={scrollToAssessment}
-            className="relative z-10 bg-white rounded-[14px] p-1.5 pl-4 sm:pl-5 flex items-center justify-between transition-all"
+            className="relative z-10 bg-white rounded-[15px] p-1.5 pl-4 sm:pl-5 flex items-center justify-between transition-all"
           >
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="What's your work email? *"
+              aria-label="Work email address"
               className="w-full bg-transparent text-gray-900 placeholder:text-gray-400 text-xs sm:text-sm font-medium focus:outline-none pr-2"
               required
             />
@@ -134,32 +114,27 @@ export function ToolFinderHero() {
                 transition={{ duration: 0.2, ease: "easeOut" }}
                 className="inline-flex items-center gap-1 font-bold text-white whitespace-nowrap"
               >
-                {rotatingCompanies[companyIndex].type === "logo" && (
+                {ROTATING_COMPANIES[companyIndex].type === "logo" && (
                   <>
-                    <CompanyLogo id={rotatingCompanies[companyIndex].id!} className="w-4 h-4" />
+                    <CompanyLogo id={ROTATING_COMPANIES[companyIndex].id!} className="w-4 h-4" />
                     <span className="text-xs sm:text-sm font-bold text-white tracking-tight">
-                      {rotatingCompanies[companyIndex].name}
+                      {ROTATING_COMPANIES[companyIndex].name}
                     </span>
                   </>
                 )}
-                {rotatingCompanies[companyIndex].type === "text" && (
-                  <span className={rotatingCompanies[companyIndex].className}>
-                    {rotatingCompanies[companyIndex].name}
+                {ROTATING_COMPANIES[companyIndex].type === "text" && (
+                  <span className={ROTATING_COMPANIES[companyIndex].className}>
+                    {ROTATING_COMPANIES[companyIndex].name}
                   </span>
                 )}
-                {rotatingCompanies[companyIndex].type === "orderbird" && (
-                  <span className="font-black text-xs sm:text-sm tracking-tight text-white flex items-center gap-1">
-                    <svg className="w-3.5 h-3.5 fill-current text-white" viewBox="0 0 24 24">
-                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                    </svg>
-                    orderbird
+                {ROTATING_COMPANIES[companyIndex].type === "orderbird" && (
+                  <span className="font-extrabold tracking-tighter text-xs sm:text-sm text-white flex items-center gap-0.5">
+                    <span className="text-white text-base leading-none">›</span>
+                    <span>orderbird</span>
                   </span>
                 )}
-                {rotatingCompanies[companyIndex].type === "spendesk" && (
-                  <span className="font-black text-xs sm:text-sm tracking-tight text-white flex items-center gap-1">
-                    <svg className="w-3.5 h-3.5 fill-current text-white" viewBox="0 0 24 24">
-                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                    </svg>
+                {ROTATING_COMPANIES[companyIndex].type === "spendesk" && (
+                  <span className="font-black tracking-widest text-[11px] sm:text-xs text-white uppercase">
                     SPENDESK
                   </span>
                 )}
@@ -168,8 +143,8 @@ export function ToolFinderHero() {
           </div>
         </div>
 
-        {/* 5. Main Dashboard Mockup Card with Continuous Tiffany Blue Border Beam & Scaled Miniature Preview on Mobile */}
-        <div className="mt-12 sm:mt-16 w-full max-w-5xl relative p-[2px] sm:p-[2.5px] rounded-[24px] sm:rounded-[34px] overflow-hidden shadow-[0_0_50px_rgba(129,216,208,0.3)]">
+        {/* 5. Main Dashboard Mockup Card */}
+        <div className="mt-12 sm:mt-16 w-full max-w-5xl relative p-[2px] sm:p-[2.5px] rounded-[24px] sm:rounded-[34px] overflow-hidden shadow-2xl">
           {/* Animated Tiffany Blue Border Beam Running in Continuous Loop */}
           <div
             className="absolute -inset-[200%] animate-border-beam pointer-events-none"
@@ -527,10 +502,10 @@ export function ToolFinderHero() {
 
                   </div>
                 </div>
-              </div>
             </div>
           </div>
         </div>
+      </div>
 
         {/* 6. Bottom Trusted Companies Metrics Bar */}
         <div className="mt-14 sm:mt-16 w-full max-w-5xl grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 pt-8 border-t border-white/10 text-center">

@@ -29,7 +29,7 @@ const securityHeaders = [
       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
       font-src 'self' https://fonts.gstatic.com data:;
       img-src 'self' data: https: blob:;
-      connect-src 'self' http://localhost:5000 http://127.0.0.1:5000 https://api.scaliify.com;
+      connect-src 'self' ${process.env.NODE_ENV === "development" ? "http://localhost:5000 http://127.0.0.1:5000 " : ""}https://api.scaliify.com;
       frame-ancestors 'none';
       form-action 'self';
       base-uri 'self';

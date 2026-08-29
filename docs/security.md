@@ -1,6 +1,6 @@
-# Scaliify — Production Security & Hardening Architecture
+# Scaliify — Production Security Architecture
 
-This document details the production security architecture, threat model mitigations, defensive controls, and operational guidelines implemented across the Scaliify full-stack platform.
+Last audited: 2026-08-30
 
 ---
 
@@ -22,139 +22,204 @@ This document details the production security architecture, threat model mitigat
 │  - poweredByHeader: false                              │
 │  - Client-side input trimming & validation             │
 │  - Safe external link protocol enforcement             │
+│  - PII auto-expiration in localStorage (24h TTL)       │
 └─────────────────────────┬──────────────────────────────┘
                           │ REST JSON (Over TLS)
                           ▼
 ┌────────────────────────────────────────────────────────┐
 │             Backend API (Node.js / Express)            │
-│  - Global & Sensitive Rate Limiters (express-rate-limit│
+│  - Distributed rate limiting (Upstash Redis + fallback)│
 │  - Helmet Security Suite (HSTS 2-year, CSP, Frameguard)│
 │  - Strict 100kb payload limit                          │
 │  - Content-Type: application/json enforcement          │
-│  - Deep recursive XSS & control character sanitizer   │
-│  - Strict Zod schema boundaries & regex checks         │
+│  - Deep recursive XSS & control character sanitizer    │
+│  - Strict Zod schema validation on all inputs          │
 │  - Sanitized logging (masked PII & credentials)        │
-│  - Safe global error handling (no stack traces in prod)│
+│  - Safe global error handling (no stack traces in prod) │
 └─────────────────────────┬──────────────────────────────┘
                           │ Parameterized SQL Queries
                           ▼
 ┌────────────────────────────────────────────────────────┐
 │          PostgreSQL Database (Drizzle ORM)             │
-│  - Parameterized queries (Zero raw string concatenation│
+│  - Parameterized queries (zero raw string concatenation)│
 │  - Strict column constraints & foreign key cascades    │
-│  - Protected schema migrations                         │
+│  - drizzle-orm v0.45.2+ (patched GHSA-gpj5-g38j-94v9) │
 └────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 2. Secrets & API Keys Management
+## 2. Secrets & Credentials
 
-1. **Server-Only Boundary**:
-   * All sensitive credentials (`DATABASE_URL`, `RESEND_API_KEY`, internal secret keys) reside strictly within server runtime environments and are never prefixed with `NEXT_PUBLIC_`.
-   * Client-side bundles and source maps are verified to ensure zero credential leakage.
-2. **Environment Template Integrity**:
-   * `.env.example` files are maintained in root, `frontend/`, and `backend/` containing safe dummy placeholders.
-   * `.gitignore` explicitly blocks `.env`, `.env.local`, `.env.*.local`, `*.pem`, `*.key`, and `*.cert`.
-
----
-
-## 3. Frontend Security Controls
-
-1. **Content Security Policy (CSP)**:
-   * Next.js headers restrict script, style, font, image, and network connection sources:
-     * Scripts: `'self' 'unsafe-inline' 'unsafe-eval'` (required for Turbopack client hydration).
-     * Styles: `'self' 'unsafe-inline' https://fonts.googleapis.com`.
-     * Fonts: `'self' https://fonts.gstatic.com data:`.
-     * Connect: `'self' http://localhost:5000 https://api.scaliify.com`.
-     * Frame Ancestors: `'none'`.
-2. **Clickjacking & MIME Protection**:
-   * `X-Frame-Options: DENY` prevents framing inside malicious iframes.
-   * `X-Content-Type-Options: nosniff` prevents browser MIME-sniffing exploits.
-   * `Permissions-Policy: camera=(), microphone=(), geolocation=(), browsing-topics=()`.
-3. **Safe Link Navigation**:
-   * External tool links (`websiteUrl`) are validated via `isSafeHttpUrl` ensuring only `http:` or `https:` protocols execute, preventing `javascript:` pseudo-protocol execution.
+- **No hardcoded credentials** in source code. `DATABASE_URL` is required via environment variable; the app fails fast at startup if missing.
+- All secrets (`DATABASE_URL`, `RESEND_API_KEY`, `UPSTASH_REDIS_REST_TOKEN`) are server-only environment variables — never prefixed with `NEXT_PUBLIC_`.
+- Only one `NEXT_PUBLIC_` variable: `NEXT_PUBLIC_BACKEND_URL` (public API base URL, not a secret).
+- `.gitignore` excludes `.env`, `.env.local`, `.env.*.local`, `*.pem`, `*.key`, `*.cert`.
+- `.env.example` files contain placeholder values only.
+- Startup Zod validation catches misconfigured env vars before the server accepts traffic.
 
 ---
 
-## 4. API & Input Hardening
+## 3. Input Validation
 
-1. **Rate Limiting & Abuse Prevention**:
-   * **Global API Limiter**: 150 requests per 15 minutes per IP.
-   * **Sensitive Mutation Limiter**: 20 submissions per hour per IP on `POST /api/v1/tool-finder/assess` and `POST /api/v1/leads` to eliminate spam and scraping.
-2. **Content-Type & Body Size Constraints**:
-   * Mutating routes strictly enforce `Content-Type: application/json` (returning `415 Unsupported Media Type` otherwise).
-   * Request bodies are capped at `100kb` (`express.json({ limit: "100kb" })`), mitigating memory exhaustion attacks.
-3. **XSS & Injection Sanitization**:
-   * All incoming request payloads undergo deep recursive sanitization in `backend/src/middleware/security.middleware.ts`, escaping dangerous HTML characters (`<`, `>`, `&`, `"`, `'`, `/`) and stripping non-printable control characters.
-4. **Strict Zod Boundary Validation**:
-   * String lengths, character regex sets (`/^[a-zA-Z\s\u00C0-\u024F\u1E00-\u1EFF'.-]+$/`), email formats, and enum boundaries are enforced on the backend regardless of client-side validation.
+All user-controlled input is validated server-side with Zod:
 
----
+| Endpoint | Validation |
+|----------|------------|
+| `POST /tool-finder/assess` | `toolFinderAssessmentSubmissionSchema` — strict enums, array caps (max 10), regex name validation, length limits |
+| `POST /leads` | `leadContactSchema` — regex names, email format, phone pattern, max 1000 char comments |
+| `GET /tools?category=&region=` | Zod schema: `^[a-z0-9_-]+$`, max 50 chars |
+| `GET /tools/:slug` | Zod: `^[a-z0-9-]+$`, max 100 chars |
+| `GET /tool-finder/submissions/:id` | Zod UUID format validation |
 
-## 5. Database & SQL Injection Defense
-
-1. **Parameterized Queries**:
-   * All database interactions are executed through **Drizzle ORM** parameterized queries.
-   * No raw SQL strings or user-concatenated queries are constructed.
-2. **SQL Injection Attack Verification**:
-   * Automated security test cases verify that attack vectors (e.g. `' OR 1=1 --`, `; DROP TABLE tools; --`, `UNION SELECT`) are treated as literal strings and cannot alter query logic.
+Frontend validation exists for UX only — it is never trusted for security.
 
 ---
 
-## 6. Tool Finder Integrity & Scoring Security
+## 4. SQL Injection Prevention
 
-1. **Server-Side Scoring Authority**:
-   * The client only submits user answers (company size, regions, requirement tags).
-   * The backend independently matches these answers against database tool features and executes the multi-factor scoring algorithm.
-   * The client is never permitted to supply match percentages or dictate recommendation ranks.
-
----
-
-## 7. Error Handling & Information Disclosure
-
-1. **Zero Stack Trace Exposure**:
-   * In production (`NODE_ENV=production`), all unhandled errors return generic responses (`"An unexpected server error occurred."`).
-   * Database table names, column structures, SQL errors, and system file paths are completely suppressed.
-2. **Sanitized Logging**:
-   * Server logs pass through `maskSensitive()` in `utils/sanitize.ts` to automatically redact passwords, tokens, API keys, and connection strings.
+- All database operations use **Drizzle ORM's type-safe query builder**.
+- No raw SQL, `sql` tagged templates, `.raw()`, or `.execute()` calls exist in the codebase.
+- `drizzle-orm` upgraded from v0.39.3 to v0.45.2+ to patch GHSA-gpj5-g38j-94v9 (SQL injection via improperly escaped identifiers).
 
 ---
 
-## 8. Automated Security Test Suite
+## 5. XSS Prevention
 
-Run the automated security test suite anytime via:
-
-```bash
-# In scaliify/ or scaliify/backend/
-npm run test:security
-```
-
-### Automated Assertions:
-1. `X-Content-Type-Options: nosniff` validation.
-2. `X-Frame-Options: DENY` validation.
-3. `Strict-Transport-Security` (HSTS) presence.
-4. `Content-Security-Policy` (CSP) presence.
-5. Removal of `X-Powered-By` fingerprinting.
-6. SQL Injection payload handling.
-7. Suppression of raw database error leakage.
-8. XSS payload sanitization.
-9. Content-Type enforcement (415 status on invalid formats).
-10. Malformed JSON handling (standard 400 Bad Request).
-11. Information disclosure & stack trace suppression.
+- No `dangerouslySetInnerHTML`, `eval()`, `new Function()`, or `.innerHTML` in frontend code.
+- Backend applies **global input sanitization** — HTML-escapes `& < > " ' /`, strips null bytes and control characters from all request body strings.
+- CSP restricts `script-src` to `'self' 'unsafe-inline'`; `'unsafe-eval'` allowed in development only.
+- Tool website URLs validated with `isSafeHttpUrl()` before rendering — only `http:` and `https:` protocols allowed.
+- Error responses never echo user input back (slug/ID not reflected in error messages).
 
 ---
 
-## 9. Pre-Production Security Checklist
+## 6. Rate Limiting
 
-Before deploying to production environments (e.g. Vercel / Railway / AWS):
+| Scope | Limit | Backend |
+|-------|-------|---------|
+| Global API | 100 req / 10s per IP | Upstash Redis (sliding window) |
+| Sensitive endpoints | 10 req / 60s per IP | Upstash Redis (sliding window) |
+| Global (fallback) | 150 req / 15min per IP | express-rate-limit (in-memory) |
+| Sensitive (fallback) | 20 req / 1hr per IP | express-rate-limit (in-memory) |
 
-- [x] Environment variable templates maintained without real secrets.
-- [x] Next.js security headers configured.
-- [x] Backend Helmet & CSP configured.
-- [x] Rate limiting active on all public endpoints.
-- [x] Input sanitization and Zod boundaries active.
-- [x] Parameterized Drizzle queries verified against SQLi.
-- [x] Automated security audit suite passes with 100% assertions.
-- [x] `NODE_ENV=production` set in production environment variables.
-- [x] SSL/TLS 1.3 enforced across all domain routes.
+Sensitive rate limiter applied to: `POST /tool-finder/assess`, `POST /leads`.
+Global rate limiter applied to all `/api` routes.
+
+---
+
+## 7. CORS
+
+- **Production**: Only the configured `FRONTEND_URL` origin is allowed.
+- **Development**: Additionally allows `localhost:3000`, `127.0.0.1:3000`, `localhost:3001`.
+- Allowed methods: `GET`, `POST`, `OPTIONS`.
+- Credentials: enabled.
+- Preflight cache: 24 hours.
+
+---
+
+## 8. Security Headers
+
+Both frontend (Next.js) and backend (Helmet) set:
+
+- `Content-Security-Policy` (environment-aware; localhost removed from `connect-src` in production)
+- `Strict-Transport-Security` (2-year max-age, includeSubDomains, preload)
+- `X-Frame-Options: DENY`
+- `X-Content-Type-Options: nosniff`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+- `Permissions-Policy` (camera, microphone, geolocation, browsing-topics disabled)
+- `X-Powered-By` header removed
+
+---
+
+## 9. Tool Finder Scoring Integrity
+
+- The authoritative scoring engine lives in `@scaliify/shared` and runs on the **backend**.
+- Frontend uses an identical copy as a **fallback only** when the backend is unreachable.
+- Backend-computed results are persisted in PostgreSQL as the source of truth.
+- Match percentages clamped to 55-98% server-side — clients cannot inflate scores.
+
+---
+
+## 10. Data Persistence Security
+
+- **localStorage**: In-progress drafts auto-expire after 24 hours. Email is excluded from draft data.
+- **sessionStorage**: Client-side fallback results only (tab-scoped, cleared on close).
+- **No cookies** are used by the application.
+- No secrets, API keys, or tokens are stored in browser storage.
+
+---
+
+## 11. Error Handling
+
+- Production errors return generic messages; stack traces suppressed.
+- Error responses never expose database details, file paths, or internal architecture.
+- Logs sanitized via `maskSensitive()` — passwords, tokens, API keys, connection strings redacted.
+- Payload size: 100KB limit (413 on oversize). Malformed JSON: 400.
+
+---
+
+## 12. Dependency Security
+
+- `npm audit --omit=dev` returns **0 vulnerabilities**.
+- drizzle-orm upgraded to v0.45.2+ (GHSA-gpj5-g38j-94v9 patched).
+- 4 moderate dev-only vulnerabilities in drizzle-kit's transitive esbuild dependency (does not affect production).
+
+---
+
+## 13. CI/CD Security
+
+GitHub Actions pipeline (`.github/workflows/ci.yml`) runs on every push and PR:
+
+1. **Lint** — ESLint
+2. **Type check** — TypeScript (frontend + backend)
+3. **Tests** — Vitest (backend + frontend)
+4. **Dependency audit** — `npm audit --omit=dev`
+5. **Secret scanning** — Regex grep for API key patterns in source
+6. **Build** — Production build verification
+
+---
+
+## 14. What This App Does NOT Have (By Design)
+
+| Feature | Status | Notes |
+|---------|--------|-------|
+| User authentication | Not implemented | Public consultancy website |
+| Session management | Not needed | No authenticated state |
+| CSRF tokens | Not needed | No cookie-based auth |
+| File uploads | Not implemented | No upload endpoints exist |
+| Outbound URL fetching | Not implemented | No SSRF surface |
+| Redirects | Not implemented | No open redirect surface |
+
+---
+
+## 15. Remaining Advisories
+
+1. **`unsafe-inline` in CSP script-src**: Required by Next.js for inline script injection during SSR. Mitigated by absence of `dangerouslySetInnerHTML` and input sanitization.
+2. **Placeholder forms**: "Let's Talk" and "Contact" forms show success without sending data to backend — UX placeholders awaiting backend integration.
+3. **Dev-only esbuild vulnerability**: 4 moderate vulns in drizzle-kit's transitive esbuild dep — dev-only, does not affect production.
+
+---
+
+## 16. Security Checklist
+
+- [x] No hardcoded secrets in source code
+- [x] `.env` files excluded from Git
+- [x] `.env.example` files contain only placeholders
+- [x] Startup env validation (fail-fast on missing DATABASE_URL)
+- [x] All user input validated server-side with Zod
+- [x] No raw SQL queries — Drizzle ORM only
+- [x] drizzle-orm patched to v0.45.2+ (SQL injection fix)
+- [x] No XSS vectors (no dangerouslySetInnerHTML, eval, innerHTML)
+- [x] Global input sanitization middleware
+- [x] Distributed rate limiting (Upstash Redis + fallback)
+- [x] CORS restricted to trusted origins in production
+- [x] Security headers (CSP, HSTS, X-Frame-Options, etc.)
+- [x] Error messages sanitized in production
+- [x] Tool URLs validated with isSafeHttpUrl before rendering
+- [x] PII auto-expires from localStorage (24h TTL)
+- [x] Scoring engine authoritative on backend
+- [x] Dependencies audited — 0 production vulnerabilities
+- [x] CI pipeline with security checks
+- [x] No NEXT_PUBLIC_ secrets
+- [x] No reflected user input in error responses

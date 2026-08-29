@@ -73,4 +73,6 @@ Thumbs.db
 # Temporary scripts & scratch files
 update_wizard.py
 scratch/
+.github/
+
 

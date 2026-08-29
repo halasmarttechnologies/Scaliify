@@ -109,6 +109,17 @@ export function NavDesktopMenu({ isScrolled, activeMenu, setActiveMenu }: NavDes
             />
           </button>
         </div>
+
+        {/* 6. Contact Us */}
+        <Link
+          href="/contact"
+          className={`transition-colors px-1.5 py-1 ${
+            isScrolled ? "hover:text-white" : "hover:text-gray-900 hover:text-brand-dark"
+          }`}
+          onMouseEnter={() => setActiveMenu(null)}
+        >
+          Contact
+        </Link>
       </nav>
 
       {/* ========================================================================= */}
@@ -254,7 +265,7 @@ export function NavDesktopMenu({ isScrolled, activeMenu, setActiveMenu }: NavDes
           >
             <div className="space-y-1 text-[13px] font-medium text-gray-700">
               <Link
-                href="/insights/blog"
+                href="/blog"
                 onClick={() => setActiveMenu(null)}
                 className="block px-3 py-2.5 rounded-xl hover:bg-gray-50 hover:text-brand-dark transition-colors"
               >

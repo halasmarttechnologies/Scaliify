@@ -21,7 +21,7 @@
     "@upstash/redis": "^1.38.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
-    "drizzle-orm": "^0.39.3",
+    "drizzle-orm": "^0.45.2",
     "express": "^4.21.2",
     "express-rate-limit": "^8.6.2",
     "helmet": "^8.0.0",
@@ -32,7 +32,7 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/node": "^22.13.5",
-    "drizzle-kit": "^0.30.4",
+    "drizzle-kit": "^0.31.10",
     "tsx": "^4.19.3",
     "typescript": "^5.7.3",
     "vitest": "^3.2.7"

@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { RecommendationEngine } from "../recommendationEngine";
 import type { AssessmentAnswers } from "../../schemas/toolFinder.schema";
-import type { NewTool } from "../../db/schema";
+import type { ToolData } from "@scaliify/shared";
 
 function baseAnswers(overrides: Partial<AssessmentAnswers> = {}): AssessmentAnswers {
   return {
@@ -18,7 +18,7 @@ function baseAnswers(overrides: Partial<AssessmentAnswers> = {}): AssessmentAnsw
   };
 }
 
-function makeTool(overrides: Partial<NewTool> = {}): NewTool {
+function makeTool(overrides: Partial<ToolData> = {}): ToolData {
   return {
     id: "tool-a",
     name: "Tool A",
@@ -37,7 +37,7 @@ function makeTool(overrides: Partial<NewTool> = {}): NewTool {
     strengths: [],
     isActive: true,
     ...overrides,
-  } as NewTool;
+  } as ToolData;
 }
 
 describe("RecommendationEngine.calculate", () => {
@@ -142,8 +142,8 @@ describe("RecommendationEngine.calculate", () => {
       baseAnswers({ currentStatus: "status_replace_hris", companySize: "size_enterprise", regions: ["region_dach", "region_mena"] }),
       [makeTool()]
     );
-    expect(result.assessmentSummary.primaryFocus).toBe("REPLACE HRIS");
-    expect(result.assessmentSummary.teamSize).toBe("ENTERPRISE");
+    expect(result.assessmentSummary.primaryFocus).toBe("REPLACING HRIS");
+    expect(result.assessmentSummary.teamSize).toBe("ENTERPRISE (1000+)");
     expect(result.assessmentSummary.regionsCount).toBe(2);
   });
 

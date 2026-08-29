@@ -5,9 +5,7 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 
-export function Footer() {
-
-  const footerLinks = {
+const footerLinks = {
     product: [
       { name: "Features Overview", href: "#services" },
       { name: "Pricing Plans", href: "/contact" },
@@ -17,8 +15,10 @@ export function Footer() {
     ],
     company: [
       { name: "About Us", href: "/#services" },
+      { name: "Contact Us", href: "/contact" },
+      { name: "Let's Talk", href: "/lets-talk" },
       { name: "Careers", href: "/contact" },
-      { name: "Blog & Insights", href: "/#services" },
+      { name: "Blog & Insights", href: "/blog" },
       { name: "Press Kit", href: "/contact" },
       { name: "Partners", href: "/#companies" },
     ],
@@ -29,8 +29,9 @@ export function Footer() {
       { name: "Community", href: "/contact" },
       { name: "Webinars", href: "/contact" },
     ],
-  };
+};
 
+export function Footer() {
   return (
     <footer className="w-full bg-black text-white pt-16 sm:pt-20 pb-12 px-4 sm:px-8 lg:px-16 border-t border-white/10 relative overflow-hidden">
       {/* Background Graphic Image */}
@@ -92,17 +93,14 @@ export function Footer() {
           {/* Brand Column (Spans 2 columns on lg) */}
           <div className="lg:col-span-2 flex flex-col items-start pr-0 lg:pr-12">
             <Link href="/" className="flex items-center gap-3 mb-6 group">
-              <div className="w-8 h-8 rounded-lg bg-brand-teal flex items-center justify-center text-black">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="w-5 h-5 fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="7" cy="7" r="4" />
-                  <circle cx="17" cy="7" r="4" fillOpacity="0.75" />
-                  <circle cx="7" cy="17" r="4" fillOpacity="0.75" />
-                  <circle cx="17" cy="17" r="4" />
-                </svg>
+              <div className="relative w-8 h-8 sm:w-9 sm:h-9 shrink-0">
+                <Image
+                  src="/company logo/whitelogo.png"
+                  alt="Scaliify Logo"
+                  fill
+                  unoptimized
+                  className="object-contain"
+                />
               </div>
               <span className="font-bold text-2xl tracking-tight text-white group-hover:text-brand-teal transition-colors">
                 Scaliify

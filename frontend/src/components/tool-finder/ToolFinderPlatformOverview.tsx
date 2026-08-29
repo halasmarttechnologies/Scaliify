@@ -44,7 +44,7 @@ export function ToolFinderPlatformOverview() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-20%" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 flex flex-col justify-between border border-gray-200/70 shadow-sm min-h-[380px]"
+            className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 flex flex-col justify-between border border-gray-200/70 shadow-sm min-h-[300px] sm:min-h-[380px]"
           >
             <div>
               <h3 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-gray-900 tracking-tight mb-3">
@@ -79,7 +79,7 @@ export function ToolFinderPlatformOverview() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-20%" }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.12 }}
-            className="relative rounded-3xl overflow-hidden min-h-[380px] flex flex-col justify-end p-5 shadow-sm"
+            className="relative rounded-2xl sm:rounded-3xl overflow-hidden min-h-[320px] sm:min-h-[400px] flex flex-col justify-end p-3.5 sm:p-5 shadow-sm"
           >
             
             {/* Clean Photographic Background */}
@@ -173,7 +173,7 @@ export function ToolFinderPlatformOverview() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-20%" }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.24 }}
-            className="bg-[#f3f4f6] rounded-3xl p-8 sm:p-10 flex flex-col justify-between border border-gray-200/50 min-h-[380px]"
+            className="bg-[#f3f4f6] rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 flex flex-col justify-between border border-gray-200/50 min-h-[300px] sm:min-h-[380px]"
           >
             
             {/* Top: Logo & Quote Marks */}

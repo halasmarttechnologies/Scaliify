@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-brand-dark: #0C241D;
+  --color-brand-dark: #05434b;
   --color-brand-teal: #81D8D0;
   --color-brand-teal-light: #A8F5EE;
   --color-brand-teal-deep: #5BC7BC;

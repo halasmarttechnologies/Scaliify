@@ -21,23 +21,23 @@ export function ServicesOverview() {
 
   return (
     <section id="services" className="w-full bg-transparent relative z-20">
-      <div className="w-full bg-[#fafafa] text-[#0c241d] py-10 sm:py-16 md:py-20 px-3.5 sm:px-6 md:px-8 lg:px-12">
+      <div className="w-full bg-[#fafafa] text-gray-900 py-10 sm:py-16 md:py-20 px-3.5 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-[1280px] mx-auto flex flex-col items-center">
 
         {/* Header Section */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-15%" }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex flex-col items-center text-center mb-8 sm:mb-14 md:mb-20 px-2"
         >
-          <div className="bg-brand-teal text-[#0c241d] font-bold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full mb-4 sm:mb-8 cursor-pointer">
-            <TextRoll>Our Services</TextRoll>
+          <div className="bg-brand-teal text-brand-dark font-bold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full mb-4 sm:mb-8 select-none">
+            Our Services
           </div>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-3 sm:mb-6 cursor-pointer flex flex-col items-center gap-1">
-            <TextRoll>Tailored services.</TextRoll>
-            <TextRoll>Scaliify does it perfectly.</TextRoll>
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-3 sm:mb-6 flex flex-col items-center gap-1">
+            <span>Tailored services.</span>
+            <span>Scaliify does it perfectly.</span>
           </h2>
           <p className="text-gray-500 max-w-2xl text-xs sm:text-base md:text-lg lg:text-xl px-2 sm:px-0">
             Scaliify works wherever you need growth. Any platform, device, or market.
@@ -59,10 +59,10 @@ export function ServicesOverview() {
               <div className="flex items-center justify-between border-b border-gray-200 pb-4 sm:pb-6 mb-3 sm:mb-4">
                 <h3 className="text-xl sm:text-3xl font-semibold tracking-tight">HR Technology</h3>
                 <div className="flex items-center gap-2 sm:gap-3">
-                  <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-[#0c241d] hover:bg-gray-50 transition-colors">
+                  <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-[#05434b] hover:bg-gray-50 transition-colors">
                     <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </button>
-                  <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-brand-teal flex items-center justify-center text-[#0c241d] hover:brightness-105 transition-colors">
+                  <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-brand-teal flex items-center justify-center text-[#05434b] hover:brightness-105 transition-colors">
                     <MonitorSmartphone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </button>
                 </div>
@@ -73,7 +73,7 @@ export function ServicesOverview() {
                   <div key={idx} className="border-b border-gray-200 last:border-0 overflow-hidden">
                     <button
                       onClick={() => toggleTech(idx)}
-                      className={`w-full flex items-center justify-between py-4 sm:py-5 text-left font-medium transition-colors ${openTech === idx ? 'hidden' : 'text-[#0c241d] hover:text-brand-teal'}`}
+                      className={`w-full flex items-center justify-between py-4 sm:py-5 text-left font-medium transition-colors ${openTech === idx ? 'hidden' : 'text-[#05434b] hover:text-brand-teal'}`}
                     >
                       <span className="text-sm sm:text-lg">{service.title}</span>
                       <Plus className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 shrink-0 ml-2" />
@@ -89,7 +89,7 @@ export function ServicesOverview() {
                         >
                           <div 
                             onClick={() => toggleTech(idx)}
-                            className="bg-brand-dark text-white rounded-2xl p-6 md:p-8 my-4 flex flex-col gap-4 shadow-xl cursor-pointer group/card"
+                            className="bg-brand-dark text-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 my-3 sm:my-4 flex flex-col gap-3 sm:gap-4 shadow-xl cursor-pointer group/card"
                           >
                             <div className="flex items-center justify-between mb-1">
                               <h4 className="text-lg sm:text-xl font-bold">{service.title}</h4>
@@ -121,10 +121,10 @@ export function ServicesOverview() {
               <div className="flex items-center justify-between border-b border-gray-200 pb-4 sm:pb-6 mb-3 sm:mb-4">
                 <h3 className="text-xl sm:text-3xl font-semibold tracking-tight">Advisory & Leadership</h3>
                 <div className="flex items-center gap-2 sm:gap-3">
-                  <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-[#0c241d] hover:bg-gray-50 transition-colors">
+                  <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-[#05434b] hover:bg-gray-50 transition-colors">
                     <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </button>
-                  <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-brand-teal flex items-center justify-center text-[#0c241d] hover:brightness-105 transition-colors">
+                  <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-brand-teal flex items-center justify-center text-[#05434b] hover:brightness-105 transition-colors">
                     <Target className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </button>
                 </div>
@@ -135,7 +135,7 @@ export function ServicesOverview() {
                   <div key={idx} className="border-b border-gray-200 last:border-0 overflow-hidden">
                     <button
                       onClick={() => toggleAdvisory(idx)}
-                      className={`w-full flex items-center justify-between py-4 sm:py-5 text-left font-medium transition-colors ${openAdvisory === idx ? 'hidden' : 'text-[#0c241d] hover:text-brand-teal'}`}
+                      className={`w-full flex items-center justify-between py-4 sm:py-5 text-left font-medium transition-colors ${openAdvisory === idx ? 'hidden' : 'text-[#05434b] hover:text-brand-teal'}`}
                     >
                       <span className="text-sm sm:text-lg">{service.title}</span>
                       <Plus className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 shrink-0 ml-2" />

@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
 import {
   Search,
@@ -32,21 +33,21 @@ const avatars = {
   felix: "/avatars/felix.jpg",
 };
 
-export function HeroDashboardPreview() {
+export const HeroDashboardPreview = React.memo(function HeroDashboardPreview() {
   return (
-        <div className="mt-12 sm:mt-16 w-full max-w-5xl relative p-[2px] sm:p-[2.5px] rounded-[24px] sm:rounded-[34px] overflow-hidden shadow-[0_0_50px_rgba(129,216,208,0.3)]">
-          {/* Animated Tiffany Blue Border Beam Running in Continuous Loop */}
-          <div
-            className="absolute -inset-[200%] animate-border-beam pointer-events-none"
-            style={{
-              background:
-                "conic-gradient(from 0deg at 50% 50%, transparent 0deg 270deg, #81D8D0 320deg, #A8F5EE 345deg, #FFFFFF 360deg)",
-            }}
-          />
+    <div className="mt-12 sm:mt-16 w-full max-w-5xl relative p-[2px] sm:p-[2.5px] rounded-[24px] sm:rounded-[34px] overflow-hidden shadow-2xl">
+      {/* Animated Tiffany Blue Border Beam Running in Continuous Loop */}
+      <div
+        className="absolute -inset-[200%] animate-border-beam pointer-events-none"
+        style={{
+          background:
+            "conic-gradient(from 0deg at 50% 50%, transparent 0deg 270deg, #81D8D0 320deg, #A8F5EE 345deg, #FFFFFF 360deg)",
+        }}
+      />
 
-          {/* Frosted Glass Inner Frame */}
-          <div className="relative z-10 w-full p-2 sm:p-3 rounded-[24px] sm:rounded-[34px] bg-white/10 backdrop-blur-xl border border-white/20 overflow-hidden">
-            {/* Auto-scaling container for mobile/tablet to preserve authentic full desktop layout without vertical stretching or cutoff */}
+      {/* Frosted Glass Inner Frame */}
+      <div className="relative z-10 w-full p-2 sm:p-3 rounded-[24px] sm:rounded-[34px] bg-white/10 backdrop-blur-xl border border-white/20 overflow-hidden">
+        {/* Auto-scaling container for mobile/tablet to preserve authentic full desktop layout without vertical stretching or cutoff */}
             <div className="w-full flex justify-center items-start overflow-hidden h-[170px] min-[360px]:h-[180px] min-[390px]:h-[200px] min-[430px]:h-[220px] sm:h-[345px] md:h-[420px] lg:h-auto">
               <div className="w-[840px] md:w-[920px] lg:w-full shrink-0 origin-top scale-[0.32] min-[360px]:scale-[0.34] min-[390px]:scale-[0.38] min-[430px]:scale-[0.42] min-[520px]:scale-[0.52] sm:scale-[0.66] md:scale-[0.84] lg:scale-100">
                 <div className="w-full bg-[#FAF9FF] rounded-[28px] sm:rounded-[32px] border border-gray-200/80 text-gray-900 overflow-hidden shadow-lg">
@@ -417,4 +418,4 @@ export function HeroDashboardPreview() {
           </div>
         </div>
   );
-}
+});

@@ -8,7 +8,7 @@ import {
   CalendarCheck,
 } from "lucide-react";
 import Link from "next/link";
-import { ToolRecommendation } from "@/lib/api";
+import { ToolRecommendation, isSafeHttpUrl } from "@/lib/api";
 import type { ToolFinderResponse } from "@/lib/api";
 
 interface WizardResultsProps {
@@ -105,15 +105,17 @@ export function WizardResults({ results, onRetake }: WizardResultsProps) {
 
             {/* Actions */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-4 border-t border-gray-100">
-              <a
-                href={tool.websiteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold text-gray-600 hover:text-black transition-colors py-2"
-              >
-                <span>Visit {tool.name} Official Website</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
+              {isSafeHttpUrl(tool.websiteUrl) && (
+                <a
+                  href={tool.websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold text-gray-600 hover:text-black transition-colors py-2"
+                >
+                  <span>Visit {tool.name} Official Website</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              )}
 
               <Link
                 href="/contact"
