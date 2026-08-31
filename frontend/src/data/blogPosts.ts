@@ -11,11 +11,13 @@ export interface BlogPost {
   slug: string;
   title: string;
   date: string;
+  dateISO: string;
   category: BlogCategory;
   coverType: "photo" | "pulse_green" | "pulse_orange" | "pulse_purple" | "power_lavender";
   imageUrl?: string;
   excerpt: string;
   readTime: string;
+  author?: string;
 }
 
 export const BLOG_CATEGORIES: BlogCategory[] = [
@@ -33,6 +35,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "eu-pay-transparency-directive-guide",
     title: "The EU Pay Transparency Directive: What HR Managers and Scaliify Users Need to Know",
     date: "27. July 2026",
+    dateISO: "2026-07-27",
     category: "Operational Excellence",
     coverType: "photo",
     imageUrl: "/blog-1.jpg",
@@ -44,6 +47,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "hr-trends-precision-hiring",
     title: "HR trends and what they mean: Precision hiring",
     date: "15. July 2026",
+    dateISO: "2026-07-15",
     category: "Strategy",
     coverType: "pulse_green",
     excerpt: "Why high-growth organizations are replacing volume recruitment with competency-based structured hiring rubrics.",
@@ -54,6 +58,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "hr-trends-junior-talent-squeeze",
     title: "HR trends and what they mean: The junior talent squeeze",
     date: "2. July 2026",
+    dateISO: "2026-07-02",
     category: "Strategy",
     coverType: "pulse_orange",
     excerpt: "Navigating entry-level talent development and career progression frameworks in an AI-accelerated workplace.",
@@ -64,6 +69,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "two-days-back-intelligent-hr",
     title: "Two days back every week: What the data says about intelligent HR",
     date: "2. July 2026",
+    dateISO: "2026-07-02",
     category: "Product",
     coverType: "power_lavender",
     excerpt: "Analyzing workflow automation benchmarks across 500+ European SMEs that modernized their HR tech stack.",
@@ -74,6 +80,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "hr-trends-the-ai-job-title",
     title: "HR trends and what they mean: The AI job title",
     date: "17. June 2026",
+    dateISO: "2026-06-17",
     category: "Strategy",
     coverType: "pulse_purple",
     excerpt: "How emerging AI leadership roles are reshaping organizational charts and people operations responsibilities.",
@@ -84,6 +91,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "best-bamboohr-alternatives-uk-eu",
     title: "Best BambooHR alternatives for UK & EU businesses: 5 HR platforms compared in 2026",
     date: "16. June 2026",
+    dateISO: "2026-06-16",
     category: "Talent Acquisition",
     coverType: "photo",
     imageUrl: "/blog-2.jpg",

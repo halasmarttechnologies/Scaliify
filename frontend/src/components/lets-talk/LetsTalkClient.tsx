@@ -126,7 +126,7 @@ export function LetsTalkClient() {
                 <div className="w-12 h-12 rounded-full bg-brand-teal/20 flex items-center justify-center">
                   <CheckCircle2 className="w-7 h-7 text-black stroke-[2.5]" />
                 </div>
-                <h3 className="text-base font-bold text-black">You&apos;re booked in!</h3>
+                <h2 className="text-base font-bold text-black">You&apos;re booked in!</h2>
                 <p className="text-xs text-gray-800 leading-relaxed max-w-[280px]">
                   A Scaliify advisor will reach out within 1 business day to confirm your demo.
                 </p>

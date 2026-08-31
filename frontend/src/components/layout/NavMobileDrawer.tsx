@@ -210,13 +210,6 @@ export function NavMobileDrawer({
                       >
                         HR IT Integrations
                       </Link>
-                      <Link
-                        href="/services/hr-it-audit"
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="block hover:text-brand-teal transition-colors"
-                      >
-                        HR IT Audit
-                      </Link>
                     </div>
                   </div>
 
@@ -312,7 +305,7 @@ export function NavMobileDrawer({
           {/* 3. Fixed Bottom Sticky CTA Button */}
           <div className="p-6 pt-3 bg-white border-t border-gray-100 shrink-0">
             <Link
-              href="/contact"
+              href="/lets-talk"
               onClick={() => {
                 setMobileMenuOpen(false);
                 setMobileSubView(null);

@@ -38,7 +38,7 @@ export function Footer() {
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
         <Image
           src="/3.png"
-          alt="Footer glowing graphic backdrop"
+          alt=""
           fill
           className="object-cover object-top opacity-80 mix-blend-screen"
           priority={false}
@@ -113,7 +113,7 @@ export function Footer() {
 
           {/* Product Links */}
           <div>
-            <h4 className="font-semibold text-white text-sm sm:text-base mb-5">Product</h4>
+            <h3 className="font-semibold text-white text-sm sm:text-base mb-5">Product</h3>
             <ul className="flex flex-col gap-3.5">
               {footerLinks.product.map((link, idx) => (
                 <li key={idx}>
@@ -130,7 +130,7 @@ export function Footer() {
 
           {/* Company Links */}
           <div>
-            <h4 className="font-semibold text-white text-sm sm:text-base mb-5">Company</h4>
+            <h3 className="font-semibold text-white text-sm sm:text-base mb-5">Company</h3>
             <ul className="flex flex-col gap-3.5">
               {footerLinks.company.map((link, idx) => (
                 <li key={idx}>
@@ -147,7 +147,7 @@ export function Footer() {
 
           {/* Resources Links */}
           <div>
-            <h4 className="font-semibold text-white text-sm sm:text-base mb-5">Resources</h4>
+            <h3 className="font-semibold text-white text-sm sm:text-base mb-5">Resources</h3>
             <ul className="flex flex-col gap-3.5">
               {footerLinks.resources.map((link, idx) => (
                 <li key={idx}>

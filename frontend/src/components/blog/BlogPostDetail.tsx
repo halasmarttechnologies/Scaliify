@@ -91,10 +91,10 @@ export function BlogPostDetail({ post }: BlogPostDetailProps) {
         <div className="bg-white rounded-3xl border border-gray-200/80 p-6 sm:p-10 md:p-14 shadow-2xs text-gray-800 leading-relaxed space-y-6 sm:space-y-8">
           {/* Executive Summary / Key Takeaways Box */}
           <div className="bg-brand-surface border border-brand-teal/30 rounded-2xl p-6 sm:p-8">
-            <h3 className="text-base sm:text-lg font-bold text-brand-dark mb-3 flex items-center gap-2">
+            <h2 className="text-base sm:text-lg font-bold text-brand-dark mb-3 flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-brand-teal" />
               Executive Summary & Key Takeaways
-            </h3>
+            </h2>
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
               {post.excerpt}
             </p>

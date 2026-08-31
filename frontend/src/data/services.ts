@@ -17,12 +17,6 @@ export const hrTechnologyServices = [
       "Connect your HR tech stack seamlessly. We handle complex integrations between your HRIS, payroll, ATS, and other enterprise systems.",
     link: "/services/hr-it-integrations",
   },
-  {
-    title: "HR IT Audit",
-    description:
-      "Comprehensive evaluation of your current HR technology landscape to identify security risks, inefficiencies, and opportunities for consolidation.",
-    link: "/services/hr-it-audit",
-  },
 ];
 
 export const advisoryServices = [

@@ -2,8 +2,13 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Check, CheckCircle2, ArrowRight, HelpCircle, Users, Headphones } from "lucide-react";
+import Link from "next/link";
+import {
+  Check,
+  CheckCircle2,
+} from "lucide-react";
 import { companies } from "@/data/companies";
+import { SupportFromDayOne } from "@/components/common/SupportFromDayOne";
 
 const employeeRanges = [
   "1–10 employees",
@@ -119,9 +124,9 @@ export function ContactPageClient() {
                 <div className="w-14 h-14 rounded-full bg-brand-teal/20 flex items-center justify-center mb-5">
                   <CheckCircle2 className="w-8 h-8 text-brand-dark" />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-950 mb-2 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-950 mb-2 tracking-tight">
                   Thank you!
-                </h3>
+                </h2>
                 <p className="text-sm text-gray-600 max-w-xs mb-6">
                   Your request has been received. A Scaliify consultant will follow up within 1 business day.
                 </p>
@@ -356,71 +361,9 @@ export function ContactPageClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 4. NEED ADDITIONAL SUPPORT — 3 cards, white bg              */}
+      {/* 4. SUPPORT FROM DAY ONE — 4-card Bento Support Grid          */}
       {/* ============================================================ */}
-      <section className="w-full bg-white pb-20 sm:pb-28 px-4 sm:px-6">
-        <div className="max-w-4xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-10 sm:mb-12">
-            <p className="text-xs font-bold uppercase tracking-widest text-brand-teal mb-3">
-              Further Help
-            </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-950">
-              Need additional support?
-            </h2>
-          </div>
-
-          {/* Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
-            {[
-              {
-                Icon: HelpCircle,
-                title: "Help Centre",
-                desc: "Browse our Help Centre to find answers, guides, and resources at your own pace.",
-                cta: "Visit Help Centre",
-                href: "/blog",
-              },
-              {
-                Icon: Users,
-                title: "Community",
-                desc: "Connect with HR leaders and Scaliify users to ask questions and share insights.",
-                cta: "Join the discussion",
-                href: "/blog",
-              },
-              {
-                Icon: Headphones,
-                title: "Premium Support",
-                desc: "Get dedicated advisory support and strategic partnership to reach your HR goals.",
-                cta: "Learn more",
-                href: "/contact",
-              },
-            ].map(({ Icon, title, desc, cta, href }) => (
-              <div
-                key={title}
-                className="bg-[#f0f8f8] rounded-2xl p-6 flex flex-col gap-3 border border-[#e0f2f0] hover:border-brand-teal/30 transition-colors"
-              >
-                {/* Icon */}
-                <div className="w-10 h-10 rounded-xl bg-brand-teal/20 flex items-center justify-center shrink-0">
-                  <Icon className="w-5 h-5 text-brand-dark stroke-[1.8]" />
-                </div>
-                {/* Content */}
-                <div className="flex flex-col gap-1.5">
-                  <h3 className="text-sm font-bold text-brand-dark">{title}</h3>
-                  <p className="text-xs text-gray-600 leading-relaxed">{desc}</p>
-                </div>
-                {/* Link CTA — plain text, no button background */}
-                <a
-                  href={href}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-dark hover:opacity-70 transition-opacity mt-auto"
-                >
-                  {cta}
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <SupportFromDayOne />
     </main>
   );
 }

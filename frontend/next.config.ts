@@ -51,6 +51,25 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/insights/blog",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/insights/blog/:slug",
+        destination: "/blog/:slug",
+        permanent: true,
+      },
+      {
+        source: "/services/hr-it-implementation",
+        destination: "/services/implementation-optimisation",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

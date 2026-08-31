@@ -7,13 +7,17 @@ import {
   ArrowRight,
   Check,
   X,
-  Layers,
-  Search,
-  TrendingUp,
-  ShieldCheck,
+  RefreshCw,
+  Cpu,
+  ArrowLeftRight,
+  Database,
   Quote,
   CheckCircle2,
   ChevronDown,
+  Workflow,
+  Users2,
+  Coins,
+  Clock,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { companies } from "@/data/companies";
@@ -23,142 +27,136 @@ import { AnimatedStatCounter } from "@/components/common/AnimatedStatCounter";
 
 const pillars = [
   {
-    icon: Search,
-    title: "Vendor-Neutral Selection",
-    desc: "100% independent evaluation across 100+ European HR software vendors without bias or vendor commissions.",
+    icon: Database,
+    title: "HRIS ↔ Payroll & DATEV",
+    desc: "Automating employee master data, salary revisions, recurring bonuses, and tax variables directly into DATEV or payroll providers to eliminate manual cutover spreadsheets.",
   },
   {
-    icon: Layers,
-    title: "Zero Silo Structures",
-    desc: "Harmonious HR tech architectures where Core HR, Payroll, ATS, and Time tracking connect effortlessly.",
+    icon: Users2,
+    title: "HRIS ↔ ATS & Onboarding",
+    desc: "Seamless candidate-to-hire handoffs from Greenhouse, Ashby, or Lever into contracts and onboarding without retyping resumes, addresses, or personal info.",
   },
   {
-    icon: TrendingUp,
-    title: "Scalable Infrastructure",
-    desc: "IT infrastructure engineered to scale frictionlessly as your company headcount grows from 50 to 5,000+.",
+    icon: Coins,
+    title: "HRIS ↔ Finance & ERP",
+    desc: "Harmonizing headcount reporting, department cost centers, and salary ledger entries between Core HR and NetSuite, SAP, or accounting systems.",
   },
   {
-    icon: ShieldCheck,
-    title: "Compliance & Security",
-    desc: "Guaranteed alignment with European data privacy standards, GDPR, and German labor regulations (BAG).",
+    icon: Clock,
+    title: "Time Tracking ↔ Payroll",
+    desc: "Direct data pipelines connecting recorded clock-ins, shift differentials, overtime, and vacation balances directly into automated monthly payroll runs.",
   },
 ];
 
 const marqueeCards = [
-  // 1. Independent Evaluation Quote Card
   {
     type: "quote-card",
     bg: "bg-[#f0faf8]",
     brandName: "techscale",
     quote:
-      "Scaliify benchmarked 15+ HRIS solutions for our European expansion. Their vendor-neutral evaluation saved us 4 months of sales demos and prevented costly software lock-in.",
+      "Scaliify connected our HiBob HRIS directly with DATEV. We stopped copying employee records between systems and eliminated 15 hours of manual spreadsheet reconciliation every single month.",
     author: "Elena Richter | Head of People Operations",
     border: "border-[#76D8C8]/40",
   },
-  // 2. Rowing Team Full Image Card (Zero Silos & Payroll integration)
   {
     type: "image-card",
-    image: "/images/rowing-team.jpg",
+    image: "/images/hr-integrations-hero.jpg",
     quote:
-      "We replaced 4 disconnected spreadsheets with an interconnected HR & DATEV payroll architecture. Our headcount doubled without adding administrative overhead.",
+      "When our ATS and HRIS didn't have a native integration, Scaliify didn't just sell us an expensive API build. They redesigned our onboarding workflow, which eliminated the need for custom coding entirely.",
     author: "Lukas Weber | VP of People & Culture",
     border: "border-gray-200/50",
   },
-  // 3. Scaliify Logo Gradient Stat Card
   {
     type: "stat-card",
     bg: "bg-gradient-to-br from-[#2B4C55] via-[#05434B] to-[#4FB8AA]",
-    stat: "40%",
-    sub: "faster software evaluation cycle",
+    stat: "100%",
+    sub: "single source of truth data consistency across all systems",
     brand: "Scaliify HR Advisory",
     border: "border-[#76D8C8]/30",
   },
-  // 4. Food Pantry Full Image Card (Unbiased Selection Confidence)
   {
     type: "image-card",
-    image: "/images/food-pantry.jpg",
+    image: "/images/hr-integrations-leader.jpg",
     quote:
-      "Having independent HR advisors who don't take vendor commissions gave us total confidence in choosing our new European ATS and Core HR platform.",
+      "Connecting our Core HR with NetSuite and DATEV gave our CFO and HR team identical real-time headcount numbers. Zero duplicate entries, zero discrepancies.",
     author: "Sarah Lindemann | Chief People Officer",
     border: "border-gray-200/50",
   },
-  // 5. Scalable Architecture Quote Card
   {
     type: "quote-card",
     bg: "bg-[#e8f7f4]",
     brandName: "scaleup group",
     quote:
-      "From RFP requirements to vendor shortlisting and contract negotiations, Scaliify ensured our HR architecture scales effortlessly from 100 to 1,000+ employees.",
+      "Our shift workers' tracked hours now flow directly into monthly payroll. Scaliify ensured all German BAG overtime regulations were automated without manual calculations.",
     author: "Markus Hoffmann | Managing Director",
     border: "border-[#4FB8AA]/40",
   },
-  // 6. Modern Office Team Full Image Card (Compliance & GDPR)
   {
     type: "image-card",
     image: "/images/office-team.jpg",
     quote:
-      "Scaliify helped us navigate GDPR compliance, German labor standards (BAG), and payroll integrations seamlessly during our HR software switch.",
+      "Scaliify acted as true HR IT consultants. They coordinated between our HR team, external software vendors, and IT security to ensure bank-grade data privacy.",
     author: "Sophie Dubois | Global HR Operations",
     border: "border-gray-200/50",
   },
 ];
 
 const beforeItems = [
-  "Fragmented point solutions & data silos",
-  "Biased vendor pitches and hidden commissions",
-  "Costly implementation delays & software rework",
-  "Manual spreadsheet syncs between HR & Payroll",
-  "Growing pains with rigid, outdated systems",
+  "Duplicate employee data typed manually into HRIS, Payroll, and ATS",
+  "Risk of human error and payroll cutover delays from manual CSV exports",
+  "Fragile point-to-point connections that break on software updates",
+  "Costly custom API builds for broken processes that could be simplified",
+  "Discrepancies between HR headcount numbers and Finance ERP reports",
 ];
 
 const afterItems = [
-  { text: "100% Independent & vendor-neutral selection", badge: "100% Unbiased" },
-  { text: "Harmonised, silo-free HR architecture", badge: null },
-  { text: "Automated, interconnected HR workflows", badge: "+40% faster" },
-  { text: "Centralised employee data & single source of truth", badge: null },
-  { text: "Future-proof infrastructure ready to scale", badge: "Effortless scale" },
+  { text: "One verified single source of truth across your HR tech stack", badge: "100% Accurate" },
+  { text: "Automated HRIS ↔ DATEV & Payroll sync without manual spreadsheets", badge: "Zero Manual CSVs" },
+  { text: "Instant ATS candidate-to-hire onboarding with zero duplicate entry", badge: "Zero Double-Entry" },
+  { text: "Process redesign first: simplifying workflows before building APIs", badge: "Cost-Effective" },
+  { text: "Fully GDPR-compliant encryption, automated audit logs & error alerts", badge: "Bank-Grade Security" },
 ];
 
 const impactStats = [
-  { value: "33%", label: "more productive HR teams" },
-  { value: "12%", label: "overall HR cost savings" },
-  { value: "52%", label: "saw value within first 3 months of rollout" },
+  { value: "100%", label: "single source of truth data integrity" },
+  { value: "0", label: "duplicate manual entries across all systems" },
+  { value: "15+ hrs", label: "saved monthly per HR team member on payroll & admin" },
 ];
 
-const hrSelectionFaqs = [
+const hrIntegrationsFaqs = [
   {
-    question: "How does Scaliify remain 100% independent and vendor-neutral?",
+    question: "What does creating a 'single source of truth' mean in HR IT?",
     answer:
-      "Unlike traditional software brokers or affiliate resellers, Scaliify does not accept kickbacks, commissions, or referral fees from software vendors. Our recommendations are driven strictly by your specific technical requirements, headcount trajectory, budget, and compliance needs.",
+      "A single source of truth ensures that employee master data (personal details, compensation, job titles, start dates, and time-off) lives centrally in your Core HRIS and synchronizes automatically with all peripheral tools (Payroll/DATEV, ATS, Slack, ERP, and identity provisioning), eliminating conflicting records and manual re-entry.",
   },
   {
-    question: "How long does a typical HR IT software selection process take?",
+    question: "Which common HR system integrations do you specialize in?",
     answer:
-      "A standard evaluation cycle takes between 2 to 4 weeks from initial requirements discovery to vendor shortlisting, structured RFP demos, and final contract guidance. We compress months of manual research into clear, side-by-side comparison scorecards.",
+      "We connect and automate all core operational interfaces: HRIS ↔ Payroll (e.g. Personio/Workday/HiBob ↔ DATEV/ADP/Lucca), HRIS ↔ ATS (e.g. Greenhouse/Lever/Ashby), HRIS ↔ Finance/ERP (e.g. NetSuite/SAP), and Time Tracking ↔ Payroll for compliant shift and overtime processing.",
   },
   {
-    question: "Which European and global HR software systems do you compare?",
+    question: "What happens when no native integration exists between our tools?",
     answer:
-      "We benchmark over 100+ platforms across Core HRIS, ATS/Recruiting, Payroll, Time Tracking, Performance, and EOR solutions—including Personio, Factorial, Deel, Rippling, HiBob, Workday, BambooHR, Ashby, Greenhouse, Leapsome, and DATEV integrations.",
+      "When no native connector exists, we evaluate three strategic paths: (1) Process Redesign: restructuring workflows to eliminate the need for an integration, (2) Middleware Orchestration: configuring secure iPaaS or webhook pipelines, or (3) Custom API Engineering: developing clean REST/GraphQL connectors tailored to your compliance standards.",
   },
   {
-    question: "Do you help with software implementation and data migration?",
+    question: "Why do you recommend a process redesign before building custom integrations?",
     answer:
-      "Yes. Once your ideal platform is selected, our technical implementation team assists with data cleansing, legacy system migration, workflow automation, and custom API integrations to ensure a frictionless rollout.",
+      "Connecting a broken manual process with custom code often creates expensive, fragile software lock-in. We first challenge existing workflows, optimize steps based on system strengths, and frequently discover simpler, native ways to achieve the goal without custom development costs.",
   },
   {
-    question: "How do you ensure data privacy and GDPR / German BAG compliance?",
+    question: "How do you ensure GDPR compliance and security during integrations?",
     answer:
-      "All shortlisted tools undergo rigorous security and regulatory vetting, ensuring European data residency, GDPR compliance, workers council (Betriebsrat) alignment, and German labor law compliance (BAG working time directives).",
+      "Security and European compliance are central to our advisory. All data flows utilize encrypted protocols (TLS 1.3, AES-256), strict role-based access control (RBAC), and automated validation routines that prevent data corruption and unauthorized data exposure.",
   },
   {
-    question: "Can Scaliify help negotiate software contracts and licensing pricing?",
+    question: "Can Scaliify help if our current HR and payroll integration keeps failing?",
     answer:
-      "Yes. Our deep benchmark data and insight into vendor pricing models enable us to advise on licensing tiers, user thresholds, and renewal terms, typically saving our clients 15–30% on annual contract values.",
+      "Yes. We conduct a comprehensive HR IT Integration Audit to map your current data schema, identify synchronization bottlenecks, repair broken field mappings, and implement automated validation routines to guarantee payroll stability.",
   },
 ];
 
-export function HrItSelectionClient() {
+export function HrItIntegrationsClient() {
   const [emailInput, setEmailInput] = useState("");
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -176,36 +174,32 @@ export function HrItSelectionClient() {
 
   return (
     <main className="w-full bg-white overflow-hidden text-black font-sans">
-
       {/* ============================================================ */}
       {/* 1. HERO SECTION (Split: Left Content + Right Image)          */}
       {/* ============================================================ */}
       <section className="w-full relative overflow-hidden bg-gradient-to-bl from-[#81D8D0]/35 via-white/80 to-white pt-28 sm:pt-36 lg:pt-40 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-8">
-        
         {/* Prominent High-Opacity Tiffany Blue Gradient Aura on Top Right Corner */}
         <div className="absolute -top-20 -right-20 sm:-top-28 sm:-right-28 w-[600px] sm:w-[800px] h-[500px] sm:h-[650px] bg-[radial-gradient(ellipse_at_top_right,rgba(129,216,208,0.85)_0%,rgba(129,216,208,0.55)_35%,rgba(91,199,188,0.25)_60%,transparent_80%)] pointer-events-none blur-3xl -z-0" />
-        
+
         {/* Additional Soft Top Glow */}
         <div className="absolute top-0 right-1/4 w-[450px] h-[300px] bg-[radial-gradient(circle,rgba(129,216,208,0.45)_0%,transparent_70%)] pointer-events-none blur-2xl -z-0" />
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
-          
           {/* Left Column: Heading + Copy + Action CTAs */}
           <div className="lg:col-span-6 flex flex-col items-start text-left">
-            
             {/* Kicker */}
             <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#2B4C55] mb-3.5">
-              SCALIIFY FOR HR IT SELECTION
+              SCALIIFY FOR HR IT INTEGRATIONS
             </p>
 
             {/* H1 Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black leading-[1.12] mb-5">
-              Independent, vendor-neutral help choosing HR software
+              Connecting your HR systems into one single source of truth
             </h1>
 
             {/* Description */}
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-8 max-w-xl">
-              We help growing companies navigate the crowded HR technology landscape. From requirements definition to contract finalisation, we ensure a harmonious, silo-free HR architecture that scales effortlessly with your team.
+              Eliminate duplicate entries, manual spreadsheets, and sync errors. We connect your HRIS, payroll, ATS, and finance tools—or redesign processes so complex integrations aren&apos;t needed in the first place.
             </p>
 
             {/* CTA Buttons (Glossy Shiny Tiffany Blue Let's Talk Style Button) */}
@@ -214,12 +208,11 @@ export function HrItSelectionClient() {
                 href="/lets-talk"
                 className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 rounded-full text-xs sm:text-sm font-extrabold text-brand-dark bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep shadow-[0_4px_22px_rgba(129,216,208,0.65)] border border-white/80 hover:shadow-[0_6px_28px_rgba(129,216,208,0.95)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 overflow-hidden cursor-pointer"
               >
-                {/* Top Glossy Specular Reflection Sheen */}
                 <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/75 to-transparent rounded-t-full pointer-events-none" />
                 <span className="relative z-10 tracking-tight font-extrabold">Book a consultation</span>
                 <ArrowRight className="relative z-10 w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </Link>
-              
+
               <Link
                 href="/tool-finder"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-black border border-gray-300 hover:border-[#2B4C55] px-6 py-3.5 rounded-full transition-all hover:bg-gray-50 cursor-pointer"
@@ -230,12 +223,12 @@ export function HrItSelectionClient() {
             </div>
           </div>
 
-          {/* Right Column: Hero Consulting Image Card */}
+          {/* Right Column: Hero Architecture Consulting Image Card */}
           <div className="lg:col-span-6 relative flex items-center justify-center">
             <div className="relative w-full aspect-[4/3] rounded-[28px] overflow-hidden shadow-[0_15px_45px_rgba(0,0,0,0.08)] border border-gray-200/80">
               <Image
-                src="/images/hr-selection-hero.jpg"
-                alt="Scaliify HR IT Selection strategic consulting"
+                src="/images/hr-integrations-hero.jpg"
+                alt="Scaliify HR IT Systems Integration and Data Architecture Advisory"
                 fill
                 priority
                 className="object-cover"
@@ -243,7 +236,6 @@ export function HrItSelectionClient() {
               />
             </div>
           </div>
-
         </div>
       </section>
 
@@ -270,33 +262,31 @@ export function HrItSelectionClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 3. FOUR PILLARS: "Harmonious HR tech built for scaling teams" */}
+      {/* 3. FOUR PILLARS: Common Integration Scenarios                */}
       {/* ============================================================ */}
       <section className="w-full bg-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          
           {/* Section Header */}
           <div className="text-center mb-12 sm:mb-16">
+            <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#4FB8AA] mb-2.5">
+              COMMON SCENARIOS &amp; ARCHITECTURES
+            </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-black">
-              Harmonious HR tech built for scaling teams
+              Seamlessly connecting your core HR workflows
             </h2>
           </div>
 
-          {/* 4 Pillars Grid (All Glossy Shiny Tiffany Blue Icons) */}
+          {/* 4 Pillars Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7 sm:gap-8">
             {pillars.map(({ icon: Icon, title, desc }) => (
               <div key={title} className="flex flex-col items-center text-center gap-3 group">
-                {/* Icon Container with Glossy Shiny Tiffany Styling */}
                 <div className="relative w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#5BC7BC] via-[#81D8D0] to-[#A8F5EE] text-[#05434B] flex items-center justify-center shrink-0 shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.85),0_8px_20px_rgba(129,216,208,0.38)] border border-white/70 mb-1 transition-all duration-300 group-hover:scale-110 group-hover:shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.95),0_12px_25px_rgba(129,216,208,0.55)] overflow-hidden">
-                  {/* Top Glass Sheen */}
                   <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/45 to-transparent pointer-events-none rounded-t-2xl" />
                   <Icon className="w-5 h-5 stroke-[2.4] relative z-10" />
                 </div>
-                {/* Title */}
                 <h3 className="text-base sm:text-[17px] font-bold text-black leading-snug">
                   {title}
                 </h3>
-                {/* Description */}
                 <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
                   {desc}
                 </p>
@@ -307,25 +297,146 @@ export function HrItSelectionClient() {
       </section>
 
       {/* ============================================================ */}
+      {/* 3.5. INTEGRATION PIPELINE WORKFLOW CARD (Matching Screenshot) */}
+      {/* ============================================================ */}
+      <section className="w-full bg-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-[#fafafa] rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 lg:p-14 border border-gray-200/80 shadow-[0_15px_45px_rgba(0,0,0,0.03)] grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative overflow-hidden">
+            {/* Subtle Top-Right Ambient Radial Glow */}
+            <div className="absolute -top-10 -right-10 w-96 h-96 bg-[radial-gradient(circle,rgba(129,216,208,0.18)_0%,transparent_70%)] pointer-events-none blur-3xl" />
+
+            {/* Left Column: Heading + Descriptive Copy */}
+            <div className="lg:col-span-5 flex flex-col justify-center text-left relative z-10">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#05434B] tracking-tight leading-[1.18] mb-5">
+                Integration workflows that save you time
+              </h2>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed max-w-md">
+                Skip the manual setup. Use proven integration blueprints to quickly connect your HRIS, payroll, ATS, and ERP with zero duplicate entries. Scaliify clients experience up to 65% faster payroll reconciliation and seamless new hire onboarding.
+              </p>
+            </div>
+
+            {/* Right Column: Visual Pipeline Stepper Graphic (Matching Screenshot) */}
+            <div className="lg:col-span-7 relative flex flex-col items-center justify-center py-4">
+              {/* Vertical Dashed Line Running Down Through Nodes */}
+              <div className="absolute left-1/2 -translate-x-1/2 top-4 bottom-8 w-0.5 border-r border-dashed border-[#76D8C8]/60 pointer-events-none" />
+
+              {/* Top Node: Pipeline Pill */}
+              <div className="bg-white border border-[#76D8C8]/50 shadow-2xs px-4 py-1 rounded-full flex items-center gap-2 text-xs font-semibold text-[#05434B] mx-auto mb-4 relative z-10">
+                <span className="bg-[#eaf7f2] text-[#05434B] text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                  Pipeline
+                </span>
+                <span>Single Source of Truth</span>
+              </div>
+
+              {/* Step Card 1: HRIS ↔ Payroll */}
+              <div className="bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-xs flex items-start gap-3.5 relative z-10 max-w-md w-full mb-3.5 hover:border-[#76D8C8] transition-all">
+                <div className="w-6 h-6 rounded-full bg-[#eaf7f2] text-[#05434B] flex items-center justify-center shrink-0 mt-0.5">
+                  <Check className="w-3.5 h-3.5 stroke-[3]" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-sm font-bold text-gray-900 mb-1.5">
+                    HRIS &harr; Payroll (DATEV)
+                  </h3>
+                  <div className="flex items-center gap-1.5 flex-wrap text-[10.5px]">
+                    <span className="text-gray-500 font-medium">Responsible</span>
+                    <span className="bg-[#f0faf8] text-[#05434B] font-bold px-2 py-0.5 rounded">HR &amp; Payroll</span>
+                    <span className="text-gray-400">&bull;</span>
+                    <span className="text-gray-600 font-medium">3 days</span>
+                    <span className="bg-emerald-50 text-emerald-800 font-bold px-2 py-0.5 rounded">before cutoff</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Step Card 2: Special Highlight Card (ATS Candidate Handoff with Avatar) */}
+              <div className="bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-[#76D8C8]/60 shadow-sm flex items-center gap-3.5 relative z-10 max-w-md w-full mb-3.5 hover:shadow-md transition-all">
+                <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0 border border-[#76D8C8] shadow-2xs">
+                  <Image
+                    src="/avatars/silvia.jpg"
+                    alt="Anneke"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between gap-2">
+                    <h3 className="text-sm font-bold text-gray-950">Welcome Anneke!</h3>
+                    <span className="text-[10px] font-bold bg-[#eaf7f2] text-[#05434B] px-2 py-0.5 rounded-full">
+                      ATS &rarr; HRIS
+                    </span>
+                  </div>
+                  <div className="mt-1 h-2 w-32 bg-gray-100 rounded-full overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-[#4FB8AA] to-[#76D8C8] rounded-full w-full" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Step Card 3: HRIS ↔ Finance / ERP */}
+              <div className="bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-xs flex items-start gap-3.5 relative z-10 max-w-md w-full mb-3.5 hover:border-[#76D8C8] transition-all">
+                <div className="w-6 h-6 rounded-full bg-[#eaf7f2] text-[#05434B] flex items-center justify-center shrink-0 mt-0.5">
+                  <Check className="w-3.5 h-3.5 stroke-[3]" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-sm font-bold text-gray-900 mb-1.5">
+                    HRIS &harr; Finance &amp; ERP
+                  </h3>
+                  <div className="flex items-center gap-1.5 flex-wrap text-[10.5px]">
+                    <span className="text-gray-500 font-medium">Responsible</span>
+                    <span className="bg-[#f0faf8] text-[#05434B] font-bold px-2 py-0.5 rounded">Finance</span>
+                    <span className="text-gray-400">&bull;</span>
+                    <span className="text-gray-600 font-medium">Real-time</span>
+                    <span className="bg-emerald-50 text-emerald-800 font-bold px-2 py-0.5 rounded">cost center sync</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Step Card 4: Time Tracking ↔ Payroll */}
+              <div className="bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-xs flex items-start gap-3.5 relative z-10 max-w-md w-full mb-4 hover:border-[#76D8C8] transition-all">
+                <div className="w-6 h-6 rounded-full bg-[#eaf7f2] text-[#05434B] flex items-center justify-center shrink-0 mt-0.5">
+                  <Check className="w-3.5 h-3.5 stroke-[3]" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-sm font-bold text-gray-900 mb-1.5">
+                    Time Tracking &harr; Payroll
+                  </h3>
+                  <div className="flex items-center gap-1.5 flex-wrap text-[10.5px]">
+                    <span className="text-gray-500 font-medium">Responsible</span>
+                    <span className="bg-[#f0faf8] text-[#05434B] font-bold px-2 py-0.5 rounded">Operations</span>
+                    <span className="text-gray-400">&bull;</span>
+                    <span className="text-gray-600 font-medium">Monthly</span>
+                    <span className="bg-emerald-50 text-emerald-800 font-bold px-2 py-0.5 rounded">BAG Compliant</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Faded Step 5 (Bottom Node) */}
+              <div className="text-center text-xs font-semibold text-gray-400 opacity-60 flex items-center justify-center gap-1.5 relative z-10">
+                <Check className="w-3.5 h-3.5" />
+                <span>Process Redesign &amp; Middleware Orchestration</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
       {/* 4. MARQUEE CAROUSEL: "Join the organisations unlocking impact" */}
       {/* ============================================================ */}
       <section className="w-full bg-white py-12 sm:py-16 overflow-hidden border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 mb-6 sm:mb-8 text-center">
           <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#4FB8AA] mb-2">
-            USED DAILY BY TEAMS FROM 50-5000 EMPLOYEES
+            CONNECTED ECOSYSTEMS FROM 50-5000 EMPLOYEES
           </p>
           <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-black leading-tight">
             Join the organisations unlocking impact
           </h2>
         </div>
 
-        {/* ── Marquee Container with smooth infinite glide ── */}
+        {/* Marquee Container with smooth infinite glide */}
         <div className="relative w-full overflow-hidden select-none py-1">
-          {/* Marquee Track — duplicate items for seamless continuous loop */}
           <div className="animate-marquee-left flex items-center gap-3.5 sm:gap-6 w-max">
             {[...marqueeCards, ...marqueeCards].map((card, index) => (
               <div key={index} className="shrink-0">
-                {/* Type 1: Quote Card (Solid light background with logo) */}
+                {/* Type 1: Quote Card */}
                 {card.type === "quote-card" && (
                   <div
                     className={`${card.bg} ${card.border} rounded-[26px] p-6 sm:p-7 w-[280px] sm:w-[310px] h-[370px] sm:h-[400px] flex flex-col justify-between border shadow-xs hover:shadow-md transition-all duration-300`}
@@ -346,12 +457,9 @@ export function HrItSelectionClient() {
                   </div>
                 )}
 
-                {/* Type 2: Full Image Card with Frosted Dark Overlay at Bottom */}
+                {/* Type 2: Full Image Card */}
                 {card.type === "image-card" && (
-                  <div
-                    className="relative rounded-[26px] w-[280px] sm:w-[310px] h-[370px] sm:h-[400px] overflow-hidden shadow-xs hover:shadow-md transition-all duration-300"
-                  >
-                    {/* Background photo */}
+                  <div className="relative rounded-[26px] w-[280px] sm:w-[310px] h-[370px] sm:h-[400px] overflow-hidden shadow-xs hover:shadow-md transition-all duration-300">
                     <Image
                       src={card.image!}
                       alt={card.author!}
@@ -360,11 +468,7 @@ export function HrItSelectionClient() {
                       className="object-cover"
                       sizes="310px"
                     />
-
-                    {/* Dark gradient fade over bottom */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#2B4C55]/90 via-black/30 to-transparent" />
-
-                    {/* Floating Frosted Glass Quote Card at bottom */}
                     <div className="absolute inset-x-3 bottom-3 bg-[#05434B]/80 backdrop-blur-md border border-white/20 rounded-2xl p-3.5 text-white">
                       <p className="text-xs leading-relaxed font-medium mb-1.5 line-clamp-4">
                         &ldquo;{card.quote}&rdquo;
@@ -406,11 +510,10 @@ export function HrItSelectionClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 5. BEFORE VS AFTER COMPARISON CARD (Clean White Background)  */}
+      {/* 5. BEFORE VS AFTER COMPARISON CARD                           */}
       {/* ============================================================ */}
       <section className="w-full bg-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
         <div className="max-w-4xl mx-auto">
-
           {/* Section Title */}
           <div className="text-center mb-10 sm:mb-14">
             <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#4FB8AA] mb-2.5">
@@ -421,15 +524,13 @@ export function HrItSelectionClient() {
             </h2>
           </div>
 
-          {/* Comparison Card Container (Deep Teal Gradient #05434B -> #2B4C55) */}
+          {/* Comparison Card Container */}
           <div className="bg-gradient-to-br from-[#05434B] via-[#2B4C55] to-[#1b3a42] rounded-3xl p-6 sm:p-10 border border-[#76D8C8]/20 shadow-[0_15px_45px_rgba(5,67,75,0.22)] grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch relative overflow-hidden">
-            
-            {/* Subtle Ambient Glow in Logo Palette */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-[radial-gradient(circle,rgba(118,216,200,0.25)_0%,transparent_70%)] pointer-events-none blur-2xl" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-[radial-gradient(circle,rgba(79,184,170,0.18)_0%,transparent_70%)] pointer-events-none blur-2xl" />
 
-            {/* Left: Before Scaliify (Direct on dark container, no background) */}
-            <div className="flex flex-col justify-between py-2 sm:py-4 pr-0 md:pr-6 relative z-10 text-white">
+            {/* Left: Before Scaliify */}
+            <div className="flex flex-col justify-between py-2 sm:py-3 pr-0 md:pr-4 relative z-10 text-white">
               <div>
                 <h3 className="text-lg sm:text-xl font-bold text-white mb-6">
                   Before Scaliify
@@ -440,14 +541,14 @@ export function HrItSelectionClient() {
                       <div className="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center shrink-0 mt-0.5 text-gray-300">
                         <X className="w-3.5 h-3.5 stroke-[2.5]" />
                       </div>
-                      <span>{item}</span>
+                      <span className="leading-snug">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
 
-            {/* Right: After Scaliify (White Box with Medium & Light Teal Accents) */}
+            {/* Right: After Scaliify */}
             <div className="bg-white text-gray-900 rounded-2xl p-6 sm:p-8 shadow-sm border border-[#76D8C8]/50 flex flex-col justify-between relative z-10">
               <div>
                 <h3 className="text-lg sm:text-xl font-bold text-[#2B4C55] mb-6">
@@ -472,20 +573,18 @@ export function HrItSelectionClient() {
                 </ul>
               </div>
             </div>
-
           </div>
 
-          {/* Bottom Link to Tool Finder / Consultation */}
+          {/* Bottom Link */}
           <div className="mt-10 sm:mt-12 text-center">
             <Link
               href="/tool-finder"
               className="inline-flex items-center gap-2 text-sm font-bold text-black hover:text-[#4FB8AA] transition-colors group"
             >
-              <span>Not sure which HR tool you need? Use our free interactive tool finder</span>
+              <span>Not sure which HR tool integration you need? Use our free interactive tool finder</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#4FB8AA]" />
             </Link>
           </div>
-
         </div>
       </section>
 
@@ -493,12 +592,9 @@ export function HrItSelectionClient() {
       {/* 6. REAL IMPACT FOR OUR CUSTOMERS (Tiffany Gradient Fade BG)  */}
       {/* ============================================================ */}
       <section className="w-full bg-gradient-to-b from-white via-[#81D8D0]/35 to-white py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 border-t border-gray-100 relative overflow-hidden">
-        
-        {/* Soft Tiffany Ambient Radial Glow */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[850px] h-[500px] bg-[radial-gradient(circle,rgba(129,216,208,0.45)_0%,transparent_70%)] pointer-events-none blur-3xl -z-0" />
 
         <div className="max-w-5xl mx-auto relative z-10">
-
           {/* Header */}
           <div className="text-center mb-10 sm:mb-14">
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black max-w-2xl mx-auto leading-tight">
@@ -506,39 +602,38 @@ export function HrItSelectionClient() {
             </h2>
           </div>
 
-          {/* 3 Metric Stats Row with Animated Stat Counters */}
+          {/* 3 Metric Stats Row with Animated Number Counters */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-16 text-center">
             <div className="flex flex-col items-center">
               <span className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-none mb-2 tracking-tight">
-                <AnimatedStatCounter value={33} suffix="%" />
+                <AnimatedStatCounter value={100} suffix="%" />
               </span>
               <span className="text-xs sm:text-sm text-gray-800 font-semibold max-w-[200px]">
-                more productive HR teams
+                single source of truth data integrity
               </span>
             </div>
 
             <div className="flex flex-col items-center">
               <span className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-none mb-2 tracking-tight">
-                <AnimatedStatCounter value={12} suffix="%" />
+                <AnimatedStatCounter value={0} />
               </span>
               <span className="text-xs sm:text-sm text-gray-800 font-semibold max-w-[200px]">
-                overall HR cost savings
+                duplicate manual entries across all systems
               </span>
             </div>
 
             <div className="flex flex-col items-center">
               <span className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-none mb-2 tracking-tight">
-                <AnimatedStatCounter value={52} suffix="%" />
+                <AnimatedStatCounter value={15} suffix="+ hrs" />
               </span>
               <span className="text-xs sm:text-sm text-gray-800 font-semibold max-w-[200px]">
-                saw value within first 3 months of rollout
+                saved monthly per HR team member on payroll &amp; admin
               </span>
             </div>
           </div>
 
           {/* 2x2 Bento Customer Story Grid */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 items-stretch mb-10 sm:mb-14">
-
             {/* Top-Left: Customer Story Logo Card */}
             <div className="md:col-span-7 bg-gradient-to-b from-[#eaf7f5] via-white to-white rounded-[22px] sm:rounded-[26px] p-6 sm:p-8 md:p-12 flex flex-col justify-center items-center text-center border border-[#76D8C8]/40 shadow-xs min-h-[140px] sm:min-h-[180px]">
               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#4FB8AA] mb-3">
@@ -556,68 +651,62 @@ export function HrItSelectionClient() {
               </div>
             </div>
 
-            {/* Top-Right: 60% Stat Card with Animated Counter */}
+            {/* Top-Right: Stat Card with Animated Counter */}
             <div className="md:col-span-5 bg-gradient-to-br from-[#81D8D0] via-[#76D8C8] to-[#A8F5EE] text-black rounded-[22px] sm:rounded-[26px] p-6 sm:p-8 md:p-10 flex flex-col justify-center min-h-[140px] sm:min-h-[180px] shadow-xs border border-white/60">
               <p className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-none text-black mb-3">
-                <AnimatedStatCounter value={60} suffix="%" />
+                <AnimatedStatCounter value={100} suffix="%" />
               </p>
               <p className="text-xs sm:text-sm font-bold text-black leading-snug">
-                more time each day to focus on people
+                accurate employee data across HR, Payroll &amp; Finance
               </p>
             </div>
 
             {/* Bottom-Left: Client Leader Portrait Photo */}
             <div className="md:col-span-5 relative rounded-[22px] sm:rounded-[26px] overflow-hidden min-h-[220px] sm:min-h-[300px] shadow-xs border border-gray-200/80">
               <Image
-                src="/images/hr-leader-story.jpg"
-                alt="Laura Mohan - HR Business Partner"
+                src="/images/hr-integrations-leader.jpg"
+                alt="Head of People Tech"
                 fill
                 className="object-cover object-top"
                 sizes="(max-width: 768px) 100vw, 40vw"
               />
             </div>
 
-            {/* Bottom-Right: Quote Testimonial Card (#4FB8AA & #76D8C8 accents) */}
+            {/* Bottom-Right: Quote Testimonial Card */}
             <div className="md:col-span-7 bg-[#f0faf8] rounded-[22px] sm:rounded-[26px] p-6 sm:p-8 md:p-10 flex flex-col justify-between border border-[#4FB8AA]/30 shadow-xs min-h-[220px] sm:min-h-[300px]">
               <div>
                 <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-[#4FB8AA] to-[#76D8C8] text-[#05434B] flex items-center justify-center mb-4 sm:mb-5 shadow-xs">
                   <Quote className="w-4 h-4 sm:w-5 sm:h-5 fill-current" />
                 </div>
                 <p className="text-sm sm:text-base md:text-lg text-[#2B4C55] font-bold leading-snug mb-4">
-                  &ldquo;By partnering with Scaliify for our HR IT selection, we cut evaluation time to weeks and eliminated costly vendor lock-in. It streamlined everything around onboarding, reporting, and core HR systems.&rdquo;
+                  &ldquo;Scaliify brought strategic clarity to our messy HR tech stack. They mapped every data touchpoint between our HRIS, DATEV, and ATS, then redesigned our onboarding handoff so we didn&apos;t even need an expensive custom API. It gave us a true single source of truth.&rdquo;
                 </p>
               </div>
               <div>
                 <p className="text-xs sm:text-sm font-bold text-black">
-                  Laura Mohan <span className="font-normal text-gray-600">| HR Business Partner</span>
+                  Elin Bergström <span className="font-normal text-gray-600">| Head of People Operations</span>
                 </p>
               </div>
             </div>
-
           </div>
 
-          {/* Dual Action Conversion Cards (Matching screenshot) */}
+          {/* Dual Action Conversion Cards */}
           <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-7 items-stretch mt-10 sm:mt-16">
-
-            {/* Left Card: Light Mint / Tiffany Demo Booking Card */}
+            {/* Left Card: Demo / Consultation Card */}
             <div className="md:col-span-7 bg-[#cbece5] rounded-2xl sm:rounded-[32px] p-5 sm:p-7 md:p-10 flex flex-col justify-between shadow-[0_12px_35px_rgba(79,184,170,0.18)] border border-[#a6dfd4] relative overflow-hidden">
               <div className="mb-6">
-                {/* Orange/Coral Pill Badge */}
                 <div className="inline-flex items-center bg-[#ee7738] text-white text-[10.5px] sm:text-[11px] font-bold px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full uppercase tracking-wider mb-3 sm:mb-4 shadow-2xs">
-                  Expert run, 30 minute tour
+                  Expert run, 30 minute audit
                 </div>
-
-                {/* Heading */}
                 <h3 className="text-xl sm:text-2xl lg:text-[32px] font-extrabold text-[#05434B] tracking-tight leading-[1.18]">
-                  Book your personalised demo
+                  Book your integration assessment
                 </h3>
               </div>
 
-              {/* Email capture form with glossy Tiffany button */}
               {emailSubmitted ? (
                 <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold text-[#05434B] bg-white/80 backdrop-blur-sm border border-[#5BC7BC]/50 px-5 py-3.5 rounded-full">
                   <CheckCircle2 className="w-4 h-4 text-[#2B4C55]" />
-                  <span>Thank you! We will reach out to schedule your tour.</span>
+                  <span>Thank you! We will reach out to schedule your assessment.</span>
                 </div>
               ) : (
                 <form onSubmit={handleEmailSubmit} className="w-full">
@@ -635,45 +724,39 @@ export function HrItSelectionClient() {
                       type="submit"
                       className="bg-gradient-to-r from-[#66cfc3] to-[#8fe4da] text-[#05434B] text-xs sm:text-sm font-bold px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl sm:rounded-full shadow-[0_4px_14px_rgba(102,207,195,0.45),inset_0_1px_1px_rgba(255,255,255,0.9)] hover:brightness-105 transition-all shrink-0 cursor-pointer active:scale-95 border border-white/40 text-center"
                     >
-                      Request free demo
+                      Request assessment
                     </button>
                   </div>
                 </form>
               )}
             </div>
 
-            {/* Right Card: Dark Brand Spruce Interactive Product Tour Card */}
+            {/* Right Card: Tool Finder Card */}
             <div className="md:col-span-5 bg-[#032e35] text-white rounded-2xl sm:rounded-[32px] p-5 sm:p-7 md:p-10 flex flex-col justify-between shadow-[0_12px_35px_rgba(3,46,53,0.25)] border border-white/10 relative overflow-hidden">
               <div className="mb-6">
-                {/* White Pill Badge */}
                 <div className="inline-flex items-center bg-white text-[#05434B] text-[10.5px] sm:text-[11px] font-bold px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full uppercase tracking-wider mb-3 sm:mb-4 shadow-2xs">
                   Takes 2 minutes
                 </div>
-
-                {/* Heading */}
                 <h3 className="text-xl sm:text-2xl lg:text-[32px] font-extrabold text-white tracking-tight leading-[1.18]">
-                  Take an interactive product tour
+                  Benchmark tool integrations
                 </h3>
               </div>
 
-              {/* Glossy Tiffany Button Link */}
               <div>
                 <Link
                   href="/tool-finder"
                   className="w-full sm:w-auto inline-flex items-center justify-center bg-gradient-to-r from-[#66cfc3] to-[#8fe4da] text-[#05434B] text-xs sm:text-sm font-bold px-6 sm:px-7 py-3 sm:py-3.5 rounded-full shadow-[0_4px_16px_rgba(102,207,195,0.5),inset_0_1px_1px_rgba(255,255,255,0.9)] hover:brightness-105 transition-all cursor-pointer active:scale-95 border border-white/40 text-center"
                 >
-                  <span>Take a product tour</span>
+                  <span>Explore Tool Finder</span>
                 </Link>
               </div>
             </div>
-
           </div>
-
         </div>
       </section>
 
       {/* ============================================================ */}
-      {/* 7. TESTIMONIALS SECTION (From Home Landing Page)             */}
+      {/* 7. TESTIMONIALS SECTION                                      */}
       {/* ============================================================ */}
       <Testimonials />
 
@@ -682,7 +765,6 @@ export function HrItSelectionClient() {
       {/* ============================================================ */}
       <section className="w-full bg-[#fafafa] py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
         <div className="max-w-4xl mx-auto">
-          {/* Centered Heading */}
           <div className="text-center mb-12 sm:mb-16">
             <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#2B4C55] mb-2.5">
               CLEAR ANSWERS
@@ -692,9 +774,8 @@ export function HrItSelectionClient() {
             </h2>
           </div>
 
-          {/* Minimalist Line-Separated Accordion List */}
           <div className="divide-y divide-gray-200 border-t border-b border-gray-200">
-            {hrSelectionFaqs.map((faq, index) => {
+            {hrIntegrationsFaqs.map((faq, index) => {
               const isOpen = openFaqIndex === index;
               return (
                 <div key={index} className="transition-colors">
@@ -737,10 +818,9 @@ export function HrItSelectionClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 9. BLOG SECTION (Articles & Strategic HR Insights)           */}
+      {/* 9. BLOG SECTION                                              */}
       {/* ============================================================ */}
       <BlogSection />
-
     </main>
   );
 }

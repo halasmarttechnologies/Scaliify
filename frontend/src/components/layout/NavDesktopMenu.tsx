@@ -171,13 +171,6 @@ export function NavDesktopMenu({ isScrolled, activeMenu, setActiveMenu }: NavDes
                     >
                       HR IT Integrations
                     </Link>
-                    <Link
-                      href="/services/hr-it-audit"
-                      onClick={() => setActiveMenu(null)}
-                      className="block hover:text-brand-dark hover:translate-x-0.5 transition-all py-0.5"
-                    >
-                      HR IT Audit
-                    </Link>
                   </div>
                 </div>
 

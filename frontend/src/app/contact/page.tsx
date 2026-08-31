@@ -1,11 +1,25 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { ContactPageClient } from "@/components/contact/ContactPageClient";
+import { buildMetadata } from "@/lib/seo";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
-export const metadata: Metadata = {
-  title: "Contact Us | Scaliify",
-  description: "Get in touch with Scaliify's HR tech and People Ops advisory experts. Schedule a demo or request custom stack guidance.",
-};
+export const metadata: Metadata = buildMetadata({
+  title: "Contact Us",
+  description:
+    "Get in touch with Scaliify's HR technology advisory team. Schedule a consultation, request a custom software benchmark, or ask about our services.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
-  return <ContactPageClient />;
+  return (
+    <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ]}
+      />
+      <ContactPageClient />
+    </>
+  );
 }
