@@ -22,6 +22,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { companies } from "@/data/companies";
 import { Testimonials } from "@/components/home/Testimonials";
+import { BookingLeadSection } from "@/components/common/BookingLeadSection";
 import { BlogSection } from "@/components/home/BlogSection";
 import { AnimatedStatCounter } from "@/components/common/AnimatedStatCounter";
 
@@ -301,7 +302,7 @@ export function HrItIntegrationsClient() {
       {/* ============================================================ */}
       <section className="w-full bg-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-[#fafafa] rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 lg:p-14 border border-gray-200/80 shadow-[0_15px_45px_rgba(0,0,0,0.03)] grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative overflow-hidden">
+          <div className="bg-white rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 lg:p-14 border border-gray-200/80 shadow-[0_15px_45px_rgba(0,0,0,0.03)] grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative overflow-hidden">
             {/* Subtle Top-Right Ambient Radial Glow */}
             <div className="absolute -top-10 -right-10 w-96 h-96 bg-[radial-gradient(circle,rgba(129,216,208,0.18)_0%,transparent_70%)] pointer-events-none blur-3xl" />
 
@@ -763,7 +764,7 @@ export function HrItIntegrationsClient() {
       {/* ============================================================ */}
       {/* 8. FREQUENTLY ASKED QUESTIONS ACCORDION                      */}
       {/* ============================================================ */}
-      <section className="w-full bg-[#fafafa] py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
+      <section className="w-full bg-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#2B4C55] mb-2.5">
@@ -818,7 +819,12 @@ export function HrItIntegrationsClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 9. BLOG SECTION                                              */}
+      {/* 9. DISCOVERY & CONSULTATION BOOKING LEAD SECTION             */}
+      {/* ============================================================ */}
+      <BookingLeadSection />
+
+      {/* ============================================================ */}
+      {/* 10. BLOG SECTION                                             */}
       {/* ============================================================ */}
       <BlogSection />
     </main>

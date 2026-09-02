@@ -2,12 +2,14 @@
 
 import { Star } from "lucide-react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export function CoreFeatures() {
+  const t = useTranslations("coreFeatures");
   return (
     <section
       id="core-features"
-      className="w-full bg-[#fafafa] py-10 sm:py-16 px-3.5 sm:px-6 md:px-8 lg:px-12 xl:px-16"
+      className="w-full bg-white py-10 sm:py-16 px-3.5 sm:px-6 md:px-8 lg:px-12 xl:px-16"
     >
       <div className="max-w-6xl mx-auto flex flex-col items-center">
 
@@ -22,13 +24,13 @@ export function CoreFeatures() {
           {/* Top Pill / Dot */}
           <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-brand-dark tracking-wide mb-3 sm:mb-4">
             <span className="w-2 h-2 rounded-full bg-brand-dark" />
-            <span>Strategic HR Consultancy</span>
+            <span>{t("kicker")}</span>
           </div>
 
           {/* Main Title */}
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 max-w-3xl leading-[1.15]">
-            Your One-Stop Shop for <br className="hidden sm:inline" />
-            All Things HR Related
+            {t("headingPart1")} <br className="hidden sm:inline" />
+            {t("headingPart2")}
           </h2>
         </motion.div>
 
@@ -47,10 +49,10 @@ export function CoreFeatures() {
           >
             <div>
               <h3 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-gray-900 tracking-tight mb-2 sm:mb-3">
-                HR Tech & Process Optimisation
+                {t("card1Heading")}
               </h3>
               <p className="text-gray-500 text-xs sm:text-[15px] leading-relaxed mb-6 sm:mb-8">
-                From independent HR software selection and implementation to end-to-end workflow automation and process optimisation.
+                {t("card1Desc")}
               </p>
 
               {/* Slider Indicator Pill */}
@@ -64,10 +66,10 @@ export function CoreFeatures() {
             {/* Big Stat at Bottom */}
             <div className="pt-6 sm:pt-8">
               <div className="text-4xl sm:text-6xl font-black text-gray-900 tracking-tighter leading-none mb-1">
-                100+
+                {t("projectsStat")}
               </div>
               <p className="text-gray-500 font-medium text-xs sm:text-sm">
-                HR Transformation Projects Delivered
+                {t("projectsLabel")}
               </p>
             </div>
           </motion.div>
@@ -124,7 +126,7 @@ export function CoreFeatures() {
             <div className="relative z-10 bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-white/80 shadow-lg">
               
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs sm:text-[13px] font-bold text-gray-900">HR Operations Efficiency</span>
+                <span className="text-xs sm:text-[13px] font-bold text-gray-900">{t("efficiencyLabel")}</span>
                 <span className="text-gray-400 text-xs tracking-widest">•••</span>
               </div>
 
@@ -133,9 +135,9 @@ export function CoreFeatures() {
                 {/* Left: Score & Stars */}
                 <div>
                   <div className="text-2xl sm:text-3xl font-extrabold text-gray-900 leading-tight">
-                    94%
+                    {t("efficiencyStat")}
                   </div>
-                  <p className="text-[10px] text-gray-500 font-medium">Efficiency & Satisfaction</p>
+                  <p className="text-[10px] text-gray-500 font-medium">{t("efficiencyStatLabel")}</p>
                   
                   <div className="flex items-center gap-1 mt-1">
                     <div className="flex text-amber-400">
@@ -143,7 +145,7 @@ export function CoreFeatures() {
                         <Star key={i} className="w-3 h-3 fill-amber-400 stroke-none" />
                       ))}
                     </div>
-                    <span className="text-[10px] font-bold text-gray-700 ml-0.5">4.9/5</span>
+                    <span className="text-[10px] font-bold text-gray-700 ml-0.5">{t("ratingStat")}</span>
                   </div>
                 </div>
 
@@ -185,7 +187,7 @@ export function CoreFeatures() {
               {/* Increase Badge */}
               <div className="mt-3 bg-emerald-50 rounded-lg px-2.5 py-1 flex items-center justify-center">
                 <p className="text-[11px] font-semibold text-emerald-800 text-center">
-                  40% average reduction in administrative workload
+                  {t("adminBadge")}
                 </p>
               </div>
 
@@ -226,13 +228,13 @@ export function CoreFeatures() {
 
             {/* Testimonial Quote */}
             <p className="text-gray-700 text-xs sm:text-[15px] leading-relaxed font-normal my-auto">
-              Scaliify is truly our one-stop shop for all things HR. From digitalising our HR tech stack to interim leadership and strategic advisory, they gave us clarity and accelerated our growth.
+              {t("testimonialQuote")}
             </p>
 
             {/* Author */}
             <div className="pt-4 sm:pt-6 mt-4 border-t border-gray-200/60">
-              <p className="font-bold text-gray-900 text-xs sm:text-sm">Kathryn Murphy</p>
-              <p className="text-gray-500 text-[11px] sm:text-xs mt-0.5">CEO, Pollinate Ltd.</p>
+              <p className="font-bold text-gray-900 text-xs sm:text-sm">{t("testimonialAuthor")}</p>
+              <p className="text-gray-500 text-[11px] sm:text-xs mt-0.5">{t("testimonialTitle")}</p>
             </div>
 
           </motion.div>

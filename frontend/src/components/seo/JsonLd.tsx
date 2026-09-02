@@ -1,5 +1,12 @@
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/seo";
 
+/**
+ * Security note: dangerouslySetInnerHTML is used here intentionally for JSON-LD
+ * structured data (<script type="application/ld+json">). The `</` → `<\/` escape
+ * prevents </script> injection. IMPORTANT: all `data` props passed to this component
+ * MUST come from server-controlled static values only — never from user input or CMS
+ * fields without sanitisation. Violating this assumption creates an XSS vector.
+ */
 function JsonLdScript({ data }: { data: Record<string, unknown> }) {
   const json = JSON.stringify(data).replace(/<\//g, "<\\/");
   return (

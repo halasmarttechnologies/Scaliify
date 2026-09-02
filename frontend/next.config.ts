@@ -1,4 +1,11 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+
+const isProd = process.env.NODE_ENV === "production";
+
+// ─────────────────────────────────────────────────────────────
+// Security HTTP Headers
+// ─────────────────────────────────────────────────────────────
 
 const securityHeaders = [
   {
@@ -25,11 +32,11 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: `
       default-src 'self';
-      script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""};
+      script-src 'self' 'unsafe-inline'${!isProd ? " 'unsafe-eval'" : ""};
       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
       font-src 'self' https://fonts.gstatic.com data:;
       img-src 'self' data: https: blob:;
-      connect-src 'self' ${process.env.NODE_ENV === "development" ? "http://localhost:5000 http://127.0.0.1:5000 " : ""}https://api.scaliify.com;
+      connect-src 'self' ${!isProd ? "http://localhost:5000 http://127.0.0.1:5000 " : ""}https://api.scaliify.com;
       frame-ancestors 'none';
       form-action 'self';
       base-uri 'self';
@@ -39,10 +46,45 @@ const securityHeaders = [
   },
 ];
 
+// ─────────────────────────────────────────────────────────────
+// Next.js Config
+// ─────────────────────────────────────────────────────────────
+
 const nextConfig: NextConfig = {
   transpilePackages: ["@scaliify/shared"],
+
+  // Never expose the framework version header
   poweredByHeader: false,
-  images: {},
+
+  // ── Source Map Protection ──────────────────────────────────
+  // Disabling source maps in production prevents anyone from
+  // reading your original source code via DevTools > Sources.
+  // Minified/mangled output is all they will see.
+  productionBrowserSourceMaps: false,
+
+  // ── Compiler Options ──────────────────────────────────────
+  compiler: {
+    // Remove all console.* calls from production builds
+    // so internal logs never appear in the browser console
+    removeConsole: isProd
+      ? { exclude: ["error"] } // keep console.error for runtime errors only
+      : false,
+
+    // Mangle React component display names in production
+    // (they show in React DevTools; this makes them unreadable)
+    reactRemoveProperties: isProd
+      ? { properties: ["^data-testid$"] }
+      : false,
+  },
+
+  // ── Image Security ────────────────────────────────────────
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "api.scaliify.com" },
+    ],
+  },
+
+  // ── Security Headers ──────────────────────────────────────
   async headers() {
     return [
       {
@@ -51,6 +93,8 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
+  // ── Redirects ─────────────────────────────────────────────
   async redirects() {
     return [
       {
@@ -72,4 +116,6 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
+
+export default withNextIntl(nextConfig);

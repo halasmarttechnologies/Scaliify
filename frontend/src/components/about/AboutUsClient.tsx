@@ -1,0 +1,503 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  ArrowRight,
+  Check,
+  Globe2,
+  Users,
+  Award,
+  ShieldCheck,
+  Building2,
+  Sparkles,
+  Scale,
+  Code2,
+  Target,
+  Compass,
+  MapPin,
+  Clock,
+  TrendingUp,
+  Briefcase,
+  Layers,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import { motion } from "framer-motion";
+import { AnimatedStatCounter } from "@/components/common/AnimatedStatCounter";
+import { BookingLeadSection } from "@/components/common/BookingLeadSection";
+import { BlogSection } from "@/components/home/BlogSection";
+import { Testimonials } from "@/components/home/Testimonials";
+
+function LinkedInIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      fill="currentColor"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+    </svg>
+  );
+}
+
+// Timeline Milestones matching the Personio layout in Reference Image 2
+const timelineMilestones = [
+  {
+    year: "2021",
+    title: "Vision & Foundation",
+    description: "Scaliify was founded to bridge the gap between ambitious growth and operational excellence, combining HR leadership with Big-4 consulting rigor.",
+    position: "top",
+  },
+  {
+    year: "2022",
+    title: "Rapid Expansion across DACH",
+    description: "Scaled our first 30+ tech startups and mid-market European clients, establishing our vendor-neutral benchmark model.",
+    position: "bottom",
+  },
+  {
+    year: "2023",
+    title: "Global Specialist Network",
+    description: "Curated a vetted network of project-specific lawyers, HRIS developers, and compensation strategists across Europe.",
+    position: "top",
+  },
+  {
+    year: "2024",
+    title: "Dubai Global Headquarters",
+    description: "Established our global headquarters in Dubai, blending forward-thinking innovation with deep cultural agility to serve clients worldwide.",
+    position: "bottom",
+  },
+  {
+    year: "2025",
+    title: "100+ Network Specialists",
+    description: "Expanded to over 100 on-demand HR specialists, providing turnkey interim leadership and outsourced HR operations.",
+    position: "top",
+  },
+  {
+    year: "2026",
+    title: "Next-Gen HR Advisory",
+    description: "Empowering hundreds of scaling businesses with independent HR technology selection and high-impact people operations.",
+    position: "bottom",
+  },
+];
+
+// Expert Network Domains
+const expertDomains = [
+  {
+    icon: Scale,
+    title: "Employment Lawyers & Compliance",
+    desc: "Specialized in German & European labor law, Betriebsrat negotiations (§87 BetrVG), contract frameworks, and Scheinselbstständigkeit audits.",
+  },
+  {
+    icon: Code2,
+    title: "HRIS Developers & Integrators",
+    desc: "Technical engineers specializing in custom API connections, webhook syncs, and automated pipelines between Personio, HiBob, DATEV, and ERPs.",
+  },
+  {
+    icon: Target,
+    title: "Executive & Tech Recruiters",
+    desc: "High-velocity talent acquisition partners with deep networks across engineering, product, sales, and executive C-suite leadership.",
+  },
+  {
+    icon: Layers,
+    title: "Comp & Benefits Strategists",
+    desc: "Experts in salary leveling bands, total reward architectures, European market benchmarks, and equity/VSOP incentive designs.",
+  },
+];
+
+export function AboutUsClient() {
+  const [activeMilestoneIndex, setActiveMilestoneIndex] = useState(0);
+
+  return (
+    <main className="w-full bg-white overflow-hidden text-black font-sans">
+      {/* ============================================================ */}
+      {/* 1. HERO SECTION (Matching Personio Layout in Reference Image) */}
+      {/* ============================================================ */}
+      <section className="w-full relative overflow-hidden bg-gradient-to-bl from-[#81D8D0]/35 via-white/80 to-white pt-28 sm:pt-36 lg:pt-40 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
+        <div className="absolute -top-20 -right-20 sm:-top-28 sm:-right-28 w-[600px] sm:w-[800px] h-[500px] sm:h-[650px] bg-[radial-gradient(ellipse_at_top_right,rgba(129,216,208,0.85)_0%,rgba(129,216,208,0.55)_35%,rgba(91,199,188,0.25)_60%,transparent_80%)] pointer-events-none blur-3xl -z-0" />
+        <div className="absolute top-0 right-1/4 w-[450px] h-[300px] bg-[radial-gradient(circle,rgba(129,216,208,0.45)_0%,transparent_70%)] pointer-events-none blur-2xl -z-0" />
+
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
+          {/* Left Column: Vision & Copy */}
+          <div className="lg:col-span-6 flex flex-col items-start text-left">
+            <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#2B4C55] mb-3.5">
+              ABOUT SCALIIFY
+            </p>
+
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black leading-[1.12] mb-5">
+              Unlocking the power of people and operational excellence
+            </h1>
+
+            <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6 max-w-xl">
+              At Scaliify, we believe people and operational agility are the single most important success factors for any growing organization. We bridge the gap between ambitious growth and operational execution.
+            </p>
+
+            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-8 max-w-xl font-medium">
+              Today, we help ambitious businesses scale smarter—leveraging hands-on HR leadership, Big-4 consulting rigor, and a global network of specialized project experts.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
+              <Link
+                href="/lets-talk"
+                className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 rounded-full text-xs sm:text-sm font-extrabold text-brand-dark bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep shadow-[0_4px_22px_rgba(129,216,208,0.65)] border border-white/80 hover:shadow-[0_6px_28px_rgba(129,216,208,0.95)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 overflow-hidden cursor-pointer"
+              >
+                <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/75 to-transparent rounded-t-full pointer-events-none" />
+                <span className="relative z-10 tracking-tight font-extrabold">Talk to our team</span>
+                <ArrowRight className="relative z-10 w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+
+              <Link
+                href="#our-story"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-black border border-gray-300 hover:border-[#2B4C55] px-6 py-3.5 rounded-full transition-all hover:bg-gray-50 cursor-pointer"
+              >
+                <span>Read our story</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#2B4C55]" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Column: Hero Audience / Team Photo Card */}
+          <div className="lg:col-span-6 relative flex items-center justify-center">
+            <div className="relative w-full aspect-[4/3] rounded-[28px] overflow-hidden shadow-[0_15px_45px_rgba(0,0,0,0.08)] border border-gray-200/80">
+              <Image
+                src="/images/about-hero.jpg"
+                alt="Audience of European tech innovators, founders, and HR leaders applauding at company keynote"
+                fill
+                priority
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 2. STATS BAR SECTION (Matching Personio Layout in Image 2)   */}
+      {/* ============================================================ */}
+      <section className="w-full bg-white py-12 sm:py-16 border-b border-gray-100 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 text-center">
+            {/* Stat 1 */}
+            <div className="flex flex-col items-center">
+              <p className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-none mb-2 tracking-tight">
+                <AnimatedStatCounter value={100} suffix="+" />
+              </p>
+              <p className="text-xs sm:text-sm text-gray-700 font-semibold">
+                specialists in global network
+              </p>
+            </div>
+
+            {/* Stat 2 */}
+            <div className="flex flex-col items-center">
+              <p className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-none mb-2 tracking-tight">
+                <AnimatedStatCounter value={15} suffix="+" />
+              </p>
+              <p className="text-xs sm:text-sm text-gray-700 font-semibold">
+                years leadership &amp; Big-4 consulting
+              </p>
+            </div>
+
+            {/* Stat 3 */}
+            <div className="flex flex-col items-center">
+              <p className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-none mb-2 tracking-tight">
+                5+
+              </p>
+              <p className="text-xs sm:text-sm text-gray-700 font-semibold">
+                European &amp; global markets expanded
+              </p>
+            </div>
+
+            {/* Stat 4 */}
+            <div className="flex flex-col items-center">
+              <p className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-none mb-2 tracking-tight">
+                <AnimatedStatCounter value={350} suffix="+" />
+              </p>
+              <p className="text-xs sm:text-sm text-gray-700 font-semibold">
+                hires led &amp; onboarded in 8 months
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 3. OUR STORY & TIMELINE (Exact Text from User + Image 2)     */}
+      {/* ============================================================ */}
+      <section id="our-story" className="w-full bg-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
+        <div className="max-w-6xl mx-auto">
+          {/* Header & Story Narrative */}
+          <div className="max-w-3xl mb-14 sm:mb-16">
+            <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#05434B] mb-3">
+              OUR JOURNEY
+            </p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black leading-tight mb-6">
+              Our story
+            </h2>
+            <div className="space-y-4 text-sm sm:text-base text-gray-700 leading-relaxed font-medium">
+              <p>
+                <strong>scaliify was founded with a clear vision:</strong> to bridge the gap between ambitious growth and operational excellence.
+              </p>
+              <p>
+                Drawing on hands-on experience in HR and marketing, combined with Big-4 consulting expertise, we saw an opportunity to offer businesses practical, results-driven solutions without the inefficiencies of traditional models.
+              </p>
+              <p>
+                From day one, we committed to working smarter—leveraging a network of project-specific experts to deliver tailored strategies that maximize impact while staying resource-efficient.
+              </p>
+              <p>
+                Headquartered in Dubai, a hub of innovation and diversity, we are proud to serve businesses globally, blending forward-thinking solutions with cultural understanding to help them scale and thrive.
+              </p>
+            </div>
+          </div>
+
+          {/* Horizontal Interactive Timeline (Matching Image 2) */}
+          <div className="bg-white rounded-3xl p-6 sm:p-10 border border-gray-200/90 shadow-[0_4px_25px_rgba(0,0,0,0.03)] relative overflow-hidden">
+            <div className="text-center mb-8">
+              <p className="text-xs font-bold uppercase tracking-widest text-[#05434B]">
+                MILESTONES &amp; EVOLUTION
+              </p>
+            </div>
+
+            {/* Horizontal Timeline Track */}
+            <div className="relative py-8 overflow-x-auto">
+              {/* Connector line */}
+              <div className="hidden md:block absolute top-1/2 left-10 right-10 -translate-y-1/2 h-[3px] bg-gradient-to-r from-[#81D8D0] via-[#5BC7BC] to-[#05434B] -z-0" />
+
+              <div className="grid grid-cols-1 md:grid-cols-6 gap-6 relative z-10">
+                {timelineMilestones.map((item, idx) => (
+                  <div
+                    key={item.year}
+                    className="flex flex-col items-center text-center group"
+                  >
+                    {/* Top Card for odd items */}
+                    <div className="min-h-[90px] hidden md:flex flex-col justify-end mb-4">
+                      {item.position === "top" && (
+                        <div className="bg-white rounded-xl p-3 border border-gray-200 shadow-2xs text-left text-[11px] leading-snug">
+                          <p className="font-bold text-gray-900">{item.title}</p>
+                          <p className="text-gray-500 text-[10px] mt-0.5 line-clamp-2">{item.description}</p>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Timeline Node Button */}
+                    <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-[#5BC7BC] via-[#81D8D0] to-[#A8F5EE] text-[#05434B] flex items-center justify-center font-extrabold text-xs shadow-xs border-2 border-white shrink-0 group-hover:scale-110 transition-transform">
+                      {item.year}
+                    </div>
+
+                    {/* Bottom Card for even items */}
+                    <div className="min-h-[90px] flex flex-col justify-start mt-4">
+                      <div className="bg-white rounded-xl p-3 border border-gray-200 shadow-2xs text-left text-[11px] leading-snug">
+                        <p className="font-bold text-gray-900">{item.title}</p>
+                        <p className="text-gray-500 text-[10px] mt-0.5 leading-relaxed">{item.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 4. THE SCALIIFY TEAM (Sarah Mittiga & Ben Böhmer)            */}
+      {/* ============================================================ */}
+      <section className="w-full bg-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
+        <div className="max-w-6xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
+            <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#05434B] mb-3">
+              LEADERSHIP &amp; PARTNERS
+            </p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black leading-tight mb-4">
+              The scaliify Team
+            </h2>
+            <p className="text-sm sm:text-base text-gray-600 leading-relaxed max-w-xl mx-auto">
+              Combining over 25 years of Big-4 management consulting, sales leadership, and high-growth People operations.
+            </p>
+          </div>
+
+          {/* 2 Partners Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 items-stretch">
+            {/* Partner 1: Sarah Mittiga */}
+            <div className="bg-white rounded-3xl p-7 sm:p-9 border border-gray-200/90 hover:border-[#81D8D0]/60 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+              <div>
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 mb-6">
+                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shadow-md border-2 border-white shrink-0 bg-gray-100">
+                    <Image
+                      src="/images/partner-sarah.png"
+                      alt="Sarah Mittiga - Partner at Scaliify"
+                      fill
+                      unoptimized
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <span className="inline-block bg-[#81D8D0]/25 text-[#05434B] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-1.5">
+                      Partner
+                    </span>
+                    <h3 className="text-2xl font-extrabold text-black">
+                      Sarah Mittiga
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#05434B] font-semibold">
+                      Strategy, Change Management &amp; Business Development
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-medium mb-6">
+                  With over a decade of project leadership experience, she has excelled in sales and marketing across diverse industries including real estate, banking, FMCG, and tourism. Her years at a Big 4 Consulting firm honed her skills in innovation, change management, and business development. She specializes in devising and implementing resilient business models that adapt to societal and technological changes.
+                </p>
+              </div>
+
+              <div className="pt-6 border-t border-gray-100 flex items-center justify-between">
+                <a
+                  href="https://www.linkedin.com/in/sarah-mittiga/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#0077b5] hover:bg-[#005f93] text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full shadow-xs transition-colors cursor-pointer"
+                >
+                  <LinkedInIcon className="w-4 h-4" />
+                  <span>Connect on LinkedIn</span>
+                </a>
+                <span className="text-[11px] text-gray-400 font-medium">Ex-Big 4 Consultant</span>
+              </div>
+            </div>
+
+            {/* Partner 2: Ben Böhmer */}
+            <div className="bg-white rounded-3xl p-7 sm:p-9 border border-gray-200/90 hover:border-[#81D8D0]/60 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+              <div>
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 mb-6">
+                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shadow-md border-2 border-white shrink-0 bg-gray-100">
+                    <Image
+                      src="/images/partner-ben.png"
+                      alt="Ben Böhmer - Partner at Scaliify"
+                      fill
+                      unoptimized
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <span className="inline-block bg-[#81D8D0]/25 text-[#05434B] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-1.5">
+                      Partner
+                    </span>
+                    <h3 className="text-2xl font-extrabold text-black">
+                      Ben Böhmer
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#05434B] font-semibold">
+                      People Operations, Organizational Culture &amp; Scaling
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-medium mb-6">
+                  Ben brings over 15 years of people experience in diverse industries including tech, e-commerce, and medical technology. With a proven track record of leading teams, his expertise lies in organizational and cultural development, modern leadership, and People Business Partnering. He has successfully expanded business units across Germany, the UK, France, Italy, and Spain. Notably, he has led the hiring and onboarding of over 350 team members within just 8 months, demonstrating his exceptional capability in scaling operations swiftly and efficiently.
+                </p>
+              </div>
+
+              <div className="pt-6 border-t border-gray-100 flex items-center justify-between">
+                <a
+                  href="https://www.linkedin.com/in/benjaminboehmer/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#0077b5] hover:bg-[#005f93] text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full shadow-xs transition-colors cursor-pointer"
+                >
+                  <LinkedInIcon className="w-4 h-4" />
+                  <span>Connect on LinkedIn</span>
+                </a>
+                <span className="text-[11px] text-gray-400 font-medium">15+ Years HR Leadership</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 5. OUR TEAM OF EXPERTS (Global On-Demand Specialist Network) */}
+      {/* ============================================================ */}
+      <section className="w-full bg-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
+            <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#05434B] mb-3">
+              GLOBAL SPECIALIST NETWORK
+            </p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black leading-tight mb-4">
+              Our Team of Experts
+            </h2>
+            <p className="text-sm sm:text-base text-gray-700 leading-relaxed max-w-2xl mx-auto font-medium">
+              Our global network of experts, including lawyers, developers, recruiters, and more, allows us to tailor our approach to each project with precision. By bringing in the right specialists exactly when needed, we maintain a lean, client-focused methodology that ensures top-tier results. No matter where our clients are located, our team is equipped to handle projects of any scope and complexity.
+            </p>
+          </div>
+
+          {/* 4 Expert Network Domain Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 mb-12">
+            {expertDomains.map(({ icon: Icon, title, desc }) => (
+              <div
+                key={title}
+                className="bg-white rounded-2xl p-6 border border-gray-200/80 hover:border-[#81D8D0]/60 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
+              >
+                <div>
+                  <div className="relative w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#5BC7BC] via-[#81D8D0] to-[#A8F5EE] text-[#05434B] flex items-center justify-center shrink-0 shadow-xs border border-white/70 mb-4 group-hover:scale-105 transition-transform">
+                    <Icon className="w-5 h-5 stroke-[2.4]" />
+                  </div>
+                  <h3 className="text-base font-bold text-gray-950 mb-2 leading-snug">
+                    {title}
+                  </h3>
+                  <p className="text-xs text-gray-600 leading-relaxed font-medium">
+                    {desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Dubai Global Hub Callout */}
+          <div className="bg-gradient-to-r from-gray-900 via-[#05434B] to-gray-900 text-white rounded-3xl p-7 sm:p-10 shadow-[0_15px_40px_rgba(5,67,75,0.25)] border border-[#81D8D0]/30 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="text-left max-w-2xl">
+              <div className="flex items-center gap-2 mb-2">
+                <MapPin className="w-4 h-4 text-[#81D8D0]" />
+                <span className="text-[#81D8D0] text-xs font-bold uppercase tracking-wider">
+                  Headquartered in Dubai • Serving Clients Globally
+                </span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
+                A global hub for innovation and cultural understanding
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-200 leading-relaxed">
+                Operating from Dubai allows us to connect European businesses, scaleups, and international teams seamlessly across time zones with agility and forward-thinking solutions.
+              </p>
+            </div>
+            <Link
+              href="/lets-talk"
+              className="relative inline-flex items-center justify-center gap-2 bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark text-xs sm:text-sm font-bold px-7 py-3 rounded-full shadow-[0_4px_16px_rgba(129,216,208,0.55)] hover:brightness-105 transition-all cursor-pointer shrink-0 border border-white/80"
+            >
+              <span className="absolute inset-x-0 top-0 h-[45%] bg-gradient-to-b from-white/70 to-transparent rounded-t-full pointer-events-none" />
+              <span className="relative z-10">Work with our team</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 6. TESTIMONIALS SECTION                                      */}
+      {/* ============================================================ */}
+      <Testimonials />
+
+      {/* ============================================================ */}
+      {/* 7. DISCOVERY & CONSULTATION BOOKING LEAD SECTION             */}
+      {/* ============================================================ */}
+      <BookingLeadSection
+        title="Ready to partner with Scaliify?"
+        subtitle="Book an introductory call with Sarah Mittiga, Ben Böhmer, or one of our senior HR partners."
+        badgeTitle="GET IN TOUCH"
+      />
+
+      {/* ============================================================ */}
+      {/* 8. BLOG SECTION                                              */}
+      {/* ============================================================ */}
+      <BlogSection />
+    </main>
+  );
+}

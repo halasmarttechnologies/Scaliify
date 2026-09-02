@@ -1,6 +1,7 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Dispatch, SetStateAction } from "react";
@@ -14,10 +15,11 @@ interface NavDesktopMenuProps {
 }
 
 export function NavDesktopMenu({ isScrolled, activeMenu, setActiveMenu }: NavDesktopMenuProps) {
+  const t = useTranslations("navigation");
   return (
     <>
       {/* Center Desktop Navigation */}
-      <nav className={`hidden lg:flex items-center gap-3.5 xl:gap-5 text-xs sm:text-[13px] font-semibold transition-colors ${
+      <nav className={`hidden lg:flex items-center gap-1 xl:gap-2 text-[11px] xl:text-[12px] font-semibold transition-colors ${
         isScrolled ? "text-gray-300" : "text-gray-700"
       }`}>
 
@@ -38,7 +40,7 @@ export function NavDesktopMenu({ isScrolled, activeMenu, setActiveMenu }: NavDes
                 : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
             }`}
           >
-            <span>Services</span>
+            <span>{t("services")}</span>
             <ChevronDown
               className={`w-3.5 h-3.5 transition-transform duration-300 ${
                 activeMenu === "services"
@@ -52,34 +54,34 @@ export function NavDesktopMenu({ isScrolled, activeMenu, setActiveMenu }: NavDes
         {/* 2. HR Tool Finder */}
         <Link
           href="/tool-finder"
-          className={`transition-colors px-1.5 py-1 ${
+          className={`whitespace-nowrap transition-colors px-1.5 py-1 ${
             isScrolled ? "hover:text-white" : "hover:text-gray-900 hover:text-brand-dark"
           }`}
           onMouseEnter={() => setActiveMenu(null)}
         >
-          HR Tool Finder
+          {t("hrToolFinder")}
         </Link>
 
         {/* 3. Case Studies */}
         <Link
           href="/case-studies"
-          className={`transition-colors px-1.5 py-1 ${
+          className={`whitespace-nowrap transition-colors px-1.5 py-1 ${
             isScrolled ? "hover:text-white" : "hover:text-gray-900 hover:text-brand-dark"
           }`}
           onMouseEnter={() => setActiveMenu(null)}
         >
-          Case Studies
+          {t("caseStudies")}
         </Link>
 
         {/* 4. About Us */}
         <Link
           href="/about"
-          className={`transition-colors px-1.5 py-1 ${
+          className={`whitespace-nowrap transition-colors px-1.5 py-1 ${
             isScrolled ? "hover:text-white" : "hover:text-gray-900 hover:text-brand-dark"
           }`}
           onMouseEnter={() => setActiveMenu(null)}
         >
-          About Us
+          {t("aboutUs")}
         </Link>
 
         {/* 5. Insights Dropdown Trigger */}
@@ -99,7 +101,7 @@ export function NavDesktopMenu({ isScrolled, activeMenu, setActiveMenu }: NavDes
                 : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
             }`}
           >
-            <span>Insights</span>
+            <span>{t("insights")}</span>
             <ChevronDown
               className={`w-3.5 h-3.5 transition-transform duration-300 ${
                 activeMenu === "insights"
@@ -110,15 +112,15 @@ export function NavDesktopMenu({ isScrolled, activeMenu, setActiveMenu }: NavDes
           </button>
         </div>
 
-        {/* 6. Contact Us */}
+        {/* 6. Contact */}
         <Link
           href="/contact"
-          className={`transition-colors px-1.5 py-1 ${
+          className={`whitespace-nowrap transition-colors px-1.5 py-1 ${
             isScrolled ? "hover:text-white" : "hover:text-gray-900 hover:text-brand-dark"
           }`}
           onMouseEnter={() => setActiveMenu(null)}
         >
-          Contact
+          {t("contact")}
         </Link>
       </nav>
 
@@ -142,10 +144,10 @@ export function NavDesktopMenu({ isScrolled, activeMenu, setActiveMenu }: NavDes
               <div className="flex flex-col justify-between">
                 <div>
                   <h4 className="text-[15px] font-bold text-gray-900 tracking-tight">
-                    HR Technology
+                    {t("hrTechnology")}
                   </h4>
                   <p className="text-xs text-gray-500 mt-0.5 mb-3">
-                    Modern system selection, setup & integration
+                    {t("hrTechnologySub")}
                   </p>
                   <div className="h-px bg-gray-100 mb-3.5" />
 
@@ -155,21 +157,21 @@ export function NavDesktopMenu({ isScrolled, activeMenu, setActiveMenu }: NavDes
                       onClick={() => setActiveMenu(null)}
                       className="block hover:text-brand-dark hover:translate-x-0.5 transition-all py-0.5"
                     >
-                      HR IT Selection
+                      {t("hrItSelection")}
                     </Link>
                     <Link
                       href="/services/implementation-optimisation"
                       onClick={() => setActiveMenu(null)}
                       className="block hover:text-brand-dark hover:translate-x-0.5 transition-all py-0.5"
                     >
-                      Implementation & Optimisation
+                      {t("implementationOptimisation")}
                     </Link>
                     <Link
                       href="/services/hr-it-integrations"
                       onClick={() => setActiveMenu(null)}
                       className="block hover:text-brand-dark hover:translate-x-0.5 transition-all py-0.5"
                     >
-                      HR IT Integrations
+                      {t("hrItIntegrations")}
                     </Link>
                   </div>
                 </div>
@@ -179,7 +181,7 @@ export function NavDesktopMenu({ isScrolled, activeMenu, setActiveMenu }: NavDes
                   onClick={() => setActiveMenu(null)}
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-teal hover:text-brand-dark transition-colors mt-6 pt-2 border-t border-gray-50"
                 >
-                  <span>Explore HR Tech Services</span>
+                  <span>{t("exploreHrTech")}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -188,10 +190,10 @@ export function NavDesktopMenu({ isScrolled, activeMenu, setActiveMenu }: NavDes
               <div className="flex flex-col justify-between border-l border-gray-100 pl-8">
                 <div>
                   <h4 className="text-[15px] font-bold text-gray-900 tracking-tight">
-                    Advisory & Leadership
+                    {t("advisoryLeadership")}
                   </h4>
                   <p className="text-xs text-gray-500 mt-0.5 mb-3">
-                    Interim leadership & German labor compliance
+                    {t("advisoryLeadershipSub")}
                   </p>
                   <div className="h-px bg-gray-100 mb-3.5" />
 
@@ -201,29 +203,31 @@ export function NavDesktopMenu({ isScrolled, activeMenu, setActiveMenu }: NavDes
                       onClick={() => setActiveMenu(null)}
                       className="block hover:text-brand-dark hover:translate-x-0.5 transition-all py-0.5"
                     >
-                      Interim Management
+                      {t("interimManagement")}
                     </Link>
                     <Link
                       href="/services/outsourced-hr"
                       onClick={() => setActiveMenu(null)}
                       className="block hover:text-brand-dark hover:translate-x-0.5 transition-all py-0.5"
                     >
-                      Outsourced HR Management
+                      {t("outsourcedHr")}
                     </Link>
                     <Link
                       href="/services/hr-advisory"
                       onClick={() => setActiveMenu(null)}
                       className="block hover:text-brand-dark hover:translate-x-0.5 transition-all py-0.5"
                     >
-                      HR Advisory
+                      {t("hrAdvisory")}
                     </Link>
-                    <Link
-                      href="/services/scheinselbststaendigkeit"
+                    <a
+                      href="https://keine-scheinselbststaendigkeit.de/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       onClick={() => setActiveMenu(null)}
                       className="block hover:text-brand-dark hover:translate-x-0.5 transition-all py-0.5"
                     >
-                      Scheinselbstständigkeit
-                    </Link>
+                      {t("scheinselbststaendigkeit")} ↗
+                    </a>
                   </div>
                 </div>
 
@@ -232,7 +236,7 @@ export function NavDesktopMenu({ isScrolled, activeMenu, setActiveMenu }: NavDes
                   onClick={() => setActiveMenu(null)}
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-teal hover:text-brand-dark transition-colors mt-6 pt-2 border-t border-gray-50"
                 >
-                  <span>Explore Advisory Services</span>
+                  <span>{t("exploreAdvisory")}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -262,24 +266,24 @@ export function NavDesktopMenu({ isScrolled, activeMenu, setActiveMenu }: NavDes
                 onClick={() => setActiveMenu(null)}
                 className="block px-3 py-2.5 rounded-xl hover:bg-gray-50 hover:text-brand-dark transition-colors"
               >
-                <div className="font-semibold text-gray-900">Blog</div>
-                <div className="text-[11px] text-gray-500 font-normal mt-0.5">Articles & trends on modern HR</div>
+                <div className="font-semibold text-gray-900">{t("blog")}</div>
+                <div className="text-[11px] text-gray-500 font-normal mt-0.5">{t("blogSub")}</div>
               </Link>
               <Link
                 href="/insights/guides"
                 onClick={() => setActiveMenu(null)}
                 className="block px-3 py-2.5 rounded-xl hover:bg-gray-50 hover:text-brand-dark transition-colors"
               >
-                <div className="font-semibold text-gray-900">Guides & Checklists</div>
-                <div className="text-[11px] text-gray-500 font-normal mt-0.5">HR playbooks & software guides</div>
+                <div className="font-semibold text-gray-900">{t("guidesChecklists")}</div>
+                <div className="text-[11px] text-gray-500 font-normal mt-0.5">{t("guidesChecklistsSub")}</div>
               </Link>
               <Link
                 href="/insights/resources"
                 onClick={() => setActiveMenu(null)}
                 className="block px-3 py-2.5 rounded-xl hover:bg-gray-50 hover:text-brand-dark transition-colors"
               >
-                <div className="font-semibold text-gray-900">HR Resources</div>
-                <div className="text-[11px] text-gray-500 font-normal mt-0.5">RFP templates & decision frameworks</div>
+                <div className="font-semibold text-gray-900">{t("hrResources")}</div>
+                <div className="text-[11px] text-gray-500 font-normal mt-0.5">{t("hrResourcesSub")}</div>
               </Link>
             </div>
           </motion.div>

@@ -27,7 +27,7 @@ export function BlogIndexClient() {
   }, [selectedCategory, searchQuery]);
 
   return (
-    <div className="w-full min-h-screen bg-[#fafafa] pt-28 sm:pt-36 pb-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+    <div className="w-full min-h-screen bg-white pt-28 sm:pt-36 pb-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
       <div className="max-w-6xl mx-auto flex flex-col">
         
         {/* 1. Clean Start / Header Section with Neat Search Filter */}

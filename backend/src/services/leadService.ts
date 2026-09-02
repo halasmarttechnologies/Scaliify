@@ -70,7 +70,7 @@ export class LeadService {
           lastName: leadData.lastName,
           email: leadData.email.toLowerCase(),
           companyName: leadData.companyName,
-          jobTitle: leadData.jobTitle,
+          jobTitle: leadData.jobTitle || "",
           phone: leadData.phone || null,
           companySize: answers.companySize,
           source: "tool_finder",

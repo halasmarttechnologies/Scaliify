@@ -1,0 +1,24 @@
+# Scaliify Frontend — Local gitignore safety net
+# Mirrors root .gitignore so this directory stays safe if ever extracted
+
+# Environment variables — NEVER COMMIT REAL SECRETS
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Allow only the example template
+!.env.example
+
+# Next.js build artifacts
+.next/
+out/
+
+# Dependencies
+node_modules/
+
+# OS & editor artifacts
+.DS_Store
+Thumbs.db

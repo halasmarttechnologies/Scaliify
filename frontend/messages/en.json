@@ -1,0 +1,1079 @@
+{
+  "metadata": {
+    "home": {
+      "title": "Scaliify — Independent HR Technology Consultancy",
+      "description": "Vendor-neutral HR software selection, implementation, and integrations for European businesses. Benchmark 20+ platforms and find the right HR tech stack."
+    },
+    "about": {
+      "title": "About Us — Our Story, Team & Vision",
+      "description": "Learn about Scaliify's mission to bridge the gap between ambitious growth and operational excellence. Meet partners Sarah Mittiga and Ben Böhmer and our global network of >100 specialists."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Get in touch with Scaliify's HR technology advisory team. Schedule a consultation, request a custom software benchmark, or ask about our services."
+    },
+    "letsTalk": {
+      "title": "Book a Demo",
+      "description": "Book a personalised HR technology demo with Scaliify. Tell us about your needs and we'll build a tailored walkthrough aligned to your exact goals."
+    },
+    "blog": {
+      "title": "Blog & Insights",
+      "description": "HR trends, strategic software benchmarks, and People Ops insights from Scaliify. Stay ahead with expert analysis on hiring, compliance, and HR technology."
+    },
+    "caseStudies": {
+      "title": "Case Studies — Real Outcomes for Scaling European Businesses",
+      "description": "Explore how European scaleups and mid-market companies achieved seamless HR operations, zero payroll errors, and strategic organizational clarity with Scaliify."
+    },
+    "resources": {
+      "title": "HR Resources & Templates",
+      "description": "Free HR resource templates, RFP scoring models, compliance kits, and vendor evaluation frameworks from Scaliify's senior People Ops advisory team."
+    },
+    "guides": {
+      "title": "Guides & Checklists",
+      "description": "Free HR implementation playbooks, compliance checklists, and vendor-neutral software selection guides from Scaliify's advisory team."
+    },
+    "toolFinder": {
+      "title": "HR Tool Finder — Find Your Perfect HR Software",
+      "description": "Answer 10 quick questions and get personalised HR software recommendations benchmarked against 20+ leading European and global platforms."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "description": "Scaliify's privacy policy — how we collect, use, and protect your personal data."
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "description": "Scaliify's terms of service governing use of our website and services."
+    },
+    "services": {
+      "hrItSelection": {
+        "title": "HR IT Selection — Vendor-Neutral Software Advisory",
+        "description": "Independent HR software selection and vendor benchmarking. We evaluate 20+ platforms against your requirements, budget, and compliance needs to find the perfect fit."
+      },
+      "implementationOptimisation": {
+        "title": "Implementation & Optimisation — HR Tech Rollout",
+        "description": "Seamless HR software implementation, data migration, and system optimisation. We ensure your tools are configured, integrated, and adopted across your team."
+      },
+      "hrItIntegrations": {
+        "title": "HR IT Integrations — Connect Your Tech Stack",
+        "description": "End-to-end HR system integrations connecting your HRIS, payroll (DATEV), ATS, performance tools, and enterprise systems into automated workflows."
+      },
+      "interimManagement": {
+        "title": "Interim HR Management — Senior Leadership on Demand",
+        "description": "Experienced HR leaders and People Ops specialists available immediately for transitions, parental leaves, rapid scaling, and organisational change."
+      },
+      "outsourcedHr": {
+        "title": "Outsourced HR Management — Your Dedicated HR Team",
+        "description": "Full-service HR outsourcing tailored to your business. We act as your dedicated HR department covering contracts, payroll prep, compliance, and employee relations."
+      },
+      "hrAdvisory": {
+        "title": "HR Advisory — Strategic People Consulting",
+        "description": "Strategic HR consulting on organisational design, compensation frameworks, employee relations, and change management for growing European businesses."
+      }
+    }
+  },
+  "navigation": {
+    "services": "Services",
+    "hrToolFinder": "HR Tool Finder",
+    "caseStudies": "Case Studies",
+    "aboutUs": "About Us",
+    "insights": "Insights",
+    "contact": "Contact",
+    "letsTalk": "Let's Talk",
+    "back": "Back",
+    "openMenu": "Open mobile menu",
+    "closeMenu": "Close menu",
+    "hrTechnology": "HR Technology",
+    "hrTechnologySub": "Modern system selection, setup & integration",
+    "hrItSelection": "HR IT Selection",
+    "implementationOptimisation": "Implementation & Optimisation",
+    "hrItIntegrations": "HR IT Integrations",
+    "exploreHrTech": "Explore HR Tech Services",
+    "advisoryLeadership": "Advisory & Leadership",
+    "advisoryLeadershipSub": "Interim leadership & German labor compliance",
+    "interimManagement": "Interim Management",
+    "outsourcedHr": "Outsourced HR Management",
+    "hrAdvisory": "HR Advisory",
+    "scheinselbststaendigkeit": "Scheinselbstständigkeit ↗",
+    "exploreAdvisory": "Explore Advisory Services",
+    "blog": "Blog",
+    "blogSub": "Articles & trends on modern HR",
+    "guidesChecklists": "Guides & Checklists",
+    "guidesChecklistsSub": "HR playbooks & software guides",
+    "hrResources": "HR Resources",
+    "hrResourcesSub": "RFP templates & decision frameworks",
+    "knowledgeResources": "Knowledge & Resources"
+  },
+  "footer": {
+    "readySimplify": "Ready to simplify your HR?",
+    "joinThousands": "Join thousands of teams already using Scaliify to manage their workforce smarter.",
+    "startFreeTrial": "Start Free Trial • Reach Us",
+    "tagline": "Smarter HR starts here. Scaliify helps modern teams simplify operations, automate workflows, and build better workplaces without the complexity.",
+    "product": "Product",
+    "company": "Company",
+    "resources": "Resources",
+    "connectWithUs": "Connect with Us:",
+    "allRightsReserved": "© {year} Scaliify. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "links": {
+      "featuresOverview": "Features Overview",
+      "pricingPlans": "Pricing Plans",
+      "integrations": "Integrations",
+      "productUpdates": "Product Updates",
+      "roadmap": "Roadmap",
+      "aboutUs": "About Us",
+      "contactUs": "Contact Us",
+      "letsTalk": "Let's Talk",
+      "careers": "Careers",
+      "blogInsights": "Blog & Insights",
+      "pressKit": "Press Kit",
+      "partners": "Partners",
+      "guidesChecklists": "Guides & Checklists",
+      "hrResources": "HR Resources & Templates",
+      "caseStudies": "Case Studies",
+      "hrToolFinder": "HR Tool Finder"
+    }
+  },
+  "hero": {
+    "headlinePart1": "One Stop",
+    "headlinePart2": " HR for Modern Businesses",
+    "subheading": "Strategic HR & Automation for Growing Businesses",
+    "emailPlaceholder": "What's your work email? *",
+    "emailAriaLabel": "Work email address",
+    "requestDemo": "Request free demo",
+    "trustedBy": "Trusted by",
+    "employeeStat": "1.6M+",
+    "employeesAtOver": "employees at over",
+    "orgCount": "16,000",
+    "organisations": "organisations:"
+  },
+  "heroTrustBar": {
+    "softwareone": { "employees": "1000+ employees", "metric": "80% faster onboarding" },
+    "westbridge": { "employees": "450+ employees", "metric": "Zero payroll errors" },
+    "krones": { "employees": "750+ employees", "metric": "70% admin cut" },
+    "symrise": { "employees": "DACH & Global", "metric": "Modern HRIS stack" },
+    "tiemeyer": { "employees": "200+ employees", "metric": "Interim leadership" }
+  },
+  "heroDashboard": {
+    "canvasTitle": "This is how we partner with our clients",
+    "clientRequest": "Client Request",
+    "scaleupPeopleLead": "Scaleup People Lead",
+    "employeeInfo": "120 employees · DE & UK",
+    "newProject": "New Project",
+    "hrTransformationMandate": "HR Transformation Mandate",
+    "mandateDesc": "Siloed tools, manual payroll exports & rapid scaling",
+    "discoveryCall": "+ Discovery Call Initiated",
+    "hrItAudit": "HR IT Audit",
+    "systemMapping": "System Mapping & Gap Analysis",
+    "auditCheck1": "Map current processes & silos",
+    "auditCheck2": "Data quality & config review",
+    "auditCheck3": "DATEV cutover gaps identified",
+    "auditReportReady": "Audit Report: Ready",
+    "auditScore": "Score: 62% → 98% Goal",
+    "selectionStrategy": "Selection & Strategy",
+    "independentToolSelection": "Independent Tool Selection",
+    "coreHrisMatch": "Core HRIS Match:",
+    "coreHrisValue": "Personio / HiBob",
+    "recruitingAts": "Recruiting (ATS):",
+    "recruitingValue": "Greenhouse / Ashby",
+    "payrollEngine": "Payroll Engine:",
+    "payrollValue": "DATEV LODAS",
+    "processRedesign": "Process Redesign First: 0% Vendor Bias",
+    "implementation": "Implementation",
+    "executionIntegrations": "Execution & Integrations",
+    "implementationDesc": "Data migration, custom configuration, automated HRIS ↔ DATEV sync & interim HR leadership.",
+    "dataMigration": "Data Migration (100% Clean)",
+    "datevPipeline": "DATEV Automated Pipeline",
+    "interimHrLead": "Interim HR Lead Placed",
+    "seniorSpecialists": "Senior HR Specialists: >100 Network",
+    "liveRollout": "Live Rollout",
+    "singleSourceOfTruth": "Single Source of Truth",
+    "dataIntegrityAchieved": "100% Data Integrity Achieved",
+    "dataIntegrityDesc": "Zero duplicate manual entries between Core HR, Payroll, ATS, and Finance ERP.",
+    "euPayTransparency": "EU Pay Transparency (2026) Ready",
+    "advisoryRoi": "Advisory & ROI",
+    "savedPerMonth": "18h+",
+    "savedLabel": "Saved / Mo per HR Lead",
+    "onTimeRollout": "98%",
+    "onTimeLabel": "On-Time Rollout",
+    "manualCsvs": "0",
+    "manualCsvsLabel": "Manual CSVs",
+    "userAdoption": "5/5",
+    "userAdoptionLabel": "User Adoption",
+    "scaleOperations": "Scale Your HR Operations"
+  },
+  "servicesOverview": {
+    "badge": "Our Services",
+    "headingPart1": "Tailored services.",
+    "headingPart2": "Scaliify does it perfectly.",
+    "subtitle": "Scaliify works wherever you need growth. Any platform, device, or market.",
+    "hrTechnology": "HR Technology",
+    "advisoryLeadership": "Advisory & Leadership",
+    "explorePage": "Explore Page",
+    "bannerText": "Need reliable HR technology or strategic advisory? You're in the right place.",
+    "bookACall": "BOOK A CALL"
+  },
+  "coreFeatures": {
+    "kicker": "Strategic HR Consultancy",
+    "headingPart1": "Your One-Stop Shop for",
+    "headingPart2": "All Things HR Related",
+    "card1Heading": "HR Tech & Process Optimisation",
+    "card1Desc": "From independent HR software selection and implementation to end-to-end workflow automation and process optimisation.",
+    "projectsStat": "100+",
+    "projectsLabel": "HR Transformation Projects Delivered",
+    "efficiencyLabel": "HR Operations Efficiency",
+    "efficiencyStat": "94%",
+    "efficiencyStatLabel": "Efficiency & Satisfaction",
+    "ratingStat": "4.9/5",
+    "adminBadge": "40% average reduction in administrative workload",
+    "testimonialQuote": "Scaliify is truly our one-stop shop for all things HR. From digitalising our HR tech stack to interim leadership and strategic advisory, they gave us clarity and accelerated our growth.",
+    "testimonialAuthor": "Kathryn Murphy",
+    "testimonialTitle": "CEO, Pollinate Ltd."
+  },
+  "fastTimeToValue": {
+    "kicker": "OUR END-TO-END SOLUTIONS",
+    "headingPart1": "Tailored HR solutions and expert advisory,",
+    "headingPart2": " built for your growth",
+    "subtitle": "From vendor-neutral tool selection to turnkey operations and strategic executive sparring—we provide the complete People solutions your organisation needs.",
+    "week1": "Week 1",
+    "week2": "Week 2",
+    "week10": "Week 10",
+    "card1Heading": "Hit the ground running",
+    "card1Check1": "Audit existing HR files, contract templates, and workflows",
+    "card1Check2": "Meet your fixed dedicated senior HR contact person and team",
+    "card1Check3": "Map urgent hiring pipelines, payroll dates, and priorities",
+    "card2Heading": "Implement together",
+    "card2Check1": "Full operational takeover of contracts, onboarding & hiring",
+    "card2Check2": "Consolidate monthly payroll data and coordinate with DATEV",
+    "card2Check3": "Daily 5-day availability on Slack for employee & founder queries",
+    "card3Heading": "Launch with confidence",
+    "card3Check1": "Seamless ongoing operations with zero founder administrative drag",
+    "card3Check2": "Support to recruit your permanent in-house HR manager as you scale",
+    "card3Check3": "Always on-hand strategic sparring for C-Level and management",
+    "opsStable": "Operations stable",
+    "payAsYouGo": "Pay as you go",
+    "bottomBadge": "Vendor-neutral selection · Hands-on implementation · Ongoing strategic advisory"
+  },
+  "trustedCompanies": {
+    "heading": "Trusted by growing teams worldwide"
+  },
+  "softwareStack": {
+    "kicker": "Software We Work With",
+    "headingPart1": "Connect Your Favorite Tools,",
+    "headingPart2": "Seamlessly",
+    "subtitle": "From core HRIS and recruiting platforms to performance management and specialized tools, Scaliify helps you implement, optimize, and connect your complete HR software stack.",
+    "categories": {
+      "all": "All Integrations",
+      "hris": "HRIS & Core HR",
+      "recruiting": "Recruiting & ATS",
+      "performance": "Performance & Growth",
+      "other": "Other Systems"
+    }
+  },
+  "testimonials": {
+    "heading": "Loved by Teams Like Yours",
+    "subtitle": "See how companies are transforming their HR with Scaliify.",
+    "items": [
+      {
+        "quote": "Scaliify completely transformed how we manage team dynamics and performance tracking. The real-time analytics dashboard alone saved us hours every week, and the intuitive automated workflows have streamlined our onboarding processes significantly.",
+        "author": "Marvin McKinney",
+        "title": "HR Manager",
+        "company": "Luckycharm"
+      },
+      {
+        "quote": "We've tried several HR platforms before settling on Scaliify, and it's been a game-changer for our growing team. The advisory team went above and beyond, and the implementation was seamless—we were fully operational in under two weeks.",
+        "author": "Leslie Alexander",
+        "title": "Prometheus Founder",
+        "company": "Prometheus"
+      },
+      {
+        "quote": "Managing remote teams across multiple time zones used to be a nightmare until we found Scaliify. Their consulting approach is truly vendor-neutral and focused on what actually works for your specific company needs.",
+        "author": "Guy Hawkins",
+        "title": "Nietzsche, Inc.",
+        "company": "Nietzsche"
+      }
+    ]
+  },
+  "faq": {
+    "heading": "Frequently asked questions",
+    "items": [
+      {
+        "question": "What is Scaliify and how do you help growing companies?",
+        "answer": "Scaliify is your strategic consultancy partner for all things HR. We help organizations select and implement the right HR software, optimize core people operations, automate workflows, and provide high-impact interim HR leadership and advisory."
+      },
+      {
+        "question": "How does the HR Tool Finder and software advisory process work?",
+        "answer": "We conduct an independent analysis of your requirements, benchmark top European and global market solutions (Personio, Deel, Factorial, Ashby, Leapsome, Greenhouse, etc.), and guide your vendor evaluation to find the ideal fit with maximum ROI."
+      },
+      {
+        "question": "Can Scaliify assist with HR system integrations and migration?",
+        "answer": "Yes, we specialize in connecting your entire HR tech ecosystem—linking your core HRIS, applicant tracking (ATS), payroll (DATEV, local EU payroll, global EOR), and performance tools into automated, error-free workflows."
+      },
+      {
+        "question": "Do you offer interim HR management and strategic leadership?",
+        "answer": "Absolutely. Whether you are scaling rapidly, managing organizational change, restructuring, or bridging an executive leadership gap, our senior HR leaders step in immediately to run and elevate your HR operations."
+      },
+      {
+        "question": "What makes Scaliify independent from software vendors?",
+        "answer": "We are 100% vendor-independent advisors. We do not sell proprietary software. We evaluate platforms objectively based strictly on your organizational requirements, budget, team size, and regional compliance standards (such as German BAG, GDPR, and DATEV)."
+      },
+      {
+        "question": "Is Scaliify suitable for international, distributed, and remote teams?",
+        "answer": "Yes. We support companies across Europe, MENA, and worldwide with distributed workforce setups, Employer of Record (EOR) infrastructure, multi-country payroll compliance, and international HR tech rollouts."
+      }
+    ]
+  },
+  "cta": {
+    "headingPart1": "Ready to Transform",
+    "headingPart2": "Your ",
+    "headingPart3": "HR Strategy?",
+    "subtitle": "Get in touch with us today to see how Scaliify can streamline your business operations and tech stack.",
+    "button": "Contact Us Now"
+  },
+  "blogSection": {
+    "heading": "Blog",
+    "subtitle": "Stay informed and inspired with Scaliify's HR blog — your source for need-to-know trends, strategic insights, and helpful resources.",
+    "exploreAll": "Explore all articles",
+    "noArticles": "No articles found in \"{category}\". Check back soon!"
+  },
+  "supportFromDayOne": {
+    "kicker": "SEAMLESS SUPPORT",
+    "heading": "Support from day one.",
+    "subtitle": "Get help throughout implementation and beyond. From onboarding resources and self-service diagnostic toolkits to senior HR advisory and a thriving community of People leaders, Scaliify helps you get up and running quickly and make the most of your HR ecosystem.",
+    "bookConsultation": "Book a consultation",
+    "card1Kicker": "HELP AT YOUR FINGERTIPS",
+    "card1Heading": "Solutions, how-to-guides and a 24/7 help centre with +500 articles.",
+    "searchPlaceholder": "Search for topics...",
+    "browseKnowledgeBase": "Browse Knowledge Base",
+    "pill1": "Advance vacation allowance",
+    "pill2": "Reporting work from home",
+    "pill3": "Request absence directly from Slack",
+    "pill4": "Overtime & BAG compliance",
+    "pill5": "Timesheets reporting for compliance",
+    "pill6": "360 review cycles",
+    "card2Kicker": "+50 SENIOR ADVISORS",
+    "card2Heading": "90% of users are satisfied with our support, available by phone and email in your language during work hours.",
+    "contactUs": "Contact us",
+    "topicOfConcern": "Topic of concern",
+    "topicValue": "Reporting & Time Management",
+    "contactOptions": "Contact options",
+    "requestCallback": "Request a callback",
+    "callbackTime": "Tomorrow, 09:30",
+    "sendMessage": "Send us a message",
+    "responseTime": "2 business days",
+    "scheduleAdvisory": "Schedule an Advisory Call",
+    "card3Kicker": "A LIKE-MINDED COMMUNITY",
+    "card3Heading": "Join our vibrant HR community to connect with experts and share best practices.",
+    "answered": "Answered",
+    "forumTitle": "Personio + Contract Management: Best Practice?",
+    "forumUser": "HR Community Lead",
+    "forumQuestion": "I'm curious how you're handling contract creation & e-signatures with Personio templates?",
+    "forumReplyUser": "Scaliify Advisory",
+    "verified": "Verified",
+    "forumReply": "Generally we recommend setting up variable placeholder schemas and automated workflows prior to rollout...",
+    "joinCommunity": "Join the HR Community",
+    "dedicatedTeam": "Dedicated Implementation Team",
+    "prioritySupport": "Priority Support Available"
+  },
+  "bookingLead": {
+    "defaultTitle": "See Scaliify in action",
+    "defaultSubtitle": "Fill in your details to book a consultation call with one of our People & HR technology experts.",
+    "defaultBadge": "DISCOVERY & CONSULTATION",
+    "expectHeading": "Here's what to expect:",
+    "expect1": "A no-commitment discovery walkthrough of your HR ecosystem",
+    "expect2": "Discussion built around your team's top priorities and timeline",
+    "expect3": "Direct, honest answers from senior HR & tech practitioners",
+    "trustHeading": "Independent expertise European leaders trust:",
+    "trustBadge1Title": "Top HR Advisory",
+    "trustBadge1Sub": "SPRING 2026",
+    "trustBadge2Title": ">100 Specialists",
+    "trustBadge2Sub": "VETTED NETWORK",
+    "trustBadge3Title": "100% Vendor-Neutral",
+    "trustBadge3Sub": "ZERO COMMISSIONS",
+    "trustBadge4Title": "96% Outcome Rate",
+    "trustBadge4Sub": "MILESTONES DELIVERED",
+    "successHeading": "Thank you, {firstName}!",
+    "successMessage": "We have received your details. A senior Scaliify partner will contact you within 24 hours to coordinate your consultation call.",
+    "submitAnother": "Submit another inquiry",
+    "firstNameLabel": "First Name *",
+    "firstNamePlaceholder": "e.g. Alex",
+    "lastNameLabel": "Last Name *",
+    "lastNamePlaceholder": "e.g. Müller",
+    "emailLabel": "Business Email Address *",
+    "emailPlaceholder": "name@company.com",
+    "companyLabel": "Company Name *",
+    "companyPlaceholder": "e.g. TechCorp GmbH",
+    "employeesLabel": "Number of Employees *",
+    "employeeOptions": {
+      "10_50": "10-50 employees",
+      "50_100": "50-100 employees",
+      "100_250": "100-250 employees",
+      "250_500": "250-500 employees",
+      "500_plus": "500+ employees"
+    },
+    "phoneLabel": "Phone Number (Optional)",
+    "phonePlaceholder": "+49 170 1234567",
+    "consentText": "By submitting this form, you agree to our",
+    "consentPrivacy": "privacy policy",
+    "consentEnd": ". You may revoke consent at any time.",
+    "submitButton": "Book your free scoping call",
+    "submitting": "Submitting…"
+  },
+  "contact": {
+    "headingPart1": "Have a question?",
+    "headingPart2": "Let's get it answered",
+    "intro": "One of our experts will contact you shortly. Here's what you can expect:",
+    "expect1": "Schedule time with our advisory team",
+    "expect2": "Hear about case studies from companies like yours",
+    "expect3": "Learn how Scaliify simplifies HR",
+    "successHeading": "Thank you!",
+    "successMessage": "Your request has been received. A Scaliify consultant will follow up within 1 business day.",
+    "sendAnother": "Send another message",
+    "firstNamePlaceholder": "First Name",
+    "lastNamePlaceholder": "Last Name",
+    "emailPlaceholder": "Business Email Address",
+    "companyPlaceholder": "Company Name",
+    "jobTitlePlaceholder": "Job Title",
+    "employeesPlaceholder": "Number of Employees",
+    "countryPlaceholder": "Country",
+    "phonePlaceholder": "Phone Number",
+    "messagePlaceholder": "Your message",
+    "newsletterConsent": "I'd like to receive Scaliify's HR tech insights, product updates, and strategic resources. *",
+    "privacyNotice": "See the ",
+    "privacyLink": "privacy policy",
+    "privacyEnd": " for more details.",
+    "submitButton": "Submit request",
+    "submitting": "Submitting…",
+    "recaptchaNotice": "This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.",
+    "trustedBy": "Trusted by these companies",
+    "errorFallback": "Something went wrong. Please try again.",
+    "employeeRanges": [
+      "1–10 employees",
+      "11–50 employees",
+      "51–200 employees",
+      "201–500 employees",
+      "501–2,000 employees",
+      "2,000+ employees"
+    ],
+    "countries": [
+      "Germany",
+      "Austria",
+      "Switzerland",
+      "United Kingdom",
+      "Netherlands",
+      "France",
+      "Spain",
+      "Italy",
+      "Poland",
+      "Sweden",
+      "Denmark",
+      "Belgium",
+      "Portugal",
+      "Other"
+    ]
+  },
+  "letsTalk": {
+    "kicker": "BOOK A DEMO",
+    "heading": "See Scaliify in action",
+    "formTitle": "Book your demo",
+    "stepOf": "Step {step} of 3",
+    "successHeading": "You're booked in!",
+    "successMessage": "A Scaliify advisor will reach out within 1 business day to confirm your demo.",
+    "emailPlaceholder": "Business Email Address",
+    "companyPlaceholder": "Company Name",
+    "namePlaceholder": "Your Full Name",
+    "continue": "Continue",
+    "bookMyDemo": "Book my demo",
+    "submitting": "Submitting…",
+    "back": "← Back",
+    "recaptchaNotice": "This site is protected by reCAPTCHA and the Google {privacyLink} and {termsLink} apply.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "trustedBy": "Trusted by over 16,000 companies including",
+    "errorFallback": "Something went wrong. Please try again.",
+    "tailoredSolution": "YOUR TAILORED SOLUTION",
+    "whatToExpect": "Here's what to expect",
+    "steps": [
+      {
+        "title": "Tell us about your HR needs",
+        "desc": "We'll learn your HR needs and explore if Scaliify is the right fit."
+      },
+      {
+        "title": "We'll build a tailored demo",
+        "desc": "Explore a customised walkthrough, aligned to your exact goals."
+      },
+      {
+        "title": "Experience Scaliify in action",
+        "desc": "Ask personalised questions and learn how Scaliify could support your business."
+      }
+    ],
+    "usedDaily": "USED DAILY BY TEAMS FROM 50-5000 EMPLOYEES",
+    "joinOrgs": "Join the organisations unlocking impact",
+    "marqueeCards": [
+      {
+        "type": "quote-card",
+        "brandName": "polaroid",
+        "quote": "Scaliify's Customer Service was brilliant! Our Advisory Manager understood HR, was really responsive and I really had the feeling we would get good customer service.",
+        "author": "Melinda Brooks Bray | Polaroid"
+      },
+      {
+        "type": "image-card",
+        "quote": "If we want to be a future robust organisation, we cannot keep doing things manually. Automations help, so you can put your effort somewhere more useful.",
+        "author": "Nina Johansson | British Rowing"
+      },
+      {
+        "type": "stat-card",
+        "stat": "50%",
+        "sub": "faster recruitment",
+        "brand": "deliciously ella®"
+      },
+      {
+        "type": "image-card",
+        "quote": "It's really intuitive and easy to use for everyone in the business. We don't need loads of different systems anymore which can be expensive and confusing.",
+        "author": "Fran Newman | Deliciously Ella"
+      },
+      {
+        "type": "quote-card",
+        "brandName": "aryza",
+        "quote": "Scaliify benchmarked 20+ vendors for our European operations in days. We saved months of manual demos and evaluation meetings.",
+        "author": "Jack Wilson | Aryza Group"
+      },
+      {
+        "type": "image-card",
+        "quote": "Having an unbiased HR tech partner guiding our system selection saved us from costly contractual misalignments.",
+        "author": "Sophie Dubois | ScaleUp Ops"
+      }
+    ]
+  },
+  "about": {
+    "kicker": "ABOUT SCALIIFY",
+    "heading": "Unlocking the power of people and operational excellence",
+    "intro1": "At Scaliify, we believe people and operational agility are the single most important success factors for any growing organization. We bridge the gap between ambitious growth and operational execution.",
+    "intro2": "Today, we help ambitious businesses scale smarter—leveraging hands-on HR leadership, Big-4 consulting rigor, and a global network of specialized project experts.",
+    "talkToTeam": "Talk to our team",
+    "readOurStory": "Read our story",
+    "stat1Value": "100+",
+    "stat1Label": "specialists in global network",
+    "stat2Value": "25+",
+    "stat2Label": "years leadership & Big-4 consulting",
+    "stat3Value": "5+",
+    "stat3Label": "European & global markets expanded",
+    "stat4Value": "200+",
+    "stat4Label": "hires led & onboarded in 8 months",
+    "journeyKicker": "OUR JOURNEY",
+    "journeyHeading": "Our story",
+    "journeyIntro1": "scaliify was founded with a clear vision:",
+    "journeyIntro1Bold": " to bridge the gap between ambitious growth and operational excellence.",
+    "journeyIntro2": "Drawing on hands-on experience in HR and marketing, combined with Big-4 consulting expertise, we saw an opportunity to offer businesses practical, results-driven solutions without the inefficiencies of traditional models.",
+    "journeyIntro3": "From day one, we committed to working smarter—leveraging a network of project-specific experts to deliver tailored strategies that maximize impact while staying resource-efficient.",
+    "journeyIntro4": "Headquartered in Dubai, a hub of innovation and diversity, we are proud to serve businesses globally, blending forward-thinking solutions with cultural understanding to help them scale and thrive.",
+    "milestonesKicker": "MILESTONES & EVOLUTION",
+    "timeline": [
+      { "year": "2021", "title": "Vision & Foundation", "description": "Scaliify was founded to bridge the gap between ambitious growth and operational excellence with hands-on HR expertise and Big-4 consulting rigor." },
+      { "year": "2022", "title": "Rapid Expansion across DACH", "description": "Scaled our first 30+ tech startups and mid-market companies across Germany, Austria, and Switzerland." },
+      { "year": "2023", "title": "Global Specialist Network", "description": "Curated a vetted network of project-specific lawyers, HR tech developers, recruiters, and compensation strategists." },
+      { "year": "2024", "title": "Dubai Global Headquarters", "description": "Established our global headquarters in Dubai — a hub of innovation, diversity, and cross-continental connectivity." },
+      { "year": "2025", "title": "100+ Network Specialists", "description": "Expanded to over 100 on-demand HR specialists delivering advisory, interim, and technology consulting across 5+ markets." },
+      { "year": "2026", "title": "Next-Gen HR Advisory", "description": "Empowering hundreds of scaling businesses with end-to-end HR technology and People operations consulting." }
+    ],
+    "leadershipKicker": "LEADERSHIP & PARTNERS",
+    "leadershipHeading": "The scaliify Team",
+    "leadershipSubtitle": "Combining over 25 years of Big-4 management consulting, sales leadership, and high-growth People operations.",
+    "partner": "Partner",
+    "sarahName": "Sarah Mittiga",
+    "sarahRole": "Strategy, Change Management & Business Development",
+    "sarahBio": "With over a decade of project leadership experience spanning Big-4 management consulting, sales, and strategic business development, Sarah is a powerhouse in connecting solutions to real-world organizational challenges. Her expertise in stakeholder management, process optimization, and business transformation ensures every Scaliify engagement translates into measurable business outcomes.",
+    "sarahLinkedIn": "Connect on LinkedIn",
+    "sarahBadge": "Ex-Big 4 Consultant",
+    "benName": "Ben Böhmer",
+    "benRole": "People Operations, Organizational Culture & Scaling",
+    "benBio": "Ben brings over 15 years of people experience across high-growth startups, scale-ups, and international organizations. Having personally built and led People Operations teams in fast-scaling environments, he brings deep operational empathy to every Scaliify project—from establishing day-one HR infrastructure to designing performance frameworks for 500+ headcount companies.",
+    "benLinkedIn": "Connect on LinkedIn",
+    "benBadge": "15+ Years HR Leadership",
+    "networkKicker": "GLOBAL SPECIALIST NETWORK",
+    "networkHeading": "Our Team of Experts",
+    "networkDesc": "Our global network of experts, including lawyers, developers, recruiters, and more, provides on-demand resources to tackle any challenge, anytime, anywhere.",
+    "expertDomains": [
+      { "title": "Employment Lawyers & Compliance", "desc": "Specialized in German & European labor law, works council establishment, and cross-border employment structuring." },
+      { "title": "HRIS Developers & Integrators", "desc": "Technical engineers specializing in custom API connections, DATEV bridges, SSO, and multi-tool HR data architectures." },
+      { "title": "Executive & Tech Recruiters", "desc": "High-velocity talent acquisition partners embedded in DACH and global markets with a focus on scaling engineering, product, and leadership roles." },
+      { "title": "Comp & Benefits Strategists", "desc": "Experts in salary leveling bands, benefits benchmarking, EU Pay Transparency compliance, and incentive scheme design." }
+    ],
+    "hqTitle": "Headquartered in Dubai • Serving Clients Globally",
+    "hqSubtitle": "A global hub for innovation and cultural understanding",
+    "hqDesc": "Operating from Dubai allows us to connect European businesses, scaleups, and international teams seamlessly across time zones with agility and forward-thinking solutions.",
+    "workWithTeam": "Work with our team",
+    "ctaTitle": "Ready to partner with Scaliify?",
+    "ctaSubtitle": "Book an introductory call with Sarah Mittiga, Ben Böhmer, or one of our senior HR partners.",
+    "ctaBadge": "GET IN TOUCH"
+  },
+  "blogIndex": {
+    "heading": "Blog",
+    "subtitle": "Stay informed and inspired with Scaliify's HR blog — your source for need-to-know trends, strategic insights, and helpful resources.",
+    "searchPlaceholder": "Search articles...",
+    "clearSearch": "Clear search",
+    "noResults": "No articles found matching \"{query}\".",
+    "toolFinderBannerHeading": "Ready to find the perfect HR stack for your team?",
+    "toolFinderBannerDesc": "Benchmark 20+ top HR platforms tailored specifically to your company size and payroll workflow in under 2 minutes.",
+    "launchToolFinder": "Launch Tool Finder",
+    "featuredStory": "Featured Story",
+    "readArticle": "Read Article"
+  },
+  "blogPost": {
+    "backToArticles": "Back to all articles",
+    "researchTeam": "Scaliify Research Team",
+    "copiedToClipboard": "Article link copied to clipboard!",
+    "copyLink": "Copy Link",
+    "executiveSummary": "Executive Summary & Key Takeaways",
+    "section1Title": "1. Strategic Context & Regulatory Shifts",
+    "section1Para1": "As European labor markets grow increasingly competitive and regulated, organizations must fundamentally rethink how they acquire, develop, and retain talent. The EU Pay Transparency Directive, evolving GDPR enforcement, and remote work legislation are reshaping compliance landscapes across all member states.",
+    "section1Para2": "Organizations adopting modern People Ops frameworks report up to 40% reduction in administrative overhead and significantly improved employee satisfaction scores. The key lies in selecting the right technology stack and implementing it with strategic precision.",
+    "section2Title": "2. Core Implementation Principles for Modern Teams",
+    "section2Check1Title": "Audit your single source of truth:",
+    "section2Check1Desc": " Ensure your HRIS serves as the central employee data hub, eliminating duplicate records across payroll, ATS, and finance systems.",
+    "section2Check2Title": "Automate recurring administrative workflows:",
+    "section2Check2Desc": " From onboarding task sequences to DATEV payroll exports, automation reduces errors and frees HR teams for strategic work.",
+    "section2Check3Title": "Establish objective competency metrics:",
+    "section2Check3Desc": " Implement structured review cycles with clear competency frameworks that align individual goals with organizational OKRs.",
+    "section3Title": "3. Next Steps & Recommended Software Assessment",
+    "section3Para": "Selecting the ideal technology stack depends on headcount, geographic distribution, compliance requirements, and integration needs. A vendor-neutral assessment ensures you evaluate platforms based on your actual requirements rather than marketing promises.",
+    "assessmentHeading": "Benchmark Your Organization's Stack",
+    "assessmentDesc": "Discover the best HR tools for your team in under 2 minutes.",
+    "startAssessment": "Start Free Assessment →",
+    "relatedInsights": "Related Insights & Articles",
+    "articleNotFound": "Article Not Found | Scaliify"
+  },
+  "caseStudies": {
+    "kicker": "CUSTOMER IMPACT & OUTCOMES",
+    "heading": "Real outcomes for scaling European businesses",
+    "subtitle": "How growing companies eliminate HR tech debt, automate payroll cutovers, and scale their People operations with Scaliify.",
+    "discussChallenge": "Discuss your challenge",
+    "payrollKicker1": "PRELIMINARY PAYROLL",
+    "payrollKicker2": "DOCUMENT AUTOMATION",
+    "payrollHeading": "Payroll prep with minimum effort and maximum accuracy",
+    "payrollDesc": "HR and salary data in one place and always up to date. With one click, aggregate into one clean file for your payroll accountant (DATEV LODAS/Lohn und Gehalt) or global EOR partner.",
+    "payrollStat1": "85% reduction in monthly payroll data consolidation time",
+    "payrollStat2": "Zero gross-to-net discrepancy across 18 consecutive payroll cycles",
+    "readImplementation": "Read implementation approach",
+    "mockEmployee": "Brenna Stevens",
+    "mockTitle": "Marketing Executive",
+    "update": "Update",
+    "salary": "Salary",
+    "oneTimeBonus": "One-time Bonus",
+    "payrollSummary": "Preliminary payroll summary",
+    "datevReady": "DATEV Ready",
+    "employee": "Employee",
+    "gross": "Gross",
+    "absence": "Absence",
+    "pto": "PTO",
+    "sourceKicker1": "SINGLE SOURCE OF TRUTH",
+    "sourceKicker2": "DATA INTEGRITY",
+    "sourceHeading": "Enjoy accurate payroll data and transparent reporting",
+    "sourcePara1": "Interconnected salary and absence data means a dramatically lighter lift for founders and finance leads.",
+    "sourcePara2": "Comprehensive summaries ensure your tax advisor receives clean, validated cutover files without manual spreadsheet adjustments.",
+    "orgKicker1": "ORGANIZATIONAL DESIGN",
+    "orgKicker2": "COMPENSATION",
+    "orgHeading": "Be in control of changes and team leveling",
+    "orgPara1": "Be in the driver's seat with everything that changed right in front of you—no need to crawl through endless email threads.",
+    "orgPara2": "Have complete peace of mind using intelligent audit trails to verify contract amendments and salary adjustments.",
+    "exploreAdvisory": "Explore HR Advisory services",
+    "auditLogHeading": "Changes Audit Log",
+    "auditEmployee": "Employee",
+    "auditChange": "Change",
+    "auditNewValue": "New Value",
+    "auditEffective": "Effective",
+    "ctaTitle": "Ready to transform your HR operations?",
+    "ctaSubtitle": "Book an introductory discovery call to discuss your headcount, tech stack, and advisory needs.",
+    "ctaBadge": "START YOUR PROJECT"
+  },
+  "resources": {
+    "kicker": "RFP TEMPLATES & DECISION FRAMEWORKS",
+    "heading": "HR Resources",
+    "subtitle": "Free operational templates, vendor selection scoring models, and legal kits curated by our People operations experts.",
+    "searchPlaceholder": "Search resources...",
+    "highlights": "Highlights:",
+    "downloadKit": "Download Resource Kit",
+    "ctaTitle": "Looking for a specific template or evaluation model?",
+    "ctaSubtitle": "Our consulting team can share bespoke RFP frameworks and evaluation spreadsheets for your specific tech stack.",
+    "ctaBadge": "BESPOKE ASSETS",
+    "categories": ["All", "RFP Templates", "Calculators", "Legal Kits", "Decision Frameworks"],
+    "items": [
+      {
+        "category": "RFP Templates",
+        "title": "Vendor-Neutral HR Software RFP Master Template",
+        "desc": "A comprehensive 150-point evaluation questionnaire covering Core HR, Payroll, ATS, Performance, Time & Attendance, and Integration capabilities.",
+        "format": "Excel / Google Sheets",
+        "badge": "Template",
+        "features": [
+          "Categorized functional criteria (Core, ATS, Payroll, Time)",
+          "Weighted scoring model with automatic vendor rank calculation",
+          "Standard pricing comparison and hidden fee check matrix"
+        ]
+      },
+      {
+        "category": "Calculators",
+        "title": "HR Tech Stack ROI & Time-Savings Calculator",
+        "desc": "Quantify administrative hour savings, error-rate reduction, and cost-per-hire improvement when modernizing your HR technology stack.",
+        "format": "Interactive Sheet",
+        "badge": "Calculator",
+        "features": [
+          "Input current process times and calculate ROI within minutes",
+          "Benchmark against Scaliify's 500+ European SME dataset",
+          "Exportable executive summary for stakeholder alignment"
+        ]
+      },
+      {
+        "category": "Legal Kits",
+        "title": "Employment Contract & Addendum Compliance Kit",
+        "desc": "Pre-reviewed German employment contract templates, amendment letters, and termination checklist aligned with current BAG rulings.",
+        "format": "Word / PDF Kit",
+        "badge": "Legal Kit",
+        "features": [
+          "Standard full-time and part-time German employment contracts",
+          "Salary adjustment and role change addendum templates",
+          "Termination and mutual separation agreement drafts"
+        ]
+      },
+      {
+        "category": "Decision Frameworks",
+        "title": "360° Review & Performance Cycle Blueprint",
+        "desc": "A complete implementation guide for structured performance review cycles including competency frameworks, OKR alignment, and calibration sessions.",
+        "format": "PDF & Template",
+        "badge": "Framework",
+        "features": [
+          "Step-by-step 360° review cycle implementation timeline",
+          "Competency matrix templates for engineering, sales, and ops",
+          "Calibration session facilitator guide with bias mitigation"
+        ]
+      },
+      {
+        "category": "Decision Frameworks",
+        "title": "DATEV & HRIS Technical Architecture Blueprint",
+        "desc": "Technical reference guide for connecting your HRIS (Personio, Factorial, etc.) to DATEV LODAS or Lohn und Gehalt payroll systems.",
+        "format": "Architecture PDF",
+        "badge": "Blueprint",
+        "features": [
+          "End-to-end data flow diagrams for HRIS → DATEV integration",
+          "Field mapping reference for standard German payroll exports",
+          "Error handling and validation checkpoint documentation"
+        ]
+      },
+      {
+        "category": "RFP Templates",
+        "title": "Modern European Employee Handbook Template",
+        "desc": "A ready-to-customize employee handbook template covering remote work policies, GDPR data handling, leave entitlements, and code of conduct.",
+        "format": "Notion / Doc Template",
+        "badge": "Template",
+        "features": [
+          "GDPR-compliant data processing and privacy sections",
+          "Remote and hybrid work policy frameworks",
+          "Leave entitlement calculator aligned with German BUrlG"
+        ]
+      }
+    ]
+  },
+  "guides": {
+    "kicker": "HR PLAYBOOKS & SOFTWARE GUIDES",
+    "heading": "Guides & Checklists",
+    "subtitle": "Free, practical frameworks, implementation checklists, and vendor-neutral decision guides from Scaliify's senior advisors.",
+    "searchPlaceholder": "Search guides...",
+    "includes": "Includes:",
+    "requestPlaybook": "Request Playbook",
+    "ctaTitle": "Need bespoke playbooks for your team?",
+    "ctaSubtitle": "Book a working session with our senior HR operations and legal advisory team.",
+    "ctaBadge": "CUSTOM TEMPLATES",
+    "categories": ["All", "Software Selection", "Payroll & Integrations", "Compliance & Legal", "Org Strategy"],
+    "items": [
+      {
+        "category": "Software Selection",
+        "title": "The Ultimate HRIS Selection Playbook (2026 Edition)",
+        "desc": "A step-by-step decision framework for evaluating, shortlisting, and selecting your next HRIS platform — from initial scoping through vendor negotiation.",
+        "readTime": "12 min read",
+        "badge": "Playbook",
+        "items": [
+          "Requirements gathering workshop template with stakeholder RACI",
+          "Vendor demo evaluation scorecard (weighted by priority)",
+          "Contract negotiation and pricing red-flag checklist"
+        ]
+      },
+      {
+        "category": "Payroll & Integrations",
+        "title": "DATEV Cutover & Payroll Integration Checklist",
+        "desc": "Ensure zero-error payroll exports when connecting your HRIS to DATEV LODAS or Lohn und Gehalt. Covers field mapping, testing, and go-live.",
+        "readTime": "8 min read",
+        "badge": "Checklist",
+        "items": [
+          "Pre-cutover data validation and field mapping reference",
+          "Parallel-run testing schedule and reconciliation template",
+          "Go-live communication plan for payroll and HR teams"
+        ]
+      },
+      {
+        "category": "Compliance & Legal",
+        "title": "German Onboarding & Contract Compliance Guide",
+        "desc": "Navigate German employment law requirements for new hire onboarding — from Nachweisgesetz documentation to probation period management.",
+        "readTime": "10 min read",
+        "badge": "Compliance",
+        "items": [
+          "Day-1 documentation checklist per Nachweisgesetz requirements",
+          "Probation period milestones and evaluation framework",
+          "Social insurance registration and tax class setup guide"
+        ]
+      },
+      {
+        "category": "Compliance & Legal",
+        "title": "Works Council (Betriebsrat) IT Co-Determination Checklist",
+        "desc": "Manage Betriebsrat co-determination obligations when introducing or changing HR software systems in German organisations.",
+        "readTime": "9 min read",
+        "badge": "Checklist",
+        "items": [
+          "Co-determination trigger assessment for HR tech changes",
+          "BV (Betriebsvereinbarung) drafting template for IT systems",
+          "Communication and consultation timeline with works council"
+        ]
+      },
+      {
+        "category": "Org Strategy",
+        "title": "Compensation Leveling & European Salary Band Architecture",
+        "desc": "Design transparent salary structures with job leveling frameworks, market benchmarking methodology, and EU Pay Transparency readiness.",
+        "readTime": "15 min read",
+        "badge": "Framework",
+        "items": [
+          "Job family and level definition templates (IC and management)",
+          "Market benchmarking methodology and data source guide",
+          "EU Pay Transparency Directive compliance readiness checklist"
+        ]
+      },
+      {
+        "category": "Org Strategy",
+        "title": "Interim HR Management Readiness & Transition Toolkit",
+        "desc": "Prepare your organization for an interim HR leader — covering handover documentation, priority assessment, and stakeholder alignment.",
+        "readTime": "7 min read",
+        "badge": "Toolkit",
+        "items": [
+          "HR operations handover documentation template",
+          "First 30-60-90 day priority framework for interim leads",
+          "Stakeholder introduction and alignment communication plan"
+        ]
+      }
+    ]
+  },
+  "toolFinder": {
+    "heroKicker": "HR TOOL FINDER",
+    "heroHeading": "Find your perfect HR software in 2 minutes",
+    "heroSubtitle": "Answer 10 quick questions and get personalised recommendations benchmarked against 20+ leading European and global platforms.",
+    "startAssessment": "Start Assessment",
+    "questions": [
+      {
+        "badge": "Step 01 | Choose One",
+        "stepIndicator": "1 of 10",
+        "title": "How many employees are in your organization?",
+        "subtitle": "Vendor architecture, pricing models, and compliance modules scale directly with headcount.",
+        "options": [
+          { "title": "1 – 25 Employees", "sub": "Early-stage team prioritizing speed, simple leave, and light HR administration" },
+          { "title": "26 – 100 Employees", "sub": "Growing SME standardizing onboarding, German compliance, and payroll export" },
+          { "title": "101 – 500 Employees", "sub": "Scaling organization requiring custom permission roles, OKRs, and ATS pipeline" },
+          { "title": "500+ Employees", "sub": "Enterprise requiring multi-entity support, works council workflows, and SSO" }
+        ]
+      },
+      {
+        "badge": "Step 02 | Select All That Apply",
+        "stepIndicator": "2 of 10",
+        "title": "Where are your team members located?",
+        "subtitle": "Ensures local labor law compliance, German BAG time regulations, and local payroll compatibility.",
+        "options": [
+          { "title": "DACH (Germany, Austria, Switzerland)", "sub": "Strict GDPR, native DATEV integrations, German employment law standards" },
+          { "title": "UK & Western Europe", "sub": "European Union and United Kingdom employment operations" },
+          { "title": "Global Remote / Distributed", "sub": "International hiring across 10+ countries with EOR and contractor needs" },
+          { "title": "North America", "sub": "United States and Canadian corporate entities" },
+          { "title": "MENA / Middle East", "sub": "UAE, Saudi Arabia (WPS compliant payroll and local medical insurance)" }
+        ]
+      },
+      {
+        "badge": "Step 03 | Choose One",
+        "stepIndicator": "3 of 10",
+        "title": "What is your primary software goal?",
+        "subtitle": "Are you introducing your first central HR software or implementing a specialized tool?",
+        "options": [
+          { "title": "Starting Fresh", "sub": "Moving from spreadsheets, shared folders, and email to a centralized platform" },
+          { "title": "Replacing Existing HRIS", "sub": "Migrating to a more modern, scalable, and employee-friendly portal" },
+          { "title": "Specialist ATS / Recruiting", "sub": "Seeking best-of-breed scorecards, multiposting, and candidate CRM" },
+          { "title": "Dedicated Performance & OKRs", "sub": "Implementing 360° reviews, competency frameworks, and continuous 1:1s" }
+        ]
+      },
+      {
+        "badge": "Step 04 | Select All That Apply",
+        "stepIndicator": "4 of 10",
+        "title": "Which Core HR Administration features do you need?",
+        "subtitle": "Select the essential administrative workflows for your team.",
+        "options": [
+          { "title": "Digital Personnel Files", "sub": "Central secure employee record archive with role-based access permissions" },
+          { "title": "Automated On- & Offboarding", "sub": "Automated task checklists for HR, IT provisioning, and managers" },
+          { "title": "GDPR Compliance & Audit Logs", "sub": "Strict European data storage, audit trails, and deletion policies" },
+          { "title": "Integrated E-Signatures", "sub": "Legally compliant digital contract and document signing" },
+          { "title": "Dynamic Org Chart & Hierarchies", "sub": "Visual direct reports, department trees, and team structures" }
+        ]
+      },
+      {
+        "badge": "Step 05 | Choose One",
+        "stepIndicator": "5 of 10",
+        "title": "How is your payroll managed?",
+        "subtitle": "Select your accounting partner workflow or global payroll engine.",
+        "options": [
+          { "title": "DATEV / Tax Advisor Export", "sub": "Export gross monthly salary data directly to your German Steuerberater" },
+          { "title": "Local European Payroll Partners", "sub": "Direct integration with local country payroll service providers" },
+          { "title": "Global Employer of Record (EOR)", "sub": "Turnkey multi-country hiring without opening local business entities" },
+          { "title": "In-House Salary Accounting", "sub": "Internal payroll specialist team computing net salaries directly" }
+        ]
+      },
+      {
+        "badge": "Step 06 | Select All That Apply",
+        "stepIndicator": "6 of 10",
+        "title": "What are your key Recruiting (ATS) priorities?",
+        "subtitle": "Select candidate hiring and pipeline capabilities required.",
+        "options": [
+          { "title": "1-Click Job Multiposting", "sub": "Publish openings to LinkedIn, Stepstone, Indeed, and Google simultaneously" },
+          { "title": "Structured Scorecards & Kits", "sub": "Standardized interview evaluations across hiring managers" },
+          { "title": "Branded Career Portal", "sub": "Candidate self-scheduling links and modern mobile-friendly application flow" },
+          { "title": "Talent Pool & CRM Sourcing", "sub": "GDPR-compliant passive candidate database and pipeline management" },
+          { "title": "Recruiting Velocity & Source ROI", "sub": "Time-to-hire, offer acceptance rate, and channel conversion analytics" }
+        ]
+      },
+      {
+        "badge": "Step 07 | Select All That Apply",
+        "stepIndicator": "7 of 10",
+        "title": "How do you manage Performance & Employee Growth?",
+        "subtitle": "Select your desired performance review and goal frameworks.",
+        "options": [
+          { "title": "360° Review Cycles", "sub": "Structured peer, manager, upward, and self-evaluations" },
+          { "title": "Company & Team OKRs", "sub": "Goal alignment connected directly to individual contribution" },
+          { "title": "Continuous 1:1s & Pulse Surveys", "sub": "Regular check-in templates and real-time team engagement sentiment" },
+          { "title": "Compensation Benchmarking", "sub": "Job leveling, salary bands, and EU pay transparency compliance" }
+        ]
+      },
+      {
+        "badge": "Step 08 | Select All That Apply",
+        "stepIndicator": "8 of 10",
+        "title": "What are your Time & Attendance needs?",
+        "subtitle": "Particularly critical for EU companies requiring strict BAG compliance.",
+        "options": [
+          { "title": "BAG-Compliant Time Tracking", "sub": "Exact clock-in/clock-out timestamps complying with EU/German labor courts" },
+          { "title": "Absence & Vacation Policies", "sub": "Accrual rules, public holiday calendars, and manager approval flows" },
+          { "title": "Shift & Rota Scheduling", "sub": "Planning complex shift assignments for retail, hospitality, or production" },
+          { "title": "Project-Based Billable Hours", "sub": "Tracking time spent on specific client projects or internal cost centers" }
+        ]
+      },
+      {
+        "badge": "Step 09 | Select All That Apply",
+        "stepIndicator": "9 of 10",
+        "title": "Which existing systems must integrate seamlessly?",
+        "subtitle": "Your HRIS acts as the central source of truth for your entire tech ecosystem.",
+        "options": [
+          { "title": "DATEV (LODAS / Lohn und Gehalt)", "sub": "Native API integration for one-click payroll data exports" },
+          { "title": "Slack / Microsoft Teams", "sub": "Automated birthday alerts, leave notifications, and quick approvals" },
+          { "title": "Google Workspace / M365", "sub": "Active Directory user provisioning, SSO, and calendar syncing" },
+          { "title": "ERP / Accounting (NetSuite, SAP)", "sub": "Cost center mapping, journal entries, and financial reconciliation" },
+          { "title": "Custom Open API Access", "sub": "Developer access for webhooks and proprietary internal tooling" }
+        ]
+      }
+    ],
+    "wizardIntro": {
+      "heading": "Find your perfect HR stack",
+      "subtitle": "Answer 9 quick questions about your organisation and get vendor-neutral recommendations benchmarked against 20+ platforms.",
+      "startButton": "Start Assessment",
+      "time": "Takes ~2 minutes"
+    },
+    "wizardLead": {
+      "heading": "Almost there! Tell us about yourself.",
+      "subtitle": "We'll send your personalised recommendations to this email.",
+      "firstNameLabel": "First Name",
+      "lastNameLabel": "Last Name",
+      "emailLabel": "Work Email",
+      "companyLabel": "Company Name",
+      "jobTitleLabel": "Job Title",
+      "phoneLabel": "Phone (Optional)",
+      "submitButton": "Get My Recommendations",
+      "submitting": "Analysing...",
+      "consent": "By submitting, you agree to our privacy policy."
+    },
+    "wizardResults": {
+      "heading": "Your Personalised HR Tech Stack",
+      "subtitle": "Based on your assessment, here are our top recommendations:",
+      "topPick": "Top Pick",
+      "alsoConsider": "Also Consider",
+      "keyStrengths": "Key Strengths",
+      "bestFor": "Best For",
+      "startOver": "Start Over",
+      "bookConsultation": "Book a Consultation"
+    }
+  },
+  "services": {
+    "hrItSelection": {
+      "kicker": "HR IT SELECTION",
+      "heading": "Find the right HR software, faster",
+      "subtitle": "Independent, vendor-neutral software advisory. We benchmark 20+ platforms against your requirements, budget, and compliance needs.",
+      "ctaButton": "Start your assessment"
+    },
+    "implementationOptimisation": {
+      "kicker": "IMPLEMENTATION & OPTIMISATION",
+      "heading": "Seamless HR tech rollout & optimisation",
+      "subtitle": "From data migration and system configuration to user training and adoption — we ensure your HR tools deliver maximum value from day one.",
+      "ctaButton": "Book implementation call"
+    },
+    "hrItIntegrations": {
+      "kicker": "HR IT INTEGRATIONS",
+      "heading": "Connect your entire HR tech stack",
+      "subtitle": "End-to-end integrations linking your HRIS, payroll (DATEV), ATS, performance tools, and enterprise systems into automated, error-free workflows.",
+      "ctaButton": "Discuss integrations"
+    },
+    "interimManagement": {
+      "kicker": "INTERIM MANAGEMENT",
+      "heading": "Senior HR leadership, on demand",
+      "subtitle": "Experienced HR leaders and People Ops specialists available immediately for transitions, parental leaves, rapid scaling, and organisational change.",
+      "ctaButton": "Request interim leader"
+    },
+    "outsourcedHr": {
+      "kicker": "OUTSOURCED HR",
+      "heading": "Your dedicated HR department",
+      "subtitle": "Full-service HR outsourcing tailored to your business. We cover contracts, payroll prep, compliance, onboarding, and employee relations.",
+      "ctaButton": "Get started"
+    },
+    "hrAdvisory": {
+      "kicker": "HR ADVISORY",
+      "heading": "Strategic People consulting",
+      "subtitle": "Expert guidance on organisational design, compensation frameworks, employee relations, and change management for growing European businesses.",
+      "ctaButton": "Book advisory session"
+    }
+  },
+  "breadcrumbs": {
+    "home": "Home",
+    "about": "About Us",
+    "contact": "Contact",
+    "letsTalk": "Book a Demo",
+    "blog": "Blog",
+    "caseStudies": "Case Studies",
+    "resources": "Resources",
+    "guides": "Guides",
+    "toolFinder": "HR Tool Finder"
+  },
+  "common": {
+    "learnMore": "Learn more",
+    "readMore": "Read more",
+    "viewAll": "View all",
+    "loading": "Loading...",
+    "error": "Something went wrong. Please try again.",
+    "minRead": "{time} min read"
+  },
+  "blogCategories": {
+    "All": "All",
+    "Talent Acquisition": "Talent Acquisition",
+    "Operational Excellence": "Operational Excellence",
+    "Strategy": "Strategy",
+    "Inside Scaliify": "Inside Scaliify",
+    "Product": "Product"
+  },
+  "languageSwitcher": {
+    "en": "EN",
+    "de": "DE"
+  }
+}

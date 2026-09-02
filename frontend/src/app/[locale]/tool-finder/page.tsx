@@ -21,7 +21,7 @@ export const metadata: Metadata = buildMetadata({
 
 export default function ToolFinderPage() {
   return (
-    <main className="w-full min-h-screen relative">
+    <main className="w-full min-h-screen relative bg-white">
       <BreadcrumbJsonLd
         items={[
           { name: "Home", path: "/" },
@@ -35,7 +35,7 @@ export default function ToolFinderPage() {
       />
       <ToolFinderHero />
 
-      <div className="w-full relative bg-brand-section">
+      <div className="w-full relative bg-white">
         {/* Section A: The Interactive Tool Assessment */}
         <section id="tool-finder-tool" className="w-full pt-12 sm:pt-16 pb-12 sm:pb-16 bg-white">
           <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

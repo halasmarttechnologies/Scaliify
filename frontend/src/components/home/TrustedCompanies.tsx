@@ -1,25 +1,24 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { companies } from "@/data/companies";
 import { motion } from "framer-motion";
-import { CompanyLogo } from "@/components/ui/CompanyLogo";
-
-export { CompanyLogo };
+import { FADE_UP } from "@/lib/motion";
 
 export function TrustedCompanies() {
+  const t = useTranslations("trustedCompanies");
   return (
     <section
       id="companies"
-      className="w-full bg-[#fafafa] py-14 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16"
+      className="w-full bg-white py-14 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16"
     >
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         {/* Section Heading */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-15%" }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          {...FADE_UP}
+          whileInView={FADE_UP.animate}
+          viewport={FADE_UP.viewport}
           className="text-center mb-8 sm:mb-14 px-2"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-bold tracking-tight text-gray-900 leading-tight">
@@ -29,10 +28,9 @@ export function TrustedCompanies() {
 
         {/* Clean Logo Grid with 13 official partner logos */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-15%" }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          {...FADE_UP}
+          whileInView={FADE_UP.animate}
+          viewport={FADE_UP.viewport}
           className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4.5 max-w-[1200px]"
         >
           {companies.map((company) => (

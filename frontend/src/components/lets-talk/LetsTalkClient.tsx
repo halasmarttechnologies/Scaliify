@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
+import { submitLead } from "@/lib/api";
 
 const steps = [
   {
@@ -81,6 +82,8 @@ export function LetsTalkClient() {
   const [company, setCompany] = useState("");
   const [name, setName] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleStep1 = (e: React.FormEvent) => {
     e.preventDefault();
@@ -92,9 +95,29 @@ export function LetsTalkClient() {
     if (company) setStep(3);
   };
 
-  const handleStep3 = (e: React.FormEvent) => {
+  const handleStep3 = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    const parts = name.trim().split(/\s+/);
+    const firstName = parts[0] || "";
+    const lastName = parts.length > 1 ? parts.slice(1).join(" ") : firstName;
+
+    const result = await submitLead({
+      firstName,
+      lastName,
+      email,
+      companyName: company,
+      source: "lets_talk",
+    });
+
+    setIsSubmitting(false);
+    if (result.success) {
+      setSubmitted(true);
+    } else {
+      setSubmitError(result.error || "Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -216,18 +239,26 @@ export function LetsTalkClient() {
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Your Full Name"
                       aria-label="Full name"
-                      className="w-full border-b border-gray-300 focus:border-black py-2 text-sm text-black placeholder:text-gray-400 focus:outline-none bg-transparent transition-colors"
+                      disabled={isSubmitting}
+                      className="w-full border-b border-gray-300 focus:border-black py-2 text-sm text-black placeholder:text-gray-400 focus:outline-none bg-transparent transition-colors disabled:opacity-50"
                     />
+                    {submitError && (
+                      <p className="text-sm text-red-600 text-center" role="alert">
+                        {submitError}
+                      </p>
+                    )}
                     <button
                       type="submit"
-                      className="w-full bg-black text-white text-sm font-bold py-3 rounded-xl hover:bg-gray-900 transition-colors mt-0.5 cursor-pointer active:scale-[0.99]"
+                      disabled={isSubmitting}
+                      className="w-full bg-black text-white text-sm font-bold py-3 rounded-xl hover:bg-gray-900 transition-colors mt-0.5 cursor-pointer active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Book my demo
+                      {isSubmitting ? "Submitting…" : "Book my demo"}
                     </button>
                     <button
                       type="button"
                       onClick={() => setStep(2)}
-                      className="text-xs text-black font-semibold hover:underline text-center transition-colors cursor-pointer"
+                      disabled={isSubmitting}
+                      className="text-xs text-black font-semibold hover:underline text-center transition-colors cursor-pointer disabled:opacity-50"
                     >
                       ← Back
                     </button>

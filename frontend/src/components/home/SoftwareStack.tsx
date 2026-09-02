@@ -3,6 +3,7 @@
 import React from "react";
 import { TextRoll } from "@/components/ui/TextRoll";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 interface SoftwareTool {
   id: string;
@@ -198,8 +199,9 @@ const ToolLogo = React.memo(function ToolLogo({ id }: { id: string }) {
 });
 
 export function SoftwareStack() {
+  const t = useTranslations("softwareStack");
   return (
-    <section id="software" className="w-full bg-[#fafafa] py-10 sm:py-16 px-3.5 sm:px-6 md:px-8 lg:px-12">
+    <section id="software" className="w-full bg-white py-10 sm:py-16 px-3.5 sm:px-6 md:px-8 lg:px-12">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -212,18 +214,16 @@ export function SoftwareStack() {
         <div className="flex flex-col items-center text-center">
           <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-300 font-medium mb-3 sm:mb-5">
             <span className="w-1.5 h-1.5 rounded-full bg-white" />
-            <span>Software We Work With</span>
+            <span>{t("kicker")}</span>
           </div>
 
-          {/* Main Title */}
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white text-center max-w-3xl leading-[1.15] mb-3 sm:mb-4 flex flex-col items-center justify-center mx-auto gap-1">
-            <span>Connect Your Favorite Tools,</span>
-            <span>Seamlessly</span>
+            <span>{t("headingPart1")}</span>
+            <span>{t("headingPart2")}</span>
           </h2>
 
-          {/* Subtitle */}
           <p className="text-gray-300 max-w-2xl text-center text-xs sm:text-base md:text-lg mb-8 sm:mb-12 leading-relaxed font-normal px-2 sm:px-0">
-            From core HRIS and recruiting platforms to performance management and specialized tools, Scaliify helps you implement, optimize, and connect your complete HR software stack.
+            {t("subtitle")}
           </p>
         </div>
 

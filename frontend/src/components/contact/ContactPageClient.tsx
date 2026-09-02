@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { companies } from "@/data/companies";
 import { SupportFromDayOne } from "@/components/common/SupportFromDayOne";
+import { submitLead } from "@/lib/api";
 
 const employeeRanges = [
   "1–10 employees",
@@ -53,6 +54,7 @@ export function ContactPageClient() {
 
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleCountryChange = (code: string) => {
     const found = europeanCountries.find((c) => c.code === code);
@@ -63,13 +65,32 @@ export function ContactPageClient() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setSubmitError(null);
+
+    const phone = formData.phone
+      ? `${formData.dialCode} ${formData.phone}`.trim()
+      : undefined;
+
+    const result = await submitLead({
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
+      companyName: formData.companyName,
+      jobTitle: formData.jobTitle,
+      phone,
+      comments: formData.message || undefined,
+      source: "contact_page",
+    });
+
+    setIsSubmitting(false);
+    if (result.success) {
       setSubmitted(true);
-    }, 600);
+    } else {
+      setSubmitError(result.error || "Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -319,6 +340,12 @@ export function ContactPageClient() {
                 >
                   {isSubmitting ? "Submitting…" : "Submit request"}
                 </button>
+
+                {submitError && (
+                  <p className="text-sm text-red-600 text-center" role="alert">
+                    {submitError}
+                  </p>
+                )}
 
                 {/* reCAPTCHA Notice */}
                 <p className="text-[11px] text-gray-500 text-center leading-relaxed">

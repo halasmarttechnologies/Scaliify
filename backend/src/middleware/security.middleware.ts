@@ -58,17 +58,24 @@ export function sanitizeRequestBody(req: Request, _res: Response, next: NextFunc
   next();
 }
 
-function sanitizeObject(obj: any): any {
+function sanitizeObject(obj: any, depth = 0): any {
+  // Prevent deeply nested payloads from causing stack overflows
+  if (depth > 10) return {};
+
   if (typeof obj === "string") {
     return sanitizeString(obj);
   }
   if (Array.isArray(obj)) {
-    return obj.map((item) => sanitizeObject(item));
+    return obj.map((item) => sanitizeObject(item, depth + 1));
   }
   if (typeof obj === "object" && obj !== null) {
     const cleaned: Record<string, any> = {};
     for (const [key, value] of Object.entries(obj)) {
-      cleaned[key] = sanitizeObject(value);
+      // Block prototype pollution attack vectors
+      if (key === "__proto__" || key === "constructor" || key === "prototype") {
+        continue;
+      }
+      cleaned[key] = sanitizeObject(value, depth + 1);
     }
     return cleaned;
   }

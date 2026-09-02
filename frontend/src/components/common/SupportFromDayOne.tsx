@@ -10,7 +10,7 @@ interface SupportFromDayOneProps {
 
 export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
   return (
-    <section className={`w-full bg-[#fafafa] pb-20 sm:pb-28 px-4 sm:px-6 lg:px-8 border-t border-gray-100 ${className}`}>
+    <section className={`w-full bg-white pb-20 sm:pb-28 px-4 sm:px-6 lg:px-8 border-t border-gray-100 ${className}`}>
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center pt-16 sm:pt-20 mb-10 sm:mb-12 flex flex-col items-center">

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const footerLinks = {
     product: [
@@ -14,7 +15,7 @@ const footerLinks = {
       { name: "Roadmap", href: "/#services" },
     ],
     company: [
-      { name: "About Us", href: "/#services" },
+      { name: "About Us", href: "/about" },
       { name: "Contact Us", href: "/contact" },
       { name: "Let's Talk", href: "/lets-talk" },
       { name: "Careers", href: "/contact" },
@@ -23,15 +24,16 @@ const footerLinks = {
       { name: "Partners", href: "/#companies" },
     ],
     resources: [
-      { name: "Help Center", href: "/contact" },
-      { name: "Getting Started Guide", href: "/contact" },
-      { name: "API Documentation", href: "/contact" },
-      { name: "Community", href: "/contact" },
-      { name: "Webinars", href: "/contact" },
+      { name: "Guides & Checklists", href: "/insights/guides" },
+      { name: "HR Resources & Templates", href: "/insights/resources" },
+      { name: "Case Studies", href: "/case-studies" },
+      { name: "HR Tool Finder", href: "/tool-finder" },
+      { name: "Blog & Insights", href: "/blog" },
     ],
 };
 
 export function Footer() {
+  const t = useTranslations("footer");
   return (
     <footer className="w-full bg-black text-white pt-16 sm:pt-20 pb-12 px-4 sm:px-8 lg:px-16 border-t border-white/10 relative overflow-hidden">
       {/* Background Graphic Image */}
@@ -58,10 +60,10 @@ export function Footer() {
           className="flex flex-col items-center text-center mb-12 sm:mb-24 md:mb-28 px-2"
         >
           <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 sm:mb-5 leading-tight text-center">
-            Ready to simplify your HR?
+            {t("readySimplify")}
           </h2>
           <p className="text-gray-400 text-xs sm:text-base md:text-lg max-w-xl mb-6 sm:mb-10 leading-relaxed px-2 sm:px-0">
-            Join thousands of teams already using Scaliify to manage their workforce smarter.
+            {t("joinThousands")}
           </p>
 
           {/* CTA Pill Button (Glossy Tiffany Blue Let's Talk Style) */}
@@ -71,7 +73,7 @@ export function Footer() {
           >
             {/* Top Glossy Specular Sheen */}
             <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-full pointer-events-none" />
-            <span className="relative z-10">Start Free Trial • Reach Us</span>
+            <span className="relative z-10">{t("startFreeTrial")}</span>
             <div className="relative z-10 w-8 h-8 rounded-full bg-brand-dark text-brand-teal flex items-center justify-center group-hover:bg-white group-hover:text-brand-dark transition-colors shadow-xs">
               <ChevronRight className="w-4 h-4 stroke-[2.5]" />
             </div>
@@ -107,13 +109,13 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-gray-400 text-sm sm:text-base leading-relaxed max-w-sm">
-              Smarter HR starts here. Scaliify helps modern teams simplify operations, automate workflows, and build better workplaces without the complexity.
+              {t("tagline")}
             </p>
           </div>
 
           {/* Product Links */}
           <div>
-            <h3 className="font-semibold text-white text-sm sm:text-base mb-5">Product</h3>
+            <h3 className="font-semibold text-white text-sm sm:text-base mb-5">{t("product")}</h3>
             <ul className="flex flex-col gap-3.5">
               {footerLinks.product.map((link, idx) => (
                 <li key={idx}>
@@ -130,7 +132,7 @@ export function Footer() {
 
           {/* Company Links */}
           <div>
-            <h3 className="font-semibold text-white text-sm sm:text-base mb-5">Company</h3>
+            <h3 className="font-semibold text-white text-sm sm:text-base mb-5">{t("company")}</h3>
             <ul className="flex flex-col gap-3.5">
               {footerLinks.company.map((link, idx) => (
                 <li key={idx}>
@@ -147,7 +149,7 @@ export function Footer() {
 
           {/* Resources Links */}
           <div>
-            <h3 className="font-semibold text-white text-sm sm:text-base mb-5">Resources</h3>
+            <h3 className="font-semibold text-white text-sm sm:text-base mb-5">{t("resources")}</h3>
             <ul className="flex flex-col gap-3.5">
               {footerLinks.resources.map((link, idx) => (
                 <li key={idx}>
@@ -173,7 +175,7 @@ export function Footer() {
           className="w-full flex flex-col sm:flex-row items-center justify-between gap-5 mb-10 py-2"
         >
           <span className="text-white font-medium text-sm sm:text-base text-center sm:text-left">
-            Connect with Us:
+            {t("connectWithUs")}
           </span>
           <div className="flex items-center gap-3">
             {/* Facebook */}
@@ -234,13 +236,13 @@ export function Footer() {
 
         {/* 6. Copyright & Legal Policies */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-gray-500">
-          <p>© {new Date().getFullYear()} Scaliify. All rights reserved.</p>
+          <p>{t("allRightsReserved", { year: new Date().getFullYear() })}</p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="hover:text-gray-300 transition-colors">
-              Privacy Policy
+              {t("privacyPolicy")}
             </Link>
             <Link href="/terms" className="hover:text-gray-300 transition-colors">
-              Terms of Service
+              {t("termsOfService")}
             </Link>
           </div>
         </div>

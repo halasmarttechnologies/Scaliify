@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { CompanyLogo } from "@/components/ui/CompanyLogo";
@@ -10,6 +11,7 @@ import { HeroAuraWaves } from "@/components/ui/HeroAuraWaves";
 import { ROTATING_COMPANIES, COMPANY_ROTATION_INTERVAL_MS } from "@/lib/constants";
 
 export function Hero() {
+  const t = useTranslations("hero");
   const [email, setEmail] = useState("");
   const [companyIndex, setCompanyIndex] = useState(0);
 
@@ -30,12 +32,12 @@ export function Hero() {
 
         {/* 1. Main Headline (H1) */}
         <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[68px] font-bold text-white text-center tracking-tight leading-[1.12] max-w-4xl mx-auto">
-          <span className="text-brand-teal">One Stop</span> HR for Modern Businesses
+          <span className="text-brand-teal">{t("headlinePart1")}</span> {t("headlinePart2")}
         </h1>
 
         {/* 2. Subheading */}
         <p className="mt-3 sm:mt-5 text-sm sm:text-base md:text-lg text-gray-300 text-center max-w-2xl mx-auto font-normal leading-relaxed">
-          Strategic HR & Automation for Growing Businesses
+          {t("subheading")}
         </p>
 
         {/* 3. Clean Input with Glossy Tiffany Blue CTA Button (No beam) */}
@@ -53,8 +55,8 @@ export function Hero() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="What's your work email? *"
-              aria-label="Work email address"
+              placeholder={t("emailPlaceholder")}
+              aria-label={t("emailAriaLabel")}
               className="w-full bg-transparent text-gray-900 placeholder:text-gray-400 text-xs sm:text-sm font-medium focus:outline-none pr-2"
               required
             />
@@ -64,18 +66,18 @@ export function Hero() {
             >
               {/* Glossy Top Specular Sheen */}
               <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-xl pointer-events-none" />
-              <span className="relative z-10 tracking-tight">Request free demo</span>
+              <span className="relative z-10 tracking-tight">{t("requestDemo")}</span>
             </button>
           </form>
         </div>
 
         {/* 4. Trust Statement with Rotating Animated Logo */}
         <div className="mt-6 sm:mt-8 flex items-center justify-center gap-1.5 text-xs sm:text-sm text-gray-300 flex-wrap text-center">
-          <span>Trusted by</span>
-          <span className="font-bold text-brand-teal">1.6M+</span>
-          <span>employees at over</span>
-          <span className="font-bold text-brand-teal">16,000</span>
-          <span>organisations:</span>
+          <span>{t("trustedBy")}</span>
+          <span className="font-bold text-brand-teal">{t("employeeStat")}</span>
+          <span>{t("employeesAtOver")}</span>
+          <span className="font-bold text-brand-teal">{t("orgCount")}</span>
+          <span>{t("organisations")}</span>
 
           <div className="inline-flex items-center min-w-[95px] h-6 overflow-hidden align-middle">
             <AnimatePresence mode="wait">

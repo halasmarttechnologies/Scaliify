@@ -16,7 +16,7 @@ export function BlogPostDetail({ post }: BlogPostDetailProps) {
   const relatedPosts = BLOG_POSTS.filter((p) => p.id !== post.id).slice(0, 3);
 
   return (
-    <article className="w-full min-h-screen bg-[#fafafa] pt-28 sm:pt-36 pb-20">
+    <article className="w-full min-h-screen bg-white pt-28 sm:pt-36 pb-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Breadcrumb + Back Button */}
@@ -90,7 +90,7 @@ export function BlogPostDetail({ post }: BlogPostDetailProps) {
         {/* Article Body Content */}
         <div className="bg-white rounded-3xl border border-gray-200/80 p-6 sm:p-10 md:p-14 shadow-2xs text-gray-800 leading-relaxed space-y-6 sm:space-y-8">
           {/* Executive Summary / Key Takeaways Box */}
-          <div className="bg-brand-surface border border-brand-teal/30 rounded-2xl p-6 sm:p-8">
+          <div className="bg-white border border-brand-teal/30 rounded-2xl p-6 sm:p-8">
             <h2 className="text-base sm:text-lg font-bold text-brand-dark mb-3 flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-brand-teal" />
               Executive Summary & Key Takeaways

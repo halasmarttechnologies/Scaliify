@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { LenisProvider } from "@/components/providers/LenisProvider";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, OG_IMAGE } from "@/lib/seo";
-import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -21,9 +17,6 @@ export const metadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,
-  alternates: {
-    canonical: SITE_URL,
-  },
   robots: {
     index: true,
     follow: true,
@@ -63,26 +56,15 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * Root layout — minimal shell.
+ * The [locale] layout renders its own <html lang={locale}> and <body>
+ * with the correct language attribute and font class.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${plusJakartaSans.variable} antialiased min-h-screen flex flex-col font-sans bg-brand-surface text-foreground`}
-      >
-        <OrganizationJsonLd />
-        <WebSiteJsonLd />
-        <LenisProvider>
-          <Navbar />
-          <div className="flex-1">
-            {children}
-          </div>
-          <Footer />
-        </LenisProvider>
-      </body>
-    </html>
-  );
+  return children;
 }

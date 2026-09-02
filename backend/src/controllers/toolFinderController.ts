@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
-import { toolFinderAssessmentSubmissionSchema } from "../schemas/toolFinder.schema.js";
+import type { AssessmentAnswers, LeadContact } from "../schemas/toolFinder.schema.js";
 import { RecommendationEngine } from "../services/recommendationEngine.js";
 import { LeadService } from "../services/leadService.js";
 import { sendSuccess, sendError } from "../utils/response.js";
@@ -16,19 +16,8 @@ export class ToolFinderController {
    */
   public static async assess(req: Request, res: Response) {
     try {
-      // 1. Backend Zod Validation
-      const parseResult = toolFinderAssessmentSubmissionSchema.safeParse(req.body);
-      if (!parseResult.success) {
-        const formattedErrors: Record<string, string[]> = {};
-        for (const issue of parseResult.error.issues) {
-          const path = issue.path.join(".");
-          if (!formattedErrors[path]) formattedErrors[path] = [];
-          formattedErrors[path].push(issue.message);
-        }
-        return sendError(res, "Validation failed. Please check your submitted inputs.", 422, formattedErrors);
-      }
-
-      const { answers, lead } = parseResult.data;
+      // Body is pre-validated and typed by validate(toolFinderAssessmentSubmissionSchema) middleware
+      const { answers, lead } = req.body as { answers: AssessmentAnswers; lead: LeadContact };
 
       // 2. Fetch tools from database (or fallback to seed dataset if DB connection is offline)
       let toolCatalog = initialToolsData;

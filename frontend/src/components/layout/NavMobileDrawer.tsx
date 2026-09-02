@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Dispatch, SetStateAction } from "react";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 type MobileSubView = "services" | "insights" | null;
 
@@ -240,13 +241,15 @@ export function NavMobileDrawer({
                       >
                         HR Advisory
                       </Link>
-                      <Link
-                        href="/services/scheinselbststaendigkeit"
+                      <a
+                        href="https://keine-scheinselbststaendigkeit.de/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         onClick={() => setMobileMenuOpen(false)}
                         className="block hover:text-brand-teal transition-colors"
                       >
-                        Scheinselbstständigkeit
-                      </Link>
+                        Scheinselbstständigkeit ↗
+                      </a>
                     </div>
                   </div>
                 </motion.div>
@@ -302,8 +305,14 @@ export function NavMobileDrawer({
             </AnimatePresence>
           </div>
 
-          {/* 3. Fixed Bottom Sticky CTA Button */}
-          <div className="p-6 pt-3 bg-white border-t border-gray-100 shrink-0">
+          {/* 3. Fixed Bottom Sticky: Language Switcher + CTA */}
+          <div className="p-6 pt-3 bg-white border-t border-gray-100 shrink-0 space-y-3">
+            {/* Language Toggle */}
+            <div className="flex items-center justify-center gap-2">
+              <span className="text-[11px] text-gray-400 font-semibold uppercase tracking-wider">Language:</span>
+              <LanguageSwitcher variant="mobile" />
+            </div>
+
             <Link
               href="/lets-talk"
               onClick={() => {

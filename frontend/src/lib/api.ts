@@ -2,7 +2,12 @@ export type { AssessmentAnswers, LeadContact, ToolRecommendation, ToolFinderResp
 import type { AssessmentAnswers, LeadContact, ToolFinderResponse } from "@scaliify/shared";
 import { calculateRecommendations } from "@scaliify/shared";
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5000";
+/**
+ * All API calls go through Next.js server-side proxy routes (/api/proxy/*).
+ * This ensures the real backend URL is NEVER exposed in client JavaScript
+ * bundles or visible in browser DevTools.
+ */
+const API_BASE = "/api/proxy";
 
 export function isSafeHttpUrl(url: string): boolean {
   try {
@@ -18,13 +23,10 @@ export async function submitToolFinderAssessment(
   answers: AssessmentAnswers,
   lead: LeadContact
 ): Promise<ToolFinderResponse> {
-
   try {
-    const response = await fetch(`${BACKEND_URL}/api/v1/tool-finder/assess`, {
+    const response = await fetch(`${API_BASE}/assess`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ answers, lead }),
     });
 
@@ -32,7 +34,7 @@ export async function submitToolFinderAssessment(
       return await response.json();
     }
   } catch (error) {
-    console.warn("Backend API unreachable, using client-side fallback calculation:", error);
+    console.warn("Proxy unreachable, using client-side fallback:", error);
   }
 
   return generateClientFallbackRecommendations(answers);
@@ -54,7 +56,11 @@ export async function fetchToolFinderSubmissionResult(
     try {
       const stored = sessionStorage.getItem(`toolfinder_${submissionId}`);
       if (stored) {
-        return { status: "SUCCESS", data: JSON.parse(stored) };
+        const parsed = JSON.parse(stored);
+        // Security: validate shape before trusting sessionStorage data
+        if (parsed && Array.isArray(parsed.topRecommendations)) {
+          return { status: "SUCCESS", data: parsed };
+        }
       }
     } catch (e) {
       console.warn("Failed to read local fallback submission from sessionStorage:", e);
@@ -63,11 +69,9 @@ export async function fetchToolFinderSubmissionResult(
   }
 
   try {
-    const response = await fetch(`${BACKEND_URL}/api/v1/tool-finder/submissions/${encodeURIComponent(submissionId)}`, {
+    const response = await fetch(`${API_BASE}/submissions/${encodeURIComponent(submissionId)}`, {
       method: "GET",
-      headers: {
-        "Accept": "application/json",
-      },
+      headers: { Accept: "application/json" },
     });
 
     if (response.status === 404) {
@@ -88,6 +92,42 @@ export async function fetchToolFinderSubmissionResult(
   }
 }
 
+
+export interface LeadSubmitResult {
+  success: boolean;
+  error?: string;
+}
+
+export async function submitLead(data: {
+  firstName: string;
+  lastName: string;
+  email: string;
+  companyName: string;
+  jobTitle?: string;
+  phone?: string;
+  comments?: string;
+  source?: "contact_page" | "lets_talk" | "tool_finder";
+}): Promise<LeadSubmitResult> {
+  try {
+    const response = await fetch(`${BACKEND_URL}/api/v1/leads`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      return { success: true };
+    }
+
+    const body = await response.json().catch(() => null);
+    return {
+      success: false,
+      error: body?.message || `Request failed (${response.status})`,
+    };
+  } catch {
+    return { success: false, error: "Network error. Please try again." };
+  }
+}
 
 function generateClientFallbackRecommendations(answers: AssessmentAnswers): ToolFinderResponse {
   const result = calculateRecommendations(answers);

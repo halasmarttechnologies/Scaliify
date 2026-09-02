@@ -206,17 +206,32 @@ export function ToolFinderAreasCovered() {
 
             </div>
 
-            {/* Tree Branch Connectors (Visible on desktop) */}
-            <div className="hidden lg:flex flex-col justify-center gap-3.5 relative pl-4">
+            {/* Module Cards — visible on all screen sizes */}
+            <div className="flex flex-col gap-3 w-full lg:w-auto lg:pl-4 mt-8 lg:mt-0 relative">
               
-              {/* Circuit SVG line backdrop */}
-              <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-12 h-64 pointer-events-none opacity-40">
-                <svg className="w-full h-full text-white" fill="none" viewBox="0 0 48 256">
-                  <path d="M0 128 C 24 128, 24 24, 48 24" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3" />
-                  <path d="M0 128 C 24 128, 24 76, 48 76" stroke="currentColor" strokeWidth="1.5" />
-                  <path d="M0 128 C 24 128, 24 128, 48 128" stroke="currentColor" strokeWidth="1.5" />
-                  <path d="M0 128 C 24 128, 24 180, 48 180" stroke="currentColor" strokeWidth="1.5" />
-                  <path d="M0 128 C 24 128, 24 232, 48 232" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3" />
+              {/* Circuit SVG — desktop only */}
+              <div className="hidden lg:block absolute -left-12 top-1/2 -translate-y-1/2 w-12 h-64 pointer-events-none">
+                <style>{`
+                  @keyframes circuitWireRunning {
+                    from { stroke-dashoffset: 24; }
+                    to { stroke-dashoffset: 0; }
+                  }
+                  .circuit-wire-running {
+                    stroke-dasharray: 6 6;
+                    animation: circuitWireRunning 1.1s linear infinite;
+                  }
+                `}</style>
+                <svg className="w-full h-full" fill="none" viewBox="0 0 48 256">
+                  <path d="M0 128 C 24 128, 24 24, 48 24" stroke="#000000" strokeWidth="1" strokeOpacity="0.2" />
+                  <path d="M0 128 C 24 128, 24 76, 48 76" stroke="#000000" strokeWidth="1" strokeOpacity="0.2" />
+                  <path d="M0 128 C 24 128, 24 128, 48 128" stroke="#000000" strokeWidth="1" strokeOpacity="0.2" />
+                  <path d="M0 128 C 24 128, 24 180, 48 180" stroke="#000000" strokeWidth="1" strokeOpacity="0.2" />
+                  <path d="M0 128 C 24 128, 24 232, 48 232" stroke="#000000" strokeWidth="1" strokeOpacity="0.2" />
+                  <path d="M0 128 C 24 128, 24 24, 48 24" stroke="#000000" strokeWidth="2.2" className="circuit-wire-running" />
+                  <path d="M0 128 C 24 128, 24 76, 48 76" stroke="#000000" strokeWidth="2.2" className="circuit-wire-running" />
+                  <path d="M0 128 C 24 128, 24 128, 48 128" stroke="#000000" strokeWidth="2.2" className="circuit-wire-running" />
+                  <path d="M0 128 C 24 128, 24 180, 48 180" stroke="#000000" strokeWidth="2.2" className="circuit-wire-running" />
+                  <path d="M0 128 C 24 128, 24 232, 48 232" stroke="#000000" strokeWidth="2.2" className="circuit-wire-running" />
                 </svg>
               </div>
 
@@ -232,7 +247,7 @@ export function ToolFinderAreasCovered() {
                   <button
                     key={idx}
                     onClick={() => setActiveTab(item.key)}
-                    className={`border px-5 py-3 rounded-2xl text-left transition-all cursor-pointer select-none shadow-md min-w-[230px] ${
+                    className={`border px-5 py-3 rounded-2xl text-left transition-all cursor-pointer select-none shadow-md w-full lg:min-w-[230px] ${
                       isActive
                         ? "bg-brand-dark border-2 border-white text-white shadow-xl ring-2 ring-white/20"
                         : "bg-brand-dark/85 hover:bg-brand-dark border-white/20 text-white"
@@ -252,61 +267,61 @@ export function ToolFinderAreasCovered() {
 
           </motion.div>
 
-          {/* 3. 5-Feature Indicators Strip (Deep dive into all covered areas) */}
+          {/* 3. 5-Feature Indicators Strip (Deep dive into all covered areas in black font color) */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-15%" }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-4 w-full max-w-5xl mt-14 mb-14 pt-10 border-t border-white/15"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 w-full max-w-5xl mt-14 mb-14 pt-10 border-t border-white/15"
           >
             
-            <div className="flex flex-col items-start text-left">
-              <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center mb-2.5">
-                <FileCheck className="w-3.5 h-3.5 text-brand-teal" />
+            <div className="bg-white rounded-2xl p-4.5 border border-gray-100 shadow-sm flex flex-col items-start text-left">
+              <div className="w-8 h-8 rounded-xl bg-[#81D8D0]/30 text-[#05434B] flex items-center justify-center mb-2.5 shadow-2xs">
+                <FileCheck className="w-4 h-4 stroke-[2.5]" />
               </div>
-              <h4 className="text-xs font-bold text-white mb-1">HR Admin / Core</h4>
-              <p className="text-[11px] text-gray-300 leading-relaxed">
+              <h4 className="text-xs sm:text-sm font-extrabold text-black mb-1.5">HR Admin / Core</h4>
+              <p className="text-[11px] text-black leading-relaxed font-medium">
                 Centralized employee master files, automated on/offboarding, and compliant e-signatures.
               </p>
             </div>
 
-            <div className="flex flex-col items-start text-left">
-              <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center mb-2.5">
-                <Target className="w-3.5 h-3.5 text-brand-teal" />
+            <div className="bg-white rounded-2xl p-4.5 border border-gray-100 shadow-sm flex flex-col items-start text-left">
+              <div className="w-8 h-8 rounded-xl bg-[#81D8D0]/30 text-[#05434B] flex items-center justify-center mb-2.5 shadow-2xs">
+                <Target className="w-4 h-4 stroke-[2.5]" />
               </div>
-              <h4 className="text-xs font-bold text-white mb-1">Recruiting & ATS</h4>
-              <p className="text-[11px] text-gray-300 leading-relaxed">
+              <h4 className="text-xs sm:text-sm font-extrabold text-black mb-1.5">Recruiting &amp; ATS</h4>
+              <p className="text-[11px] text-black leading-relaxed font-medium">
                 1-click job multiposting across 50+ channels, structured kits, and talent pools.
               </p>
             </div>
 
-            <div className="flex flex-col items-start text-left">
-              <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center mb-2.5">
-                <LineChart className="w-3.5 h-3.5 text-brand-teal" />
+            <div className="bg-white rounded-2xl p-4.5 border border-gray-100 shadow-sm flex flex-col items-start text-left">
+              <div className="w-8 h-8 rounded-xl bg-[#81D8D0]/30 text-[#05434B] flex items-center justify-center mb-2.5 shadow-2xs">
+                <LineChart className="w-4 h-4 stroke-[2.5]" />
               </div>
-              <h4 className="text-xs font-bold text-white mb-1">Performance & OKRs</h4>
-              <p className="text-[11px] text-gray-300 leading-relaxed">
+              <h4 className="text-xs sm:text-sm font-extrabold text-black mb-1.5">Performance &amp; OKRs</h4>
+              <p className="text-[11px] text-black leading-relaxed font-medium">
                 Automated 360° feedback, company-wide OKRs, 1:1 check-ins, and compensation bands.
               </p>
             </div>
 
-            <div className="flex flex-col items-start text-left">
-              <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center mb-2.5">
-                <Clock className="w-3.5 h-3.5 text-brand-teal" />
+            <div className="bg-white rounded-2xl p-4.5 border border-gray-100 shadow-sm flex flex-col items-start text-left">
+              <div className="w-8 h-8 rounded-xl bg-[#81D8D0]/30 text-[#05434B] flex items-center justify-center mb-2.5 shadow-2xs">
+                <Clock className="w-4 h-4 stroke-[2.5]" />
               </div>
-              <h4 className="text-xs font-bold text-white mb-1">Time & Attendance</h4>
-              <p className="text-[11px] text-gray-300 leading-relaxed">
-                German BAG-compliant clocking, absence & vacation approvals, and shift planning.
+              <h4 className="text-xs sm:text-sm font-extrabold text-black mb-1.5">Time &amp; Attendance</h4>
+              <p className="text-[11px] text-black leading-relaxed font-medium">
+                German BAG-compliant clocking, absence &amp; vacation approvals, and shift planning.
               </p>
             </div>
 
-            <div className="flex flex-col items-start text-left col-span-2 sm:col-span-1">
-              <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center mb-2.5">
-                <CreditCard className="w-3.5 h-3.5 text-brand-teal" />
+            <div className="bg-white rounded-2xl p-4.5 border border-gray-100 shadow-sm flex flex-col items-start text-left sm:col-span-2 lg:col-span-1">
+              <div className="w-8 h-8 rounded-xl bg-[#81D8D0]/30 text-[#05434B] flex items-center justify-center mb-2.5 shadow-2xs">
+                <CreditCard className="w-4 h-4 stroke-[2.5]" />
               </div>
-              <h4 className="text-xs font-bold text-white mb-1">Payroll & DATEV</h4>
-              <p className="text-[11px] text-gray-300 leading-relaxed">
+              <h4 className="text-xs sm:text-sm font-extrabold text-black mb-1.5">Payroll &amp; DATEV</h4>
+              <p className="text-[11px] text-black leading-relaxed font-medium">
                 Seamless gross salary data exports to your Steuerberater and global EOR partners.
               </p>
             </div>
@@ -333,7 +348,9 @@ export function ToolFinderAreasCovered() {
                   <span>Thank you! Our advisory team will reach out promptly.</span>
                 </div>
               ) : (
-                <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row items-center gap-2 bg-white rounded-full p-1.5 shadow-sm border border-brand-dark/10 w-full mt-4">
+              <form onSubmit={handleEmailSubmit} className="w-full mt-4">
+                {/* Mobile: stacked layout */}
+                <div className="flex flex-col gap-2 sm:hidden">
                   <input
                     type="email"
                     required
@@ -341,16 +358,37 @@ export function ToolFinderAreasCovered() {
                     onChange={(e) => setEmailInput(e.target.value)}
                     placeholder="What's your work email? *"
                     aria-label="Work email address"
-                    className="w-full bg-transparent px-4 py-2.5 text-xs sm:text-sm text-gray-900 placeholder-gray-500 focus:outline-none"
+                    className="w-full bg-white rounded-2xl px-4 py-3 text-sm text-gray-900 placeholder-gray-500 focus:outline-none border border-brand-dark/10 shadow-sm"
                   />
                   <button
                     type="submit"
-                    className="group relative w-full sm:w-auto shrink-0 bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark text-xs sm:text-sm font-extrabold px-6 py-3 rounded-full border border-white/70 shadow-[0_2px_14px_rgba(129,216,208,0.55)] hover:shadow-[0_4px_24px_rgba(129,216,208,0.85)] hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer overflow-hidden whitespace-nowrap"
+                    className="group relative w-full bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark text-sm font-extrabold px-6 py-3 rounded-2xl border border-white/70 shadow-[0_2px_14px_rgba(129,216,208,0.55)] hover:shadow-[0_4px_24px_rgba(129,216,208,0.85)] hover:scale-[1.01] active:scale-[0.98] transition-all cursor-pointer overflow-hidden"
+                  >
+                    <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-2xl pointer-events-none" />
+                    <span className="relative z-10 tracking-tight">Request free demo</span>
+                  </button>
+                </div>
+
+                {/* Desktop: pill row layout */}
+                <div className="hidden sm:flex items-center gap-2 bg-white rounded-full p-1.5 shadow-sm border border-brand-dark/10 w-full">
+                  <input
+                    type="email"
+                    required
+                    value={emailInput}
+                    onChange={(e) => setEmailInput(e.target.value)}
+                    placeholder="What's your work email? *"
+                    aria-label="Work email address"
+                    className="w-full bg-transparent px-4 py-2.5 text-sm text-gray-900 placeholder-gray-500 focus:outline-none"
+                  />
+                  <button
+                    type="submit"
+                    className="group relative shrink-0 bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark text-sm font-extrabold px-6 py-3 rounded-full border border-white/70 shadow-[0_2px_14px_rgba(129,216,208,0.55)] hover:shadow-[0_4px_24px_rgba(129,216,208,0.85)] hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer overflow-hidden whitespace-nowrap"
                   >
                     <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-full pointer-events-none" />
                     <span className="relative z-10 tracking-tight">Request free demo</span>
                   </button>
-                </form>
+                </div>
+              </form>
               )}
             </div>
 

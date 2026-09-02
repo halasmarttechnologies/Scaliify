@@ -42,6 +42,6 @@ export const advisoryServices = [
     title: "Scheinselbstständigkeit",
     description:
       "Expert guidance on complex employment classification and compliance to protect your business from costly misclassification risks.",
-    link: "/services/scheinselbststaendigkeit",
+    link: "https://keine-scheinselbststaendigkeit.de/",
   },
 ];

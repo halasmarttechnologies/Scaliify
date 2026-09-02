@@ -22,6 +22,7 @@ import {
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { companies } from "@/data/companies";
 import { Testimonials } from "@/components/home/Testimonials";
+import { BookingLeadSection } from "@/components/common/BookingLeadSection";
 import { BlogSection } from "@/components/home/BlogSection";
 
 /**
@@ -707,7 +708,7 @@ export function ImplementationOptimisationClient() {
       {/* ============================================================ */}
       {/* 8. FREQUENTLY ASKED QUESTIONS ACCORDION                      */}
       {/* ============================================================ */}
-      <section className="w-full bg-[#fafafa] py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
+      <section className="w-full bg-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
         <div className="max-w-4xl mx-auto">
           {/* Centered Heading */}
           <div className="text-center mb-12 sm:mb-16">
@@ -764,7 +765,12 @@ export function ImplementationOptimisationClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 9. BLOG SECTION (Articles & Strategic HR Insights)           */}
+      {/* 9. DISCOVERY & CONSULTATION BOOKING LEAD SECTION             */}
+      {/* ============================================================ */}
+      <BookingLeadSection />
+
+      {/* ============================================================ */}
+      {/* 10. BLOG SECTION (Articles & Strategic HR Insights)          */}
       {/* ============================================================ */}
       <BlogSection />
     </main>
