@@ -109,7 +109,7 @@ export async function submitLead(data: {
   source?: "contact_page" | "lets_talk" | "tool_finder";
 }): Promise<LeadSubmitResult> {
   try {
-    const response = await fetch(`${BACKEND_URL}/api/v1/leads`, {
+    const response = await fetch(`${API_BASE}/leads`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
