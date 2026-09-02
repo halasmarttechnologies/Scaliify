@@ -33,33 +33,33 @@ import { AnimatedStatCounter } from "@/components/common/AnimatedStatCounter";
 const triggerSituations = [
   {
     icon: ShieldCheck,
-    title: "HR Lead Resignation",
-    desc: "Seamless leadership continuity to stabilize teams, maintain key hiring pipelines, and prevent operational standstills.",
+    title: "Senior Leadership, Placed Fast",
+    desc: "We place experienced senior HR leaders at short notice: someone who can step into the gap when your business needs a seat filled now, not in three months.",
   },
   {
     icon: Clock,
-    title: "Parental Leave Cover",
-    desc: "Experienced senior HR executives who step in and lead with zero handholding required, keeping projects moving forward.",
+    title: "When Companies Usually Call Us",
+    desc: "An HR lead resigns out of nowhere, someone needs parental leave covered, a company scales rapidly, or a merger leaves HR with no clear owner.",
   },
   {
     icon: Zap,
-    title: "Rapid Scaling & Growth",
-    desc: "High-velocity team scaling, building scalable compensation frameworks, leveling structures, and talent acquisition engines.",
+    title: "How Fast You Can Start",
+    desc: "Immediately, in most cases. Once we understand what you need, we move quickly to get the right person in place.",
   },
   {
-    icon: GitMerge,
-    title: "Post-Merger Integration",
-    desc: "Harmonizing organizational cultures, employment contracts, grading architectures, and unifying disparate HR workflows.",
-  },
-  {
-    icon: Target,
-    title: "Projects with No Owner",
-    desc: "Dedicated leadership for strategic initiatives: HRIS migrations, works council agreements, or performance system redesigns.",
+    icon: Award,
+    title: "Not Just a Recruitment Agency",
+    desc: "A recruitment agency's job usually ends the moment a placement is made. Ours doesn't. We stay accountable for the outcome, not just for filling the seat.",
   },
   {
     icon: Users,
-    title: ">100 Specialist Network",
-    desc: "Access our vetted network of over 100 HR experts across Europe to match exact industry, regional, and domain requirements.",
+    title: "Backed by 100+ Specialists",
+    desc: "We work with a network of more than 100 HR specialists. That means we can match the right person to the right situation fast, instead of settling for whoever happens to be available.",
+  },
+  {
+    icon: Target,
+    title: "Invested in Your Success",
+    desc: "We stay actively invested in how things go once someone's in the role, ensuring smooth leadership continuity and strategic alignment.",
   },
 ];
 
@@ -158,34 +158,29 @@ const afterScaliifyItems = [
 
 const interimFaqs = [
   {
-    question: "How fast can an interim HR leader start with our company?",
+    question: "How quickly can an interim manager actually start?",
     answer:
-      "We can place an interim HR leader immediately. With our pre-vetted network of over 100 senior HR specialists across Europe and the DACH region, we typically present shortlisted matches within 24–48 hours and can onboard leadership within days.",
+      "Usually within days. Once we understand the situation, we move fast to get the right person in place.",
   },
   {
-    question: "How does Scaliify differ from a traditional recruitment agency?",
+    question: "What kind of situations call for an interim HR manager rather than a permanent hire?",
     answer:
-      "Recruitment agencies focus solely on candidate placement and collecting upfront commissions. Scaliify operates as a consultancy: we remain accountable for the outcome of the engagement, provide continuous oversight, and align deliverables with your business goals rather than just delivering CVs.",
+      "Anything urgent or transitional. An unexpected resignation, parental leave cover, a merger, or rapid scaling situations where you need experienced leadership right away, while you take time to find the right permanent hire.",
   },
   {
-    question: "What typical trigger situations warrant hiring an interim HR leader?",
+    question: "How is this different from hiring through a recruitment agency?",
     answer:
-      "Common scenarios include sudden HR leadership resignations, planned parental leave coverage, rapid headcount scaling post-fundraising, post-merger integrations (M&A), works council negotiations, or major transformation projects requiring dedicated senior ownership without creating permanent headcount.",
+      "A recruitment agency's job ends the moment a candidate is placed. We stay accountable for how things go afterward, not just for filling the role.",
   },
   {
-    question: "What seniority levels and HR specializations are available?",
+    question: "Do interim managers work on-site or remotely?",
     answer:
-      "Our network spans Interim Chief People Officers (CPOs), VPs of People, Heads of HR, HR Business Partners, as well as specialized project leaders for Compensation & Benefits, HR IT transformations, and German labor compliance (Betriebsrat & Scheinselbstständigkeit).",
+      "Depends on what the role and company need. We can work either way.",
   },
   {
-    question: "How flexible are the interim contract terms and durations?",
+    question: "What happens once we're ready to hire someone permanent?",
     answer:
-      "Engagements range from 2–3 days per week fractional advisory up to 5 days per week full-time leadership. Durations typically span 3 to 12 months with flexible extension or transition terms once your permanent executive is hired.",
-  },
-  {
-    question: "Do your interim leaders help recruit and onboard their permanent successor?",
-    answer:
-      "Yes. A core deliverable of many interim assignments is defining the long-term hiring profile, interviewing candidate finalists, and conducting a structured, thorough handover to ensure permanent team success.",
+      "We help make that transition smooth. We also stay available for strategic conversations well after the handover.",
   },
 ];
 
@@ -223,11 +218,11 @@ export function InterimManagementClient() {
             </p>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black leading-[1.12] mb-5">
-              Senior HR leadership placed at short notice
+              HR leadership gaps rarely happen at a convenient time
             </h1>
 
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-8 max-w-xl">
-              Immediate executive placement when you need it most. Backed by a curated network of &gt;100 seasoned HR specialists, we step in during parental leaves, resignations, rapid scaling, and M&A integrations—accountable for tangible outcomes, not just candidate placement.
+              When one shows up, waiting months for the perfect hire usually isn't an option. We place experienced senior HR leaders at short notice: someone who can step into the gap when your business needs a seat filled now, not in three months.
             </p>
 
             <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 w-full sm:w-auto">

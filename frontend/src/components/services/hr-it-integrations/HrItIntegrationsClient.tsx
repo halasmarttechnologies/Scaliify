@@ -29,23 +29,23 @@ import { AnimatedStatCounter } from "@/components/common/AnimatedStatCounter";
 const pillars = [
   {
     icon: Database,
-    title: "HRIS ↔ Payroll & DATEV",
-    desc: "Automating employee master data, salary revisions, recurring bonuses, and tax variables directly into DATEV or payroll providers to eliminate manual cutover spreadsheets.",
+    title: "One Single Source of Truth",
+    desc: "We connect your HR platforms so information lives in one place instead of being typed in separately across three or four systems that never quite line up, which means you're no longer left guessing which version of a record is actually correct.",
   },
   {
     icon: Users2,
-    title: "HRIS ↔ ATS & Onboarding",
-    desc: "Seamless candidate-to-hire handoffs from Greenhouse, Ashby, or Lever into contracts and onboarding without retyping resumes, addresses, or personal info.",
+    title: "The Common Scenarios We Handle",
+    desc: "Most of this work falls into a handful of patterns: HRIS connected to payroll, HRIS connected to your ATS, HRIS linked with finance or ERP, and time tracking synced with payroll. If any of these are still running as separate islands in your setup, that's usually where the real headaches are hiding.",
   },
   {
-    icon: Coins,
-    title: "HRIS ↔ Finance & ERP",
-    desc: "Harmonizing headcount reporting, department cost centers, and salary ledger entries between Core HR and NetSuite, SAP, or accounting systems.",
+    icon: Workflow,
+    title: "When There's No Ready-Made Integration",
+    desc: "Not every system connects to another right out of the box, and that's not where we stop. We'll build middleware, handle the API work ourselves, or sometimes redesign the process entirely so the integration isn't even needed anymore.",
   },
   {
-    icon: Clock,
-    title: "Time Tracking ↔ Payroll",
-    desc: "Direct data pipelines connecting recorded clock-ins, shift differentials, overtime, and vacation balances directly into automated monthly payroll runs.",
+    icon: Cpu,
+    title: "Process Redesign First",
+    desc: "Every so often the cleanest fix isn't technical at all; it's rethinking why two systems needed to talk in the first place.",
   },
 ];
 
@@ -126,34 +126,29 @@ const impactStats = [
 
 const hrIntegrationsFaqs = [
   {
-    question: "What does creating a 'single source of truth' mean in HR IT?",
+    question: "What if our systems don't officially support integration with each other?",
     answer:
-      "A single source of truth ensures that employee master data (personal details, compensation, job titles, start dates, and time-off) lives centrally in your Core HRIS and synchronizes automatically with all peripheral tools (Payroll/DATEV, ATS, Slack, ERP, and identity provisioning), eliminating conflicting records and manual re-entry.",
+      "That happens more often than you'd think, and it's not a dead end. We build custom solutions with middleware or direct API work when there's no native option.",
   },
   {
-    question: "Which common HR system integrations do you specialize in?",
+    question: "How long does setting up an integration usually take?",
     answer:
-      "We connect and automate all core operational interfaces: HRIS ↔ Payroll (e.g. Personio/Workday/HiBob ↔ DATEV/ADP/Lucca), HRIS ↔ ATS (e.g. Greenhouse/Lever/Ashby), HRIS ↔ Finance/ERP (e.g. NetSuite/SAP), and Time Tracking ↔ Payroll for compliant shift and overtime processing.",
+      "Depends on the systems involved and how much custom work is needed, but most are up and running within a few weeks.",
   },
   {
-    question: "What happens when no native integration exists between our tools?",
+    question: "Will this disrupt our HR operations while it's being set up?",
     answer:
-      "When no native connector exists, we evaluate three strategic paths: (1) Process Redesign: restructuring workflows to eliminate the need for an integration, (2) Middleware Orchestration: configuring secure iPaaS or webhook pipelines, or (3) Custom API Engineering: developing clean REST/GraphQL connectors tailored to your compliance standards.",
+      "We plan around minimising disruption, usually testing everything in parallel before switching anything over live.",
   },
   {
-    question: "Why do you recommend a process redesign before building custom integrations?",
+    question: "Can you integrate more than two systems at once?",
     answer:
-      "Connecting a broken manual process with custom code often creates expensive, fragile software lock-in. We first challenge existing workflows, optimize steps based on system strengths, and frequently discover simpler, native ways to achieve the goal without custom development costs.",
+      "Yes, plenty of our projects involve three or more platforms, especially when payroll, HRIS, and time tracking all need to stay in sync.",
   },
   {
-    question: "How do you ensure GDPR compliance and security during integrations?",
+    question: "Do we need a specific type of HRIS for this to work?",
     answer:
-      "Security and European compliance are central to our advisory. All data flows utilize encrypted protocols (TLS 1.3, AES-256), strict role-based access control (RBAC), and automated validation routines that prevent data corruption and unauthorized data exposure.",
-  },
-  {
-    question: "Can Scaliify help if our current HR and payroll integration keeps failing?",
-    answer:
-      "Yes. We conduct a comprehensive HR IT Integration Audit to map your current data schema, identify synchronization bottlenecks, repair broken field mappings, and implement automated validation routines to guarantee payroll stability.",
+      "No. We work across the major HR platforms, so integration is possible regardless of what you're currently using.",
   },
 ];
 
@@ -195,12 +190,12 @@ export function HrItIntegrationsClient() {
 
             {/* H1 Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black leading-[1.12] mb-5">
-              Connecting your HR systems into one single source of truth
+              When HR systems don't talk to each other, someone always ends up paying for it
             </h1>
 
             {/* Description */}
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-8 max-w-xl">
-              Eliminate duplicate entries, manual spreadsheets, and sync errors. We connect your HRIS, payroll, ATS, and finance tools—or redesign processes so complex integrations aren&apos;t needed in the first place.
+              Usually in duplicate data entry, mismatched records, and numbers nobody fully trusts. We connect your HR platforms so information lives in one single source of truth.
             </p>
 
             {/* CTA Buttons (Glossy Shiny Tiffany Blue Let's Talk Style Button) */}

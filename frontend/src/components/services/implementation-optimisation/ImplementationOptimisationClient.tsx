@@ -183,6 +183,8 @@ const afterItems = [
   { text: "Empathetic cultural change & 98%+ user adoption", badge: "High Adoption" },
   { text: "Advisors who challenge assumptions & design best setups", badge: "True Advisory" },
   { text: "Harmonious, automated HR landscape built to scale", badge: "Effortless scale" },
+];
+
 const implementationFaqs = [
   {
     question: "Do you only implement new systems, or can you fix an existing setup too?",

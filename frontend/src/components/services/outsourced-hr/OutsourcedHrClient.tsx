@@ -51,7 +51,7 @@ const coveredScopeItems = [
   {
     icon: FileText,
     title: "Documentation & Contracts",
-    desc: "Legally sound employment agreements, contract amendments, reference letters (Arbeitszeugnisse), and company HR guidelines.",
+    desc: "Legally sound employment agreements, contract amendments, reference letters (Arbeitszeugnisse), and day-to-day HR documentation.",
   },
   {
     icon: Compass,
@@ -65,8 +65,8 @@ const coveredScopeItems = [
   },
   {
     icon: BarChart3,
-    title: "Performance Management",
-    desc: "Structured feedback cycles, probationary reviews, goal setting (OKRs), and manager enablement to foster continuous employee growth.",
+    title: "Performance Management & People Function",
+    desc: "Structured feedback cycles, probationary reviews, goal setting (OKRs), and manager enablement to shape your broader people function.",
   },
 ];
 
@@ -160,43 +160,38 @@ const interimModelPoints = [
 
 const outsourcedModelPoints = [
   { text: "Scaliify runs your ongoing HR operations as a dedicated external team", badge: "Core Model" },
-  { text: "Engineered for 10–100 employees with no internal HR department", badge: "10–100 Scale" },
-  { text: "Relieves founders & office managers from payroll prep, hiring, & contracts", badge: "Founder Relief" },
-  { text: "Available 5 days a week with a fixed, dedicated contact person / team", badge: "5 Days / Week" },
-  { text: "Pay as you go — we only bill what you actually need with zero lock-in", badge: "Pay As You Go" },
+  { text: "Engineered for 10–100 employees without a dedicated HR function yet", badge: "10–100 Scale" },
+  { text: "Relieves founders & office managers from absorbing HR tasks", badge: "Founder Relief" },
+  { text: "Available 5 days a week with a fixed contact person or team", badge: "5 Days / Week" },
+  { text: "Pay as you go — billed only for what you actually use", badge: "Pay As You Go" },
 ];
 
 // FAQs specifically addressing Outsourced HR
 const outsourcedHrFaqs = [
   {
-    question: "Who is Outsourced HR Management specifically designed for?",
+    question: "What size company is outsourced HR best suited for?",
     answer:
-      "Outsourced HR is tailored for European companies with roughly 10 to 100 employees that do not have a dedicated internal HR department. It is built to relieve founders, CEOs, and office managers who are absorbing personnel admin by default—such as preparing monthly payroll, drafting contracts, managing vacation tracking, and handling recruiting logistics.",
+      "Usually businesses with 10 to 100 employees, especially ones without a dedicated HR person yet.",
   },
   {
-    question: "What scope of HR operations is covered under this service?",
+    question: "Do we get a dedicated point of contact?",
     answer:
-      "Our external team handles standardised HR systems and processes, full-cycle recruiting and candidate coordination, legally compliant documentation and employment contracts, onboarding/offboarding workflows, time and absence tracking, and performance review cycles. Optionally, we also support innovating the People function with compensation benchmarking and engagement initiatives.",
+      "Yes, a fixed contact person or team, so you're not starting from scratch every time you reach out.",
   },
   {
-    question: "How does the pay-as-you-go billing model work?",
+    question: "How does billing work?",
     answer:
-      "We operate on a transparent pay-as-you-go model: we only bill for the hours and operational workflows you actually need each month. You can effortlessly scale support up during high-hiring sprints or down during quieter operational periods, saving 50%+ compared to a full-time in-house HR salary.",
+      "Pay-as-you-go. You're only charged for the work you actually need done.",
   },
   {
-    question: "Do we get a dedicated contact person or an anonymous ticket queue?",
+    question: "What happens when we're ready to hire our own HR manager?",
     answer:
-      "You receive a fixed, dedicated senior HR specialist and supporting team who integrate directly into your daily communication channels (like Slack or Microsoft Teams). They are available 5 days a week and deeply understand your team culture, policies, and company goals.",
+      "We help you find the right person and support the transition, then stay available afterward for the bigger strategic conversations.",
   },
   {
-    question: "When should we choose Outsourced HR vs. an Interim HR Manager?",
+    question: "Can this cover recruiting as well as day-to-day HR admin?",
     answer:
-      "Choose Outsourced HR when you need an ongoing operational team to run day-to-day HR workflows (payroll prep, contracts, onboarding, employee queries) for a 10–100 person company on a flexible pay-as-you-go basis. Choose Interim HR Management when you require short-term senior executive leadership (CPO/VP People) for critical transitions, parental leaves, or M&A integrations.",
-  },
-  {
-    question: "What happens as we grow and want to bring HR in-house?",
-    answer:
-      "When your company is scaling rapidly and ready for full-time internal leadership (~80–100+ employees), Scaliify actively supports you in finding and recruiting the perfect in-house HR manager. We manage a structured handover of all systems and documentation, and remain available as on-demand strategic advisors for C-Level and your new HR lead.",
+      "Yes. Recruiting is included, along with documentation, onboarding, offboarding, time and absence, and performance management.",
   },
 ];
 
@@ -234,11 +229,11 @@ export function OutsourcedHrClient() {
             </p>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black leading-[1.12] mb-5">
-              Scaliify runs your HR operations as an external team
+              Not every company is ready to build a full HR department
             </h1>
 
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-8 max-w-xl">
-              Engineered for companies with roughly 10–100 employees without a dedicated HR function. Stop founders and office managers from absorbing hiring, employment contracts, and preparing payroll by default. Dedicated contact, 5 days a week, pay as you go.
+              And honestly, not every company needs to. scaliify runs your HR operations as an external team, so you get the structure without the overhead of hiring in-house.
             </p>
 
             <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
