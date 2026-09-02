@@ -25,23 +25,23 @@ import { AnimatedStatCounter } from "@/components/common/AnimatedStatCounter";
 const pillars = [
   {
     icon: Search,
-    title: "Vendor-Neutral Selection",
-    desc: "100% independent evaluation across 100+ European HR software vendors without bias or vendor commissions.",
+    title: "Independent, Vendor-Neutral Guidance",
+    desc: "We don't take direction from any software provider, so what we recommend is based purely on what fits your business, not on who we're closest to.",
   },
   {
     icon: Layers,
-    title: "Zero Silo Structures",
-    desc: "Harmonious HR tech architectures where Core HR, Payroll, ATS, and Time tracking connect effortlessly.",
+    title: "A Harmonious HR Tech Landscape",
+    desc: "Getting one tool right isn't the whole job. We look at your entire HR tech setup and make sure everything works together, instead of leaving you with tools that don't talk to each other.",
   },
   {
     icon: TrendingUp,
-    title: "Scalable Infrastructure",
-    desc: "IT infrastructure engineered to scale frictionlessly as your company headcount grows from 50 to 5,000+.",
+    title: "Infrastructure That Grows With You",
+    desc: "We build things so they hold up as you scale, not something you'll be ripping out and replacing again in two years.",
   },
   {
     icon: ShieldCheck,
-    title: "Compliance & Security",
-    desc: "Guaranteed alignment with European data privacy standards, GDPR, and German labor regulations (BAG).",
+    title: "Not Sure Where to Start?",
+    desc: "Our free HR Tool Finder narrows things down based on your size, location, and current tech stack. No guesswork needed.",
   },
 ];
 
@@ -128,34 +128,29 @@ const impactStats = [
 
 const hrSelectionFaqs = [
   {
-    question: "How does Scaliify remain 100% independent and vendor-neutral?",
+    question: "Do you only work with a specific HR software provider?",
     answer:
-      "Unlike traditional software brokers or affiliate resellers, Scaliify does not accept kickbacks, commissions, or referral fees from software vendors. Our recommendations are driven strictly by your specific technical requirements, headcount trajectory, budget, and compliance needs.",
+      "No. We're completely independent and don't have partnerships or commission deals with any vendor. Whatever we recommend is based on what actually works for you.",
   },
   {
-    question: "How long does a typical HR IT software selection process take?",
+    question: "How long does the selection process usually take?",
     answer:
-      "A standard evaluation cycle takes between 2 to 4 weeks from initial requirements discovery to vendor shortlisting, structured RFP demos, and final contract guidance. We compress months of manual research into clear, side-by-side comparison scorecards.",
+      "It depends on the complexity of your setup, but most companies get a clear recommendation within a few weeks, not months.",
   },
   {
-    question: "Which European and global HR software systems do you compare?",
+    question: "We already have some HR tools in place. Can you still help?",
     answer:
-      "We benchmark over 100+ platforms across Core HRIS, ATS/Recruiting, Payroll, Time Tracking, Performance, and EOR solutions—including Personio, Factorial, Deel, Rippling, HiBob, Workday, BambooHR, Ashby, Greenhouse, Leapsome, and DATEV integrations.",
+      "Yes. We'll look at what you're already using and figure out whether it's worth keeping, replacing, or better connected to the rest of your systems.",
   },
   {
-    question: "Do you help with software implementation and data migration?",
+    question: "Is the HR Tool Finder really free?",
     answer:
-      "Yes. Once your ideal platform is selected, our technical implementation team assists with data cleansing, legacy system migration, workflow automation, and custom API integrations to ensure a frictionless rollout.",
+      "Yes, completely. It's built to give you a quick, independent starting point before you commit to anything.",
   },
   {
-    question: "How do you ensure data privacy and GDPR / German BAG compliance?",
+    question: "What size company is this service suited for?",
     answer:
-      "All shortlisted tools undergo rigorous security and regulatory vetting, ensuring European data residency, GDPR compliance, workers council (Betriebsrat) alignment, and German labor law compliance (BAG working time directives).",
-  },
-  {
-    question: "Can Scaliify help negotiate software contracts and licensing pricing?",
-    answer:
-      "Yes. Our deep benchmark data and insight into vendor pricing models enable us to advise on licensing tiers, user thresholds, and renewal terms, typically saving our clients 15–30% on annual contract values.",
+      "Any size, really. From businesses picking their first HR system to established companies replacing an outdated one.",
   },
 ];
 
@@ -201,12 +196,12 @@ export function HrItSelectionClient() {
 
             {/* H1 Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black leading-[1.12] mb-5">
-              Independent, vendor-neutral help choosing HR software
+              Most HR software mistakes don't show up right away
             </h1>
 
             {/* Description */}
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-8 max-w-xl">
-              We help growing companies navigate the crowded HR technology landscape. From requirements definition to contract finalisation, we ensure a harmonious, silo-free HR architecture that scales effortlessly with your team.
+              They show up six months in, once a team's built its habits around the wrong tool and the data's already a mess to clean up. We help you pick the right system from day one, staying completely independent of every software provider we evaluate.
             </p>
 
             {/* CTA Buttons (Glossy Shiny Tiffany Blue Let's Talk Style Button) */}

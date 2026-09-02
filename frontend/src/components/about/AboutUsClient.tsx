@@ -127,15 +127,15 @@ export function AboutUsClient() {
             </p>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black leading-[1.12] mb-5">
-              Unlocking the power of people and operational excellence
+              The full-service HR consultancy built around one idea
             </h1>
 
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6 max-w-xl">
-              At Scaliify, we believe people and operational agility are the single most important success factors for any growing organization. We bridge the gap between ambitious growth and operational execution.
+              scaliify was founded in 2022 by Ben and Sarah around one conviction: most HR consultancies are either strong on strategy or strong on execution, rarely both. We combine the two.
             </p>
 
             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-8 max-w-xl font-medium">
-              Today, we help ambitious businesses scale smarter—leveraging hands-on HR leadership, Big-4 consulting rigor, and a global network of specialized project experts.
+              We're specialised in the DACH region while also working internationally, including a growing presence in the UAE. This means we understand the local rules, culture, and everyday HR realities of these markets, not just the general theory.
             </p>
 
             <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
@@ -238,16 +238,19 @@ export function AboutUsClient() {
             </h2>
             <div className="space-y-4 text-sm sm:text-base text-gray-700 leading-relaxed font-medium">
               <p>
-                <strong>scaliify was founded with a clear vision:</strong> to bridge the gap between ambitious growth and operational excellence.
+                scaliify was founded in 2022 by Ben and Sarah. We built it around one idea: most HR consultancies are either strong on strategy or strong on execution, rarely both. We combine the two.
               </p>
               <p>
-                Drawing on hands-on experience in HR and marketing, combined with Big-4 consulting expertise, we saw an opportunity to offer businesses practical, results-driven solutions without the inefficiencies of traditional models.
+                We're specialised in the DACH region while also working internationally, including a growing presence in the UAE. This means we understand the local rules, culture, and everyday HR realities of these markets, not just the general theory.
               </p>
               <p>
-                From day one, we committed to working smarter—leveraging a network of project-specific experts to deliver tailored strategies that maximize impact while staying resource-efficient.
+                What makes us different is that our advice comes from real experience running HR functions, not just studying them. We don't just hand over a strategy and walk away. We stay involved until it actually works in practice.
               </p>
               <p>
-                Headquartered in Dubai, a hub of innovation and diversity, we are proud to serve businesses globally, blending forward-thinking solutions with cultural understanding to help them scale and thrive.
+                To support every project properly, we work with a network of over 100 freelance specialists, including lawyers, recruiters, and HR business partners. This lets us bring in exactly the right expertise for each client, without stretching a small team too thin.
+              </p>
+              <p>
+                At its core, scaliify exists as a partner who understands both the big-picture strategy and the everyday operational work, and can move easily between the two.
               </p>
             </div>
           </div>

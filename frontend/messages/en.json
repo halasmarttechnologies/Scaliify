@@ -135,9 +135,9 @@
     }
   },
   "hero": {
-    "headlinePart1": "One Stop",
-    "headlinePart2": " HR for Modern Businesses",
-    "subheading": "Strategic HR & Automation for Growing Businesses",
+    "headlinePart1": "Everything HR,",
+    "headlinePart2": " for Every Business",
+    "subheading": "Most growing companies don't struggle because they lack ambition. The real problem usually sits underneath an HR setup that hasn't kept pace. Scaliify is the single partner that closes that gap.",
     "emailPlaceholder": "What's your work email? *",
     "emailAriaLabel": "Work email address",
     "requestDemo": "Request free demo",
@@ -203,10 +203,10 @@
     "scaleOperations": "Scale Your HR Operations"
   },
   "servicesOverview": {
-    "badge": "Our Services",
-    "headingPart1": "Tailored services.",
-    "headingPart2": "Scaliify does it perfectly.",
-    "subtitle": "Scaliify works wherever you need growth. Any platform, device, or market.",
+    "badge": "Four Areas, One Consultancy",
+    "headingPart1": "One partner.",
+    "headingPart2": "Every HR need covered.",
+    "subtitle": "Instead of juggling five different vendors and freelancers, our clients work with one team that understands the whole picture: technology, process, leadership capacity, and strategy, all connected.",
     "hrTechnology": "HR Technology",
     "advisoryLeadership": "Advisory & Leadership",
     "explorePage": "Explore Page",
@@ -214,11 +214,11 @@
     "bookACall": "BOOK A CALL"
   },
   "coreFeatures": {
-    "kicker": "Strategic HR Consultancy",
-    "headingPart1": "Your One-Stop Shop for",
-    "headingPart2": "All Things HR Related",
-    "card1Heading": "HR Tech & Process Optimisation",
-    "card1Desc": "From independent HR software selection and implementation to end-to-end workflow automation and process optimisation.",
+    "kicker": "Full-Service HR Consultancy",
+    "headingPart1": "The All-in-One HR Consultancy",
+    "headingPart2": "for Every Business",
+    "card1Heading": "HR Technology and Digitalisation",
+    "card1Desc": "Software doesn't fix HR on its own. We help companies pick the right tools, get them implemented properly, and make sure they integrate with the rest of the tech stack. Because we stay vendor-neutral, our recommendations are based on what the client needs.",
     "projectsStat": "100+",
     "projectsLabel": "HR Transformation Projects Delivered",
     "efficiencyLabel": "HR Operations Efficiency",
@@ -295,31 +295,27 @@
     ]
   },
   "faq": {
-    "heading": "Frequently asked questions",
+    "heading": "Frequently Asked Questions",
     "items": [
       {
-        "question": "What is Scaliify and how do you help growing companies?",
-        "answer": "Scaliify is your strategic consultancy partner for all things HR. We help organizations select and implement the right HR software, optimize core people operations, automate workflows, and provide high-impact interim HR leadership and advisory."
+        "question": "What does scaliify actually do?",
+        "answer": "We're an HR consultancy covering four areas: HR technology and digitalisation, process optimisation, interim and outsourced HR management, and strategic advisory. Most clients come to us for one of these and end up leaning on us for more as their needs grow."
       },
       {
-        "question": "How does the HR Tool Finder and software advisory process work?",
-        "answer": "We conduct an independent analysis of your requirements, benchmark top European and global market solutions (Personio, Deel, Factorial, Ashby, Leapsome, Greenhouse, etc.), and guide your vendor evaluation to find the ideal fit with maximum ROI."
+        "question": "How is scaliify different from a freelancer or a big consultancy?",
+        "answer": "Freelancers can add capacity, but they rarely bring the strategic depth a real overhaul needs. Large consultancies bring frameworks, then hand you a deck and move on. We stay hands-on through implementation and beyond, and we're forward-thinking about where HR is headed, helping build departments that aren't just efficient and effective, but genuinely intertwined with the company's vision and long-term success."
       },
       {
-        "question": "Can Scaliify assist with HR system integrations and migration?",
-        "answer": "Yes, we specialize in connecting your entire HR tech ecosystem—linking your core HRIS, applicant tracking (ATS), payroll (DATEV, local EU payroll, global EOR), and performance tools into automated, error-free workflows."
+        "question": "Are you tied to a specific HR software provider?",
+        "answer": "No. We work across all the major HRIS, recruiting, and performance platforms. Our only goal is finding what actually fits your business."
       },
       {
-        "question": "Do you offer interim HR management and strategic leadership?",
-        "answer": "Absolutely. Whether you are scaling rapidly, managing organizational change, restructuring, or bridging an executive leadership gap, our senior HR leaders step in immediately to run and elevate your HR operations."
+        "question": "What size company do you typically work with?",
+        "answer": "Our clients range from 10-person startups to organisations with 15,000+ employees managing HR across multiple countries. Whatever stage you're at, our services scale with you."
       },
       {
-        "question": "What makes Scaliify independent from software vendors?",
-        "answer": "We are 100% vendor-independent advisors. We do not sell proprietary software. We evaluate platforms objectively based strictly on your organizational requirements, budget, team size, and regional compliance standards (such as German BAG, GDPR, and DATEV)."
-      },
-      {
-        "question": "Is Scaliify suitable for international, distributed, and remote teams?",
-        "answer": "Yes. We support companies across Europe, MENA, and worldwide with distributed workforce setups, Employer of Record (EOR) infrastructure, multi-country payroll compliance, and international HR tech rollouts."
+        "question": "How quickly can you step in if we need help urgently?",
+        "answer": "For interim management, we can move fast, often placing someone within the same or next day. For ongoing outsourced HR or advisory work, we start with a short conversation to understand what's needed before building the right setup."
       }
     ]
   },

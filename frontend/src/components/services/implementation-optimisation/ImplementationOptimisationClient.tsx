@@ -76,23 +76,23 @@ function AnimatedStatCounter({
 const pillars = [
   {
     icon: Settings2,
-    title: "End-to-End Implementation",
-    desc: "Structured project management, custom system configuration, lossless data migration, comprehensive testing, rollout, and user adoption.",
+    title: "Managing the Full Rollout",
+    desc: "We handle the whole process: project management, configuration, data migration, testing, rollout, adoption, all of it. We ask questions and shape the setup around what your chosen system is actually good at.",
   },
   {
     icon: Users2,
-    title: "Process & Cultural Change",
-    desc: "We support both technical setup and human adoption. We guide cultural change and empower your team for long-term operational success.",
+    title: "More Than a Technical Job",
+    desc: "A new system changes how people work day to day. We stick around for both sides of that: the technical setup and the shift that comes with it, because a system nobody's actually using isn't much of a win.",
   },
   {
     icon: Workflow,
-    title: "Proactive Optimization",
-    desc: "We don't blindly execute requests. We challenge assumptions, ask the critical questions, and optimize workflows around system strengths.",
+    title: "We Ask the Questions Nobody Else Does",
+    desc: "Most implementation partners will build whatever you hand them. We'll build that too, but we'll also flag it if something needs rethinking first. Finishing the project isn't the goal. Making sure it works once we're gone is.",
   },
   {
     icon: SearchCode,
     title: "HR IT Audit & System Review",
-    desc: "Deep-dive process mapping, configuration review, data quality checks, and gap analysis to transform existing, underperforming software.",
+    desc: "Already have a system that isn't performing the way it should? Our HR IT Audit digs into what's going wrong and maps out what to fix.",
   },
 ];
 
@@ -183,38 +183,31 @@ const afterItems = [
   { text: "Empathetic cultural change & 98%+ user adoption", badge: "High Adoption" },
   { text: "Advisors who challenge assumptions & design best setups", badge: "True Advisory" },
   { text: "Harmonious, automated HR landscape built to scale", badge: "Effortless scale" },
-];
-
 const implementationFaqs = [
   {
-    question: "How does Scaliify approach new HR software implementation?",
+    question: "Do you only implement new systems, or can you fix an existing setup too?",
     answer:
-      "We provide end-to-end advisory and technical implementation: project management, architecture design, workflow optimization, data migration, testing, and team rollout. Crucially, we don’t just copy your old manual workflows into a new system—we optimize your people operations to leverage the full capabilities of the chosen platform.",
+      "Both. We handle full rollouts from scratch, and we also step in when a system that's already live isn't delivering what it should.",
   },
   {
-    question: "What makes Scaliify different from typical IT implementation partners?",
+    question: "How involved does our team need to be during implementation?",
     answer:
-      "We don't just execute what we are asked to do without question. We act as strategic HR advisors who truly want the best long-term setup for your organization. We know which questions need to be asked, which legacy processes must be challenged, and how to guide both the technical and cultural transformation.",
+      "As much or as little as works for you. Some clients want to be hands-on the whole way through. Others prefer we run the project and check in at key points.",
   },
   {
-    question: "What is included in an HR IT Audit for existing software setups?",
+    question: "What happens after the system goes live?",
     answer:
-      "Our HR IT Audit is a comprehensive health check of your current technology ecosystem. We map your existing workflows, conduct an in-depth configuration review, evaluate data quality and integrity, perform gap analyses, and deliver an actionable roadmap to streamline your HR landscape.",
+      "We stay through adoption, not just launch. Training, troubleshooting, making sure people are actually using it the way it was set up to be used.",
   },
   {
-    question: "How do you handle sensitive HR data migration safely?",
+    question: "Can you work with a system we've already picked?",
     answer:
-      "Data security and precision are paramount. We follow a strict multi-phase migration protocol: data audit & cleansing, secure schema mapping, encrypted sandbox testing, validation dry-runs, and final cutover verification. We ensure 100% compliance with European GDPR and data retention standards.",
+      "Yes. You don't need to go through our selection process first. We can jump straight into implementation if you already know which platform you're using.",
   },
   {
-    question: "How do you support change management and user adoption?",
+    question: "How long does a typical implementation take?",
     answer:
-      "Software only succeeds when people embrace it. We provide tailored training sessions for HR administrators, executive leadership, and line managers. We produce customized SOPs, video walkthroughs, and guided rollout communications that build confidence and excitement across your workforce.",
-  },
-  {
-    question: "Can you help optimize a specific tool we already use (e.g. Personio, Deel, Leapsome)?",
-    answer:
-      "Yes. Whether you need to reconfigure custom approval workflows, connect payroll integrations (like DATEV), restructure access permissions, or automate performance review cycles, our consultants can optimize your existing tool without requiring a complete system replacement.",
+      "It varies by system and company size, but most projects land somewhere between a few weeks and a few months, depending on complexity and how much process redesign is involved.",
   },
 ];
 
@@ -256,12 +249,12 @@ export function ImplementationOptimisationClient() {
 
             {/* H1 Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black leading-[1.12] mb-5">
-              Expert HR IT implementation &amp; system optimisation
+              Rolling out new HR software takes more than installing it and hoping for the best
             </h1>
 
             {/* Description */}
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-8 max-w-xl">
-              We don&apos;t just configure software—we optimize your people processes, guide cultural change, and architect future-ready HR IT ecosystems tailored to your business.
+              It takes planning, patience, and someone paying attention to the details most teams don't have time to catch. We handle the whole process and we stay until it works.
             </p>
 
             {/* CTA Buttons (Glossy Shiny Tiffany Blue Let's Talk Style Button) */}
