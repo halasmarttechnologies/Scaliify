@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useLocale } from "next-intl";
 import {
   ArrowRight,
   Check,
@@ -35,8 +36,7 @@ import { BookingLeadSection } from "@/components/common/BookingLeadSection";
 import { BlogSection } from "@/components/home/BlogSection";
 import { AnimatedStatCounter } from "@/components/common/AnimatedStatCounter";
 
-// Typical Questions / Advisory Topics Covered
-const advisoryTopics = [
+const advisoryTopicsEn = [
   {
     icon: Building2,
     title: "Restructuring & Org Design",
@@ -69,7 +69,39 @@ const advisoryTopics = [
   },
 ];
 
-// Specialist Avatars for the 21-dot network grid
+const advisoryTopicsDe = [
+  {
+    icon: Building2,
+    title: "Restrukturierung & Org Design",
+    desc: "Zielbetriebsmodelle, Führungsspannen, Abteilungs-Neuausrichtungen und sozialverträgliche Teamanpassungen.",
+  },
+  {
+    icon: Sliders,
+    title: "Vergütungssysteme & Gehaltsbänder",
+    desc: "Wettbewerbsfähige Gehaltsstrukturen, Markt-Benchmarks, Mitarbeiterbeteiligungen (VSOP/ESOP) und variable Vergütungsmodelle.",
+  },
+  {
+    icon: BarChart3,
+    title: "Performance Management",
+    desc: "Gestaltung kontinuierlicher Feedback-Systeme, 360-Grad-Reviews, OKR-Systeme und Führungskräfte-Befähigung mit messbarer Wirkung.",
+  },
+  {
+    icon: Users,
+    title: "Betriebsrats-Themen",
+    desc: "Konstruktive Verhandlung von Betriebsvereinbarungen, IT-Mitbestimmung nach § 87 BetrVG und gelebte Sozialpartnerschaft.",
+  },
+  {
+    icon: FileCheck,
+    title: "HR-Policies & Arbeitsrecht",
+    desc: "Mitarbeiterhandbücher, zeitgemäße Remote-Work-Richtlinien und rechtssichere Compliance nach deutschem und europäischem Arbeitsrecht.",
+  },
+  {
+    icon: Cpu,
+    title: "HR-Tech-Roadmap",
+    desc: "Herstellerneutrale Software-Evaluationen, HRIS-Architektur-Konzepte und Change-Management-Strategien für erfolgreiche System-Einführungen.",
+  },
+];
+
 const specialistAvatars = [
   { src: "/avatars/bente.jpg", alt: "Specialist 1" },
   { src: "/avatars/catherine.jpg", alt: "Specialist 2" },
@@ -94,8 +126,7 @@ const specialistAvatars = [
   { src: "/avatars/max.jpg", alt: "Specialist 21" },
 ];
 
-// Marquee cards tailored for HR Advisory
-const marqueeCards = [
+const marqueeCardsEn = [
   {
     type: "quote-card",
     bg: "bg-[#f0faf8]",
@@ -148,8 +179,60 @@ const marqueeCards = [
   },
 ];
 
-// Traditional Consultancies vs Scaliify HR Advisory
-const traditionalConsultancyItems = [
+const marqueeCardsDe = [
+  {
+    type: "quote-card",
+    bg: "bg-[#f0faf8]",
+    brandName: "fintech leader",
+    quote:
+      "Scaliify hat unsere Gehaltsbänder über 4 europäische Länder in nur 3 Wochen harmonisiert. Schnell, pragmatisch und auf fundierten Marktdaten basierend.",
+    author: "Constantin von Weizsäcker | Chief Financial Officer",
+    border: "border-[#76D8C8]/40",
+  },
+  {
+    type: "image-card",
+    image: "/images/rowing-team.jpg",
+    quote:
+      "Wir brauchten dringende Unterstützung bei Betriebsratsverhandlungen für unser neues HR-System. Scaliify hat eine rechtssichere Betriebsvereinbarung in Rekordzeit verhandelt.",
+    author: "Elena Rost | VP People & Culture",
+    border: "border-gray-200/50",
+  },
+  {
+    type: "stat-card",
+    bg: "bg-gradient-to-br from-[#2B4C55] via-[#05434B] to-[#4FB8AA]",
+    stat: "100%",
+    sub: "pragmatische Strategie & operative Exzellenz",
+    brand: "Scaliify HR Advisory",
+    border: "border-[#76D8C8]/30",
+  },
+  {
+    type: "image-card",
+    image: "/images/office-team.jpg",
+    quote:
+      "Statt einer traditionellen Beratung 50.000 € für theoretische Folien zu zahlen, haben wir Beratungsstunden bei Scaliify gebucht. Pragmatische Lösungen ab Tag eins.",
+    author: "Niklas Weber | Managing Director",
+    border: "border-gray-200/50",
+  },
+  {
+    type: "quote-card",
+    bg: "bg-[#e8f7f4]",
+    brandName: "mobility tech",
+    quote:
+      "Der Org-Design-Workshop hat unserer Geschäftsführung absolute Klarheit über Führungsspannen und Hierarchien vor unserem Series-B-Wachstum gegeben.",
+    author: "Sarah Lindemann | Chief Operating Officer",
+    border: "border-[#4FB8AA]/40",
+  },
+  {
+    type: "image-card",
+    image: "/images/food-pantry.jpg",
+    quote:
+      "Strategische Beratungskompetenz kombiniert mit echter HR-Praxiserfahrung. Die beste Beratungsinvestition unseres Jahres.",
+    author: "Dominik Franke | Founder & CEO",
+    border: "border-gray-200/50",
+  },
+];
+
+const traditionalConsultancyItemsEn = [
   "Rigid 6-figure retainers and bloated project overhead",
   "Theoretical 100-slide decks created by junior analysts",
   "Zero hands-on experience in daily HR operations",
@@ -157,7 +240,15 @@ const traditionalConsultancyItems = [
   "Advisors disappear during critical execution phases",
 ];
 
-const scaliifyAdvisoryItems = [
+const traditionalConsultancyItemsDe = [
+  "Starre 6-stellige Honorare und aufgeblähter Projekt-Overhead",
+  "Theoretische 100-Seiten-Präsentationen von Junior-Beratern",
+  "Keine eigene Erfahrung im operativen HR-Tagesgeschäft",
+  "Monatelange Projektlaufzeiten vor ersten konkreten Resultaten",
+  "Berater sind bei der praktischen Umsetzung nicht mehr greifbar",
+];
+
+const scaliifyAdvisoryItemsEn = [
   { text: "Strategy consulting rigor combined with hands-on HR operations", badge: "Core Strength" },
   { text: "On-demand expert input without retaining a full consultancy", badge: "On-Demand" },
   { text: "Seasoned former CPOs and HR leaders with battle-tested track records", badge: "Top Experts" },
@@ -165,8 +256,15 @@ const scaliifyAdvisoryItems = [
   { text: "Total flexibility: one-off sessions, retained hours, or pay as you go", badge: "Agile Formats" },
 ];
 
-// FAQs specifically addressing HR Advisory
-const hrAdvisoryFaqs = [
+const scaliifyAdvisoryItemsDe = [
+  { text: "Strategische Beratungskompetenz kombiniert mit operativer HR-Praxis", badge: "Kernstärke" },
+  { text: "On-Demand-Expertise ohne langfristige Bindung an Großberatungen", badge: "On-Demand" },
+  { text: "Erfahrene ehemalige CPOs und HR-Führungskräfte auf Augenhöhe", badge: "Top-Expertise" },
+  { text: "Pragmatische, sofort umsetzbare Ergebnisse abgestimmt auf Ihre Kultur", badge: null },
+  { text: "Volle Flexibilität: Einzelsessions, Stundenkontingente oder Pay-as-you-go", badge: "Agile Formate" },
+];
+
+const hrAdvisoryFaqsEn = [
   {
     question: "What typical questions and topics does Scaliify HR Advisory cover?",
     answer:
@@ -199,7 +297,49 @@ const hrAdvisoryFaqs = [
   },
 ];
 
+const hrAdvisoryFaqsDe = [
+  {
+    question: "Welche typischen Themen und Fragestellungen deckt Scaliify HR Advisory ab?",
+    answer:
+      "Wir beraten strategisch zu zentralen People-Herausforderungen: Organisationsentwicklung & Restrukturierung, Vergütungssysteme & Gehalts-Benchmarks, Performance Management, Betriebsratsverhandlungen, Mitarbeiterhandbücher & Policies sowie HR-Tech-Transformationsroadmaps.",
+  },
+  {
+    question: "Wie funktioniert die Zusammenarbeit (Einzelsession vs. Retainer vs. Pay-as-you-go)?",
+    answer:
+      "Wir bieten drei flexible Formate: (1) Einmalige Deep-Dive-Strategiesessions für dringende Fragestellungen, (2) Monatliche Retainer-Stunden für kontinuierliches Sparring der Geschäftsführung und (3) Pay-as-you-go, bei dem Sie flexibel nur gebuchte Stunden ohne Mindestlaufzeit zahlen.",
+  },
+  {
+    question: "Welche Qualifikationen und Hintergründe bringen die HR-Berater mit?",
+    answer:
+      "Unser Team verbindet Erfahrung aus Top-Strategieberatungen (Big 4, McKinsey, BCG) mit ehemaligen CPOs und HR-Leitern führender europäischer Wachstumsunternehmen. Diese Kombination sichert methodische Exzellenz bei maximaler praktischer Umsetzbarkeit.",
+  },
+  {
+    question: "Beraten Sie auch zu deutschem Arbeitsrecht und Betriebsratsfragen?",
+    answer:
+      "Ja. Wir verfügen über tiefes Praxiswissen in deutscher und europäischer Arbeitsrechts-Compliance, Mitbestimmungsrechten nach § 87 BetrVG, Verhandlung von Betriebsvereinbarungen und Prüfungen zur Vermeidung von Scheinselbstständigkeit.",
+  },
+  {
+    question: "Wie schnell können wir eine strategische Sparrings-Session vereinbaren?",
+    answer:
+      "Ein erstes Abstimmungsgespräch kann in der Regel innerhalb von 24 Stunden stattfinden. Anschließend matchen wir Sie direkt mit dem passenden Senior-Advisor für den sofortigen Arbeitsstart.",
+  },
+  {
+    question: "Worin unterscheidet sich Scaliify von klassischen Unternehmensberatungen?",
+    answer:
+      "Klassische Beratungen verlangen hohe Pauschalen und setzen oft Junior-Berater ein, die theoretische Folien erstellen. Bei Scaliify arbeiten Sie direkt mit praxiserfahrenen HR-Führungskräften, die pragmatische und sofort einsetzbare Lösungen liefern.",
+  },
+];
+
 export function HrAdvisoryClient() {
+  const locale = useLocale();
+  const isDe = locale === "de";
+
+  const advisoryTopics = isDe ? advisoryTopicsDe : advisoryTopicsEn;
+  const marqueeCards = isDe ? marqueeCardsDe : marqueeCardsEn;
+  const traditionalConsultancyItems = isDe ? traditionalConsultancyItemsDe : traditionalConsultancyItemsEn;
+  const scaliifyAdvisoryItems = isDe ? scaliifyAdvisoryItemsDe : scaliifyAdvisoryItemsEn;
+  const hrAdvisoryFaqs = isDe ? hrAdvisoryFaqsDe : hrAdvisoryFaqsEn;
+
   const [emailInput, setEmailInput] = useState("");
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -225,19 +365,21 @@ export function HrAdvisoryClient() {
         <div className="absolute top-0 right-1/4 w-[450px] h-[300px] bg-[radial-gradient(circle,rgba(129,216,208,0.45)_0%,transparent_70%)] pointer-events-none blur-2xl -z-0" />
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
-          {/* Left Column: Copy & Actions */}
           <div className="lg:col-span-6 flex flex-col items-start text-left">
-            {/* Kicker */}
             <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#2B4C55] mb-3.5">
-              SCALIIFY FOR HR ADVISORY
+              {isDe ? "SCALIIFY FÜR HR-BERATUNG" : "SCALIIFY FOR HR ADVISORY"}
             </p>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black leading-[1.12] mb-5">
-              On-demand expert input without retaining a full consultancy
+              {isDe
+                ? "Experten-Input auf Abruf, ohne eine ganze Unternehmensberatung zu verpflichten"
+                : "On-demand expert input without retaining a full consultancy"}
             </h1>
 
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-8 max-w-xl">
-              Strategic People counsel when you need it most. Combining strategy consulting rigor with hands-on HR operations for restructuring, compensation frameworks, org design, performance management, and works council topics.
+              {isDe
+                ? "Strategische HR-Beratung genau dann, wenn Sie sie brauchen. Wir kombinieren die methodische Tiefe von Top-Managementberatungen mit echter HR-Praxiserfahrung für Organisationsentwicklung, Vergütungssysteme, Performance Management und Betriebsratsfragen."
+                : "Strategic People counsel when you need it most. Combining strategy consulting rigor with hands-on HR operations for restructuring, compensation frameworks, org design, performance management, and works council topics."}
             </p>
 
             <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
@@ -246,7 +388,9 @@ export function HrAdvisoryClient() {
                 className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 rounded-full text-xs sm:text-sm font-extrabold text-brand-dark bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep shadow-[0_4px_22px_rgba(129,216,208,0.65)] border border-white/80 hover:shadow-[0_6px_28px_rgba(129,216,208,0.95)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 overflow-hidden cursor-pointer"
               >
                 <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/75 to-transparent rounded-t-full pointer-events-none" />
-                <span className="relative z-10 tracking-tight font-extrabold">Book an advisory session</span>
+                <span className="relative z-10 tracking-tight font-extrabold">
+                  {isDe ? "Beratungssession buchen" : "Book an advisory session"}
+                </span>
                 <ArrowRight className="relative z-10 w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </Link>
 
@@ -254,18 +398,17 @@ export function HrAdvisoryClient() {
                 href="#topics"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-black border border-gray-300 hover:border-[#2B4C55] px-6 py-3.5 rounded-full transition-all hover:bg-gray-50 cursor-pointer"
               >
-                <span>Typical questions</span>
+                <span>{isDe ? "Themengebiete ansehen" : "Explore advisory topics"}</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#2B4C55]" />
               </Link>
             </div>
           </div>
 
-          {/* Right Column: Hero Image Card */}
           <div className="lg:col-span-6 relative flex items-center justify-center">
             <div className="relative w-full aspect-[4/3] rounded-[28px] overflow-hidden shadow-[0_15px_45px_rgba(0,0,0,0.08)] border border-gray-200/80">
               <Image
                 src="/images/hr-advisory-hero.jpg"
-                alt="Senior HR strategic consultant advising C-level executives in modern European boardroom"
+                alt="Scaliify Strategic HR Advisory and Organizational Development"
                 fill
                 priority
                 className="object-cover"
@@ -281,9 +424,6 @@ export function HrAdvisoryClient() {
       {/* ============================================================ */}
       <section className="w-full bg-white py-8 sm:py-12 border-y border-gray-100 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto flex flex-col items-center">
-          <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-gray-500 mb-6 text-center">
-            TRUSTED BY FAST-GROWING EUROPEAN SCALEUPS & MID-MARKET FIRMS
-          </p>
           <div className="w-full flex flex-wrap items-center justify-center gap-6 sm:gap-10 lg:gap-14 opacity-80 grayscale hover:grayscale-0 transition-all duration-300">
             {companies.slice(0, 6).map((c) => (
               <div key={c.id} className="relative h-7 w-20 sm:w-24 shrink-0 flex items-center justify-center">
@@ -302,30 +442,24 @@ export function HrAdvisoryClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 3. TYPICAL ADVISORY TOPICS: Core Pillars                     */}
+      {/* 3. ADVISORY TOPICS                                           */}
       {/* ============================================================ */}
       <section id="topics" className="w-full bg-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
-            <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#4FB8AA] mb-2.5">
-              TYPICAL QUESTIONS
-            </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-black max-w-2xl mx-auto">
-              Strategic topics solved with experienced People partners
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-black">
+              {isDe ? "Strategische Beratung für erfolgskritische People-Themen" : "Strategic counsel for high-stakes People challenges"}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 sm:gap-8">
             {advisoryTopics.map(({ icon: Icon, title, desc }) => (
-              <div
-                key={title}
-                className="bg-white rounded-2xl p-6 sm:p-7 border border-gray-100 hover:border-[#81D8D0]/60 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col gap-3.5 group"
-              >
-                <div className="relative w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#5BC7BC] via-[#81D8D0] to-[#A8F5EE] text-[#05434B] flex items-center justify-center shrink-0 shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.85),0_8px_20px_rgba(129,216,208,0.38)] border border-white/70 transition-all duration-300 group-hover:scale-105 overflow-hidden">
+              <div key={title} className="flex flex-col items-center text-center gap-3 group p-6 rounded-2xl bg-white border border-gray-100 hover:border-[#81D8D0]/60 shadow-2xs hover:shadow-md transition-all duration-300">
+                <div className="relative w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#5BC7BC] via-[#81D8D0] to-[#A8F5EE] text-[#05434B] flex items-center justify-center shrink-0 shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.85),0_8px_20px_rgba(129,216,208,0.38)] border border-white/70 mb-1 transition-all duration-300 group-hover:scale-110 group-hover:shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.95),0_12px_25px_rgba(129,216,208,0.55)] overflow-hidden">
                   <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/45 to-transparent pointer-events-none rounded-t-2xl" />
                   <Icon className="w-5 h-5 stroke-[2.4] relative z-10" />
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-black leading-snug">
+                <h3 className="text-base sm:text-[17px] font-bold text-black leading-snug">
                   {title}
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
@@ -338,247 +472,15 @@ export function HrAdvisoryClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 4. FAST TIME TO VALUE: Flexible Advisory Engagement Formats   */}
-      {/* ============================================================ */}
-      <section className="w-full bg-gradient-to-b from-white via-[#81D8D0]/15 to-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-gray-100 relative overflow-hidden">
-        {/* Soft Tiffany Ambient Radial Glow */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[850px] h-[500px] bg-[radial-gradient(circle,rgba(129,216,208,0.30)_0%,transparent_70%)] pointer-events-none blur-3xl -z-0" />
-
-        <div className="max-w-5xl mx-auto relative z-10">
-          {/* Header */}
-          <div className="text-center mb-10 sm:mb-14">
-            <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#05434B] mb-3">
-              FAST TIME TO VALUE
-            </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-gray-950 leading-tight mb-3">
-              Switch with confidence,<br className="hidden sm:inline" /> from day one
-            </h2>
-            <p className="text-xs sm:text-sm md:text-base text-gray-600 max-w-xl mx-auto leading-relaxed">
-              Go from kickoff to full strategic resolution with expert guidance and minimal disruption
-            </p>
-          </div>
-
-          {/* Timeline Badges with Horizontal Progress Connector */}
-          <div className="relative mb-6 hidden md:block max-w-4xl mx-auto">
-            {/* Background Track Line */}
-            <div className="absolute top-1/2 left-16 right-16 -translate-y-1/2 h-[2px] bg-gray-200 -z-0" />
-            {/* Active Progress Gradient Line in Brand Teal */}
-            <div className="absolute top-1/2 left-16 right-16 -translate-y-1/2 h-[2px] bg-gradient-to-r from-[#81D8D0]/40 via-[#5BC7BC] to-[#05434B] -z-0" />
-
-            <div className="grid grid-cols-3 gap-6 text-center relative z-10">
-              {/* Glossy Shiny Tiffany Blue Pill 1 */}
-              <div className="flex justify-center">
-                <span className="relative inline-flex items-center justify-center px-6 py-1.5 rounded-full text-xs font-extrabold text-[#05434B] bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep shadow-[0_4px_16px_rgba(129,216,208,0.55)] border border-white/80 overflow-hidden">
-                  <span className="absolute inset-x-0 top-0 h-[45%] bg-gradient-to-b from-white/70 to-transparent rounded-t-full pointer-events-none" />
-                  <span className="relative z-10 font-extrabold tracking-tight">Week 1</span>
-                </span>
-              </div>
-
-              {/* Glossy Shiny Tiffany Blue Pill 2 */}
-              <div className="flex justify-center">
-                <span className="relative inline-flex items-center justify-center px-6 py-1.5 rounded-full text-xs font-extrabold text-[#05434B] bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep shadow-[0_4px_16px_rgba(129,216,208,0.55)] border border-white/80 overflow-hidden">
-                  <span className="absolute inset-x-0 top-0 h-[45%] bg-gradient-to-b from-white/70 to-transparent rounded-t-full pointer-events-none" />
-                  <span className="relative z-10 font-extrabold tracking-tight">Week 2</span>
-                </span>
-              </div>
-
-              {/* Glossy Shiny Tiffany Blue Pill 3 */}
-              <div className="flex justify-center">
-                <span className="relative inline-flex items-center justify-center px-6 py-1.5 rounded-full text-xs font-extrabold text-[#05434B] bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep shadow-[0_4px_16px_rgba(129,216,208,0.55)] border border-white/80 overflow-hidden">
-                  <span className="absolute inset-x-0 top-0 h-[45%] bg-gradient-to-b from-white/70 to-transparent rounded-t-full pointer-events-none" />
-                  <span className="relative z-10 font-extrabold tracking-tight">Week 10</span>
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* 3 Step Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch mb-10">
-            {/* Card 1: One-Off Strategy Session */}
-            <div className="bg-white rounded-3xl p-6 sm:p-7 border border-gray-200/90 hover:border-[#81D8D0]/60 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col justify-between min-h-[420px] transition-all duration-300">
-              <div>
-                <div className="md:hidden mb-3">
-                  <span className="relative inline-flex items-center justify-center px-4 py-0.5 rounded-full text-[11px] font-extrabold text-[#05434B] bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep shadow-xs border border-white/80">
-                    Week 1
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-gray-950 mb-5">
-                  Hit the ground running
-                </h3>
-                <ul className="space-y-3.5 text-xs sm:text-[13px] text-gray-700 leading-relaxed font-medium">
-                  <li className="flex items-start gap-2.5">
-                    <div className="w-5 h-5 rounded-full bg-[#81D8D0]/30 text-[#05434B] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
-                      <Check className="w-3.5 h-3.5 stroke-[3]" />
-                    </div>
-                    <span>Initial executive scoping call and dilemma diagnosis</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <div className="w-5 h-5 rounded-full bg-[#81D8D0]/30 text-[#05434B] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
-                      <Check className="w-3.5 h-3.5 stroke-[3]" />
-                    </div>
-                    <span>Match with a senior specialist (compensation, org design, legal)</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <div className="w-5 h-5 rounded-full bg-[#81D8D0]/30 text-[#05434B] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
-                      <Check className="w-3.5 h-3.5 stroke-[3]" />
-                    </div>
-                    <span>Define deliverables, benchmarks, and project roadmaps</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Bottom Visual: 21 Specialist Avatar Dots Grid */}
-              <div className="pt-8 border-t border-gray-100 mt-6">
-                <div className="grid grid-cols-7 gap-1.5 justify-items-center">
-                  {specialistAvatars.map((avatar, idx) => (
-                    <div
-                      key={idx}
-                      className="w-7 h-7 rounded-full overflow-hidden relative border border-gray-200 bg-gray-100 shrink-0 shadow-2xs"
-                    >
-                      <Image
-                        src={avatar.src}
-                        alt={avatar.alt}
-                        fill
-                        unoptimized
-                        className="object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Card 2: Implement together */}
-            <div className="bg-white rounded-3xl p-6 sm:p-7 border border-gray-200/90 hover:border-[#81D8D0]/60 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col justify-between min-h-[420px] transition-all duration-300">
-              <div>
-                <div className="md:hidden mb-3">
-                  <span className="relative inline-flex items-center justify-center px-4 py-0.5 rounded-full text-[11px] font-extrabold text-[#05434B] bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep shadow-xs border border-white/80">
-                    Week 2
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-gray-950 mb-5">
-                  Implement together
-                </h3>
-                <ul className="space-y-3.5 text-xs sm:text-[13px] text-gray-700 leading-relaxed font-medium">
-                  <li className="flex items-start gap-2.5">
-                    <div className="w-5 h-5 rounded-full bg-[#81D8D0]/30 text-[#05434B] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
-                      <Check className="w-3.5 h-3.5 stroke-[3]" />
-                    </div>
-                    <span>Collaborative design of salary bands, policies, and structures</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <div className="w-5 h-5 rounded-full bg-[#81D8D0]/30 text-[#05434B] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
-                      <Check className="w-3.5 h-3.5 stroke-[3]" />
-                    </div>
-                    <span>Drafting compliant works agreements &amp; restructuring plans</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <div className="w-5 h-5 rounded-full bg-[#81D8D0]/30 text-[#05434B] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
-                      <Check className="w-3.5 h-3.5 stroke-[3]" />
-                    </div>
-                    <span>Weekly sparring and alignment syncs with C-Level leaders</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Bottom Visual: Leader Avatar + Professional Action Icons */}
-              <div className="pt-8 border-t border-gray-100 mt-6 flex items-center justify-center gap-3">
-                <div className="w-10 h-10 rounded-full overflow-hidden relative border-2 border-white shadow-sm shrink-0">
-                  <Image
-                    src="/avatars/silvia.jpg"
-                    alt="Senior Strategic Advisor"
-                    fill
-                    unoptimized
-                    className="object-cover"
-                  />
-                </div>
-                <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#5BC7BC] via-[#81D8D0] to-[#A8F5EE] text-[#05434B] flex items-center justify-center shadow-xs border border-white/60">
-                  <Briefcase className="w-4 h-4 stroke-[2.2]" />
-                </div>
-                <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#5BC7BC] via-[#81D8D0] to-[#A8F5EE] text-[#05434B] flex items-center justify-center shadow-xs border border-white/60">
-                  <Users className="w-4 h-4 stroke-[2.2]" />
-                </div>
-                <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#5BC7BC] via-[#81D8D0] to-[#A8F5EE] text-[#05434B] flex items-center justify-center shadow-xs border border-white/60">
-                  <BarChart3 className="w-4 h-4 stroke-[2.2]" />
-                </div>
-              </div>
-            </div>
-
-            {/* Card 3: Launch with confidence (Deep Brand Dark Spruce) */}
-            <div className="bg-gradient-to-br from-[#05434B] via-[#032e35] to-[#011e23] text-white rounded-3xl p-6 sm:p-7 shadow-[0_12px_35px_rgba(5,67,75,0.25)] border border-[#81D8D0]/25 flex flex-col justify-between min-h-[420px]">
-              <div>
-                <div className="md:hidden mb-3">
-                  <span className="relative inline-flex items-center justify-center px-4 py-0.5 rounded-full text-[11px] font-extrabold text-[#05434B] bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep shadow-xs border border-white/80">
-                    Week 10
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-5">
-                  Launch with confidence
-                </h3>
-                <ul className="space-y-3.5 text-xs sm:text-[13px] text-gray-100 leading-relaxed font-medium">
-                  <li className="flex items-start gap-2.5">
-                    <div className="w-5 h-5 rounded-full bg-[#81D8D0]/25 text-[#81D8D0] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
-                      <Check className="w-3.5 h-3.5 stroke-[3]" />
-                    </div>
-                    <span>Execute rollout with clean manager enablement &amp; change guidance</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <div className="w-5 h-5 rounded-full bg-[#81D8D0]/25 text-[#81D8D0] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
-                      <Check className="w-3.5 h-3.5 stroke-[3]" />
-                    </div>
-                    <span>Full adoption across teams with minimal organizational friction</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <div className="w-5 h-5 rounded-full bg-[#81D8D0]/25 text-[#81D8D0] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
-                      <Check className="w-3.5 h-3.5 stroke-[3]" />
-                    </div>
-                    <span>Retained advisory bandwidth or flexible pay-as-you-go fallback</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Bottom Visual: Leader Avatar + Clean Professional Status Badge */}
-              <div className="pt-8 border-t border-white/15 mt-6 flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full overflow-hidden relative border border-white/40 shadow-xs shrink-0">
-                  <Image
-                    src="/avatars/max.jpg"
-                    alt="Advisory Lead"
-                    fill
-                    unoptimized
-                    className="object-cover"
-                  />
-                </div>
-                <div className="bg-white text-gray-900 rounded-full px-4 py-1.5 text-xs font-bold flex items-center gap-2 shadow-sm border border-white/90">
-                  <CheckCircle2 className="w-4 h-4 text-[#05434B] stroke-[2.5]" />
-                  <span>Advisory active</span>
-                  <span className="text-gray-500 font-medium text-[11px] hidden xl:inline">• Agile formats</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Pill Badge */}
-          <div className="text-center">
-            <div className="inline-flex items-center gap-2 bg-[#81D8D0]/20 text-[#05434B] border border-[#81D8D0]/50 px-4 py-1.5 rounded-full text-xs font-bold shadow-2xs">
-              <div className="w-4 h-4 rounded-full bg-[#05434B] text-[#81D8D0] flex items-center justify-center shrink-0">
-                <ShieldCheck className="w-2.5 h-2.5" />
-              </div>
-              <span>One-off strategy sessions • Retained monthly hours • Pay-as-you-go advisory</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================ */}
-      {/* 5. MARQUEE CAROUSEL: Real Stories & Leadership Feedback      */}
+      {/* 4. MARQUEE CAROUSEL                                          */}
       {/* ============================================================ */}
       <section className="w-full bg-white py-12 sm:py-16 overflow-hidden border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 mb-6 sm:mb-8 text-center">
           <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#4FB8AA] mb-2">
-            STRATEGY • RIGOR • OUTCOMES
+            {isDe ? "BERATUNGSERFOLG IN ÜBER 100 STRATEGISCHEN MANDATEN" : "TRUSTED BY BOARDS & HR LEADERS ACROSS EUROPE"}
           </p>
           <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-black leading-tight">
-            How executive teams solve complex HR challenges with Scaliify
+            {isDe ? "Pragmatische Lösungen mit messbarem Geschäftserfolg" : "Pragmatic solutions driving real business outcomes"}
           </h2>
         </div>
 
@@ -607,9 +509,7 @@ export function HrAdvisoryClient() {
                 )}
 
                 {card.type === "image-card" && (
-                  <div
-                    className="relative rounded-[26px] w-[280px] sm:w-[310px] h-[370px] sm:h-[400px] overflow-hidden shadow-xs hover:shadow-md transition-all duration-300"
-                  >
+                  <div className="relative rounded-[26px] w-[280px] sm:w-[310px] h-[370px] sm:h-[400px] overflow-hidden shadow-xs hover:shadow-md transition-all duration-300">
                     <Image
                       src={card.image!}
                       alt={card.author!}
@@ -659,31 +559,28 @@ export function HrAdvisoryClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 6. THE EXPERTISE BEHIND IT: Strategy Consulting + Operations */}
+      {/* 5. COMPARISON MATRIX                                         */}
       {/* ============================================================ */}
       <section className="w-full bg-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10 sm:mb-14">
             <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#4FB8AA] mb-2.5">
-              THE EXPERTISE BEHIND IT
+              {isDe ? "DER SCALIIFY-UNTERSCHIED" : "THE SCALIIFY DIFFERENCE"}
             </p>
             <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-black">
-              Strategy consulting plus HR operations execution
+              {isDe ? "Klassische Beratung vs. Scaliify HR Advisory" : "Traditional Consultancies vs. Scaliify HR Advisory"}
             </h2>
-            <p className="text-xs sm:text-sm text-gray-600 max-w-xl mx-auto mt-2">
-              Why leadership teams choose Scaliify instead of theoretical management consulting firms.
-            </p>
           </div>
 
           <div className="bg-gradient-to-br from-[#05434B] via-[#2B4C55] to-[#1b3a42] rounded-3xl p-6 sm:p-10 border border-[#76D8C8]/20 shadow-[0_15px_45px_rgba(5,67,75,0.22)] grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-[radial-gradient(circle,rgba(118,216,200,0.25)_0%,transparent_70%)] pointer-events-none blur-2xl" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-[radial-gradient(circle,rgba(79,184,170,0.18)_0%,transparent_70%)] pointer-events-none blur-2xl" />
 
-            {/* Left: Traditional Management Consultancies */}
+            {/* Left: Traditional Consultancy */}
             <div className="flex flex-col justify-between py-2 sm:py-4 pr-0 md:pr-6 relative z-10 text-white">
               <div>
                 <h3 className="text-lg sm:text-xl font-bold text-white mb-6">
-                  Traditional Consultancies
+                  {isDe ? "Klassische Unternehmensberatungen" : "Traditional Consultancies"}
                 </h3>
                 <ul className="flex flex-col gap-4">
                   {traditionalConsultancyItems.map((item) => (
@@ -702,7 +599,7 @@ export function HrAdvisoryClient() {
             <div className="bg-white text-gray-900 rounded-2xl p-6 sm:p-8 shadow-sm border border-[#76D8C8]/50 flex flex-col justify-between relative z-10">
               <div>
                 <h3 className="text-lg sm:text-xl font-bold text-[#2B4C55] mb-6">
-                  Scaliify HR Advisory
+                  {isDe ? "Scaliify HR Advisory" : "Scaliify HR Advisory"}
                 </h3>
                 <ul className="flex flex-col gap-4">
                   {scaliifyAdvisoryItems.map(({ text, badge }) => (
@@ -724,195 +621,25 @@ export function HrAdvisoryClient() {
               </div>
             </div>
           </div>
-
-          <div className="mt-10 sm:mt-12 text-center">
-            <Link
-              href="/lets-talk"
-              className="inline-flex items-center gap-2 text-sm font-bold text-black hover:text-[#4FB8AA] transition-colors group"
-            >
-              <span>Need strategic HR input? Book a 30-minute scoping call with our partners</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#4FB8AA]" />
-            </Link>
-          </div>
         </div>
       </section>
 
       {/* ============================================================ */}
-      {/* 7. IMPACT & CUSTOMER STORY BENTO SECTION                     */}
-      {/* ============================================================ */}
-      <section className="w-full bg-gradient-to-b from-white via-[#81D8D0]/35 to-white py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 border-t border-gray-100 relative overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[850px] h-[500px] bg-[radial-gradient(circle,rgba(129,216,208,0.45)_0%,transparent_70%)] pointer-events-none blur-3xl -z-0" />
-
-        <div className="max-w-5xl mx-auto relative z-10">
-          <div className="text-center mb-10 sm:mb-14">
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black max-w-2xl mx-auto leading-tight">
-              Real impact for scaling organizations
-            </h2>
-          </div>
-
-          {/* 3 Metric Counters */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-16 text-center">
-            <div className="flex flex-col items-center">
-              <span className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-none mb-2 tracking-tight">
-                <AnimatedStatCounter value={100} suffix="+" />
-              </span>
-              <span className="text-xs sm:text-sm text-gray-800 font-semibold max-w-[200px]">
-                senior HR specialists in European network
-              </span>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <span className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-none mb-2 tracking-tight">
-                &lt;24h
-              </span>
-              <span className="text-xs sm:text-sm text-gray-800 font-semibold max-w-[200px]">
-                rapid sparring session booking turnaround
-              </span>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <span className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-none mb-2 tracking-tight">
-                <AnimatedStatCounter value={100} suffix="%" />
-              </span>
-              <span className="text-xs sm:text-sm text-gray-800 font-semibold max-w-[200px]">
-                pragmatic, implementation-ready advice
-              </span>
-            </div>
-          </div>
-
-          {/* 2x2 Bento Customer Story Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 items-stretch mb-10 sm:mb-14">
-            <div className="md:col-span-7 bg-gradient-to-b from-[#eaf7f5] via-white to-white rounded-[22px] sm:rounded-[26px] p-6 sm:p-8 md:p-12 flex flex-col justify-center items-center text-center border border-[#76D8C8]/40 shadow-xs min-h-[140px] sm:min-h-[180px]">
-              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#4FB8AA] mb-3">
-                HR ADVISORY CASE STORY
-              </p>
-              <div className="relative h-10 sm:h-12 w-32 sm:w-36">
-                <Image
-                  src={companies[3]?.logoUrl ?? "/companies/logo-4.png"}
-                  alt="Customer Logo"
-                  fill
-                  unoptimized
-                  className="object-contain"
-                  sizes="144px"
-                />
-              </div>
-            </div>
-
-            <div className="md:col-span-5 bg-gradient-to-br from-[#81D8D0] via-[#76D8C8] to-[#A8F5EE] text-black rounded-[22px] sm:rounded-[26px] p-6 sm:p-8 md:p-10 flex flex-col justify-center min-h-[140px] sm:min-h-[180px] shadow-xs border border-white/60">
-              <p className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-none text-black mb-3">
-                <AnimatedStatCounter value={100} suffix="%" />
-              </p>
-              <p className="text-xs sm:text-sm font-bold text-black leading-snug">
-                strategic alignment &amp; compliance assurance
-              </p>
-            </div>
-
-            <div className="md:col-span-5 relative rounded-[22px] sm:rounded-[26px] overflow-hidden min-h-[220px] sm:min-h-[300px] shadow-xs border border-gray-200/80">
-              <Image
-                src="/images/hr-advisory-leader.jpg"
-                alt="Dr. Elisabeth Schneider - Senior HR Strategist & Former CPO"
-                fill
-                className="object-cover object-top"
-                sizes="(max-width: 768px) 100vw, 40vw"
-              />
-            </div>
-
-            <div className="md:col-span-7 bg-[#f0faf8] rounded-[22px] sm:rounded-[26px] p-6 sm:p-8 md:p-10 flex flex-col justify-between border border-[#4FB8AA]/30 shadow-xs min-h-[220px] sm:min-h-[300px]">
-              <div>
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-[#4FB8AA] to-[#76D8C8] text-[#05434B] flex items-center justify-center mb-4 sm:mb-5 shadow-xs">
-                  <Quote className="w-4 h-4 sm:w-5 sm:h-5 fill-current" />
-                </div>
-                <p className="text-sm sm:text-base md:text-lg text-[#2B4C55] font-bold leading-snug mb-4">
-                  &ldquo;When preparing our European reorganization, Scaliify&apos;s advisors gave our C-suite actionable frameworks for org leveling and works council agreements. They bridged top-tier strategy with real operational execution.&rdquo;
-                </p>
-              </div>
-              <div>
-                <p className="text-xs sm:text-sm font-bold text-black">
-                  Dr. Elisabeth Schneider <span className="font-normal text-gray-600">| Senior HR Strategist &amp; Former CPO</span>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Dual Action Conversion Cards */}
-          <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-7 items-stretch mt-10 sm:mt-16">
-            <div className="md:col-span-7 bg-[#cbece5] rounded-2xl sm:rounded-[32px] p-5 sm:p-7 md:p-10 flex flex-col justify-between shadow-[0_12px_35px_rgba(79,184,170,0.18)] border border-[#a6dfd4] relative overflow-hidden">
-              <div className="mb-6">
-                <div className="inline-flex items-center bg-[#ee7738] text-white text-[10.5px] sm:text-[11px] font-bold px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full uppercase tracking-wider mb-3 sm:mb-4 shadow-2xs">
-                  Immediate 30-min scoping call
-                </div>
-                <h3 className="text-xl sm:text-2xl lg:text-[32px] font-extrabold text-[#05434B] tracking-tight leading-[1.18]">
-                  Discuss your strategic HR questions
-                </h3>
-              </div>
-
-              {emailSubmitted ? (
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold text-[#05434B] bg-white/80 backdrop-blur-sm border border-[#5BC7BC]/50 px-5 py-3.5 rounded-full">
-                  <CheckCircle2 className="w-4 h-4 text-[#2B4C55]" />
-                  <span>Thank you! An advisory partner will contact you shortly.</span>
-                </div>
-              ) : (
-                <form onSubmit={handleEmailSubmit} className="w-full">
-                  <div className="bg-white rounded-2xl sm:rounded-full p-1.5 sm:pl-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-0 shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)] border border-white/80 w-full">
-                    <input
-                      type="email"
-                      required
-                      value={emailInput}
-                      onChange={(e) => setEmailInput(e.target.value)}
-                      placeholder="What's your work email? *"
-                      aria-label="Work email address"
-                      className="w-full px-3 py-2.5 sm:py-2 text-xs sm:text-sm text-black placeholder:text-gray-400 focus:outline-none bg-transparent"
-                    />
-                    <button
-                      type="submit"
-                      className="bg-gradient-to-r from-[#66cfc3] to-[#8fe4da] text-[#05434B] text-xs sm:text-sm font-bold px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl sm:rounded-full shadow-[0_4px_14px_rgba(102,207,195,0.45),inset_0_1px_1px_rgba(255,255,255,0.9)] hover:brightness-105 transition-all shrink-0 cursor-pointer active:scale-95 border border-white/40 text-center"
-                    >
-                      Request scoping call
-                    </button>
-                  </div>
-                </form>
-              )}
-            </div>
-
-            <div className="md:col-span-5 bg-[#032e35] text-white rounded-2xl sm:rounded-[32px] p-5 sm:p-7 md:p-10 flex flex-col justify-between shadow-[0_12px_35px_rgba(3,46,53,0.25)] border border-white/10 relative overflow-hidden">
-              <div className="mb-6">
-                <div className="inline-flex items-center bg-white text-[#05434B] text-[10.5px] sm:text-[11px] font-bold px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full uppercase tracking-wider mb-3 sm:mb-4 shadow-2xs">
-                  Assess Tech &amp; Processes
-                </div>
-                <h3 className="text-xl sm:text-2xl lg:text-[32px] font-extrabold text-white tracking-tight leading-[1.18]">
-                  Benchmark your HR software stack
-                </h3>
-              </div>
-
-              <div>
-                <Link
-                  href="/tool-finder"
-                  className="w-full sm:w-auto inline-flex items-center justify-center bg-gradient-to-r from-[#66cfc3] to-[#8fe4da] text-[#05434B] text-xs sm:text-sm font-bold px-6 sm:px-7 py-3 sm:py-3.5 rounded-full shadow-[0_4px_16px_rgba(102,207,195,0.5),inset_0_1px_1px_rgba(255,255,255,0.9)] hover:brightness-105 transition-all cursor-pointer active:scale-95 border border-white/40 text-center"
-                >
-                  <span>Use free HR Tool Finder</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================ */}
-      {/* 8. TESTIMONIALS SECTION                                      */}
+      {/* 6. TESTIMONIALS SECTION                                      */}
       {/* ============================================================ */}
       <Testimonials />
 
       {/* ============================================================ */}
-      {/* 9. FREQUENTLY ASKED QUESTIONS ACCORDION                      */}
+      {/* 7. FREQUENTLY ASKED QUESTIONS ACCORDION                      */}
       {/* ============================================================ */}
       <section className="w-full bg-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#2B4C55] mb-2.5">
-              CLEAR ANSWERS
+              {isDe ? "KLARE ANTWORTEN" : "CLEAR ANSWERS"}
             </p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">
-              Frequently asked questions
+              {isDe ? "Häufig gestellte Fragen" : "Frequently asked questions"}
             </h2>
           </div>
 
@@ -960,12 +687,12 @@ export function HrAdvisoryClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 10. DISCOVERY & CONSULTATION BOOKING LEAD SECTION            */}
+      {/* 8. DISCOVERY & CONSULTATION BOOKING LEAD SECTION             */}
       {/* ============================================================ */}
       <BookingLeadSection />
 
       {/* ============================================================ */}
-      {/* 11. BLOG SECTION                                             */}
+      {/* 9. BLOG SECTION                                              */}
       {/* ============================================================ */}
       <BlogSection />
     </main>

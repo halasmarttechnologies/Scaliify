@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useLocale } from "next-intl";
 import {
   ArrowRight,
   Check,
@@ -26,7 +27,7 @@ import { BookingLeadSection } from "@/components/common/BookingLeadSection";
 import { BlogSection } from "@/components/home/BlogSection";
 import { AnimatedStatCounter } from "@/components/common/AnimatedStatCounter";
 
-const pillars = [
+const pillarsEn = [
   {
     icon: Database,
     title: "One Single Source of Truth",
@@ -49,7 +50,30 @@ const pillars = [
   },
 ];
 
-const marqueeCards = [
+const pillarsDe = [
+  {
+    icon: Database,
+    title: "Eine Single Source of Truth",
+    desc: "Wir verbinden Ihre HR-Plattformen, sodass alle Daten an einem zentralen Ort gepflegt werden, statt manuell über drei oder vier nicht synchronisierte Systeme eingegeben zu werden. So müssen Sie nie wieder raten, welcher Datensatz aktuell ist.",
+  },
+  {
+    icon: Users2,
+    title: "Typische Szenarien, die wir abdecken",
+    desc: "Die meisten Integrationen folgen vertrauten Mustern: HRIS an Gehaltsabrechnung, HRIS an ATS, HRIS an Finanz-/ERP-Systeme und Zeiterfassung synchronisiert mit Payroll. Wenn diese Bereiche bei Ihnen noch als getrennte Inseln laufen, liegen dort meist die größten Reibungsverluste.",
+  },
+  {
+    icon: Workflow,
+    title: "Wenn es keine Standard-Integration gibt",
+    desc: "Nicht jedes System verbindet sich sofort von Haus aus – und genau da setzen wir an. Wir entwickeln Middleware, übernehmen die API-Arbeit oder gestalten den Prozess so um, dass die Integration gar nicht mehr nötig ist.",
+  },
+  {
+    icon: Cpu,
+    title: "Prozessneugestaltung zuerst",
+    desc: "Oft ist die sauberste Lösung gar nicht technischer Natur, sondern das Hinterfragen, warum zwei Systeme überhaupt miteinander sprechen mussten.",
+  },
+];
+
+const marqueeCardsEn = [
   {
     type: "quote-card",
     bg: "bg-[#f0faf8]",
@@ -102,7 +126,60 @@ const marqueeCards = [
   },
 ];
 
-const beforeItems = [
+const marqueeCardsDe = [
+  {
+    type: "quote-card",
+    bg: "bg-[#f0faf8]",
+    brandName: "techscale",
+    quote:
+      "Scaliify hat unser HiBob HRIS direkt mit DATEV verbunden. Wir müssen keine Mitarbeiterdaten mehr manuell übertragen und sparen jeden Monat 15 Stunden nervige Tabellenarbeit.",
+    author: "Elena Richter | Head of People Operations",
+    border: "border-[#76D8C8]/40",
+  },
+  {
+    type: "image-card",
+    image: "/images/hr-integrations-hero.jpg",
+    quote:
+      "Als für unser ATS und HRIS keine Standard-Schnittstelle existierte, hat Scaliify unseren Onboarding-Workflow so umgestaltet, dass eine teure API-Entwicklung gar nicht nötig war.",
+    author: "Lukas Weber | VP of People & Culture",
+    border: "border-gray-200/50",
+  },
+  {
+    type: "stat-card",
+    bg: "bg-gradient-to-br from-[#2B4C55] via-[#05434B] to-[#4FB8AA]",
+    stat: "100%",
+    sub: "Datenkonsistenz über alle Systeme hinweg",
+    brand: "Scaliify HR Advisory",
+    border: "border-[#76D8C8]/30",
+  },
+  {
+    type: "image-card",
+    image: "/images/hr-integrations-leader.jpg",
+    quote:
+      "Die Verknüpfung unseres Core-HR mit NetSuite und DATEV liefert unserer CFO und HR stets identische Echtzeit-Mitarbeiterzahlen. Keine Doppeleingaben, keine Abweichungen.",
+    author: "Sarah Lindemann | Chief People Officer",
+    border: "border-gray-200/50",
+  },
+  {
+    type: "quote-card",
+    bg: "bg-[#e8f7f4]",
+    brandName: "scaleup group",
+    quote:
+      "Erfasste Arbeitszeiten fließen jetzt direkt in die Lohnabrechnung. Scaliify hat sichergestellt, dass alle BAG-Vorgaben ohne manuelle Nachberechnung eingehalten werden.",
+    author: "Markus Hoffmann | Managing Director",
+    border: "border-[#4FB8AA]/40",
+  },
+  {
+    type: "image-card",
+    image: "/images/office-team.jpg",
+    quote:
+      "Scaliify hat als echter HR-IT-Partner agiert: Perfekte Abstimmung zwischen HR-Team, Softwareherstellern und IT-Sicherheit für höchste Datenschutzstandards.",
+    author: "Sophie Dubois | Global HR Operations",
+    border: "border-gray-200/50",
+  },
+];
+
+const beforeItemsEn = [
   "Duplicate employee data typed manually into HRIS, Payroll, and ATS",
   "Risk of human error and payroll cutover delays from manual CSV exports",
   "Fragile point-to-point connections that break on software updates",
@@ -110,7 +187,15 @@ const beforeItems = [
   "Discrepancies between HR headcount numbers and Finance ERP reports",
 ];
 
-const afterItems = [
+const beforeItemsDe = [
+  "Mitarbeiterdaten müssen manuell in HRIS, Lohn und ATS eingetippt werden",
+  "Fehleranfällige manuelle CSV-Exporte mit Verzögerungen beim Monatsabschluss",
+  "Instabile Behelfslösungen, die bei Software-Updates ständig abbrechen",
+  "Teure Schnittstellen-Entwicklungen für eigentlich veraltete Prozesse",
+  "Abweichende Mitarbeiterzahlen zwischen HR-Reports und Finanz-ERP",
+];
+
+const afterItemsEn = [
   { text: "One verified single source of truth across your HR tech stack", badge: "100% Accurate" },
   { text: "Automated HRIS ↔ DATEV & Payroll sync without manual spreadsheets", badge: "Zero Manual CSVs" },
   { text: "Instant ATS candidate-to-hire onboarding with zero duplicate entry", badge: "Zero Double-Entry" },
@@ -118,13 +203,15 @@ const afterItems = [
   { text: "Fully GDPR-compliant encryption, automated audit logs & error alerts", badge: "Bank-Grade Security" },
 ];
 
-const impactStats = [
-  { value: "100%", label: "single source of truth data integrity" },
-  { value: "0", label: "duplicate manual entries across all systems" },
-  { value: "15+ hrs", label: "saved monthly per HR team member on payroll & admin" },
+const afterItemsDe = [
+  { text: "Eine verifizierte Single Source of Truth für Ihren gesamten HR-Tech-Stack", badge: "100 % Exakt" },
+  { text: "Automatischer HRIS ↔ DATEV & Lohnabgleich ohne manuelle Excel-Listen", badge: "Keine CSV-Exporte" },
+  { text: "Nahtlose ATS-Übernahme ins Onboarding ohne doppelte Eingabe", badge: "Null Doppelarbeit" },
+  { text: "Prozessoptimierung zuerst: Workflows vereinfachen vor dem API-Bau", badge: "Kosteneffizient" },
+  { text: "DSGVO-konforme Verschlüsselung, Audit-Logs & automatische Fehler-Alerts", badge: "Höchste Sicherheit" },
 ];
 
-const hrIntegrationsFaqs = [
+const hrIntegrationsFaqsEn = [
   {
     question: "What if our systems don't officially support integration with each other?",
     answer:
@@ -152,7 +239,44 @@ const hrIntegrationsFaqs = [
   },
 ];
 
+const hrIntegrationsFaqsDe = [
+  {
+    question: "Was ist, wenn unsere Systeme eine direkte Integration offiziell nicht unterstützen?",
+    answer:
+      "Das kommt häufiger vor als gedacht und ist kein Hindernis. Wir entwickeln maßgeschneiderte Lösungen über Middleware oder direkte API-Anbindungen, wenn keine native Schnittstelle vorhanden ist.",
+  },
+  {
+    question: "Wie lange dauert die Einrichtung einer Integration üblicherweise?",
+    answer:
+      "Das hängt von den beteiligten Systemen und dem erforderlichen Custom-Work ab, meist sind die Integrationen jedoch innerhalb weniger Wochen einsatzbereit.",
+  },
+  {
+    question: "Wird der laufende HR-Betrieb während der Einrichtung gestört?",
+    answer:
+      "Wir planen alles so, dass Betriebsunterbrechungen minimiert werden – meist testen wir parallel im Hintergrund, bevor wir auf das Live-System umschalten.",
+  },
+  {
+    question: "Können Sie mehr als zwei Systeme gleichzeitig integrieren?",
+    answer:
+      "Ja, viele unserer Projekte umfassen drei oder mehr Plattformen, insbesondere wenn Gehaltsabrechnung, HRIS und Zeiterfassung synchron gehalten werden müssen.",
+  },
+  {
+    question: "Benötigen wir ein bestimmtes HRIS, damit das funktioniert?",
+    answer:
+      "Nein. Wir arbeiten plattformübergreifend mit allen gängigen HR-Systemen, sodass eine Integration unabhängig von Ihrer aktuellen Software möglich ist.",
+  },
+];
+
 export function HrItIntegrationsClient() {
+  const locale = useLocale();
+  const isDe = locale === "de";
+
+  const pillars = isDe ? pillarsDe : pillarsEn;
+  const marqueeCards = isDe ? marqueeCardsDe : marqueeCardsEn;
+  const beforeItems = isDe ? beforeItemsDe : beforeItemsEn;
+  const afterItems = isDe ? afterItemsDe : afterItemsEn;
+  const hrIntegrationsFaqs = isDe ? hrIntegrationsFaqsDe : hrIntegrationsFaqsEn;
+
   const [emailInput, setEmailInput] = useState("");
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -171,41 +295,39 @@ export function HrItIntegrationsClient() {
   return (
     <main className="w-full bg-white overflow-hidden text-black font-sans">
       {/* ============================================================ */}
-      {/* 1. HERO SECTION (Split: Left Content + Right Image)          */}
+      {/* 1. HERO SECTION                                              */}
       {/* ============================================================ */}
       <section className="w-full relative overflow-hidden bg-gradient-to-bl from-[#81D8D0]/35 via-white/80 to-white pt-28 sm:pt-36 lg:pt-40 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-8">
-        {/* Prominent High-Opacity Tiffany Blue Gradient Aura on Top Right Corner */}
         <div className="absolute -top-20 -right-20 sm:-top-28 sm:-right-28 w-[600px] sm:w-[800px] h-[500px] sm:h-[650px] bg-[radial-gradient(ellipse_at_top_right,rgba(129,216,208,0.85)_0%,rgba(129,216,208,0.55)_35%,rgba(91,199,188,0.25)_60%,transparent_80%)] pointer-events-none blur-3xl -z-0" />
-
-        {/* Additional Soft Top Glow */}
         <div className="absolute top-0 right-1/4 w-[450px] h-[300px] bg-[radial-gradient(circle,rgba(129,216,208,0.45)_0%,transparent_70%)] pointer-events-none blur-2xl -z-0" />
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
-          {/* Left Column: Heading + Copy + Action CTAs */}
           <div className="lg:col-span-6 flex flex-col items-start text-left">
-            {/* Kicker */}
             <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#2B4C55] mb-3.5">
-              SCALIIFY FOR HR IT INTEGRATIONS
+              {isDe ? "SCALIIFY FÜR HR-IT-INTEGRATIONEN" : "SCALIIFY FOR HR IT INTEGRATIONS"}
             </p>
 
-            {/* H1 Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black leading-[1.12] mb-5">
-              When HR systems don't talk to each other, someone always ends up paying for it
+              {isDe
+                ? "Wenn HR-Systeme nicht miteinander sprechen, zahlt am Ende immer jemand den Preis dafür"
+                : "When HR systems don't talk to each other, someone always ends up paying for it"}
             </h1>
 
-            {/* Description */}
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-8 max-w-xl">
-              Usually in duplicate data entry, mismatched records, and numbers nobody fully trusts. We connect your HR platforms so information lives in one single source of truth.
+              {isDe
+                ? "Meist in Form von doppelter Dateneingabe, abweichenden Datensätzen und Zahlen, denen niemand voll vertraut. Wir verbinden Ihre HR-Plattformen, sodass Informationen zentral an einem Ort leben."
+                : "Usually in duplicate data entry, mismatched records, and numbers nobody fully trusts. We connect your HR platforms so information lives in one single source of truth."}
             </p>
 
-            {/* CTA Buttons (Glossy Shiny Tiffany Blue Let's Talk Style Button) */}
             <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
               <Link
                 href="/lets-talk"
                 className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 rounded-full text-xs sm:text-sm font-extrabold text-brand-dark bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep shadow-[0_4px_22px_rgba(129,216,208,0.65)] border border-white/80 hover:shadow-[0_6px_28px_rgba(129,216,208,0.95)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 overflow-hidden cursor-pointer"
               >
                 <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/75 to-transparent rounded-t-full pointer-events-none" />
-                <span className="relative z-10 tracking-tight font-extrabold">Book a consultation</span>
+                <span className="relative z-10 tracking-tight font-extrabold">
+                  {isDe ? "Beratung vereinbaren" : "Book a consultation"}
+                </span>
                 <ArrowRight className="relative z-10 w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </Link>
 
@@ -213,13 +335,12 @@ export function HrItIntegrationsClient() {
                 href="/tool-finder"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-black border border-gray-300 hover:border-[#2B4C55] px-6 py-3.5 rounded-full transition-all hover:bg-gray-50 cursor-pointer"
               >
-                <span>Try HR Tool Finder</span>
+                <span>{isDe ? "HR Tool Finder testen" : "Try HR Tool Finder"}</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#2B4C55]" />
               </Link>
             </div>
           </div>
 
-          {/* Right Column: Hero Architecture Consulting Image Card */}
           <div className="lg:col-span-6 relative flex items-center justify-center">
             <div className="relative w-full aspect-[4/3] rounded-[28px] overflow-hidden shadow-[0_15px_45px_rgba(0,0,0,0.08)] border border-gray-200/80">
               <Image
@@ -258,21 +379,16 @@ export function HrItIntegrationsClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 3. FOUR PILLARS: Common Integration Scenarios                */}
+      {/* 3. FOUR PILLARS                                              */}
       {/* ============================================================ */}
       <section className="w-full bg-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
           <div className="text-center mb-12 sm:mb-16">
-            <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#4FB8AA] mb-2.5">
-              COMMON SCENARIOS &amp; ARCHITECTURES
-            </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-black">
-              Seamlessly connecting your core HR workflows
+              {isDe ? "HR-Systeme verbinden, die tatsächlich zusammenarbeiten" : "Connecting systems that actually work together"}
             </h2>
           </div>
 
-          {/* 4 Pillars Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7 sm:gap-8">
             {pillars.map(({ icon: Icon, title, desc }) => (
               <div key={title} className="flex flex-col items-center text-center gap-3 group">
@@ -293,146 +409,22 @@ export function HrItIntegrationsClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 3.5. INTEGRATION PIPELINE WORKFLOW CARD (Matching Screenshot) */}
-      {/* ============================================================ */}
-      <section className="w-full bg-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
-        <div className="max-w-6xl mx-auto">
-          <div className="bg-white rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 lg:p-14 border border-gray-200/80 shadow-[0_15px_45px_rgba(0,0,0,0.03)] grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative overflow-hidden">
-            {/* Subtle Top-Right Ambient Radial Glow */}
-            <div className="absolute -top-10 -right-10 w-96 h-96 bg-[radial-gradient(circle,rgba(129,216,208,0.18)_0%,transparent_70%)] pointer-events-none blur-3xl" />
-
-            {/* Left Column: Heading + Descriptive Copy */}
-            <div className="lg:col-span-5 flex flex-col justify-center text-left relative z-10">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#05434B] tracking-tight leading-[1.18] mb-5">
-                Integration workflows that save you time
-              </h2>
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed max-w-md">
-                Skip the manual setup. Use proven integration blueprints to quickly connect your HRIS, payroll, ATS, and ERP with zero duplicate entries. Scaliify clients experience up to 65% faster payroll reconciliation and seamless new hire onboarding.
-              </p>
-            </div>
-
-            {/* Right Column: Visual Pipeline Stepper Graphic (Matching Screenshot) */}
-            <div className="lg:col-span-7 relative flex flex-col items-center justify-center py-4">
-              {/* Vertical Dashed Line Running Down Through Nodes */}
-              <div className="absolute left-1/2 -translate-x-1/2 top-4 bottom-8 w-0.5 border-r border-dashed border-[#76D8C8]/60 pointer-events-none" />
-
-              {/* Top Node: Pipeline Pill */}
-              <div className="bg-white border border-[#76D8C8]/50 shadow-2xs px-4 py-1 rounded-full flex items-center gap-2 text-xs font-semibold text-[#05434B] mx-auto mb-4 relative z-10">
-                <span className="bg-[#eaf7f2] text-[#05434B] text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">
-                  Pipeline
-                </span>
-                <span>Single Source of Truth</span>
-              </div>
-
-              {/* Step Card 1: HRIS ↔ Payroll */}
-              <div className="bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-xs flex items-start gap-3.5 relative z-10 max-w-md w-full mb-3.5 hover:border-[#76D8C8] transition-all">
-                <div className="w-6 h-6 rounded-full bg-[#eaf7f2] text-[#05434B] flex items-center justify-center shrink-0 mt-0.5">
-                  <Check className="w-3.5 h-3.5 stroke-[3]" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-sm font-bold text-gray-900 mb-1.5">
-                    HRIS &harr; Payroll (DATEV)
-                  </h3>
-                  <div className="flex items-center gap-1.5 flex-wrap text-[10.5px]">
-                    <span className="text-gray-500 font-medium">Responsible</span>
-                    <span className="bg-[#f0faf8] text-[#05434B] font-bold px-2 py-0.5 rounded">HR &amp; Payroll</span>
-                    <span className="text-gray-400">&bull;</span>
-                    <span className="text-gray-600 font-medium">3 days</span>
-                    <span className="bg-emerald-50 text-emerald-800 font-bold px-2 py-0.5 rounded">before cutoff</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Step Card 2: Special Highlight Card (ATS Candidate Handoff with Avatar) */}
-              <div className="bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-[#76D8C8]/60 shadow-sm flex items-center gap-3.5 relative z-10 max-w-md w-full mb-3.5 hover:shadow-md transition-all">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0 border border-[#76D8C8] shadow-2xs">
-                  <Image
-                    src="/avatars/silvia.jpg"
-                    alt="Anneke"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center justify-between gap-2">
-                    <h3 className="text-sm font-bold text-gray-950">Welcome Anneke!</h3>
-                    <span className="text-[10px] font-bold bg-[#eaf7f2] text-[#05434B] px-2 py-0.5 rounded-full">
-                      ATS &rarr; HRIS
-                    </span>
-                  </div>
-                  <div className="mt-1 h-2 w-32 bg-gray-100 rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-[#4FB8AA] to-[#76D8C8] rounded-full w-full" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Step Card 3: HRIS ↔ Finance / ERP */}
-              <div className="bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-xs flex items-start gap-3.5 relative z-10 max-w-md w-full mb-3.5 hover:border-[#76D8C8] transition-all">
-                <div className="w-6 h-6 rounded-full bg-[#eaf7f2] text-[#05434B] flex items-center justify-center shrink-0 mt-0.5">
-                  <Check className="w-3.5 h-3.5 stroke-[3]" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-sm font-bold text-gray-900 mb-1.5">
-                    HRIS &harr; Finance &amp; ERP
-                  </h3>
-                  <div className="flex items-center gap-1.5 flex-wrap text-[10.5px]">
-                    <span className="text-gray-500 font-medium">Responsible</span>
-                    <span className="bg-[#f0faf8] text-[#05434B] font-bold px-2 py-0.5 rounded">Finance</span>
-                    <span className="text-gray-400">&bull;</span>
-                    <span className="text-gray-600 font-medium">Real-time</span>
-                    <span className="bg-emerald-50 text-emerald-800 font-bold px-2 py-0.5 rounded">cost center sync</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Step Card 4: Time Tracking ↔ Payroll */}
-              <div className="bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-xs flex items-start gap-3.5 relative z-10 max-w-md w-full mb-4 hover:border-[#76D8C8] transition-all">
-                <div className="w-6 h-6 rounded-full bg-[#eaf7f2] text-[#05434B] flex items-center justify-center shrink-0 mt-0.5">
-                  <Check className="w-3.5 h-3.5 stroke-[3]" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-sm font-bold text-gray-900 mb-1.5">
-                    Time Tracking &harr; Payroll
-                  </h3>
-                  <div className="flex items-center gap-1.5 flex-wrap text-[10.5px]">
-                    <span className="text-gray-500 font-medium">Responsible</span>
-                    <span className="bg-[#f0faf8] text-[#05434B] font-bold px-2 py-0.5 rounded">Operations</span>
-                    <span className="text-gray-400">&bull;</span>
-                    <span className="text-gray-600 font-medium">Monthly</span>
-                    <span className="bg-emerald-50 text-emerald-800 font-bold px-2 py-0.5 rounded">BAG Compliant</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Faded Step 5 (Bottom Node) */}
-              <div className="text-center text-xs font-semibold text-gray-400 opacity-60 flex items-center justify-center gap-1.5 relative z-10">
-                <Check className="w-3.5 h-3.5" />
-                <span>Process Redesign &amp; Middleware Orchestration</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================ */}
-      {/* 4. MARQUEE CAROUSEL: "Join the organisations unlocking impact" */}
+      {/* 4. MARQUEE CAROUSEL                                          */}
       {/* ============================================================ */}
       <section className="w-full bg-white py-12 sm:py-16 overflow-hidden border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 mb-6 sm:mb-8 text-center">
           <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#4FB8AA] mb-2">
-            CONNECTED ECOSYSTEMS FROM 50-5000 EMPLOYEES
+            {isDe ? "ZERTIFIZIERTE INTEGRATIONEN FÜR 50-5.000+ TEAMS" : "CERTIFIED ARCHITECTURE ACROSS 50-5,000+ EMPLOYEES"}
           </p>
           <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-black leading-tight">
-            Join the organisations unlocking impact
+            {isDe ? "Datensilos auflösen & manuelle Arbeit beenden" : "Unifying data silos into automated pipelines"}
           </h2>
         </div>
 
-        {/* Marquee Container with smooth infinite glide */}
         <div className="relative w-full overflow-hidden select-none py-1">
           <div className="animate-marquee-left flex items-center gap-3.5 sm:gap-6 w-max">
             {[...marqueeCards, ...marqueeCards].map((card, index) => (
               <div key={index} className="shrink-0">
-                {/* Type 1: Quote Card */}
                 {card.type === "quote-card" && (
                   <div
                     className={`${card.bg} ${card.border} rounded-[26px] p-6 sm:p-7 w-[280px] sm:w-[310px] h-[370px] sm:h-[400px] flex flex-col justify-between border shadow-xs hover:shadow-md transition-all duration-300`}
@@ -453,7 +445,6 @@ export function HrItIntegrationsClient() {
                   </div>
                 )}
 
-                {/* Type 2: Full Image Card */}
                 {card.type === "image-card" && (
                   <div className="relative rounded-[26px] w-[280px] sm:w-[310px] h-[370px] sm:h-[400px] overflow-hidden shadow-xs hover:shadow-md transition-all duration-300">
                     <Image
@@ -476,7 +467,6 @@ export function HrItIntegrationsClient() {
                   </div>
                 )}
 
-                {/* Type 3: Bold Logo Gradient Stat Card */}
                 {card.type === "stat-card" && (
                   <div
                     className={`${card.bg} rounded-[26px] p-6 sm:p-7 w-[280px] sm:w-[310px] h-[370px] sm:h-[400px] text-white flex flex-col items-center justify-between text-center relative shadow-xs hover:shadow-md transition-all duration-300 border ${card.border}`}
@@ -510,26 +500,24 @@ export function HrItIntegrationsClient() {
       {/* ============================================================ */}
       <section className="w-full bg-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
         <div className="max-w-4xl mx-auto">
-          {/* Section Title */}
           <div className="text-center mb-10 sm:mb-14">
             <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#4FB8AA] mb-2.5">
-              THE SCALIIFY DIFFERENCE
+              {isDe ? "DER SCALIIFY-UNTERSCHIED" : "THE SCALIIFY DIFFERENCE"}
             </p>
             <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-black">
-              Why fast-growing companies choose Scaliify
+              {isDe ? "Warum moderne HR-Teams integrierte Systeme wählen" : "Why modern HR teams choose integrated systems"}
             </h2>
           </div>
 
-          {/* Comparison Card Container */}
           <div className="bg-gradient-to-br from-[#05434B] via-[#2B4C55] to-[#1b3a42] rounded-3xl p-6 sm:p-10 border border-[#76D8C8]/20 shadow-[0_15px_45px_rgba(5,67,75,0.22)] grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-[radial-gradient(circle,rgba(118,216,200,0.25)_0%,transparent_70%)] pointer-events-none blur-2xl" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-[radial-gradient(circle,rgba(79,184,170,0.18)_0%,transparent_70%)] pointer-events-none blur-2xl" />
 
             {/* Left: Before Scaliify */}
-            <div className="flex flex-col justify-between py-2 sm:py-3 pr-0 md:pr-4 relative z-10 text-white">
+            <div className="flex flex-col justify-between py-2 sm:py-4 pr-0 md:pr-6 relative z-10 text-white">
               <div>
                 <h3 className="text-lg sm:text-xl font-bold text-white mb-6">
-                  Before Scaliify
+                  {isDe ? "Vor Scaliify" : "Before Scaliify"}
                 </h3>
                 <ul className="flex flex-col gap-4">
                   {beforeItems.map((item) => (
@@ -537,7 +525,7 @@ export function HrItIntegrationsClient() {
                       <div className="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center shrink-0 mt-0.5 text-gray-300">
                         <X className="w-3.5 h-3.5 stroke-[2.5]" />
                       </div>
-                      <span className="leading-snug">{item}</span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -548,7 +536,7 @@ export function HrItIntegrationsClient() {
             <div className="bg-white text-gray-900 rounded-2xl p-6 sm:p-8 shadow-sm border border-[#76D8C8]/50 flex flex-col justify-between relative z-10">
               <div>
                 <h3 className="text-lg sm:text-xl font-bold text-[#2B4C55] mb-6">
-                  After Scaliify
+                  {isDe ? "Mit Scaliify" : "After Scaliify"}
                 </h3>
                 <ul className="flex flex-col gap-4">
                   {afterItems.map(({ text, badge }) => (
@@ -570,203 +558,25 @@ export function HrItIntegrationsClient() {
               </div>
             </div>
           </div>
-
-          {/* Bottom Link */}
-          <div className="mt-10 sm:mt-12 text-center">
-            <Link
-              href="/tool-finder"
-              className="inline-flex items-center gap-2 text-sm font-bold text-black hover:text-[#4FB8AA] transition-colors group"
-            >
-              <span>Not sure which HR tool integration you need? Use our free interactive tool finder</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#4FB8AA]" />
-            </Link>
-          </div>
         </div>
       </section>
 
       {/* ============================================================ */}
-      {/* 6. REAL IMPACT FOR OUR CUSTOMERS (Tiffany Gradient Fade BG)  */}
-      {/* ============================================================ */}
-      <section className="w-full bg-gradient-to-b from-white via-[#81D8D0]/35 to-white py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 border-t border-gray-100 relative overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[850px] h-[500px] bg-[radial-gradient(circle,rgba(129,216,208,0.45)_0%,transparent_70%)] pointer-events-none blur-3xl -z-0" />
-
-        <div className="max-w-5xl mx-auto relative z-10">
-          {/* Header */}
-          <div className="text-center mb-10 sm:mb-14">
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black max-w-2xl mx-auto leading-tight">
-              Real impact for our customers
-            </h2>
-          </div>
-
-          {/* 3 Metric Stats Row with Animated Number Counters */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-16 text-center">
-            <div className="flex flex-col items-center">
-              <span className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-none mb-2 tracking-tight">
-                <AnimatedStatCounter value={100} suffix="%" />
-              </span>
-              <span className="text-xs sm:text-sm text-gray-800 font-semibold max-w-[200px]">
-                single source of truth data integrity
-              </span>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <span className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-none mb-2 tracking-tight">
-                <AnimatedStatCounter value={0} />
-              </span>
-              <span className="text-xs sm:text-sm text-gray-800 font-semibold max-w-[200px]">
-                duplicate manual entries across all systems
-              </span>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <span className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-none mb-2 tracking-tight">
-                <AnimatedStatCounter value={15} suffix="+ hrs" />
-              </span>
-              <span className="text-xs sm:text-sm text-gray-800 font-semibold max-w-[200px]">
-                saved monthly per HR team member on payroll &amp; admin
-              </span>
-            </div>
-          </div>
-
-          {/* 2x2 Bento Customer Story Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 items-stretch mb-10 sm:mb-14">
-            {/* Top-Left: Customer Story Logo Card */}
-            <div className="md:col-span-7 bg-gradient-to-b from-[#eaf7f5] via-white to-white rounded-[22px] sm:rounded-[26px] p-6 sm:p-8 md:p-12 flex flex-col justify-center items-center text-center border border-[#76D8C8]/40 shadow-xs min-h-[140px] sm:min-h-[180px]">
-              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#4FB8AA] mb-3">
-                CUSTOMER STORY
-              </p>
-              <div className="relative h-10 sm:h-12 w-32 sm:w-36">
-                <Image
-                  src={companies[0]?.logoUrl ?? "/companies/logo-1.png"}
-                  alt="Customer Logo"
-                  fill
-                  unoptimized
-                  className="object-contain"
-                  sizes="144px"
-                />
-              </div>
-            </div>
-
-            {/* Top-Right: Stat Card with Animated Counter */}
-            <div className="md:col-span-5 bg-gradient-to-br from-[#81D8D0] via-[#76D8C8] to-[#A8F5EE] text-black rounded-[22px] sm:rounded-[26px] p-6 sm:p-8 md:p-10 flex flex-col justify-center min-h-[140px] sm:min-h-[180px] shadow-xs border border-white/60">
-              <p className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-none text-black mb-3">
-                <AnimatedStatCounter value={100} suffix="%" />
-              </p>
-              <p className="text-xs sm:text-sm font-bold text-black leading-snug">
-                accurate employee data across HR, Payroll &amp; Finance
-              </p>
-            </div>
-
-            {/* Bottom-Left: Client Leader Portrait Photo */}
-            <div className="md:col-span-5 relative rounded-[22px] sm:rounded-[26px] overflow-hidden min-h-[220px] sm:min-h-[300px] shadow-xs border border-gray-200/80">
-              <Image
-                src="/images/hr-integrations-leader.jpg"
-                alt="Head of People Tech"
-                fill
-                className="object-cover object-top"
-                sizes="(max-width: 768px) 100vw, 40vw"
-              />
-            </div>
-
-            {/* Bottom-Right: Quote Testimonial Card */}
-            <div className="md:col-span-7 bg-[#f0faf8] rounded-[22px] sm:rounded-[26px] p-6 sm:p-8 md:p-10 flex flex-col justify-between border border-[#4FB8AA]/30 shadow-xs min-h-[220px] sm:min-h-[300px]">
-              <div>
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-[#4FB8AA] to-[#76D8C8] text-[#05434B] flex items-center justify-center mb-4 sm:mb-5 shadow-xs">
-                  <Quote className="w-4 h-4 sm:w-5 sm:h-5 fill-current" />
-                </div>
-                <p className="text-sm sm:text-base md:text-lg text-[#2B4C55] font-bold leading-snug mb-4">
-                  &ldquo;Scaliify brought strategic clarity to our messy HR tech stack. They mapped every data touchpoint between our HRIS, DATEV, and ATS, then redesigned our onboarding handoff so we didn&apos;t even need an expensive custom API. It gave us a true single source of truth.&rdquo;
-                </p>
-              </div>
-              <div>
-                <p className="text-xs sm:text-sm font-bold text-black">
-                  Elin Bergström <span className="font-normal text-gray-600">| Head of People Operations</span>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Dual Action Conversion Cards */}
-          <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-7 items-stretch mt-10 sm:mt-16">
-            {/* Left Card: Demo / Consultation Card */}
-            <div className="md:col-span-7 bg-[#cbece5] rounded-2xl sm:rounded-[32px] p-5 sm:p-7 md:p-10 flex flex-col justify-between shadow-[0_12px_35px_rgba(79,184,170,0.18)] border border-[#a6dfd4] relative overflow-hidden">
-              <div className="mb-6">
-                <div className="inline-flex items-center bg-[#ee7738] text-white text-[10.5px] sm:text-[11px] font-bold px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full uppercase tracking-wider mb-3 sm:mb-4 shadow-2xs">
-                  Expert run, 30 minute audit
-                </div>
-                <h3 className="text-xl sm:text-2xl lg:text-[32px] font-extrabold text-[#05434B] tracking-tight leading-[1.18]">
-                  Book your integration assessment
-                </h3>
-              </div>
-
-              {emailSubmitted ? (
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold text-[#05434B] bg-white/80 backdrop-blur-sm border border-[#5BC7BC]/50 px-5 py-3.5 rounded-full">
-                  <CheckCircle2 className="w-4 h-4 text-[#2B4C55]" />
-                  <span>Thank you! We will reach out to schedule your assessment.</span>
-                </div>
-              ) : (
-                <form onSubmit={handleEmailSubmit} className="w-full">
-                  <div className="bg-white rounded-2xl sm:rounded-full p-1.5 sm:pl-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-0 shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)] border border-white/80 w-full">
-                    <input
-                      type="email"
-                      required
-                      value={emailInput}
-                      onChange={(e) => setEmailInput(e.target.value)}
-                      placeholder="What's your work email? *"
-                      aria-label="Work email address"
-                      className="w-full px-3 py-2.5 sm:py-2 text-xs sm:text-sm text-black placeholder:text-gray-400 focus:outline-none bg-transparent"
-                    />
-                    <button
-                      type="submit"
-                      className="bg-gradient-to-r from-[#66cfc3] to-[#8fe4da] text-[#05434B] text-xs sm:text-sm font-bold px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl sm:rounded-full shadow-[0_4px_14px_rgba(102,207,195,0.45),inset_0_1px_1px_rgba(255,255,255,0.9)] hover:brightness-105 transition-all shrink-0 cursor-pointer active:scale-95 border border-white/40 text-center"
-                    >
-                      Request assessment
-                    </button>
-                  </div>
-                </form>
-              )}
-            </div>
-
-            {/* Right Card: Tool Finder Card */}
-            <div className="md:col-span-5 bg-[#032e35] text-white rounded-2xl sm:rounded-[32px] p-5 sm:p-7 md:p-10 flex flex-col justify-between shadow-[0_12px_35px_rgba(3,46,53,0.25)] border border-white/10 relative overflow-hidden">
-              <div className="mb-6">
-                <div className="inline-flex items-center bg-white text-[#05434B] text-[10.5px] sm:text-[11px] font-bold px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full uppercase tracking-wider mb-3 sm:mb-4 shadow-2xs">
-                  Takes 2 minutes
-                </div>
-                <h3 className="text-xl sm:text-2xl lg:text-[32px] font-extrabold text-white tracking-tight leading-[1.18]">
-                  Benchmark tool integrations
-                </h3>
-              </div>
-
-              <div>
-                <Link
-                  href="/tool-finder"
-                  className="w-full sm:w-auto inline-flex items-center justify-center bg-gradient-to-r from-[#66cfc3] to-[#8fe4da] text-[#05434B] text-xs sm:text-sm font-bold px-6 sm:px-7 py-3 sm:py-3.5 rounded-full shadow-[0_4px_16px_rgba(102,207,195,0.5),inset_0_1px_1px_rgba(255,255,255,0.9)] hover:brightness-105 transition-all cursor-pointer active:scale-95 border border-white/40 text-center"
-                >
-                  <span>Explore Tool Finder</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================ */}
-      {/* 7. TESTIMONIALS SECTION                                      */}
+      {/* 6. TESTIMONIALS SECTION                                      */}
       {/* ============================================================ */}
       <Testimonials />
 
       {/* ============================================================ */}
-      {/* 8. FREQUENTLY ASKED QUESTIONS ACCORDION                      */}
+      {/* 7. FREQUENTLY ASKED QUESTIONS ACCORDION                      */}
       {/* ============================================================ */}
       <section className="w-full bg-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#2B4C55] mb-2.5">
-              CLEAR ANSWERS
+              {isDe ? "KLARE ANTWORTEN" : "CLEAR ANSWERS"}
             </p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">
-              Frequently asked questions
+              {isDe ? "Häufig gestellte Fragen" : "Frequently asked questions"}
             </h2>
           </div>
 
@@ -814,12 +624,12 @@ export function HrItIntegrationsClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 9. DISCOVERY & CONSULTATION BOOKING LEAD SECTION             */}
+      {/* 8. DISCOVERY & CONSULTATION BOOKING LEAD SECTION             */}
       {/* ============================================================ */}
       <BookingLeadSection />
 
       {/* ============================================================ */}
-      {/* 10. BLOG SECTION                                             */}
+      {/* 9. BLOG SECTION                                              */}
       {/* ============================================================ */}
       <BlogSection />
     </main>

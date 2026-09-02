@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useLocale } from "next-intl";
 import {
   Check,
   CheckCircle2,
@@ -10,7 +11,6 @@ import {
   Users,
   Zap,
   ArrowRight,
-  Sparkles,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -21,10 +21,23 @@ interface BookingLeadSectionProps {
 }
 
 export function BookingLeadSection({
-  title = "See Scaliify in action",
-  subtitle = "Fill in your details to book a consultation call with one of our People & HR technology experts.",
-  badgeTitle = "DISCOVERY & CONSULTATION",
+  title,
+  subtitle,
+  badgeTitle,
 }: BookingLeadSectionProps) {
+  const locale = useLocale();
+  const isDe = locale === "de";
+
+  const displayBadgeTitle =
+    badgeTitle ?? (isDe ? "ERSTGESPRÄCH & BERATUNG" : "DISCOVERY & CONSULTATION");
+  const displayTitle =
+    title ?? (isDe ? "Erleben Sie Scaliify in Aktion" : "See Scaliify in action");
+  const displaySubtitle =
+    subtitle ??
+    (isDe
+      ? "Tragen Sie Ihre Kontaktdaten ein, um ein persönliches Beratungsgespräch mit unseren People- & HR-Tech-Expert:innen zu vereinbaren."
+      : "Fill in your details to book a consultation call with one of our People & HR technology experts.");
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -51,37 +64,49 @@ export function BookingLeadSection({
         {/* Left Column: Heading & Value Proposition */}
         <div className="lg:col-span-6 flex flex-col items-start text-left">
           <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#05434B] mb-3">
-            {badgeTitle}
+            {displayBadgeTitle}
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black leading-[1.14] mb-4">
-            {title}
+            {displayTitle}
           </h2>
           <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-8 max-w-lg font-medium">
-            {subtitle}
+            {displaySubtitle}
           </p>
 
           <div className="mb-8">
             <p className="text-xs sm:text-sm font-bold text-gray-950 uppercase tracking-wider mb-4">
-              Here&apos;s what to expect:
+              {isDe ? "Das erwartet Sie:" : "Here's what to expect:"}
             </p>
             <ul className="space-y-3.5 text-xs sm:text-sm text-gray-800 font-medium">
               <li className="flex items-start gap-3">
                 <div className="w-5 h-5 rounded-full bg-[#81D8D0]/40 text-[#05434B] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
                   <Check className="w-3.5 h-3.5 stroke-[3]" />
                 </div>
-                <span>A no-commitment discovery walkthrough of your HR ecosystem</span>
+                <span>
+                  {isDe
+                    ? "Ein unverbindlicher Walkthrough durch Ihr bestehendes HR-Setup"
+                    : "A no-commitment discovery walkthrough of your HR ecosystem"}
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-5 h-5 rounded-full bg-[#81D8D0]/40 text-[#05434B] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
                   <Check className="w-3.5 h-3.5 stroke-[3]" />
                 </div>
-                <span>Discussion built around your team&apos;s top priorities and timeline</span>
+                <span>
+                  {isDe
+                    ? "Fokus auf die dringendsten Prioritäten und Zeitpläne Ihres Teams"
+                    : "Discussion built around your team's top priorities and timeline"}
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-5 h-5 rounded-full bg-[#81D8D0]/40 text-[#05434B] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
                   <Check className="w-3.5 h-3.5 stroke-[3]" />
                 </div>
-                <span>Direct, honest answers from senior HR &amp; tech practitioners</span>
+                <span>
+                  {isDe
+                    ? "Direkte, ehrliche Antworten von erfahrenen HR- & Tech-Praktikern"
+                    : "Direct, honest answers from senior HR & tech practitioners"}
+                </span>
               </li>
             </ul>
           </div>
@@ -89,7 +114,9 @@ export function BookingLeadSection({
           {/* Trust Badges 2x2 Grid */}
           <div>
             <p className="text-[11px] sm:text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">
-              Independent expertise European leaders trust:
+              {isDe
+                ? "Unabhängige Expertise, der europäische Führungskräfte vertrauen:"
+                : "Independent expertise European leaders trust:"}
             </p>
             <div className="grid grid-cols-2 gap-2.5 w-full max-w-md">
               <div className="bg-white rounded-xl p-2.5 border border-gray-200/80 shadow-2xs flex items-center gap-2.5">
@@ -108,7 +135,7 @@ export function BookingLeadSection({
                 </div>
                 <div>
                   <p className="text-[11px] font-bold text-gray-900 leading-tight">&gt;100 Specialists</p>
-                  <p className="text-[9px] text-gray-500 font-medium">VETTED NETWORK</p>
+                  <p className="text-[9px] text-gray-500 font-medium">{isDe ? "GEPRÜFTES NETZWERK" : "VETTED NETWORK"}</p>
                 </div>
               </div>
 
@@ -117,8 +144,8 @@ export function BookingLeadSection({
                   <ShieldCheck className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <p className="text-[11px] font-bold text-gray-900 leading-tight">100% Vendor-Neutral</p>
-                  <p className="text-[9px] text-gray-500 font-medium">ZERO COMMISSIONS</p>
+                  <p className="text-[11px] font-bold text-gray-900 leading-tight">{isDe ? "100 % Herstellerneutral" : "100% Vendor-Neutral"}</p>
+                  <p className="text-[9px] text-gray-500 font-medium">{isDe ? "KEINE PROVISIONEN" : "ZERO COMMISSIONS"}</p>
                 </div>
               </div>
 
@@ -127,8 +154,8 @@ export function BookingLeadSection({
                   <Zap className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <p className="text-[11px] font-bold text-gray-900 leading-tight">96% Outcome Rate</p>
-                  <p className="text-[9px] text-gray-500 font-medium">MILESTONES DELIVERED</p>
+                  <p className="text-[11px] font-bold text-gray-900 leading-tight">{isDe ? "96 % Erfolgsquote" : "96% Outcome Rate"}</p>
+                  <p className="text-[9px] text-gray-500 font-medium">{isDe ? "ERFOLGREICH ERREICHT" : "MILESTONES DELIVERED"}</p>
                 </div>
               </div>
             </div>
@@ -148,17 +175,19 @@ export function BookingLeadSection({
                   <CheckCircle2 className="w-8 h-8 stroke-[2.5]" />
                 </div>
                 <h3 className="text-2xl font-extrabold text-black mb-2">
-                  Thank you, {formData.firstName}!
+                  {isDe ? `Vielen Dank, ${formData.firstName}!` : `Thank you, ${formData.firstName}!`}
                 </h3>
                 <p className="text-sm text-gray-600 max-w-sm mx-auto leading-relaxed mb-6">
-                  We have received your details. A senior Scaliify partner will contact you within 24 hours to coordinate your consultation call.
+                  {isDe
+                    ? "Wir haben Ihre Angaben erhalten. Ein Senior-Partner von Scaliify wird sich innerhalb von 24 Stunden bei Ihnen melden, um das Erstgespräch zu koordinieren."
+                    : "We have received your details. A senior Scaliify partner will contact you within 24 hours to coordinate your consultation call."}
                 </p>
                 <button
                   type="button"
                   onClick={() => setSubmitted(false)}
                   className="text-xs font-bold text-[#05434B] hover:underline"
                 >
-                  Submit another inquiry
+                  {isDe ? "Weitere Anfrage senden" : "Submit another inquiry"}
                 </button>
               </motion.div>
             ) : (
@@ -166,12 +195,12 @@ export function BookingLeadSection({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                   <div>
                     <label className="block text-xs font-bold text-gray-800 mb-1">
-                      First Name *
+                      {isDe ? "Vorname *" : "First Name *"}
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Alex"
+                      placeholder={isDe ? "z.B. Alex" : "e.g. Alex"}
                       value={formData.firstName}
                       onChange={(e) =>
                         setFormData({ ...formData, firstName: e.target.value })
@@ -181,12 +210,12 @@ export function BookingLeadSection({
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-gray-800 mb-1">
-                      Last Name *
+                      {isDe ? "Nachname *" : "Last Name *"}
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Müller"
+                      placeholder={isDe ? "z.B. Müller" : "e.g. Müller"}
                       value={formData.lastName}
                       onChange={(e) =>
                         setFormData({ ...formData, lastName: e.target.value })
@@ -198,7 +227,7 @@ export function BookingLeadSection({
 
                 <div>
                   <label className="block text-xs font-bold text-gray-800 mb-1">
-                    Business Email Address *
+                    {isDe ? "Geschäftliche E-Mail-Adresse *" : "Business Email Address *"}
                   </label>
                   <input
                     type="email"
@@ -214,12 +243,12 @@ export function BookingLeadSection({
 
                 <div>
                   <label className="block text-xs font-bold text-gray-800 mb-1">
-                    Company Name *
+                    {isDe ? "Unternehmensname *" : "Company Name *"}
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="e.g. TechCorp GmbH"
+                    placeholder={isDe ? "z.B. TechCorp GmbH" : "e.g. TechCorp GmbH"}
                     value={formData.companyName}
                     onChange={(e) =>
                       setFormData({ ...formData, companyName: e.target.value })
@@ -230,7 +259,7 @@ export function BookingLeadSection({
 
                 <div>
                   <label className="block text-xs font-bold text-gray-800 mb-1">
-                    Number of Employees *
+                    {isDe ? "Mitarbeiteranzahl *" : "Number of Employees *"}
                   </label>
                   <select
                     value={formData.employees}
@@ -239,17 +268,17 @@ export function BookingLeadSection({
                     }
                     className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors cursor-pointer"
                   >
-                    <option value="10–50">10–50 employees</option>
-                    <option value="50–100">50–100 employees</option>
-                    <option value="100–250">100–250 employees</option>
-                    <option value="250–500">250–500 employees</option>
-                    <option value="500+">500+ employees</option>
+                    <option value="10–50">{isDe ? "10–50 Mitarbeitende" : "10–50 employees"}</option>
+                    <option value="50–100">{isDe ? "50–100 Mitarbeitende" : "50–100 employees"}</option>
+                    <option value="100–250">{isDe ? "100–250 Mitarbeitende" : "100–250 employees"}</option>
+                    <option value="250–500">{isDe ? "250–500 Mitarbeitende" : "250–500 employees"}</option>
+                    <option value="500+">{isDe ? "500+ Mitarbeitende" : "500+ employees"}</option>
                   </select>
                 </div>
 
                 <div>
                   <label className="block text-xs font-bold text-gray-800 mb-1">
-                    Phone Number (Optional)
+                    {isDe ? "Telefonnummer (Optional)" : "Phone Number (Optional)"}
                   </label>
                   <input
                     type="tel"
@@ -263,11 +292,23 @@ export function BookingLeadSection({
                 </div>
 
                 <p className="text-[10.5px] text-gray-500 leading-relaxed pt-1">
-                  By submitting this form, you agree to our{" "}
-                  <Link href="/privacy" className="underline hover:text-black">
-                    privacy policy
-                  </Link>
-                  . You may revoke consent at any time.
+                  {isDe ? (
+                    <>
+                      Mit dem Absenden stimmen Sie unserer{" "}
+                      <Link href="/privacy" className="underline hover:text-black">
+                        Datenschutzerklärung
+                      </Link>{" "}
+                      zu. Sie können Ihre Einwilligung jederzeit widerrufen.
+                    </>
+                  ) : (
+                    <>
+                      By submitting this form, you agree to our{" "}
+                      <Link href="/privacy" className="underline hover:text-black">
+                        privacy policy
+                      </Link>
+                      . You may revoke consent at any time.
+                    </>
+                  )}
                 </p>
 
                 <div className="pt-2">
@@ -276,7 +317,9 @@ export function BookingLeadSection({
                     className="relative w-full inline-flex items-center justify-center gap-2 bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark text-sm font-bold py-3.5 rounded-xl sm:rounded-2xl shadow-[0_4px_18px_rgba(129,216,208,0.55)] hover:brightness-105 transition-all cursor-pointer active:scale-[0.98] border border-white/80 overflow-hidden"
                   >
                     <span className="absolute inset-x-0 top-0 h-[45%] bg-gradient-to-b from-white/70 to-transparent rounded-t-2xl pointer-events-none" />
-                    <span className="relative z-10">Book your free scoping call</span>
+                    <span className="relative z-10">
+                      {isDe ? "Kostenloses Erstgespräch anfordern" : "Book your free scoping call"}
+                    </span>
                     <ArrowRight className="relative z-10 w-4 h-4" />
                   </button>
                 </div>

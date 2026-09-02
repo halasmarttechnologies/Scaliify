@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import {
   ChevronRight,
@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Dispatch, SetStateAction } from "react";
+import { useTranslations } from "next-intl";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
 type MobileSubView = "services" | "insights" | null;
@@ -27,6 +28,8 @@ export function NavMobileDrawer({
   mobileSubView,
   setMobileSubView,
 }: NavMobileDrawerProps) {
+  const t = useTranslations("navigation");
+
   return (
     <AnimatePresence>
       {mobileMenuOpen && (
@@ -67,7 +70,7 @@ export function NavMobileDrawer({
                 className="flex items-center gap-2 text-base font-bold text-gray-900 hover:text-black py-1 cursor-pointer"
               >
                 <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
-                <span>Back</span>
+                <span>{t("back")}</span>
               </button>
             )}
 
@@ -80,7 +83,7 @@ export function NavMobileDrawer({
                 setMobileSubView(null);
               }}
               className="p-2 -mr-2 text-gray-900 hover:bg-gray-100 rounded-full transition-colors cursor-pointer"
-              aria-label="Close menu"
+              aria-label={t("closeMenu")}
             >
               <X className="w-7 h-7 stroke-[1.75]" />
             </button>
@@ -107,7 +110,7 @@ export function NavMobileDrawer({
                     onClick={() => setMobileSubView("services")}
                     className="w-full flex items-center justify-between py-4 border-b border-gray-100 text-base font-bold text-gray-900 text-left hover:text-brand-dark transition-colors group cursor-pointer"
                   >
-                    <span>Services</span>
+                    <span>{t("services")}</span>
                     <ChevronRight className="w-5 h-5 text-gray-900 stroke-[2] group-hover:translate-x-0.5 transition-transform" />
                   </button>
 
@@ -117,7 +120,7 @@ export function NavMobileDrawer({
                     onClick={() => setMobileMenuOpen(false)}
                     className="w-full flex items-center justify-between py-4 border-b border-gray-100 text-base font-bold text-gray-900 hover:text-brand-dark transition-colors"
                   >
-                    <span>HR Tool Finder</span>
+                    <span>{t("hrToolFinder")}</span>
                   </Link>
 
                   {/* Case Studies Direct Link */}
@@ -126,7 +129,7 @@ export function NavMobileDrawer({
                     onClick={() => setMobileMenuOpen(false)}
                     className="w-full flex items-center justify-between py-4 border-b border-gray-100 text-base font-bold text-gray-900 hover:text-brand-dark transition-colors"
                   >
-                    <span>Case Studies</span>
+                    <span>{t("caseStudies")}</span>
                   </Link>
 
                   {/* About Us Direct Link */}
@@ -135,7 +138,7 @@ export function NavMobileDrawer({
                     onClick={() => setMobileMenuOpen(false)}
                     className="w-full flex items-center justify-between py-4 border-b border-gray-100 text-base font-bold text-gray-900 hover:text-brand-dark transition-colors"
                   >
-                    <span>About Us</span>
+                    <span>{t("aboutUs")}</span>
                   </Link>
 
                   {/* Insights Drill-down */}
@@ -143,7 +146,7 @@ export function NavMobileDrawer({
                     onClick={() => setMobileSubView("insights")}
                     className="w-full flex items-center justify-between py-4 border-b border-gray-100 text-base font-bold text-gray-900 text-left hover:text-brand-dark transition-colors group cursor-pointer"
                   >
-                    <span>Insights</span>
+                    <span>{t("insights")}</span>
                     <ChevronRight className="w-5 h-5 text-gray-900 stroke-[2] group-hover:translate-x-0.5 transition-transform" />
                   </button>
 
@@ -153,17 +156,8 @@ export function NavMobileDrawer({
                     onClick={() => setMobileMenuOpen(false)}
                     className="w-full flex items-center justify-between py-4 border-b border-gray-100 text-base font-bold text-gray-900 hover:text-brand-dark transition-colors"
                   >
-                    <span>Contact</span>
+                    <span>{t("contact")}</span>
                   </Link>
-
-                  {/* Language Switcher */}
-                  <button
-                    type="button"
-                    className="w-full flex items-center justify-between py-4 border-b border-gray-100 text-base font-bold text-gray-900 cursor-pointer text-left"
-                  >
-                    <span>EN · English</span>
-                    <ChevronRight className="w-5 h-5 text-gray-900 stroke-[2]" />
-                  </button>
                 </motion.div>
               )}
 
@@ -181,13 +175,13 @@ export function NavMobileDrawer({
                 >
                   {/* Header Title */}
                   <div className="text-xl font-bold text-brand-dark pb-3 border-b border-gray-100 mb-6">
-                    Services
+                    {t("services")}
                   </div>
 
                   {/* Section 1: HR Technology */}
                   <div className="mb-7">
                     <h4 className="text-base font-bold text-gray-900 pb-2 border-b-2 border-gray-900 mb-3">
-                      HR Technology
+                      {t("hrTechnology")}
                     </h4>
                     <div className="space-y-3.5 text-[15px] font-medium text-gray-900">
                       <Link
@@ -195,21 +189,21 @@ export function NavMobileDrawer({
                         onClick={() => setMobileMenuOpen(false)}
                         className="block hover:text-brand-teal transition-colors"
                       >
-                        HR IT Selection
+                        {t("hrItSelection")}
                       </Link>
                       <Link
                         href="/services/implementation-optimisation"
                         onClick={() => setMobileMenuOpen(false)}
                         className="block hover:text-brand-teal transition-colors"
                       >
-                        Implementation & Optimisation
+                        {t("implementationOptimisation")}
                       </Link>
                       <Link
                         href="/services/hr-it-integrations"
                         onClick={() => setMobileMenuOpen(false)}
                         className="block hover:text-brand-teal transition-colors"
                       >
-                        HR IT Integrations
+                        {t("hrItIntegrations")}
                       </Link>
                     </div>
                   </div>
@@ -217,7 +211,7 @@ export function NavMobileDrawer({
                   {/* Section 2: Advisory & Leadership */}
                   <div>
                     <h4 className="text-base font-bold text-gray-900 pb-2 border-b-2 border-gray-900 mb-3">
-                      Advisory & Leadership
+                      {t("advisoryLeadership")}
                     </h4>
                     <div className="space-y-3.5 text-[15px] font-medium text-gray-900">
                       <Link
@@ -225,21 +219,21 @@ export function NavMobileDrawer({
                         onClick={() => setMobileMenuOpen(false)}
                         className="block hover:text-brand-teal transition-colors"
                       >
-                        Interim Management
+                        {t("interimManagement")}
                       </Link>
                       <Link
                         href="/services/outsourced-hr"
                         onClick={() => setMobileMenuOpen(false)}
                         className="block hover:text-brand-teal transition-colors"
                       >
-                        Outsourced HR Management
+                        {t("outsourcedHr")}
                       </Link>
                       <Link
                         href="/services/hr-advisory"
                         onClick={() => setMobileMenuOpen(false)}
                         className="block hover:text-brand-teal transition-colors"
                       >
-                        HR Advisory
+                        {t("hrAdvisory")}
                       </Link>
                       <a
                         href="https://keine-scheinselbststaendigkeit.de/"
@@ -248,7 +242,7 @@ export function NavMobileDrawer({
                         onClick={() => setMobileMenuOpen(false)}
                         className="block hover:text-brand-teal transition-colors"
                       >
-                        Scheinselbstständigkeit ↗
+                        {t("scheinselbststaendigkeit")} ↗
                       </a>
                     </div>
                   </div>
@@ -268,12 +262,12 @@ export function NavMobileDrawer({
                   className="py-4"
                 >
                   <div className="text-xl font-bold text-brand-dark pb-3 border-b border-gray-100 mb-6">
-                    Insights
+                    {t("insights")}
                   </div>
 
                   <div>
                     <h4 className="text-base font-bold text-gray-900 pb-2 border-b-2 border-gray-900 mb-3">
-                      Knowledge & Resources
+                      {t("knowledgeResources")}
                     </h4>
                     <div className="space-y-3.5 text-[15px] font-medium text-gray-900">
                       <Link
@@ -281,21 +275,21 @@ export function NavMobileDrawer({
                         onClick={() => setMobileMenuOpen(false)}
                         className="block hover:text-brand-teal transition-colors"
                       >
-                        Blog
+                        {t("blog")}
                       </Link>
                       <Link
                         href="/insights/guides"
                         onClick={() => setMobileMenuOpen(false)}
                         className="block hover:text-brand-teal transition-colors"
                       >
-                        Guides & Checklists
+                        {t("guidesChecklists")}
                       </Link>
                       <Link
                         href="/insights/resources"
                         onClick={() => setMobileMenuOpen(false)}
                         className="block hover:text-brand-teal transition-colors"
                       >
-                        HR Resources
+                        {t("hrResources")}
                       </Link>
                     </div>
                   </div>
@@ -322,7 +316,7 @@ export function NavMobileDrawer({
               className="group relative w-full bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark font-extrabold py-3.5 rounded-2xl flex items-center justify-center text-base border border-white/70 active:scale-[0.99] transition-all shadow-[0_4px_20px_rgba(129,216,208,0.6)] overflow-hidden"
             >
               <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-2xl pointer-events-none" />
-              <span className="relative z-10">Let&apos;s Talk</span>
+              <span className="relative z-10">{t("letsTalk")}</span>
               <ArrowRight className="relative z-10 w-4 h-4 ml-2" />
             </Link>
           </div>
