@@ -207,3 +207,86 @@ html.lenis, html.lenis body {
 .animate-border-beam {
   animation: border-beam 4s linear infinite;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   PERFORMANCE & SMOOTHNESS UTILITIES
+   ═══════════════════════════════════════════════════════════════ */
+
+/* GPU composite layer for animated/transition elements.
+   Apply to elements that animate frequently (modals, drawers, dropdowns). */
+.gpu {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* Content-visibility: skip rendering cost for below-fold sections.
+   The browser still reserves layout space (contain-intrinsic-size). */
+.lazy-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 600px;
+}
+
+/* Smooth image loading — fade-in when fully loaded */
+img {
+  transition: opacity 0.25s ease;
+}
+img:not([src]) {
+  opacity: 0;
+}
+
+/* Skeleton shimmer placeholder */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+/* Prevent iOS callout menu on logo/image press */
+img, svg {
+  -webkit-touch-callout: none;
+}
+
+/* Smoother focus ring — visible but not jarring */
+:focus-visible {
+  outline: 2px solid var(--color-brand-teal);
+  outline-offset: 3px;
+  border-radius: 4px;
+  transition: outline-offset 0.1s ease;
+}
+
+/* Reduce all animations for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-marquee-left,
+  .animate-marquee-right {
+    animation: none;
+  }
+}
+
+/* Touch device tap highlight suppression */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent layout shift on scroll — stable scrollbar gutter */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* Optimise text rendering for speed */
+body {
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

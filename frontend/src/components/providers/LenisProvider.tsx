@@ -8,26 +8,31 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      // Slightly faster than 1.2 to feel snappier without losing smoothness
+      duration: 1.0,
+      // Expo-out easing — feels more natural and premium
+      easing: (t: number) => 1 - Math.pow(1 - t, 4),
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
       wheelMultiplier: 1,
-      touchMultiplier: 1.5,
+      // Slightly reduced touch multiplier — prevents over-scrolling on mobile
+      touchMultiplier: 1.2,
       infinite: false,
     });
 
     lenisRef.current = lenis;
 
+    // Use a single persistent RAF loop — avoids spawning multiple loops
+    let rafId: number;
     function raf(time: number) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
-
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     return () => {
+      cancelAnimationFrame(rafId);
       lenis.destroy();
       lenisRef.current = null;
     };

@@ -31,11 +31,11 @@ export function NavMobileDrawer({
     <AnimatePresence>
       {mobileMenuOpen && (
         <motion.div
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.25, ease: "easeOut" }}
-          className="fixed inset-0 z-[200] bg-white text-gray-900 flex flex-col justify-between overflow-hidden pointer-events-auto"
+          initial={{ opacity: 0, y: "-4%" }}
+          animate={{ opacity: 1, y: "0%" }}
+          exit={{ opacity: 0, y: "-4%" }}
+          transition={{ type: "spring", stiffness: 400, damping: 32, mass: 0.5 }}
+          className="fixed inset-0 z-[200] bg-white text-gray-900 flex flex-col justify-between overflow-hidden pointer-events-auto will-change-transform"
         >
           {/* 1. Mobile Header Bar */}
           <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100 shrink-0">

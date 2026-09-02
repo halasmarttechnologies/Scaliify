@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Dispatch, SetStateAction } from "react";
+import { DROPDOWN_PANEL, DROPDOWN_TRANSITION } from "@/lib/motion";
 
 type MenuType = "services" | "insights" | null;
 
@@ -130,10 +131,10 @@ export function NavDesktopMenu({ isScrolled, activeMenu, setActiveMenu }: NavDes
       <AnimatePresence>
         {activeMenu === "services" && (
           <motion.div
-            initial={{ opacity: 0, y: 14, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 8, scale: 0.98 }}
-            transition={{ type: "spring", bounce: 0, duration: 0.35 }}
+            initial={DROPDOWN_PANEL.initial}
+            animate={DROPDOWN_PANEL.animate}
+            exit={DROPDOWN_PANEL.exit}
+            transition={DROPDOWN_TRANSITION}
             className="absolute top-[calc(100%+10px)] left-1/2 -translate-x-1/2 w-[720px] xl:w-[760px] max-w-[calc(100vw-32px)] bg-white text-gray-900 rounded-3xl border border-gray-100/90 shadow-[0_25px_70px_rgba(0,0,0,0.20)] p-7 z-50 origin-top"
             onMouseEnter={() => setActiveMenu("services")}
             onMouseLeave={() => setActiveMenu(null)}
@@ -252,10 +253,10 @@ export function NavDesktopMenu({ isScrolled, activeMenu, setActiveMenu }: NavDes
       <AnimatePresence>
         {activeMenu === "insights" && (
           <motion.div
-            initial={{ opacity: 0, y: 14, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 8, scale: 0.98 }}
-            transition={{ type: "spring", bounce: 0, duration: 0.35 }}
+            initial={DROPDOWN_PANEL.initial}
+            animate={DROPDOWN_PANEL.animate}
+            exit={DROPDOWN_PANEL.exit}
+            transition={DROPDOWN_TRANSITION}
             className="absolute top-[calc(100%+10px)] left-1/2 -translate-x-1/2 w-[340px] bg-white text-gray-900 rounded-3xl border border-gray-100/90 shadow-[0_25px_70px_rgba(0,0,0,0.20)] p-5 z-50 origin-top"
             onMouseEnter={() => setActiveMenu("insights")}
             onMouseLeave={() => setActiveMenu(null)}

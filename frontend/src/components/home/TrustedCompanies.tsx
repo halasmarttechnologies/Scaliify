@@ -41,10 +41,10 @@ export function TrustedCompanies() {
               <div className="relative w-full h-8 sm:h-10 flex items-center justify-center">
                 <Image
                   src={company.logoUrl}
-                  alt={`Partner logo ${company.id}`}
+                  alt={`${company.name} logo`}
                   fill
-                  unoptimized
-                  className="object-contain transition-transform duration-300 group-hover:scale-105"
+                  loading="lazy"
+                  className="object-contain transition-transform duration-200 ease-out group-hover:scale-105"
                   sizes="(max-width: 640px) 45vw, (max-width: 1024px) 25vw, 18vw"
                 />
               </div>
