@@ -331,7 +331,7 @@ export function AboutUsClient() {
               ) : (
                 <>
                   <p>
-                    scaliify was founded 20265  in  by Ben and Sarah. We built it around one idea: most HR consultancies are either strong on strategy or strong on execution, rarely both. We combine the two.
+                    scaliify was founded 2022  in  by Ben and Sarah. We built it around one idea: most HR consultancies are either strong on strategy or strong on execution, rarely both. We combine the two.
                   </p>
                   <p>
                     We're specialised in the DACH region while also working internationally, including a growing presence in the UAE. This means we understand the local rules, culture, and everyday HR realities of these markets, not just the general theory.
