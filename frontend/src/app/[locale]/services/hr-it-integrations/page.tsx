@@ -1,16 +1,26 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { HrItIntegrationsClient } from "@/components/services/hr-it-integrations/HrItIntegrationsClient";
 import { buildMetadata } from "@/lib/seo";
 import { BreadcrumbJsonLd, ServiceJsonLd } from "@/components/seo/JsonLd";
 
-export const metadata: Metadata = buildMetadata({
-  title: "HR IT Integrations & System Architecture",
-  description:
-    "Seamless HR system integrations establishing a single source of truth. Expert synchronisation for HRIS, payroll, ATS, ERP, and custom API connections.",
-  path: "/services/hr-it-integrations",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata.services.hrItIntegrations" });
+  return buildMetadata({ title: t("title"), description: t("description"), path: "/services/hr-it-integrations" });
+}
 
-export default function HrItIntegrationsPage() {
+export default async function HrItIntegrationsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <>
       <BreadcrumbJsonLd

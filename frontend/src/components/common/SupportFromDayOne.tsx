@@ -1,33 +1,35 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Search, Phone, Mail, ChevronDown } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface SupportFromDayOneProps {
   className?: string;
 }
 
 export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
+  const t = useTranslations("supportFromDayOne");
   return (
     <section className={`w-full bg-white pb-20 sm:pb-28 px-4 sm:px-6 lg:px-8 border-t border-gray-100 ${className}`}>
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center pt-16 sm:pt-20 mb-10 sm:mb-12 flex flex-col items-center">
           <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#4FB8AA] mb-3">
-            SEAMLESS SUPPORT
+            {t("kicker")}
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-gray-950 mb-4">
-            Support from day one.
+            {t("heading")}
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed mb-6">
-            Get help throughout implementation and beyond. From onboarding resources and self-service diagnostic toolkits to senior HR advisory and a thriving community of People leaders, Scaliify helps you get up and running quickly and make the most of your HR ecosystem.
+            {t("subtitle")}
           </p>
           <Link
             href="/lets-talk"
             className="inline-flex items-center justify-center bg-black text-white text-xs sm:text-sm font-bold px-6 sm:px-7 py-3 rounded-full hover:bg-gray-900 transition-all shadow-md active:scale-95 cursor-pointer"
           >
-            <span>Book a consultation</span>
+            <span>{t("bookConsultation")}</span>
           </Link>
         </div>
 
@@ -37,10 +39,10 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
           <div className="bg-[#eaf7f2] rounded-3xl p-6 sm:p-8 flex flex-col justify-between overflow-hidden relative border border-[#76D8C8]/30 min-h-[380px] sm:min-h-[420px] shadow-xs">
             <div className="relative z-10">
               <p className="text-[11px] font-bold uppercase tracking-wider text-[#05434B]/80 mb-2">
-                HELP AT YOUR FINGERTIPS
+                {t("card1Kicker")}
               </p>
               <h3 className="text-lg sm:text-xl font-extrabold text-gray-950 leading-snug">
-                Solutions, how-to-guides and a 24/7 help centre with +500 articles.
+                {t("card1Heading")}
               </h3>
             </div>
 
@@ -51,28 +53,28 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
                 {/* Row 1 */}
                 <div className="flex items-center justify-center gap-2 flex-wrap">
                   <span className="bg-white/80 border border-[#76D8C8]/40 px-3 py-1 rounded-full shadow-2xs">
-                    Advance vacation allowance
+                    {t("pill1")}
                   </span>
                   <span className="bg-white/80 border border-[#76D8C8]/40 px-3 py-1 rounded-full shadow-2xs">
-                    📅 Reporting work from home
+                    📅 {t("pill2")}
                   </span>
                 </div>
                 {/* Row 2 */}
                 <div className="flex items-center justify-center gap-2 flex-wrap">
                   <span className="bg-white/80 border border-[#76D8C8]/40 px-3 py-1 rounded-full shadow-2xs">
-                    Request absence directly from Slack
+                    {t("pill3")}
                   </span>
                   <span className="bg-white/80 border border-[#76D8C8]/40 px-3 py-1 rounded-full shadow-2xs">
-                    ⚡ Overtime &amp; BAG compliance
+                    ⚡ {t("pill4")}
                   </span>
                 </div>
                 {/* Row 3 */}
                 <div className="flex items-center justify-center gap-2 flex-wrap">
                   <span className="bg-white/80 border border-[#76D8C8]/40 px-3 py-1 rounded-full shadow-2xs">
-                    Timesheets reporting for compliance
+                    {t("pill5")}
                   </span>
                   <span className="bg-white/80 border border-[#76D8C8]/40 px-3 py-1 rounded-full shadow-2xs">
-                    🎯 360° review cycles
+                    🎯 {t("pill6")}
                   </span>
                 </div>
               </div>
@@ -80,13 +82,13 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
               {/* Overlaid Floating Central Search Bar */}
               <div className="absolute inset-0 m-auto h-fit bg-white/95 backdrop-blur-md rounded-full px-4 py-3 shadow-[0_8px_25px_rgba(5,67,75,0.12)] border border-white flex items-center gap-2.5 w-full max-w-[270px] sm:max-w-xs z-10">
                 <Search className="w-4 h-4 text-[#4FB8AA] shrink-0" />
-                <span className="text-xs text-gray-400 font-medium">Search for topics...</span>
+                <span className="text-xs text-gray-400 font-medium">{t("searchPlaceholder")}</span>
               </div>
             </div>
 
             <div className="relative z-10 pt-2">
               <span className="text-xs font-bold text-[#05434B] hover:text-[#4FB8AA] transition-colors inline-flex items-center gap-1.5 cursor-pointer">
-                Browse Knowledge Base &rarr;
+                {t("browseKnowledgeBase")} &rarr;
               </span>
             </div>
           </div>
@@ -95,10 +97,10 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
           <div className="bg-[#eaf7f2] rounded-3xl p-6 sm:p-8 flex flex-col justify-between overflow-hidden relative border border-[#76D8C8]/30 min-h-[380px] sm:min-h-[420px] shadow-xs">
             <div className="relative z-10">
               <p className="text-[11px] font-bold uppercase tracking-wider text-[#05434B]/80 mb-2">
-                +50 SENIOR ADVISORS
+                {t("card2Kicker")}
               </p>
               <h3 className="text-lg sm:text-xl font-extrabold text-gray-950 leading-snug">
-                90% of users are satisfied with our support, available by phone and email in your language during work hours.
+                {t("card2Heading")}
               </h3>
             </div>
 
@@ -127,40 +129,40 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
 
               {/* White Inner Card Mockup */}
               <div className="bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 shadow-[0_8px_30px_rgba(0,0,0,0.06)] border border-white w-full">
-                <h4 className="text-sm font-bold text-gray-950 mb-2">Contact us</h4>
+                <h4 className="text-sm font-bold text-gray-950 mb-2">{t("contactUs")}</h4>
                 <div className="mb-2.5">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 block mb-1">
-                    Topic of concern
+                    {t("topicOfConcern")}
                   </span>
                   <div className="bg-gray-50 border border-gray-200/80 rounded-xl px-3 py-1.5 flex items-center justify-between text-xs text-gray-800 font-medium">
-                    <span>Reporting &amp; Time Management</span>
+                    <span>{t("topicValue")}</span>
                     <ChevronDown className="w-3.5 h-3.5 text-gray-400" />
                   </div>
                 </div>
 
                 <div>
                   <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 block mb-1.5">
-                    Contact options
+                    {t("contactOptions")}
                   </span>
                   <div className="space-y-1.5">
                     {/* Option 1 */}
                     <div className="bg-[#eaf7f2] border border-[#76D8C8]/50 rounded-xl p-2 sm:p-2.5 flex items-center justify-between text-xs">
                       <div className="flex items-center gap-2 font-semibold text-[#05434B]">
                         <Phone className="w-3.5 h-3.5 text-[#05434B]" />
-                        <span>Request a callback</span>
+                        <span>{t("requestCallback")}</span>
                       </div>
                       <span className="text-[10px] font-bold text-emerald-800 bg-white/90 px-2 py-0.5 rounded-md shadow-2xs">
-                        Tomorrow, 09:30
+                        {t("callbackTime")}
                       </span>
                     </div>
                     {/* Option 2 */}
                     <div className="bg-gray-50 border border-gray-200/60 rounded-xl p-2 sm:p-2.5 flex items-center justify-between text-xs opacity-75">
                       <div className="flex items-center gap-2 font-medium text-gray-700">
                         <Mail className="w-3.5 h-3.5 text-gray-500" />
-                        <span>Send us a message</span>
+                        <span>{t("sendMessage")}</span>
                       </div>
                       <span className="text-[10px] font-medium text-gray-500">
-                        2 business days
+                        {t("responseTime")}
                       </span>
                     </div>
                   </div>
@@ -170,7 +172,7 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
 
             <div className="relative z-10 pt-2">
               <span className="text-xs font-bold text-[#05434B] hover:text-[#4FB8AA] transition-colors inline-flex items-center gap-1.5 cursor-pointer">
-                Schedule an Advisory Call &rarr;
+                {t("scheduleAdvisory")} &rarr;
               </span>
             </div>
           </div>
@@ -179,10 +181,10 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
           <div className="bg-[#eaf7f2] rounded-3xl p-6 sm:p-8 flex flex-col justify-between overflow-hidden relative border border-[#76D8C8]/30 min-h-[380px] sm:min-h-[420px] shadow-xs">
             <div className="relative z-10">
               <p className="text-[11px] font-bold uppercase tracking-wider text-[#05434B]/80 mb-2">
-                A LIKE-MINDED COMMUNITY
+                {t("card3Kicker")}
               </p>
               <h3 className="text-lg sm:text-xl font-extrabold text-gray-950 leading-snug">
-                Join our vibrant HR community to connect with experts and share best practices.
+                {t("card3Heading")}
               </h3>
             </div>
 
@@ -192,12 +194,12 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
                 {/* Badge */}
                 <div className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-800 border border-emerald-200/60 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full mb-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
-                  <span>Answered</span>
+                  <span>{t("answered")}</span>
                 </div>
 
                 {/* Title */}
                 <h4 className="text-xs sm:text-sm font-bold text-gray-950 mb-2.5 leading-snug">
-                  Personio + Contract Management: Best Practice?
+                  {t("forumTitle")}
                 </h4>
 
                 {/* Question Bubble */}
@@ -206,9 +208,9 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
                     <Image src="/avatars/silvia.jpg" alt="Silvia, Scaliify team member" fill className="object-cover" />
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900 mb-0.5">HR Community Lead 👋</p>
+                    <p className="font-semibold text-gray-900 mb-0.5">{t("forumUser")} 👋</p>
                     <p className="text-gray-600">
-                      I&apos;m curious how you&apos;re handling contract creation &amp; e-signatures with Personio templates?
+                      {t("forumQuestion")}
                     </p>
                   </div>
                 </div>
@@ -220,13 +222,13 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
                   </div>
                   <div>
                     <div className="flex items-center justify-between gap-1 mb-0.5">
-                      <span className="font-bold text-gray-900">Scaliify Advisory</span>
+                      <span className="font-bold text-gray-900">{t("forumReplyUser")}</span>
                       <span className="text-[9px] font-bold bg-emerald-100 text-emerald-900 px-1.5 py-0.2 rounded">
-                        Verified
+                        {t("verified")}
                       </span>
                     </div>
                     <p className="text-gray-700 text-[10.5px]">
-                      Generally we recommend setting up variable placeholder schemas and automated workflows prior to rollout...
+                      {t("forumReply")}
                     </p>
                   </div>
                 </div>
@@ -235,7 +237,7 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
 
             <div className="relative z-10 pt-2">
               <span className="text-xs font-bold text-[#05434B] hover:text-[#4FB8AA] transition-colors inline-flex items-center gap-1.5 cursor-pointer">
-                Join the HR Community &rarr;
+                {t("joinCommunity")} &rarr;
               </span>
             </div>
           </div>
@@ -269,7 +271,7 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
               </div>
             </div>
             <span className="text-xs font-semibold text-gray-700">
-              Dedicated Implementation Team
+              {t("dedicatedTeam")}
             </span>
           </div>
 
@@ -277,7 +279,7 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
           <div className="flex items-center gap-2">
             <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-xs font-semibold text-gray-700">
-              Priority Support Available
+              {t("prioritySupport")}
             </span>
           </div>
         </div>

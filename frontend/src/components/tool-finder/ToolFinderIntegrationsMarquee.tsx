@@ -1,6 +1,7 @@
 import React from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface AppBadge {
   name: string;
@@ -11,6 +12,7 @@ interface AppBadge {
 }
 
 export function ToolFinderIntegrationsMarquee() {
+  const t = useTranslations("toolFinder");
   // Row 1 App Badges
   const row1Apps: AppBadge[] = [
     { name: "ADP", bg: "bg-[#D8232A]", text: "text-white", label: "ADP" },

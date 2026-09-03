@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import {
   ArrowRight,
   Check,
@@ -318,6 +318,7 @@ const interimFaqsDe = [
 export function InterimManagementClient() {
   const locale = useLocale();
   const isDe = locale === "de";
+  const t = useTranslations("services.interimManagement");
 
   const triggerSituations = isDe ? triggerSituationsDe : triggerSituationsEn;
   const marqueeCards = isDe ? marqueeCardsDe : marqueeCardsEn;
@@ -352,19 +353,15 @@ export function InterimManagementClient() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
           <div className="lg:col-span-6 flex flex-col items-start text-left">
             <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#2B4C55] mb-3.5">
-              {isDe ? "SCALIIFY FÜR INTERIMSMANAGEMENT" : "SCALIIFY FOR INTERIM MANAGEMENT"}
+              {t("kicker")}
             </p>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black leading-[1.12] mb-5">
-              {isDe
-                ? "HR-Führungslücken entstehen selten zu einem passenden Zeitpunkt"
-                : "HR leadership gaps rarely happen at a convenient time"}
+              {t("heading")}
             </h1>
 
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-8 max-w-xl">
-              {isDe
-                ? "Wenn eine Lücke entsteht, ist monatelanges Warten auf die ideale Besetzung meist keine Option. Wir vermitteln erfahrene Senior-HR-Führungskräfte kurzfristig – genau dann, wenn Ihr Unternehmen sofortige Führungskraft braucht."
-                : "When one shows up, waiting months for the perfect hire usually isn't an option. We place experienced senior HR leaders at short notice: someone who can step into the gap when your business needs a seat filled now, not in three months."}
+              {t("subtitle")}
             </p>
 
             <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
@@ -374,7 +371,7 @@ export function InterimManagementClient() {
               >
                 <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/75 to-transparent rounded-t-full pointer-events-none" />
                 <span className="relative z-10 tracking-tight font-extrabold">
-                  {isDe ? "Interim-Führungskraft anfragen" : "Request an interim leader"}
+                  {t("ctaButton")}
                 </span>
                 <ArrowRight className="relative z-10 w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </Link>

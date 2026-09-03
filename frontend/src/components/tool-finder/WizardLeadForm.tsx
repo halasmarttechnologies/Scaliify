@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { LeadContact } from "@/lib/api";
+import { useTranslations } from "next-intl";
 
 interface WizardLeadFormProps {
   lead: LeadContact;
@@ -10,6 +11,7 @@ interface WizardLeadFormProps {
 }
 
 export function WizardLeadForm({ lead, setLead }: WizardLeadFormProps) {
+  const t = useTranslations("toolFinder");
   return (
     <motion.div
       key="step-10"
@@ -25,17 +27,17 @@ export function WizardLeadForm({ lead, setLead }: WizardLeadFormProps) {
           <span className="text-xs text-gray-400 font-semibold">10 of 10</span>
         </div>
         <h3 className="text-2xl sm:text-3xl font-bold text-white mt-1">
-          Where should we send your results?
+          {t("wizardLead.heading")}
         </h3>
         <p className="text-gray-300 text-xs sm:text-sm mt-1">
-          We will calculate your personalized software matches instantly on the next screen.
+          {t("wizardLead.subtitle")}
         </p>
       </div>
 
       <div className="flex-1 flex flex-col gap-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">First Name *</label>
+            <label className="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">{t("wizardLead.firstNameLabel")}</label>
             <input
               type="text"
               className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all"
@@ -45,7 +47,7 @@ export function WizardLeadForm({ lead, setLead }: WizardLeadFormProps) {
             />
           </div>
           <div>
-            <label className="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Last Name *</label>
+            <label className="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">{t("wizardLead.lastNameLabel")}</label>
             <input
               type="text"
               className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all"
@@ -58,7 +60,7 @@ export function WizardLeadForm({ lead, setLead }: WizardLeadFormProps) {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Work Email *</label>
+            <label className="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">{t("wizardLead.emailLabel")}</label>
             <input
               type="email"
               className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all"
@@ -68,7 +70,7 @@ export function WizardLeadForm({ lead, setLead }: WizardLeadFormProps) {
             />
           </div>
           <div>
-            <label className="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Phone Number</label>
+            <label className="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">{t("wizardLead.phoneLabel")}</label>
             <input
               type="tel"
               className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all"
@@ -81,7 +83,7 @@ export function WizardLeadForm({ lead, setLead }: WizardLeadFormProps) {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Company Name *</label>
+            <label className="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">{t("wizardLead.companyLabel")}</label>
             <input
               type="text"
               className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all"
@@ -91,7 +93,7 @@ export function WizardLeadForm({ lead, setLead }: WizardLeadFormProps) {
             />
           </div>
           <div>
-            <label className="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Job Title *</label>
+            <label className="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">{t("wizardLead.jobTitleLabel")}</label>
             <input
               type="text"
               className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all"

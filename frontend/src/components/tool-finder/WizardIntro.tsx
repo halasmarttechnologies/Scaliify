@@ -2,20 +2,22 @@
 
 import React from "react";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface WizardIntroProps {
   onStart: () => void;
 }
 
 export function WizardIntro({ onStart }: WizardIntroProps) {
+  const t = useTranslations("toolFinder");
   return (
     <div id="tool-finder-tool" className="w-full bg-brand-dark text-white rounded-2xl border border-white/10 p-8 sm:p-12 lg:p-16 flex flex-col items-center text-center">
       <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight mb-4 max-w-2xl">
-        Evaluate & Benchmark Your Next HR Software
+        {t("wizardIntro.heading")}
       </h2>
 
       <p className="text-gray-300 text-sm sm:text-base max-w-xl leading-relaxed mb-10">
-        Walk through our 9-step guided assessment to uncover the ideal HRIS, ATS, Performance, and Payroll software platforms matching your exact organization.
+        {t("wizardIntro.subtitle")}
       </p>
 
       {/* 3 Value Cards */}
@@ -46,7 +48,7 @@ export function WizardIntro({ onStart }: WizardIntroProps) {
         onClick={onStart}
         className="inline-flex items-center justify-center gap-3 bg-brand-teal text-black hover:bg-white font-bold px-8 py-3.5 rounded-xl text-sm sm:text-base transition-colors group cursor-pointer w-full sm:w-auto shadow-md"
       >
-        <span>Start Assessment</span>
+        <span>{t("wizardIntro.startButton")}</span>
         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-black" />
       </button>
     </div>

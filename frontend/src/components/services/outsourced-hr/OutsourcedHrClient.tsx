@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import {
   ArrowRight,
   Check,
@@ -325,6 +325,7 @@ const outsourcedHrFaqsDe = [
 export function OutsourcedHrClient() {
   const locale = useLocale();
   const isDe = locale === "de";
+  const t = useTranslations("services.outsourcedHr");
 
   const coveredScopeItems = isDe ? coveredScopeItemsDe : coveredScopeItemsEn;
   const marqueeCards = isDe ? marqueeCardsDe : marqueeCardsEn;
@@ -359,19 +360,15 @@ export function OutsourcedHrClient() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
           <div className="lg:col-span-6 flex flex-col items-start text-left">
             <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#2B4C55] mb-3.5">
-              {isDe ? "SCALIIFY FÜR AUSGELAGERTES PERSONALMANAGEMENT" : "SCALIIFY FOR OUTSOURCED HR"}
+              {t("kicker")}
             </p>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black leading-[1.12] mb-5">
-              {isDe
-                ? "Nicht jedes Unternehmen ist bereit für eine eigene HR-Abteilung"
-                : "Not every company is ready to build a full HR department"}
+              {t("heading")}
             </h1>
 
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-8 max-w-xl">
-              {isDe
-                ? "Und ehrlich gesagt: Nicht jedes Unternehmen braucht eine. scaliify übernimmt Ihre HR-Prozesse als externes Team – so erhalten Sie professionelle Strukturen ohne die Fixkosten einer internen Festanstellung."
-                : "And honestly, not every company needs to. scaliify runs your HR operations as an external team, so you get the structure without the overhead of hiring in-house."}
+              {t("subtitle")}
             </p>
 
             <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
@@ -381,7 +378,7 @@ export function OutsourcedHrClient() {
               >
                 <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/75 to-transparent rounded-t-full pointer-events-none" />
                 <span className="relative z-10 tracking-tight font-extrabold">
-                  {isDe ? "Mit einem HR-Partner sprechen" : "Talk to an HR partner"}
+                  {t("ctaButton")}
                 </span>
                 <ArrowRight className="relative z-10 w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </Link>

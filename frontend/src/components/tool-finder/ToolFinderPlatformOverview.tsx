@@ -4,8 +4,10 @@ import React from "react";
 import Image from "next/image";
 import { Star } from "lucide-react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export function ToolFinderPlatformOverview() {
+  const t = useTranslations("toolFinder");
   return (
     <section
       id="platform-overview"

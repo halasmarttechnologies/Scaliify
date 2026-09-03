@@ -2,6 +2,7 @@
 
 import React from "react";
 import { AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { Check, ChevronRight, ChevronLeft } from "lucide-react";
 import { AssessmentAnswers } from "@/lib/api";
 import { useToolFinderPersistence } from "@/hooks/useToolFinderPersistence";
@@ -26,6 +27,7 @@ const STEP_METADATA = [
 ];
 
 export function ToolFinderWizard() {
+  const t = useTranslations("toolFinder");
   const {
     currentStep,
     setCurrentStep,
@@ -157,7 +159,7 @@ export function ToolFinderWizard() {
               onClick={currentStep === TOTAL_STEPS ? submitAssessment : handleNext}
               className="inline-flex items-center gap-2 bg-brand-teal text-black hover:bg-white font-bold text-xs sm:text-sm px-8 py-3.5 rounded-xl transition-colors cursor-pointer w-full justify-center sm:w-auto shadow-md"
             >
-              <span>{currentStep === TOTAL_STEPS ? "Calculate Recommendations" : "Continue"}</span>
+              <span>{currentStep === TOTAL_STEPS ? t("wizardLead.submitButton") : "Continue"}</span>
               <ChevronRight className="w-4 h-4 text-black" />
             </button>
           </div>

@@ -1,16 +1,26 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { TermsClient } from "@/components/legal/TermsClient";
 import { buildMetadata } from "@/lib/seo";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Terms and Conditions — Scaliify Consulting",
-  description:
-    "Review the Terms and Conditions governing Scaliify's HR technology selection, implementation, interim management, and strategic advisory services.",
-  path: "/terms",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata.terms" });
+  return buildMetadata({ title: t("title"), description: t("description"), path: "/terms" });
+}
 
-export default function TermsPage() {
+export default async function TermsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <>
       <BreadcrumbJsonLd

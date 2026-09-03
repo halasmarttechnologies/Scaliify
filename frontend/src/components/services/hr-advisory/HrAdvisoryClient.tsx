@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import {
   ArrowRight,
   Check,
@@ -333,6 +333,7 @@ const hrAdvisoryFaqsDe = [
 export function HrAdvisoryClient() {
   const locale = useLocale();
   const isDe = locale === "de";
+  const t = useTranslations("services.hrAdvisory");
 
   const advisoryTopics = isDe ? advisoryTopicsDe : advisoryTopicsEn;
   const marqueeCards = isDe ? marqueeCardsDe : marqueeCardsEn;
@@ -367,19 +368,15 @@ export function HrAdvisoryClient() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
           <div className="lg:col-span-6 flex flex-col items-start text-left">
             <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#2B4C55] mb-3.5">
-              {isDe ? "SCALIIFY FÜR HR-BERATUNG" : "SCALIIFY FOR HR ADVISORY"}
+              {t("kicker")}
             </p>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black leading-[1.12] mb-5">
-              {isDe
-                ? "Experten-Input auf Abruf, ohne eine ganze Unternehmensberatung zu verpflichten"
-                : "On-demand expert input without retaining a full consultancy"}
+              {t("heading")}
             </h1>
 
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-8 max-w-xl">
-              {isDe
-                ? "Strategische HR-Beratung genau dann, wenn Sie sie brauchen. Wir kombinieren die methodische Tiefe von Top-Managementberatungen mit echter HR-Praxiserfahrung für Organisationsentwicklung, Vergütungssysteme, Performance Management und Betriebsratsfragen."
-                : "Strategic People counsel when you need it most. Combining strategy consulting rigor with hands-on HR operations for restructuring, compensation frameworks, org design, performance management, and works council topics."}
+              {t("subtitle")}
             </p>
 
             <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
@@ -389,7 +386,7 @@ export function HrAdvisoryClient() {
               >
                 <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/75 to-transparent rounded-t-full pointer-events-none" />
                 <span className="relative z-10 tracking-tight font-extrabold">
-                  {isDe ? "Beratungssession buchen" : "Book an advisory session"}
+                  {t("ctaButton")}
                 </span>
                 <ArrowRight className="relative z-10 w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </Link>

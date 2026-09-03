@@ -1,6 +1,7 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { BlogPost, BLOG_POSTS } from "@/data/blogPosts";
 import { BlogCoverGraphic } from "@/components/home/blog/BlogCoverGraphic";
 import { BlogCard } from "@/components/home/blog/BlogCard";
@@ -12,6 +13,7 @@ interface BlogPostDetailProps {
 }
 
 export function BlogPostDetail({ post }: BlogPostDetailProps) {
+  const t = useTranslations("blogPost");
   // Related posts (excluding current post)
   const relatedPosts = BLOG_POSTS.filter((p) => p.id !== post.id).slice(0, 3);
 
@@ -26,7 +28,7 @@ export function BlogPostDetail({ post }: BlogPostDetailProps) {
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-brand-dark hover:text-brand-teal transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Back to all articles</span>
+            <span>{t("backToArticles")}</span>
           </Link>
 
           <span className="text-xs font-semibold text-gray-500 bg-white border border-gray-200/80 px-3 py-1 rounded-full">
@@ -51,7 +53,7 @@ export function BlogPostDetail({ post }: BlogPostDetailProps) {
                 <div className="w-7 h-7 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-xs">
                   <User className="w-4 h-4" />
                 </div>
-                <span className="font-semibold text-gray-900">Scaliify Research Team</span>
+                <span className="font-semibold text-gray-900">{t("researchTeam")}</span>
               </div>
               <span className="text-gray-300">•</span>
               <span className="inline-flex items-center gap-1.5">
@@ -70,11 +72,11 @@ export function BlogPostDetail({ post }: BlogPostDetailProps) {
                 onClick={() => {
                   if (typeof navigator !== "undefined" && navigator.clipboard) {
                     navigator.clipboard.writeText(window.location.href);
-                    alert("Article link copied to clipboard!");
+                    alert(t("copiedToClipboard"));
                   }
                 }}
                 className="p-2 rounded-lg bg-white border border-gray-200 text-gray-600 hover:text-brand-dark transition-colors cursor-pointer"
-                title="Copy Link"
+                title={t("copyLink")}
               >
                 <Share2 className="w-4 h-4" />
               </button>
@@ -93,7 +95,7 @@ export function BlogPostDetail({ post }: BlogPostDetailProps) {
           <div className="bg-white border border-brand-teal/30 rounded-2xl p-6 sm:p-8">
             <h2 className="text-base sm:text-lg font-bold text-brand-dark mb-3 flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-brand-teal" />
-              Executive Summary & Key Takeaways
+              {t("executiveSummary")}
             </h2>
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
               {post.excerpt}
@@ -102,39 +104,39 @@ export function BlogPostDetail({ post }: BlogPostDetailProps) {
 
           <section className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight">
-              1. Strategic Context & Regulatory Shifts
+              {t("section1Title")}
             </h2>
             <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-              As European labor markets grow increasingly competitive and regulated, HR leaders are pivoting from legacy, fragmented point solutions to unified digital architectures. Navigating changes in compliance, structured recruiting rubrics, and automated compensation transparency requires proactive strategy rather than reactive troubleshooting.
+              {t("section1Para1")}
             </p>
             <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-              Organizations adopting modern People Ops frameworks report up to 40% reduction in administrative overhead, allowing talent partners to focus on high-impact strategic advisory and leadership retention.
+              {t("section1Para2")}
             </p>
           </section>
 
           <section className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight">
-              2. Core Implementation Principles for Modern Teams
+              {t("section2Title")}
             </h2>
             <ul className="space-y-3 text-sm sm:text-base text-gray-600 list-disc pl-5">
               <li>
-                <strong className="text-gray-900">Audit your single source of truth:</strong> Ensure employee master records, salary bands, and payroll interfaces (e.g., DATEV, Personio, Deel) remain synchronized in real time.
+                <strong className="text-gray-900">{t("section2Check1Title")}</strong>{t("section2Check1Desc")}
               </li>
               <li>
-                <strong className="text-gray-900">Automate recurring administrative workflows:</strong> Eliminate manual spreadsheets for PTO approvals, onboarding checklists, and device provisioning.
+                <strong className="text-gray-900">{t("section2Check2Title")}</strong>{t("section2Check2Desc")}
               </li>
               <li>
-                <strong className="text-gray-900">Establish objective competency metrics:</strong> Implement structured interview scorecards to remove bias and accelerate time-to-hire.
+                <strong className="text-gray-900">{t("section2Check3Title")}</strong>{t("section2Check3Desc")}
               </li>
             </ul>
           </section>
 
           <section className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight">
-              3. Next Steps & Recommended Software Assessment
+              {t("section3Title")}
             </h2>
             <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-              Selecting the ideal technology stack depends on headcount, geographic distribution, and compliance requirements. Utilizing independent benchmarking diagnostics guarantees unbiased evaluation across 20+ top European HR platforms.
+              {t("section3Para")}
             </p>
           </section>
 
@@ -142,17 +144,17 @@ export function BlogPostDetail({ post }: BlogPostDetailProps) {
           <div className="bg-brand-dark text-white rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 mt-10">
             <div>
               <h4 className="text-lg font-bold text-white mb-1">
-                Benchmark Your Organization&apos;s Stack
+                {t("assessmentHeading")}
               </h4>
               <p className="text-xs sm:text-sm text-gray-300">
-                Discover the best HR tools for your team in under 2 minutes.
+                {t("assessmentDesc")}
               </p>
             </div>
             <Link
               href="/tool-finder"
               className="bg-brand-teal text-brand-dark font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-full hover:brightness-105 transition-all shrink-0 whitespace-nowrap"
             >
-              Start Free Assessment →
+              {t("startAssessment")}
             </Link>
           </div>
         </div>
@@ -160,7 +162,7 @@ export function BlogPostDetail({ post }: BlogPostDetailProps) {
         {/* Related Articles */}
         <div className="mt-16 sm:mt-24 pt-12 border-t border-gray-200">
           <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-gray-900 mb-8">
-            Related Insights & Articles
+            {t("relatedInsights")}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {relatedPosts.map((rPost) => (

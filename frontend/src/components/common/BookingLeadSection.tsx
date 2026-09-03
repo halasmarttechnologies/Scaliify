@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Link } from "@/i18n/navigation";
-import { useLocale } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import {
   Check,
   CheckCircle2,
@@ -25,18 +25,13 @@ export function BookingLeadSection({
   subtitle,
   badgeTitle,
 }: BookingLeadSectionProps) {
+  const t = useTranslations("bookingLead");
   const locale = useLocale();
   const isDe = locale === "de";
 
-  const displayBadgeTitle =
-    badgeTitle ?? (isDe ? "ERSTGESPRÄCH & BERATUNG" : "DISCOVERY & CONSULTATION");
-  const displayTitle =
-    title ?? (isDe ? "Erleben Sie Scaliify in Aktion" : "See Scaliify in action");
-  const displaySubtitle =
-    subtitle ??
-    (isDe
-      ? "Tragen Sie Ihre Kontaktdaten ein, um ein persönliches Beratungsgespräch mit unseren People- & HR-Tech-Expert:innen zu vereinbaren."
-      : "Fill in your details to book a consultation call with one of our People & HR technology experts.");
+  const displayBadgeTitle = badgeTitle ?? t("defaultBadge");
+  const displayTitle = title ?? t("defaultTitle");
+  const displaySubtitle = subtitle ?? t("defaultSubtitle");
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -75,38 +70,26 @@ export function BookingLeadSection({
 
           <div className="mb-8">
             <p className="text-xs sm:text-sm font-bold text-gray-950 uppercase tracking-wider mb-4">
-              {isDe ? "Das erwartet Sie:" : "Here's what to expect:"}
+              {t("expectHeading")}
             </p>
             <ul className="space-y-3.5 text-xs sm:text-sm text-gray-800 font-medium">
               <li className="flex items-start gap-3">
                 <div className="w-5 h-5 rounded-full bg-[#81D8D0]/40 text-[#05434B] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
                   <Check className="w-3.5 h-3.5 stroke-[3]" />
                 </div>
-                <span>
-                  {isDe
-                    ? "Ein unverbindlicher Walkthrough durch Ihr bestehendes HR-Setup"
-                    : "A no-commitment discovery walkthrough of your HR ecosystem"}
-                </span>
+                <span>{t("expect1")}</span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-5 h-5 rounded-full bg-[#81D8D0]/40 text-[#05434B] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
                   <Check className="w-3.5 h-3.5 stroke-[3]" />
                 </div>
-                <span>
-                  {isDe
-                    ? "Fokus auf die dringendsten Prioritäten und Zeitpläne Ihres Teams"
-                    : "Discussion built around your team's top priorities and timeline"}
-                </span>
+                <span>{t("expect2")}</span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-5 h-5 rounded-full bg-[#81D8D0]/40 text-[#05434B] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
                   <Check className="w-3.5 h-3.5 stroke-[3]" />
                 </div>
-                <span>
-                  {isDe
-                    ? "Direkte, ehrliche Antworten von erfahrenen HR- & Tech-Praktikern"
-                    : "Direct, honest answers from senior HR & tech practitioners"}
-                </span>
+                <span>{t("expect3")}</span>
               </li>
             </ul>
           </div>
@@ -114,9 +97,7 @@ export function BookingLeadSection({
           {/* Trust Badges 2x2 Grid */}
           <div>
             <p className="text-[11px] sm:text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">
-              {isDe
-                ? "Unabhängige Expertise, der europäische Führungskräfte vertrauen:"
-                : "Independent expertise European leaders trust:"}
+              {t("trustHeading")}
             </p>
             <div className="grid grid-cols-2 gap-2.5 w-full max-w-md">
               <div className="bg-white rounded-xl p-2.5 border border-gray-200/80 shadow-2xs flex items-center gap-2.5">
@@ -124,8 +105,8 @@ export function BookingLeadSection({
                   <Award className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <p className="text-[11px] font-bold text-gray-900 leading-tight">Top HR Advisory</p>
-                  <p className="text-[9px] text-gray-500 font-medium">SPRING 2026</p>
+                  <p className="text-[11px] font-bold text-gray-900 leading-tight">{t("trustBadge1Title")}</p>
+                  <p className="text-[9px] text-gray-500 font-medium">{t("trustBadge1Sub")}</p>
                 </div>
               </div>
 
@@ -134,8 +115,8 @@ export function BookingLeadSection({
                   <Users className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <p className="text-[11px] font-bold text-gray-900 leading-tight">&gt;100 Specialists</p>
-                  <p className="text-[9px] text-gray-500 font-medium">{isDe ? "GEPRÜFTES NETZWERK" : "VETTED NETWORK"}</p>
+                  <p className="text-[11px] font-bold text-gray-900 leading-tight">{t("trustBadge2Title")}</p>
+                  <p className="text-[9px] text-gray-500 font-medium">{t("trustBadge2Sub")}</p>
                 </div>
               </div>
 
@@ -144,8 +125,8 @@ export function BookingLeadSection({
                   <ShieldCheck className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <p className="text-[11px] font-bold text-gray-900 leading-tight">{isDe ? "100 % Herstellerneutral" : "100% Vendor-Neutral"}</p>
-                  <p className="text-[9px] text-gray-500 font-medium">{isDe ? "KEINE PROVISIONEN" : "ZERO COMMISSIONS"}</p>
+                  <p className="text-[11px] font-bold text-gray-900 leading-tight">{t("trustBadge3Title")}</p>
+                  <p className="text-[9px] text-gray-500 font-medium">{t("trustBadge3Sub")}</p>
                 </div>
               </div>
 
@@ -154,8 +135,8 @@ export function BookingLeadSection({
                   <Zap className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <p className="text-[11px] font-bold text-gray-900 leading-tight">{isDe ? "96 % Erfolgsquote" : "96% Outcome Rate"}</p>
-                  <p className="text-[9px] text-gray-500 font-medium">{isDe ? "ERFOLGREICH ERREICHT" : "MILESTONES DELIVERED"}</p>
+                  <p className="text-[11px] font-bold text-gray-900 leading-tight">{t("trustBadge4Title")}</p>
+                  <p className="text-[9px] text-gray-500 font-medium">{t("trustBadge4Sub")}</p>
                 </div>
               </div>
             </div>
@@ -175,19 +156,17 @@ export function BookingLeadSection({
                   <CheckCircle2 className="w-8 h-8 stroke-[2.5]" />
                 </div>
                 <h3 className="text-2xl font-extrabold text-black mb-2">
-                  {isDe ? `Vielen Dank, ${formData.firstName}!` : `Thank you, ${formData.firstName}!`}
+                  {t("successHeading", { firstName: formData.firstName })}
                 </h3>
                 <p className="text-sm text-gray-600 max-w-sm mx-auto leading-relaxed mb-6">
-                  {isDe
-                    ? "Wir haben Ihre Angaben erhalten. Ein Senior-Partner von Scaliify wird sich innerhalb von 24 Stunden bei Ihnen melden, um das Erstgespräch zu koordinieren."
-                    : "We have received your details. A senior Scaliify partner will contact you within 24 hours to coordinate your consultation call."}
+                  {t("successMessage")}
                 </p>
                 <button
                   type="button"
                   onClick={() => setSubmitted(false)}
                   className="text-xs font-bold text-[#05434B] hover:underline"
                 >
-                  {isDe ? "Weitere Anfrage senden" : "Submit another inquiry"}
+                  {t("submitAnother")}
                 </button>
               </motion.div>
             ) : (
@@ -195,12 +174,12 @@ export function BookingLeadSection({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                   <div>
                     <label className="block text-xs font-bold text-gray-800 mb-1">
-                      {isDe ? "Vorname *" : "First Name *"}
+                      {t("firstNameLabel")}
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder={isDe ? "z.B. Alex" : "e.g. Alex"}
+                      placeholder={t("firstNamePlaceholder")}
                       value={formData.firstName}
                       onChange={(e) =>
                         setFormData({ ...formData, firstName: e.target.value })
@@ -210,12 +189,12 @@ export function BookingLeadSection({
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-gray-800 mb-1">
-                      {isDe ? "Nachname *" : "Last Name *"}
+                      {t("lastNameLabel")}
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder={isDe ? "z.B. Müller" : "e.g. Müller"}
+                      placeholder={t("lastNamePlaceholder")}
                       value={formData.lastName}
                       onChange={(e) =>
                         setFormData({ ...formData, lastName: e.target.value })
@@ -227,12 +206,12 @@ export function BookingLeadSection({
 
                 <div>
                   <label className="block text-xs font-bold text-gray-800 mb-1">
-                    {isDe ? "Geschäftliche E-Mail-Adresse *" : "Business Email Address *"}
+                    {t("emailLabel")}
                   </label>
                   <input
                     type="email"
                     required
-                    placeholder="name@company.com"
+                    placeholder={t("emailPlaceholder")}
                     value={formData.email}
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
@@ -243,12 +222,12 @@ export function BookingLeadSection({
 
                 <div>
                   <label className="block text-xs font-bold text-gray-800 mb-1">
-                    {isDe ? "Unternehmensname *" : "Company Name *"}
+                    {t("companyLabel")}
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder={isDe ? "z.B. TechCorp GmbH" : "e.g. TechCorp GmbH"}
+                    placeholder={t("companyPlaceholder")}
                     value={formData.companyName}
                     onChange={(e) =>
                       setFormData({ ...formData, companyName: e.target.value })
@@ -259,7 +238,7 @@ export function BookingLeadSection({
 
                 <div>
                   <label className="block text-xs font-bold text-gray-800 mb-1">
-                    {isDe ? "Mitarbeiteranzahl *" : "Number of Employees *"}
+                    {t("employeesLabel")}
                   </label>
                   <select
                     value={formData.employees}
@@ -268,21 +247,21 @@ export function BookingLeadSection({
                     }
                     className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors cursor-pointer"
                   >
-                    <option value="10–50">{isDe ? "10–50 Mitarbeitende" : "10–50 employees"}</option>
-                    <option value="50–100">{isDe ? "50–100 Mitarbeitende" : "50–100 employees"}</option>
-                    <option value="100–250">{isDe ? "100–250 Mitarbeitende" : "100–250 employees"}</option>
-                    <option value="250–500">{isDe ? "250–500 Mitarbeitende" : "250–500 employees"}</option>
-                    <option value="500+">{isDe ? "500+ Mitarbeitende" : "500+ employees"}</option>
+                    <option value="10–50">{t("employeeOptions.10_50")}</option>
+                    <option value="50–100">{t("employeeOptions.50_100")}</option>
+                    <option value="100–250">{t("employeeOptions.100_250")}</option>
+                    <option value="250–500">{t("employeeOptions.250_500")}</option>
+                    <option value="500+">{t("employeeOptions.500_plus")}</option>
                   </select>
                 </div>
 
                 <div>
                   <label className="block text-xs font-bold text-gray-800 mb-1">
-                    {isDe ? "Telefonnummer (Optional)" : "Phone Number (Optional)"}
+                    {t("phoneLabel")}
                   </label>
                   <input
                     type="tel"
-                    placeholder="+49 170 1234567"
+                    placeholder={t("phonePlaceholder")}
                     value={formData.phone}
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
@@ -292,23 +271,11 @@ export function BookingLeadSection({
                 </div>
 
                 <p className="text-[10.5px] text-gray-500 leading-relaxed pt-1">
-                  {isDe ? (
-                    <>
-                      Mit dem Absenden stimmen Sie unserer{" "}
-                      <Link href="/privacy" className="underline hover:text-black">
-                        Datenschutzerklärung
-                      </Link>{" "}
-                      zu. Sie können Ihre Einwilligung jederzeit widerrufen.
-                    </>
-                  ) : (
-                    <>
-                      By submitting this form, you agree to our{" "}
-                      <Link href="/privacy" className="underline hover:text-black">
-                        privacy policy
-                      </Link>
-                      . You may revoke consent at any time.
-                    </>
-                  )}
+                  {t("consentText")}{" "}
+                  <Link href="/privacy" className="underline hover:text-black">
+                    {t("consentPrivacy")}
+                  </Link>
+                  {t("consentEnd")}
                 </p>
 
                 <div className="pt-2">
@@ -318,7 +285,7 @@ export function BookingLeadSection({
                   >
                     <span className="absolute inset-x-0 top-0 h-[45%] bg-gradient-to-b from-white/70 to-transparent rounded-t-2xl pointer-events-none" />
                     <span className="relative z-10">
-                      {isDe ? "Kostenloses Erstgespräch anfordern" : "Book your free scoping call"}
+                      {t("submitButton")}
                     </span>
                     <ArrowRight className="relative z-10 w-4 h-4" />
                   </button>

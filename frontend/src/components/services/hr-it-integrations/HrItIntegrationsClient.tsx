@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import {
   ArrowRight,
   Check,
@@ -270,6 +270,7 @@ const hrIntegrationsFaqsDe = [
 export function HrItIntegrationsClient() {
   const locale = useLocale();
   const isDe = locale === "de";
+  const t = useTranslations("services.hrItIntegrations");
 
   const pillars = isDe ? pillarsDe : pillarsEn;
   const marqueeCards = isDe ? marqueeCardsDe : marqueeCardsEn;
@@ -304,19 +305,15 @@ export function HrItIntegrationsClient() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
           <div className="lg:col-span-6 flex flex-col items-start text-left">
             <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#2B4C55] mb-3.5">
-              {isDe ? "SCALIIFY FÜR HR-IT-INTEGRATIONEN" : "SCALIIFY FOR HR IT INTEGRATIONS"}
+              {t("kicker")}
             </p>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black leading-[1.12] mb-5">
-              {isDe
-                ? "Wenn HR-Systeme nicht miteinander sprechen, zahlt am Ende immer jemand den Preis dafür"
-                : "When HR systems don't talk to each other, someone always ends up paying for it"}
+              {t("heading")}
             </h1>
 
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-8 max-w-xl">
-              {isDe
-                ? "Meist in Form von doppelter Dateneingabe, abweichenden Datensätzen und Zahlen, denen niemand voll vertraut. Wir verbinden Ihre HR-Plattformen, sodass Informationen zentral an einem Ort leben."
-                : "Usually in duplicate data entry, mismatched records, and numbers nobody fully trusts. We connect your HR platforms so information lives in one single source of truth."}
+              {t("subtitle")}
             </p>
 
             <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
@@ -326,7 +323,7 @@ export function HrItIntegrationsClient() {
               >
                 <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/75 to-transparent rounded-t-full pointer-events-none" />
                 <span className="relative z-10 tracking-tight font-extrabold">
-                  {isDe ? "Beratung vereinbaren" : "Book a consultation"}
+                  {t("ctaButton")}
                 </span>
                 <ArrowRight className="relative z-10 w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </Link>

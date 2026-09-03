@@ -7,7 +7,8 @@ import {
   ExternalLink,
   CalendarCheck,
 } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { ToolRecommendation, isSafeHttpUrl } from "@/lib/api";
 import type { ToolFinderResponse } from "@/lib/api";
 
@@ -17,6 +18,7 @@ interface WizardResultsProps {
 }
 
 export function WizardResults({ results, onRetake }: WizardResultsProps) {
+  const t = useTranslations("toolFinder");
   return (
     <div id="tool-finder-tool" className="w-full bg-white text-gray-900 rounded-2xl border border-gray-200 p-5 sm:p-8 lg:p-12 flex flex-col gap-8 shadow-sm">
       {/* Results Header */}
@@ -38,7 +40,7 @@ export function WizardResults({ results, onRetake }: WizardResultsProps) {
           className="shrink-0 inline-flex items-center justify-center gap-2 text-xs font-bold bg-brand-section text-gray-900 hover:bg-gray-100 border border-gray-200 px-5 py-2.5 rounded-xl transition-colors cursor-pointer w-full sm:w-auto"
         >
           <RotateCcw className="w-3.5 h-3.5" />
-          <span>Retake Assessment</span>
+          <span>{t("wizardResults.startOver")}</span>
         </button>
       </div>
 
@@ -90,7 +92,7 @@ export function WizardResults({ results, onRetake }: WizardResultsProps) {
 
             {/* Capabilities Checklist */}
             <div className="bg-brand-section rounded-xl p-4 sm:p-5 border border-gray-100 mb-5">
-              <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-3">Key Matched Capabilities</p>
+              <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-3">{t("wizardResults.keyStrengths")}</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
                 {tool.matchedFeatures.map((feat: string, fIdx: number) => (
                   <div key={fIdx} className="flex items-center gap-2 text-xs sm:text-sm text-gray-700">
@@ -122,7 +124,7 @@ export function WizardResults({ results, onRetake }: WizardResultsProps) {
                 className="inline-flex items-center justify-center gap-2 bg-brand-teal text-black hover:bg-[#6ec2ba] font-bold text-xs sm:text-sm px-6 py-3 rounded-xl transition-colors text-center shadow-sm"
               >
                 <CalendarCheck className="w-4 h-4 text-black" />
-                <span>Book Implementation Call</span>
+                <span>{t("wizardResults.bookConsultation")}</span>
               </Link>
             </div>
           </div>

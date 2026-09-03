@@ -1,16 +1,26 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { HrAdvisoryClient } from "@/components/services/hr-advisory/HrAdvisoryClient";
 import { buildMetadata } from "@/lib/seo";
 import { BreadcrumbJsonLd, ServiceJsonLd } from "@/components/seo/JsonLd";
 
-export const metadata: Metadata = buildMetadata({
-  title: "HR Advisory — On-Demand Expert Input Without a Full Consultancy",
-  description:
-    "Strategic HR advisory combining management consulting rigor with hands-on People operations. Restructuring, compensation frameworks, performance design, works council topics, and employment law on flexible terms.",
-  path: "/services/hr-advisory",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata.services.hrAdvisory" });
+  return buildMetadata({ title: t("title"), description: t("description"), path: "/services/hr-advisory" });
+}
 
-export default function HrAdvisoryPage() {
+export default async function HrAdvisoryPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <>
       <BreadcrumbJsonLd

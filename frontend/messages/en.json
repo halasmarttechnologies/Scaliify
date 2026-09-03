@@ -1071,5 +1071,12 @@
   "languageSwitcher": {
     "en": "EN",
     "de": "DE"
+  },
+  "toolFinder": {
+    "assessmentTitle": "Independent HR Tool Assessment",
+    "assessmentSubtitle": "Answer 9 quick questions to benchmark and calculate your top 3 HR platform matches.",
+    "heroHeading": "Find Your Perfect HR Software — Free & Independent",
+    "heroSubtitle": "Answer 9 questions and get vendor-neutral recommendations benchmarked across 20+ platforms.",
+    "startAssessment": "Start Free Assessment"
   }
 }

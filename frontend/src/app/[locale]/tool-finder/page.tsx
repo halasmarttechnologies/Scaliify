@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ErrorBoundary } from "@/components/providers/ErrorBoundary";
 import { ToolFinderHero } from "@/components/tool-finder/ToolFinderHero";
 import { ToolFinderWizard } from "@/components/tool-finder/ToolFinderWizard";
@@ -12,14 +13,25 @@ import { BlogSection } from "@/components/home/BlogSection";
 import { buildMetadata } from "@/lib/seo";
 import { BreadcrumbJsonLd, ServiceJsonLd } from "@/components/seo/JsonLd";
 
-export const metadata: Metadata = buildMetadata({
-  title: "HR Tool Finder — Independent Software Advisory",
-  description:
-    "Benchmark 20+ European and global HR software platforms with Scaliify's independent recommendation engine. Get vendor-neutral, scored results in minutes.",
-  path: "/tool-finder",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata.toolFinder" });
+  return buildMetadata({ title: t("title"), description: t("description"), path: "/tool-finder" });
+}
 
-export default function ToolFinderPage() {
+export default async function ToolFinderPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "toolFinder" });
+
   return (
     <main className="w-full min-h-screen relative bg-white">
       <BreadcrumbJsonLd
@@ -42,10 +54,10 @@ export default function ToolFinderPage() {
             {/* Section Header */}
             <div className="text-center max-w-2xl mx-auto mb-12 flex flex-col items-center">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-tight mb-3">
-                Independent HR Tool Assessment
+                {t("assessmentTitle")}
               </h2>
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                Answer 9 quick questions to benchmark and calculate your top 3 HR platform matches.
+                {t("assessmentSubtitle")}
               </p>
             </div>
 

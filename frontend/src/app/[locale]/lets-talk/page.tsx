@@ -1,16 +1,26 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { LetsTalkClient } from "@/components/lets-talk/LetsTalkClient";
 import { buildMetadata } from "@/lib/seo";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Book a Demo",
-  description:
-    "Book a personalised HR technology demo with Scaliify. Tell us about your needs and we'll build a tailored walkthrough aligned to your exact goals.",
-  path: "/lets-talk",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata.letsTalk" });
+  return buildMetadata({ title: t("title"), description: t("description"), path: "/lets-talk" });
+}
 
-export default function LetsTalkPage() {
+export default async function LetsTalkPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <>
       <BreadcrumbJsonLd

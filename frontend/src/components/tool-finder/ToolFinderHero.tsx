@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import {
   Search,
   Clock,
@@ -31,6 +32,9 @@ import { HeroAuraWaves } from "@/components/ui/HeroAuraWaves";
 import { ROTATING_COMPANIES, COMPANY_ROTATION_INTERVAL_MS } from "@/lib/constants";
 
 export function ToolFinderHero() {
+  const t = useTranslations("toolFinder");
+  const tHero = useTranslations("hero");
+  const tTrustBar = useTranslations("heroTrustBar");
   const [email, setEmail] = useState("");
   const [companyIndex, setCompanyIndex] = useState(0);
 
@@ -62,12 +66,12 @@ export function ToolFinderHero() {
         
         {/* 1. Main Headline (H1) */}
         <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[68px] font-bold text-white text-center tracking-tight leading-[1.12] max-w-4xl mx-auto">
-          Find the Right <span className="text-brand-teal">HR Stack</span> For Your Organization
+          {t("heroHeading")}
         </h1>
 
         {/* 2. Subheading */}
         <p className="mt-3 sm:mt-5 text-sm sm:text-base md:text-lg text-gray-300 text-center max-w-2xl mx-auto font-normal leading-relaxed">
-          Benchmark 20+ top HR platforms against your team size, workflows, and DATEV payroll in under 2 minutes.
+          {t("heroSubtitle")}
         </p>
 
         {/* 3. Clean Input with Glossy Tiffany Blue CTA Button (No beam) */}
@@ -80,8 +84,8 @@ export function ToolFinderHero() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="What's your work email? *"
-              aria-label="Work email address"
+              placeholder={tHero("emailPlaceholder")}
+              aria-label={tHero("emailAriaLabel")}
               className="w-full bg-transparent text-gray-900 placeholder:text-gray-400 text-xs sm:text-sm font-medium focus:outline-none pr-2"
               required
             />
@@ -91,18 +95,18 @@ export function ToolFinderHero() {
             >
               {/* Glossy Top Specular Sheen */}
               <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-xl pointer-events-none" />
-              <span className="relative z-10">Start free assessment</span>
+              <span className="relative z-10">{t("startAssessment")}</span>
             </button>
           </form>
         </div>
 
         {/* 4. Trust Statement with Rotating Animated Logo */}
         <div className="mt-6 sm:mt-8 flex items-center justify-center gap-1.5 text-xs sm:text-sm text-gray-300 flex-wrap text-center">
-          <span>Trusted by</span>
-          <span className="font-bold text-brand-teal">1.6M+</span>
-          <span>employees at over</span>
-          <span className="font-bold text-brand-teal">16,000</span>
-          <span>organisations:</span>
+          <span>{tHero("trustedBy")}</span>
+          <span className="font-bold text-brand-teal">{tHero("employeeStat")}</span>
+          <span>{tHero("employeesAtOver")}</span>
+          <span className="font-bold text-brand-teal">{tHero("orgCount")}</span>
+          <span>{tHero("organisations")}</span>
           
           <div className="inline-flex items-center min-w-[95px] h-6 overflow-hidden align-middle">
             <AnimatePresence mode="wait">
@@ -515,8 +519,8 @@ export function ToolFinderHero() {
               <CompanyLogo id="softwareone" className="w-5 h-5" />
               <span className="font-bold text-base sm:text-lg tracking-tight text-white">SoftwareOne</span>
             </div>
-            <p className="text-xs text-gray-300 font-medium">1000+ employees</p>
-            <p className="text-[11px] text-brand-teal">80% faster onboarding</p>
+            <p className="text-xs text-gray-300 font-medium">{tTrustBar("softwareone.employees")}</p>
+            <p className="text-[11px] text-brand-teal">{tTrustBar("softwareone.metric")}</p>
           </div>
 
           <div className="flex flex-col items-center">
@@ -524,8 +528,8 @@ export function ToolFinderHero() {
               <CompanyLogo id="westbridge" className="w-5 h-5" />
               <span className="font-bold text-base sm:text-lg tracking-tight text-white">Westbridge</span>
             </div>
-            <p className="text-xs text-gray-300 font-medium">450+ employees</p>
-            <p className="text-[11px] text-brand-teal">Zero payroll errors</p>
+            <p className="text-xs text-gray-300 font-medium">{tTrustBar("westbridge.employees")}</p>
+            <p className="text-[11px] text-brand-teal">{tTrustBar("westbridge.metric")}</p>
           </div>
 
           <div className="flex flex-col items-center">
@@ -533,8 +537,8 @@ export function ToolFinderHero() {
               <CompanyLogo id="krones" className="w-5 h-5" />
               <span className="font-bold text-base sm:text-lg tracking-tight text-white">KRONES AG</span>
             </div>
-            <p className="text-xs text-gray-300 font-medium">750+ employees</p>
-            <p className="text-[11px] text-brand-teal">70% admin cut</p>
+            <p className="text-xs text-gray-300 font-medium">{tTrustBar("krones.employees")}</p>
+            <p className="text-[11px] text-brand-teal">{tTrustBar("krones.metric")}</p>
           </div>
 
           <div className="flex flex-col items-center">
@@ -542,8 +546,8 @@ export function ToolFinderHero() {
               <CompanyLogo id="symrise" className="w-5 h-5" />
               <span className="font-bold text-base sm:text-lg tracking-tight text-white">symrise</span>
             </div>
-            <p className="text-xs text-gray-300 font-medium">DACH & Global</p>
-            <p className="text-[11px] text-brand-teal">Modern HRIS stack</p>
+            <p className="text-xs text-gray-300 font-medium">{tTrustBar("symrise.employees")}</p>
+            <p className="text-[11px] text-brand-teal">{tTrustBar("symrise.metric")}</p>
           </div>
 
           <div className="flex flex-col items-center col-span-2 sm:col-span-1">
@@ -551,8 +555,8 @@ export function ToolFinderHero() {
               <CompanyLogo id="tiemeyer" className="w-5 h-5" />
               <span className="font-bold text-base sm:text-lg tracking-tight text-white">TIEMEYER</span>
             </div>
-            <p className="text-xs text-gray-300 font-medium">200+ employees</p>
-            <p className="text-[11px] text-brand-teal">Interim leadership</p>
+            <p className="text-xs text-gray-300 font-medium">{tTrustBar("tiemeyer.employees")}</p>
+            <p className="text-[11px] text-brand-teal">{tTrustBar("tiemeyer.metric")}</p>
           </div>
 
         </div>

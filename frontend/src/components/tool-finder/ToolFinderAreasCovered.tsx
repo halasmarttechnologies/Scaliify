@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import {
   ArrowRight,
   Sparkles,
@@ -51,6 +52,7 @@ const moduleData: Record<ModuleKey, { title: string; question: string; answer: s
 };
 
 export function ToolFinderAreasCovered() {
+  const t = useTranslations("toolFinder");
   const [activeTab, setActiveTab] = useState<ModuleKey>("admin");
   const [emailInput, setEmailInput] = useState("");
   const [submitted, setSubmitted] = useState(false);

@@ -1,16 +1,26 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { InterimManagementClient } from "@/components/services/interim-management/InterimManagementClient";
 import { buildMetadata } from "@/lib/seo";
 import { BreadcrumbJsonLd, ServiceJsonLd } from "@/components/seo/JsonLd";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Interim HR Management — Senior Leadership Placed at Short Notice",
-  description:
-    "Senior interim HR leadership placed immediately. Accountable for organizational outcomes during leadership transitions, parental leaves, rapid scaling, and M&A integrations.",
-  path: "/services/interim-management",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata.services.interimManagement" });
+  return buildMetadata({ title: t("title"), description: t("description"), path: "/services/interim-management" });
+}
 
-export default function InterimManagementPage() {
+export default async function InterimManagementPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <>
       <BreadcrumbJsonLd

@@ -1,16 +1,26 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { HrItSelectionClient } from "@/components/services/hr-it-selection/HrItSelectionClient";
 import { buildMetadata } from "@/lib/seo";
 import { BreadcrumbJsonLd, ServiceJsonLd } from "@/components/seo/JsonLd";
 
-export const metadata: Metadata = buildMetadata({
-  title: "HR IT Selection — Independent & Vendor-Neutral",
-  description:
-    "Independent, vendor-neutral HR software selection. Scaliify builds harmonious, silo-free HR IT architectures that scale with your growing company.",
-  path: "/services/hr-it-selection",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata.services.hrItSelection" });
+  return buildMetadata({ title: t("title"), description: t("description"), path: "/services/hr-it-selection" });
+}
 
-export default function HrItSelectionPage() {
+export default async function HrItSelectionPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <>
       <BreadcrumbJsonLd

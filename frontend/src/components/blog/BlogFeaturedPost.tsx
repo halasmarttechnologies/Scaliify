@@ -1,7 +1,8 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight, Clock, Calendar } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { BlogPost } from "@/data/blogPosts";
 import { BlogCoverGraphic } from "@/components/home/blog/BlogCoverGraphic";
 import { motion } from "framer-motion";
@@ -11,6 +12,7 @@ interface BlogFeaturedPostProps {
 }
 
 export function BlogFeaturedPost({ post }: BlogFeaturedPostProps) {
+  const t = useTranslations("blogIndex");
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -33,7 +35,7 @@ export function BlogFeaturedPost({ post }: BlogFeaturedPostProps) {
             {/* Meta Tags */}
             <div className="flex items-center gap-3 mb-4">
               <span className="bg-brand-dark text-brand-teal text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                Featured Story
+                {t("featuredStory")}
               </span>
               <span className="text-xs font-semibold text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md">
                 {post.category}
@@ -70,7 +72,7 @@ export function BlogFeaturedPost({ post }: BlogFeaturedPostProps) {
               href={`/insights/blog/${post.slug}`}
               className="inline-flex items-center gap-1.5 font-bold text-sm text-brand-dark group-hover:text-brand-teal transition-colors"
             >
-              <span>Read Article</span>
+              <span>{t("readArticle")}</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>

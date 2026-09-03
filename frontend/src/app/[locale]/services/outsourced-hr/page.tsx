@@ -1,16 +1,26 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { OutsourcedHrClient } from "@/components/services/outsourced-hr/OutsourcedHrClient";
 import { buildMetadata } from "@/lib/seo";
 import { BreadcrumbJsonLd, ServiceJsonLd } from "@/components/seo/JsonLd";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Outsourced HR Management — Scaliify Runs Your HR Operations",
-  description:
-    "Scaliify runs your HR operations as a dedicated external team for companies with 10–100 employees. Standardized processes, recruiting, payroll preparation, and onboarding on a flexible pay-as-you-go model.",
-  path: "/services/outsourced-hr",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata.services.outsourcedHr" });
+  return buildMetadata({ title: t("title"), description: t("description"), path: "/services/outsourced-hr" });
+}
 
-export default function OutsourcedHrPage() {
+export default async function OutsourcedHrPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <>
       <BreadcrumbJsonLd

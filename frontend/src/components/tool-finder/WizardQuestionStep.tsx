@@ -3,8 +3,22 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { AssessmentAnswers } from "@/lib/api";
 import { TOOL_FINDER_QUESTIONS } from "@/data/toolFinderQuestions";
+
+interface TranslatedOption {
+  title: string;
+  sub: string;
+}
+
+interface TranslatedQuestion {
+  badge: string;
+  stepIndicator: string;
+  title: string;
+  subtitle: string;
+  options: TranslatedOption[];
+}
 
 interface WizardQuestionStepProps {
   currentStep: number;
@@ -14,9 +28,19 @@ interface WizardQuestionStepProps {
 }
 
 export function WizardQuestionStep({ currentStep, answers, setAnswers, toggleArrayItem }: WizardQuestionStepProps) {
+  const t = useTranslations("toolFinder");
   const activeQuestion = TOOL_FINDER_QUESTIONS.find((q) => q.step === currentStep);
 
   if (!activeQuestion) return null;
+
+  // Get translated question data (text/labels), keep option IDs from the data file
+  const translatedQuestions = t.raw("questions") as TranslatedQuestion[];
+  const translatedQuestion = translatedQuestions[currentStep - 1] as TranslatedQuestion | undefined;
+
+  const displayBadge = translatedQuestion?.badge ?? activeQuestion.badge;
+  const displayStepIndicator = translatedQuestion?.stepIndicator ?? activeQuestion.stepIndicator;
+  const displayTitle = translatedQuestion?.title ?? activeQuestion.title;
+  const displaySubtitle = translatedQuestion?.subtitle ?? activeQuestion.subtitle;
 
   return (
     <motion.div
@@ -29,22 +53,27 @@ export function WizardQuestionStep({ currentStep, answers, setAnswers, toggleArr
     >
       <div className="mb-6">
         <div className="flex items-center justify-between gap-2">
-          <span className="text-xs font-bold text-gray-300 uppercase tracking-wider">{activeQuestion.badge}</span>
-          <span className="text-xs text-gray-400 font-semibold">{activeQuestion.stepIndicator}</span>
+          <span className="text-xs font-bold text-gray-300 uppercase tracking-wider">{displayBadge}</span>
+          <span className="text-xs text-gray-400 font-semibold">{displayStepIndicator}</span>
         </div>
         <h3 className="text-2xl sm:text-3xl font-bold text-white mt-1">
-          {activeQuestion.title}
+          {displayTitle}
         </h3>
         <p className="text-gray-300 text-xs sm:text-sm mt-1">
-          {activeQuestion.subtitle}
+          {displaySubtitle}
         </p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-        {activeQuestion.options.map((opt) => {
+        {activeQuestion.options.map((opt, optIdx) => {
           const selected = activeQuestion.isMultiSelect
             ? (answers[activeQuestion.field] as string[]).includes(opt.id)
             : answers[activeQuestion.field] === opt.id;
+
+          // Use translated option labels if available, fall back to data file
+          const translatedOpt = translatedQuestion?.options?.[optIdx];
+          const displayOptTitle = translatedOpt?.title ?? opt.title;
+          const displayOptSub = translatedOpt?.sub ?? opt.sub;
 
           return (
             <button
@@ -63,9 +92,9 @@ export function WizardQuestionStep({ currentStep, answers, setAnswers, toggleArr
               }`}
             >
               <div>
-                <p className="font-bold text-base leading-tight">{opt.title}</p>
+                <p className="font-bold text-base leading-tight">{displayOptTitle}</p>
                 <p className={`text-xs mt-1.5 leading-relaxed ${selected ? "text-brand-dark/80" : "text-gray-300"}`}>
-                  {opt.sub}
+                  {displayOptSub}
                 </p>
               </div>
               <div

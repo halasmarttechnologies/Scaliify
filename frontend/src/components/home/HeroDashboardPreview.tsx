@@ -2,7 +2,8 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import {
   Folder,
   Sliders,
@@ -20,6 +21,7 @@ import {
 } from "lucide-react";
 
 export const HeroDashboardPreview = React.memo(function HeroDashboardPreview() {
+  const t = useTranslations("heroDashboard");
   return (
     <div className="mt-12 sm:mt-16 w-full max-w-5xl relative p-[2px] sm:p-[2.5px] rounded-[24px] sm:rounded-[34px] overflow-hidden shadow-2xl">
       {/* Animated Tiffany Blue Border Beam Running in Continuous Loop */}
@@ -53,7 +55,7 @@ export const HeroDashboardPreview = React.memo(function HeroDashboardPreview() {
               {/* Top Canvas Bar */}
               <div className="flex items-center justify-center px-4 sm:px-6 py-3 border-b border-gray-200/80 bg-white/90 backdrop-blur-sm relative z-20">
                 <h3 className="text-xs sm:text-sm font-bold text-gray-900 text-center">
-                  This is how we partner with our clients
+                  {t("canvasTitle")}
                 </h3>
               </div>
 
@@ -159,7 +161,7 @@ export const HeroDashboardPreview = React.memo(function HeroDashboardPreview() {
                       {/* Top Cyan Tab Header */}
                       <div className="absolute -top-3.5 left-4 bg-[#00D2C4] text-[#05434B] text-[10.5px] font-black uppercase tracking-wider px-3 py-0.5 rounded-t-lg rounded-b-xs flex items-center gap-1.5 shadow-2xs">
                         <Folder className="w-3 h-3 fill-current" />
-                        <span>Client Request</span>
+                        <span>{t("clientRequest")}</span>
                       </div>
 
                       {/* Clean Right Node Connector Point */}
@@ -177,12 +179,12 @@ export const HeroDashboardPreview = React.memo(function HeroDashboardPreview() {
                               />
                             </div>
                             <div>
-                              <p className="text-xs font-bold text-gray-950 leading-tight">Scaleup People Lead</p>
-                              <p className="text-[10px] text-gray-500">120 employees • DE &amp; UK</p>
+                              <p className="text-xs font-bold text-gray-950 leading-tight">{t("scaleupPeopleLead")}</p>
+                              <p className="text-[10px] text-gray-500">{t("employeeInfo")}</p>
                             </div>
                           </div>
                           <span className="text-[10px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200/60 shrink-0">
-                            New Project
+                            {t("newProject")}
                           </span>
                         </div>
 
@@ -192,10 +194,10 @@ export const HeroDashboardPreview = React.memo(function HeroDashboardPreview() {
                             <Layers className="w-4 h-4 stroke-[2.5]" />
                           </div>
                           <p className="text-xs font-extrabold text-black leading-snug">
-                            HR Transformation Mandate
+                            {t("hrTransformationMandate")}
                           </p>
                           <p className="text-[10px] text-gray-600 mt-0.5 leading-snug">
-                            Siloed tools, manual payroll exports &amp; rapid scaling
+                            {t("mandateDesc")}
                           </p>
                         </div>
 
@@ -203,7 +205,7 @@ export const HeroDashboardPreview = React.memo(function HeroDashboardPreview() {
                           href="/lets-talk"
                           className="w-full inline-flex items-center justify-center gap-1.5 bg-[#00D2C4] hover:bg-[#76D8C8] text-[#05434B] text-xs font-extrabold py-2 px-3 rounded-xl transition-colors active:scale-95 shadow-2xs"
                         >
-                          <span>+ Discovery Call Initiated</span>
+                          <span>{t("discoveryCall")}</span>
                         </Link>
                       </div>
                     </div>
@@ -213,7 +215,7 @@ export const HeroDashboardPreview = React.memo(function HeroDashboardPreview() {
                       {/* Top Purple Tab Header */}
                       <div className="absolute -top-3.5 left-4 bg-purple-600 text-white text-[10.5px] font-black uppercase tracking-wider px-3 py-0.5 rounded-t-lg rounded-b-xs flex items-center gap-1.5 shadow-2xs">
                         <Database className="w-3 h-3" />
-                        <span>HR IT Audit</span>
+                        <span>{t("hrItAudit")}</span>
                       </div>
 
                       {/* Clean Right Node Connector Point */}
@@ -221,27 +223,27 @@ export const HeroDashboardPreview = React.memo(function HeroDashboardPreview() {
 
                       <div className="pt-2">
                         <h4 className="text-xs font-bold text-gray-900 mb-2.5">
-                          System Mapping &amp; Gap Analysis
+                          {t("systemMapping")}
                         </h4>
 
                         <div className="space-y-1.5 text-[11px] mb-3.5">
                           <div className="flex items-center gap-2 bg-[#F0FDF4] text-emerald-900 px-2.5 py-1 rounded-lg border border-emerald-100 font-semibold leading-tight">
                             <Check className="w-3 h-3 text-emerald-600 stroke-[3] shrink-0" />
-                            <span>Map current processes &amp; silos</span>
+                            <span>{t("auditCheck1")}</span>
                           </div>
                           <div className="flex items-center gap-2 bg-[#F0FDF4] text-emerald-900 px-2.5 py-1 rounded-lg border border-emerald-100 font-semibold leading-tight">
                             <Check className="w-3 h-3 text-emerald-600 stroke-[3] shrink-0" />
-                            <span>Data quality &amp; config review</span>
+                            <span>{t("auditCheck2")}</span>
                           </div>
                           <div className="flex items-center gap-2 bg-amber-50 text-amber-900 px-2.5 py-1 rounded-lg border border-amber-200 font-semibold leading-tight">
                             <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse shrink-0" />
-                            <span>DATEV cutover gaps identified</span>
+                            <span>{t("auditCheck3")}</span>
                           </div>
                         </div>
 
                         <div className="flex items-center justify-between text-[10px] font-bold text-[#05434B] pt-2 border-t border-gray-100">
-                          <span>Audit Report: Ready</span>
-                          <span className="text-[#4FB8AA]">Score: 62% &rarr; 98% Goal</span>
+                          <span>{t("auditReportReady")}</span>
+                          <span className="text-[#4FB8AA]">{t("auditScore")}</span>
                         </div>
                       </div>
                     </div>
@@ -262,36 +264,36 @@ export const HeroDashboardPreview = React.memo(function HeroDashboardPreview() {
                       {/* Top Pink Tab Header */}
                       <div className="absolute -top-3.5 left-4 bg-pink-500 text-white text-[10.5px] font-black uppercase tracking-wider px-3 py-0.5 rounded-t-lg rounded-b-xs flex items-center gap-1.5 shadow-2xs">
                         <Sliders className="w-3 h-3" />
-                        <span>Selection &amp; Strategy</span>
+                        <span>{t("selectionStrategy")}</span>
                       </div>
 
                       <div className="pt-2">
                         <h4 className="text-xs font-bold text-gray-900 mb-2">
-                          Independent Tool Selection
+                          {t("independentToolSelection")}
                         </h4>
 
                         <div className="space-y-1.5 mb-3 text-[10.5px]">
                           <div className="flex items-center justify-between bg-gray-50 px-2.5 py-1.5 rounded-lg border border-gray-200">
-                            <span className="font-bold text-gray-900">Core HRIS Match:</span>
+                            <span className="font-bold text-gray-900">{t("coreHrisMatch")}</span>
                             <span className="text-brand-dark font-extrabold bg-[#76D8C8]/30 px-2 py-0.5 rounded">
-                              Personio / HiBob
+                              {t("coreHrisValue")}
                             </span>
                           </div>
                           <div className="flex items-center justify-between bg-gray-50 px-2.5 py-1.5 rounded-lg border border-gray-200">
-                            <span className="font-bold text-gray-900">Recruiting (ATS):</span>
-                            <span className="text-gray-700 font-semibold">Greenhouse / Ashby</span>
+                            <span className="font-bold text-gray-900">{t("recruitingAts")}</span>
+                            <span className="text-gray-700 font-semibold">{t("recruitingValue")}</span>
                           </div>
                           <div className="flex items-center justify-between bg-gray-50 px-2.5 py-1.5 rounded-lg border border-gray-200">
-                            <span className="font-bold text-gray-900">Payroll Engine:</span>
+                            <span className="font-bold text-gray-900">{t("payrollEngine")}</span>
                             <span className="text-emerald-800 font-bold bg-emerald-50 px-2 py-0.5 rounded">
-                              DATEV LODAS
+                              {t("payrollValue")}
                             </span>
                           </div>
                         </div>
 
                         <div className="bg-[#eaf7f2] rounded-xl p-2.5 text-center border border-[#76D8C8]/40">
                           <p className="text-[10px] font-extrabold text-[#05434B]">
-                            Process Redesign First: 0% Vendor Bias
+                            {t("processRedesign")}
                           </p>
                         </div>
                       </div>
@@ -306,35 +308,35 @@ export const HeroDashboardPreview = React.memo(function HeroDashboardPreview() {
                       {/* Top Blue Tab Header */}
                       <div className="absolute -top-3.5 left-4 bg-blue-600 text-white text-[10.5px] font-black uppercase tracking-wider px-3 py-0.5 rounded-t-lg rounded-b-xs flex items-center gap-1.5 shadow-2xs">
                         <Zap className="w-3 h-3" />
-                        <span>Implementation</span>
+                        <span>{t("implementation")}</span>
                       </div>
 
                       <div className="pt-2">
                         <h4 className="text-xs font-bold text-gray-900 mb-1">
-                          Execution &amp; Integrations
+                          {t("executionIntegrations")}
                         </h4>
                         <p className="text-[11px] text-gray-600 leading-relaxed mb-2.5">
-                          Data migration, custom configuration, automated HRIS &harr; DATEV sync &amp; interim HR leadership.
+                          {t("implementationDesc")}
                         </p>
 
                         <div className="bg-[#FAF9FF] rounded-xl p-2.5 border border-gray-200 space-y-1 text-[10px] font-medium text-gray-700 mb-3">
                           <div className="flex items-center justify-between">
-                            <span>Data Migration (100% Clean)</span>
+                            <span>{t("dataMigration")}</span>
                             <Check className="w-3 h-3 text-emerald-600 stroke-[3]" />
                           </div>
                           <div className="flex items-center justify-between">
-                            <span>DATEV Automated Pipeline</span>
+                            <span>{t("datevPipeline")}</span>
                             <Check className="w-3 h-3 text-emerald-600 stroke-[3]" />
                           </div>
                           <div className="flex items-center justify-between">
-                            <span>Interim HR Lead Placed</span>
+                            <span>{t("interimHrLead")}</span>
                             <Check className="w-3 h-3 text-emerald-600 stroke-[3]" />
                           </div>
                         </div>
 
                         <div className="flex items-center justify-between text-[10px] font-bold text-[#05434B]">
-                          <span>Senior HR Specialists: &gt;100 Network</span>
-                          <span className="text-emerald-700">● Live Rollout</span>
+                          <span>{t("seniorSpecialists")}</span>
+                          <span className="text-emerald-700">● {t("liveRollout")}</span>
                         </div>
                       </div>
                     </div>
@@ -354,22 +356,22 @@ export const HeroDashboardPreview = React.memo(function HeroDashboardPreview() {
                       {/* Top Green Tab Header */}
                       <div className="absolute -top-3.5 left-4 bg-emerald-600 text-white text-[10.5px] font-black uppercase tracking-wider px-3 py-0.5 rounded-t-lg rounded-b-xs flex items-center gap-1.5 shadow-2xs">
                         <Sparkles className="w-3 h-3" />
-                        <span>Single Source of Truth</span>
+                        <span>{t("singleSourceOfTruth")}</span>
                       </div>
 
                       <div className="pt-2">
                         <div className="bg-gradient-to-br from-[#81D8D0]/20 via-white to-[#A8F5EE]/30 rounded-xl p-3.5 border border-[#76D8C8]/60 mb-2">
                           <p className="text-xs font-black text-[#05434B] leading-tight mb-1">
-                            100% Data Integrity Achieved
+                            {t("dataIntegrityAchieved")}
                           </p>
                           <p className="text-[11px] text-gray-700 leading-relaxed font-medium">
-                            Zero duplicate manual entries between Core HR, Payroll, ATS, and Finance ERP.
+                            {t("dataIntegrityDesc")}
                           </p>
                         </div>
 
                         <div className="flex items-center gap-2 text-[10px] text-gray-500">
                           <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                          <span>EU Pay Transparency (2026) Ready</span>
+                          <span>{t("euPayTransparency")}</span>
                         </div>
                       </div>
                     </div>
@@ -382,32 +384,32 @@ export const HeroDashboardPreview = React.memo(function HeroDashboardPreview() {
                       {/* Top Amber Tab Header */}
                       <div className="absolute -top-3.5 left-4 bg-amber-500 text-white text-[10.5px] font-black uppercase tracking-wider px-3 py-0.5 rounded-t-lg rounded-b-xs flex items-center gap-1.5 shadow-2xs">
                         <FileCheck className="w-3 h-3" />
-                        <span>Advisory &amp; ROI</span>
+                        <span>{t("advisoryRoi")}</span>
                       </div>
 
                       <div className="pt-2">
                         <div className="flex items-baseline justify-between mb-2">
                           <span className="text-3xl font-black text-black tracking-tight">
-                            18h+
+                            {t("savedPerMonth")}
                           </span>
                           <span className="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full">
-                            Saved / Mo per HR Lead
+                            {t("savedLabel")}
                           </span>
                         </div>
 
                         {/* Progress Visual Dots */}
                         <div className="grid grid-cols-3 gap-1.5 text-center text-[9.5px] font-bold mb-3">
                           <div className="bg-[#eaf7f2] p-1.5 rounded-lg border border-[#76D8C8]/40 text-[#05434B]">
-                            <span>98%</span>
-                            <p className="text-[8px] text-gray-500 font-normal">On-Time Rollout</p>
+                            <span>{t("onTimeRollout")}</span>
+                            <p className="text-[8px] text-gray-500 font-normal">{t("onTimeLabel")}</p>
                           </div>
                           <div className="bg-[#eaf7f2] p-1.5 rounded-lg border border-[#76D8C8]/40 text-[#05434B]">
-                            <span>0</span>
-                            <p className="text-[8px] text-gray-500 font-normal">Manual CSVs</p>
+                            <span>{t("manualCsvs")}</span>
+                            <p className="text-[8px] text-gray-500 font-normal">{t("manualCsvsLabel")}</p>
                           </div>
                           <div className="bg-[#eaf7f2] p-1.5 rounded-lg border border-[#76D8C8]/40 text-[#05434B]">
-                            <span>5/5</span>
-                            <p className="text-[8px] text-gray-500 font-normal">User Adoption</p>
+                            <span>{t("userAdoption")}</span>
+                            <p className="text-[8px] text-gray-500 font-normal">{t("userAdoptionLabel")}</p>
                           </div>
                         </div>
 
@@ -415,7 +417,7 @@ export const HeroDashboardPreview = React.memo(function HeroDashboardPreview() {
                           href="/lets-talk"
                           className="w-full inline-flex items-center justify-center gap-1 text-xs font-bold text-[#05434B] hover:text-[#4FB8AA] transition-colors group cursor-pointer pt-1"
                         >
-                          <span>Scale Your HR Operations &rarr;</span>
+                          <span>{t("scaleOperations")} &rarr;</span>
                         </Link>
                       </div>
                     </div>

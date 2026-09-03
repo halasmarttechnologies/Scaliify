@@ -1,39 +1,39 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
-const footerLinks = {
-    product: [
-      { name: "Features Overview", href: "#services" },
-      { name: "Pricing Plans", href: "/contact" },
-      { name: "Integrations", href: "/#software" },
-      { name: "Product Updates", href: "/#services" },
-      { name: "Roadmap", href: "/#services" },
-    ],
-    company: [
-      { name: "About Us", href: "/about" },
-      { name: "Contact Us", href: "/contact" },
-      { name: "Let's Talk", href: "/lets-talk" },
-      { name: "Careers", href: "/contact" },
-      { name: "Blog & Insights", href: "/blog" },
-      { name: "Press Kit", href: "/contact" },
-      { name: "Partners", href: "/#companies" },
-    ],
-    resources: [
-      { name: "Guides & Checklists", href: "/insights/guides" },
-      { name: "HR Resources & Templates", href: "/insights/resources" },
-      { name: "Case Studies", href: "/case-studies" },
-      { name: "HR Tool Finder", href: "/tool-finder" },
-      { name: "Blog & Insights", href: "/blog" },
-    ],
-};
-
 export function Footer() {
   const t = useTranslations("footer");
+
+  const productLinks = [
+    { key: "featuresOverview", href: "#services" },
+    { key: "pricingPlans", href: "/contact" },
+    { key: "integrations", href: "/#software" },
+    { key: "productUpdates", href: "/#services" },
+    { key: "roadmap", href: "/#services" },
+  ] as const;
+
+  const companyLinks = [
+    { key: "aboutUs", href: "/about" },
+    { key: "contactUs", href: "/contact" },
+    { key: "letsTalk", href: "/lets-talk" },
+    { key: "careers", href: "/contact" },
+    { key: "blogInsights", href: "/blog" },
+    { key: "pressKit", href: "/contact" },
+    { key: "partners", href: "/#companies" },
+  ] as const;
+
+  const resourceLinks = [
+    { key: "guidesChecklists", href: "/insights/guides" },
+    { key: "hrResources", href: "/insights/resources" },
+    { key: "caseStudies", href: "/case-studies" },
+    { key: "hrToolFinder", href: "/tool-finder" },
+    { key: "blogInsights", href: "/blog" },
+  ] as const;
   return (
     <footer className="w-full bg-black text-white pt-16 sm:pt-20 pb-12 px-4 sm:px-8 lg:px-16 border-t border-white/10 relative overflow-hidden">
       {/* Background Graphic Image */}
@@ -117,13 +117,13 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-white text-sm sm:text-base mb-5">{t("product")}</h3>
             <ul className="flex flex-col gap-3.5">
-              {footerLinks.product.map((link, idx) => (
-                <li key={idx}>
+              {productLinks.map((link) => (
+                <li key={link.key}>
                   <Link
                     href={link.href}
                     className="text-gray-400 text-sm hover:text-brand-teal transition-colors"
                   >
-                    {link.name}
+                    {t(`links.${link.key}`)}
                   </Link>
                 </li>
               ))}
@@ -134,13 +134,13 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-white text-sm sm:text-base mb-5">{t("company")}</h3>
             <ul className="flex flex-col gap-3.5">
-              {footerLinks.company.map((link, idx) => (
-                <li key={idx}>
+              {companyLinks.map((link) => (
+                <li key={link.key}>
                   <Link
                     href={link.href}
                     className="text-gray-400 text-sm hover:text-brand-teal transition-colors"
                   >
-                    {link.name}
+                    {t(`links.${link.key}`)}
                   </Link>
                 </li>
               ))}
@@ -151,13 +151,13 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-white text-sm sm:text-base mb-5">{t("resources")}</h3>
             <ul className="flex flex-col gap-3.5">
-              {footerLinks.resources.map((link, idx) => (
-                <li key={idx}>
+              {resourceLinks.map((link) => (
+                <li key={`res-${link.key}`}>
                   <Link
                     href={link.href}
                     className="text-gray-400 text-sm hover:text-brand-teal transition-colors"
                   >
-                    {link.name}
+                    {t(`links.${link.key}`)}
                   </Link>
                 </li>
               ))}

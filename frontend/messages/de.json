@@ -1071,5 +1071,12 @@
   "languageSwitcher": {
     "en": "EN",
     "de": "DE"
+  },
+  "toolFinder": {
+    "assessmentTitle": "Unabhängige HR-Tool-Bewertung",
+    "assessmentSubtitle": "Beantworten Sie 9 kurze Fragen, um Ihre Top-3-HR-Plattformen zu ermitteln.",
+    "heroHeading": "Finden Sie Ihre optimale HR-Software — kostenlos & herstellerunabhängig",
+    "heroSubtitle": "Beantworten Sie 9 Fragen und erhalten Sie herstellerunabhängige Empfehlungen aus über 20 Plattformen.",
+    "startAssessment": "Kostenlose Bewertung starten"
   }
 }

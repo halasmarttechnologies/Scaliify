@@ -5,10 +5,12 @@ import { BLOG_POSTS, BLOG_CATEGORIES, BlogCategory } from "@/data/blogPosts";
 import { BlogFilter } from "@/components/home/blog/BlogFilter";
 import { BlogCard } from "@/components/home/blog/BlogCard";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Search, X, ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function BlogIndexClient() {
+  const t = useTranslations("blogIndex");
   const [selectedCategory, setSelectedCategory] = useState<BlogCategory>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
 
@@ -34,10 +36,10 @@ export function BlogIndexClient() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
           <div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-3">
-              Blog
+              {t("heading")}
             </h1>
             <p className="text-sm sm:text-base text-gray-600 max-w-2xl leading-relaxed">
-              Stay informed and inspired with Scaliify&apos;s HR blog — your source for need-to-know trends, strategic insights, and helpful resources.
+              {t("subtitle")}
             </p>
           </div>
 
@@ -49,7 +51,7 @@ export function BlogIndexClient() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search articles..."
+                placeholder={t("searchPlaceholder")}
                 className="w-full bg-transparent text-xs sm:text-sm text-gray-900 placeholder-gray-400 focus:outline-none"
               />
               {searchQuery && (
@@ -87,7 +89,7 @@ export function BlogIndexClient() {
         {/* Empty state if filtered category has no posts */}
         {filteredPosts.length === 0 && (
           <div className="w-full py-16 text-center text-gray-500 text-sm">
-            No articles found matching &ldquo;{searchQuery}&rdquo;.
+            {t("noResults", { query: searchQuery })}
           </div>
         )}
 
@@ -95,10 +97,10 @@ export function BlogIndexClient() {
         <div className="mt-16 sm:mt-24 w-full bg-brand-dark text-white rounded-3xl p-8 sm:p-12 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm">
           <div className="relative z-10 max-w-xl">
             <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-2">
-              Ready to find the perfect HR stack for your team?
+              {t("toolFinderBannerHeading")}
             </h3>
             <p className="text-gray-300 text-sm sm:text-base">
-              Benchmark 20+ top HR platforms tailored specifically to your company size and payroll workflow in under 2 minutes.
+              {t("toolFinderBannerDesc")}
             </p>
           </div>
 
@@ -107,7 +109,7 @@ export function BlogIndexClient() {
             className="group relative inline-flex items-center gap-2 bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark font-extrabold text-sm px-6 py-3.5 rounded-full border border-white/70 shadow-[0_3px_16px_rgba(129,216,208,0.55)] hover:shadow-[0_4px_22px_rgba(129,216,208,0.85)] hover:scale-105 active:scale-95 transition-all shrink-0 overflow-hidden"
           >
             <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-full pointer-events-none" />
-            <span className="relative z-10">Launch Tool Finder</span>
+            <span className="relative z-10">{t("launchToolFinder")}</span>
             <ArrowRight className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>

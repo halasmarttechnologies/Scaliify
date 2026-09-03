@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import { useLocale } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { ArrowRight, Check, CheckCircle2 } from "lucide-react";
 import { BookingLeadSection } from "@/components/common/BookingLeadSection";
 import { BlogSection } from "@/components/home/BlogSection";
 
 export function CaseStudiesClient() {
+  const t = useTranslations("caseStudies");
   const locale = useLocale();
   const isDe = locale === "de";
 
@@ -19,7 +20,7 @@ export function CaseStudiesClient() {
       <section className="w-full pt-28 sm:pt-36 lg:pt-40 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-8 border-b border-gray-100 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#05434B] block mb-3">
-            {isDe ? "ERGEBNISSE & KUNDENSTORYS" : "CUSTOMER IMPACT & OUTCOMES"}
+            {t("kicker")}
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-950 leading-[1.12] mb-5">
             {isDe

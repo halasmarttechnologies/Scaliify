@@ -1,16 +1,26 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ResourcesClient } from "@/components/resources/ResourcesClient";
 import { buildMetadata } from "@/lib/seo";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
-export const metadata: Metadata = buildMetadata({
-  title: "HR Resources — RFP Templates & Decision Frameworks",
-  description:
-    "Download free vendor-neutral HR RFP templates, software TCO calculators, contract addendums, and People operations decision frameworks.",
-  path: "/insights/resources",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata.resources" });
+  return buildMetadata({ title: t("title"), description: t("description"), path: "/insights/resources" });
+}
 
-export default function ResourcesPage() {
+export default async function ResourcesPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <>
       <BreadcrumbJsonLd

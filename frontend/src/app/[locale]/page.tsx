@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import { getTranslations } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 
 // ── Critical above-the-fold components (loaded immediately) ───────────────────
 import { Hero } from "@/components/home/Hero";
 import { ServicesOverview } from "@/components/home/ServicesOverview";
 
 // ── Below-fold components (dynamically loaded, reduces initial JS bundle) ──────
-// Each chunk is only downloaded when the user scrolls towards it.
 const CoreFeatures = dynamic(() =>
   import("@/components/home/CoreFeatures").then((m) => m.CoreFeatures)
 );
@@ -40,14 +41,27 @@ import { buildMetadata } from "@/lib/seo";
 import { FAQPageJsonLd } from "@/components/seo/JsonLd";
 import { FAQ_ITEMS } from "@/data/faq";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Scaliify — Independent HR Technology Consultancy",
-  description:
-    "Vendor-neutral HR software selection, implementation, and integrations for European businesses. Benchmark 20+ platforms and find the right HR tech stack.",
-  path: "/",
-});
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata.home" });
+  return buildMetadata({
+    title: t("title"),
+    description: t("description"),
+    path: "/",
+  });
+}
 
-export default function Home() {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <main className="w-full min-h-screen relative bg-white">
       <FAQPageJsonLd questions={FAQ_ITEMS} />
