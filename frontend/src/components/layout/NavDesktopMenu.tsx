@@ -176,18 +176,9 @@ export function NavDesktopMenu({ isScrolled, activeMenu, setActiveMenu }: NavDes
                     </Link>
                   </div>
                 </div>
-
-                <Link
-                  href="/services/hr-it-selection"
-                  onClick={() => setActiveMenu(null)}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-teal hover:text-brand-dark transition-colors mt-6 pt-2 border-t border-gray-50"
-                >
-                  <span>{t("exploreHrTech")}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
               </div>
 
-              {/* Column 2: Advisory & Leadership */}
+              {/* Column 2: Interim Management & Advisory */}
               <div className="flex flex-col justify-between border-l border-gray-100 pl-8">
                 <div>
                   <h4 className="text-[15px] font-bold text-gray-900 tracking-tight">
@@ -227,19 +218,10 @@ export function NavDesktopMenu({ isScrolled, activeMenu, setActiveMenu }: NavDes
                       onClick={() => setActiveMenu(null)}
                       className="block hover:text-brand-dark hover:translate-x-0.5 transition-all py-0.5"
                     >
-                      {t("scheinselbststaendigkeit")} ↗
+                      {t("scheinselbststaendigkeit")}
                     </a>
                   </div>
                 </div>
-
-                <Link
-                  href="/services"
-                  onClick={() => setActiveMenu(null)}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-teal hover:text-brand-dark transition-colors mt-6 pt-2 border-t border-gray-50"
-                >
-                  <span>{t("exploreAdvisory")}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
               </div>
 
             </div>

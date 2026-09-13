@@ -252,19 +252,8 @@ export function HomeFastTimeToValue() {
               <div className="bg-white text-gray-900 rounded-full px-4 py-1.5 text-xs font-bold flex items-center gap-2 shadow-sm border border-white/90">
                 <CheckCircle2 className="w-4 h-4 text-[#05434B] stroke-[2.5]" />
                 <span>{t("opsStable")}</span>
-                <span className="text-gray-500 font-medium text-[11px] hidden xl:inline">{t("payAsYouGo")}</span>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Bottom Pill Badge */}
-        <div className="text-center">
-          <div className="inline-flex items-center gap-2 bg-[#81D8D0]/20 text-[#05434B] border border-[#81D8D0]/50 px-4 py-1.5 rounded-full text-xs font-bold shadow-2xs">
-            <div className="w-4 h-4 rounded-full bg-[#05434B] text-[#81D8D0] flex items-center justify-center shrink-0">
-              <ShieldCheck className="w-2.5 h-2.5" />
-            </div>
-            <span>{t("bottomBadge")}</span>
           </div>
         </div>
       </div>

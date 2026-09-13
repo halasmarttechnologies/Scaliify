@@ -5,12 +5,12 @@ import { TextRoll } from "@/components/ui/TextRoll";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
-interface SoftwareTool {
+export interface SoftwareTool {
   id: string;
   name: string;
 }
 
-const softwareList: SoftwareTool[] = [
+export const softwareList: SoftwareTool[] = [
   // HRIS
   { id: "personio", name: "Personio" },
   { id: "deel", name: "Deel" },
@@ -40,7 +40,7 @@ const softwareList: SoftwareTool[] = [
   { id: "zep", name: "ZEP" },
 ];
 
-const ToolLogo = React.memo(function ToolLogo({ id }: { id: string }) {
+export const ToolLogo = React.memo(function ToolLogo({ id }: { id: string }) {
   switch (id) {
     case "personio":
       return (

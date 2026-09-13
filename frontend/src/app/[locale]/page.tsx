@@ -8,9 +8,6 @@ import { Hero } from "@/components/home/Hero";
 import { ServicesOverview } from "@/components/home/ServicesOverview";
 
 // ── Below-fold components (dynamically loaded, reduces initial JS bundle) ──────
-const CoreFeatures = dynamic(() =>
-  import("@/components/home/CoreFeatures").then((m) => m.CoreFeatures)
-);
 const HomeFastTimeToValue = dynamic(() =>
   import("@/components/home/HomeFastTimeToValue").then((m) => m.HomeFastTimeToValue)
 );
@@ -71,7 +68,6 @@ export default async function Home({
       <ServicesOverview />
 
       {/* Below fold — lazy loaded in separate JS chunks */}
-      <CoreFeatures />
       <HomeFastTimeToValue />
       <TrustedCompanies />
       <SoftwareStack />

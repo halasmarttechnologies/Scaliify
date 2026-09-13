@@ -32,9 +32,16 @@ const CORE_HR_NEEDS_VALUES = [
   "core_compliance",
   "core_signatures",
   "core_org_charts",
+  "core_self_service",
 ] as const;
 
-const PAYROLL_MODEL_VALUES = ["payroll_datev", "payroll_local_eu", "payroll_global_eor", "payroll_internal"] as const;
+const PAYROLL_MODEL_VALUES = [
+  "payroll_datev",
+  "payroll_tax_advisor",
+  "payroll_local_eu",
+  "payroll_global_eor",
+  "payroll_internal",
+] as const;
 
 const RECRUITING_NEEDS_VALUES = [
   "ats_multiposting",
@@ -42,9 +49,11 @@ const RECRUITING_NEEDS_VALUES = [
   "ats_candidate_experience",
   "ats_talent_pool",
   "ats_advanced_analytics",
+  "ats_templates_signatures",
 ] as const;
 
 const PERFORMANCE_NEEDS_VALUES = [
+  "perf_starting_fresh",
   "perf_360_reviews",
   "perf_okrs",
   "perf_continuous_1on1",
@@ -53,6 +62,7 @@ const PERFORMANCE_NEEDS_VALUES = [
 
 const TIME_ATTENDANCE_VALUES = [
   "time_bag_compliant",
+  "time_compliant",
   "time_absence",
   "time_shift_planning",
   "time_project_tracking",
@@ -60,6 +70,10 @@ const TIME_ATTENDANCE_VALUES = [
 
 const INTEGRATIONS_VALUES = [
   "int_datev",
+  "int_payroll",
+  "int_expenses",
+  "int_active_directory",
+  "int_comms",
   "int_slack_teams",
   "int_google_ms",
   "int_erp",

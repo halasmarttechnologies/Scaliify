@@ -26,7 +26,6 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { companies } from "@/data/companies";
-import { Testimonials } from "@/components/home/Testimonials";
 import { BookingLeadSection } from "@/components/common/BookingLeadSection";
 import { BlogSection } from "@/components/home/BlogSection";
 import { AnimatedStatCounter } from "@/components/common/AnimatedStatCounter";
@@ -34,32 +33,32 @@ import { AnimatedStatCounter } from "@/components/common/AnimatedStatCounter";
 const triggerSituationsEn = [
   {
     icon: ShieldCheck,
-    title: "Senior Leadership, Placed Fast",
+    title: "Senior leadership, placed fast",
     desc: "We place experienced senior HR leaders at short notice: someone who can step into the gap when your business needs a seat filled now, not in three months.",
   },
   {
     icon: Clock,
-    title: "When Companies Usually Call Us",
+    title: "When companies usually call us",
     desc: "An HR lead resigns out of nowhere, someone needs parental leave covered, a company scales rapidly, or a merger leaves HR with no clear owner.",
   },
   {
     icon: Zap,
-    title: "How Fast You Can Start",
+    title: "How fast you can start",
     desc: "Immediately, in most cases. Once we understand what you need, we move quickly to get the right person in place.",
   },
   {
     icon: Award,
-    title: "Not Just a Recruitment Agency",
+    title: "Not just a recruitment agency",
     desc: "A recruitment agency's job usually ends the moment a placement is made. Ours doesn't. We stay accountable for the outcome, not just for filling the seat.",
   },
   {
     icon: Users,
-    title: "Backed by 100+ Specialists",
-    desc: "We work with a network of more than 100 HR specialists. That means we can match the right person to the right situation fast, instead of settling for whoever happens to be available.",
+    title: "Over 150 vetted HR specialists",
+    desc: "We work with a curated network of more than 150 vetted HR specialists. That means we can match the right person to the right situation fast, instead of settling for whoever happens to be available.",
   },
   {
     icon: Target,
-    title: "Invested in Your Success",
+    title: "Invested in your success",
     desc: "We stay actively invested in how things go once someone's in the role, ensuring smooth leadership continuity and strategic alignment.",
   },
 ];
@@ -87,8 +86,8 @@ const triggerSituationsDe = [
   },
   {
     icon: Users,
-    title: "Unterstützt durch 100+ Spezialist:innen",
-    desc: "Wir greifen auf ein Netzwerk von mehr als 100 HR-Expert:innen zurück. So finden wir schnell die exakt passende Person, statt auf beliebige Verfügbarkeiten zurückzugreifen.",
+    title: "Über 150 geprüfte HR-Spezialist:innen",
+    desc: "Wir greifen auf ein kuratiertes Netzwerk von mehr als 150 geprüften HR-Expert:innen zurück. So finden wir schnell die exakt passende Person, statt auf beliebige Verfügbarkeiten zurückzugreifen.",
   },
   {
     icon: Target,
@@ -244,19 +243,19 @@ const beforeAgencyItemsDe = [
 ];
 
 const afterScaliifyItemsEn = [
-  { text: "Immediate deployment — matched & operational in <48h", badge: "Immediate Start" },
-  { text: "100% accountable for outcomes & tangible milestones", badge: "Outcome-Driven" },
-  { text: "Backed by a curated network of >100 vetted HR specialists", badge: ">100 Experts" },
-  { text: "Battle-tested across scaleups, M&A, and parental leaves", badge: null },
-  { text: "Flexible engagements from part-time advisory to full-time CPO", badge: "Total Flexibility" },
+  "Immediate deployment — matched & operational in <48h",
+  "100% accountable for outcomes & tangible milestones",
+  "Backed by a curated network of >150 vetted HR specialists",
+  "Battle-tested across scaleups, M&A, and parental leaves",
+  "Flexible engagements from part-time advisory to full-time CPO",
 ];
 
 const afterScaliifyItemsDe = [
-  { text: "Sofortiger Start — passend gematcht & einsatzbereit in unter 48h", badge: "Sofortiger Start" },
-  { text: "100 % Verantwortung für greifbare Meilensteine und Ergebnisse", badge: "Ergebnisorientiert" },
-  { text: "Unterstützt durch ein Netzwerk von über 100 geprüften HR-Spezialist:innen", badge: ">100 Expert:innen" },
-  { text: "Praxiserprobt in Scale-ups, M&A-Phasen und Elternzeitvertretungen", badge: null },
-  { text: "Flexible Modelle von Teilzeit-Sparring bis zur Vollzeit-CPO-Rolle", badge: "Maximale Flexibilität" },
+  "Sofortiger Start — passend gematcht & einsatzbereit in unter 48h",
+  "100 % Verantwortung für greifbare Meilensteine und Ergebnisse",
+  "Unterstützt durch ein Netzwerk von über 150 geprüften HR-Spezialist:innen",
+  "Praxiserprobt in Scale-ups, M&A-Phasen und Elternzeitvertretungen",
+  "Flexible Modelle von Teilzeit-Sparring bis zur Vollzeit-CPO-Rolle",
 ];
 
 const interimFaqsEn = [
@@ -357,7 +356,17 @@ export function InterimManagementClient() {
             </p>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black leading-[1.12] mb-5">
-              {t("heading")}
+              {isDe ? (
+                <>
+                  Senior-HR-Führung
+                  <span className="block">auf Abruf</span>
+                </>
+              ) : (
+                <>
+                  Senior HR leadership,
+                  <span className="block">on demand</span>
+                </>
+              )}
             </h1>
 
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-8 max-w-xl">
@@ -366,22 +375,14 @@ export function InterimManagementClient() {
 
             <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
               <Link
-                href="/lets-talk"
+                href="/contact?topic=interim"
                 className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 rounded-full text-xs sm:text-sm font-extrabold text-brand-dark bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep shadow-[0_4px_22px_rgba(129,216,208,0.65)] border border-white/80 hover:shadow-[0_6px_28px_rgba(129,216,208,0.95)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 overflow-hidden cursor-pointer"
               >
                 <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/75 to-transparent rounded-t-full pointer-events-none" />
                 <span className="relative z-10 tracking-tight font-extrabold">
-                  {t("ctaButton")}
+                  {isDe ? "Interim-Führungskraft anfragen" : "Request an interim leader"}
                 </span>
                 <ArrowRight className="relative z-10 w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </Link>
-
-              <Link
-                href="#triggers"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-black border border-gray-300 hover:border-[#2B4C55] px-6 py-3.5 rounded-full transition-all hover:bg-gray-50 cursor-pointer"
-              >
-                <span>{isDe ? "Einsatzszenarien" : "Trigger situations"}</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#2B4C55]" />
               </Link>
             </div>
           </div>
@@ -407,11 +408,11 @@ export function InterimManagementClient() {
       <section className="w-full bg-white py-8 sm:py-12 border-y border-gray-100 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto flex flex-col items-center">
           <div className="w-full flex flex-wrap items-center justify-center gap-6 sm:gap-10 lg:gap-14 opacity-80 grayscale hover:grayscale-0 transition-all duration-300">
-            {companies.slice(0, 6).map((c) => (
+            {companies.map((c) => (
               <div key={c.id} className="relative h-7 w-20 sm:w-24 shrink-0 flex items-center justify-center">
                 <Image
                   src={c.logoUrl}
-                  alt={`Partner ${c.id}`}
+                  alt={`${c.name} logo`}
                   fill
                   unoptimized
                   className="object-contain"
@@ -430,7 +431,7 @@ export function InterimManagementClient() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-black">
-              {isDe ? "Wenn Sie sofort erfahrene HR-Führung brauchen" : "When you need experienced HR leadership, fast"}
+              {isDe ? "Wann brauchen Sie ein Interim-HR-Management?" : "When do you need an interim HR leader?"}
             </h2>
           </div>
 
@@ -584,19 +585,12 @@ export function InterimManagementClient() {
                   {isDe ? "Scaliify Interimsmanagement" : "Scaliify Interim Management"}
                 </h3>
                 <ul className="flex flex-col gap-4">
-                  {afterScaliifyItems.map(({ text, badge }) => (
-                    <li key={text} className="flex items-start gap-3 text-xs sm:text-sm text-black font-semibold">
+                  {afterScaliifyItems.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-xs sm:text-sm text-black font-semibold">
                       <div className="w-5 h-5 rounded-full bg-[#4FB8AA] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
                         <Check className="w-3.5 h-3.5 stroke-[3]" />
                       </div>
-                      <div className="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2.5">
-                        <span className="text-gray-950 font-bold leading-snug">{text}</span>
-                        {badge && (
-                          <span className="self-start sm:self-center shrink-0 text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wide bg-[#76D8C8]/30 text-[#05434B] px-2.5 py-0.5 rounded-full whitespace-nowrap">
-                            {badge}
-                          </span>
-                        )}
-                      </div>
+                      <span className="text-gray-950 font-bold leading-snug">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -607,12 +601,7 @@ export function InterimManagementClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 6. TESTIMONIALS SECTION                                      */}
-      {/* ============================================================ */}
-      <Testimonials />
-
-      {/* ============================================================ */}
-      {/* 7. FREQUENTLY ASKED QUESTIONS ACCORDION                      */}
+      {/* 6. FREQUENTLY ASKED QUESTIONS ACCORDION                      */}
       {/* ============================================================ */}
       <section className="w-full bg-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
         <div className="max-w-4xl mx-auto">
@@ -620,7 +609,7 @@ export function InterimManagementClient() {
             <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#2B4C55] mb-2.5">
               {isDe ? "KLARE ANTWORTEN" : "CLEAR ANSWERS"}
             </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-gray-950">
               {isDe ? "Häufig gestellte Fragen" : "Frequently asked questions"}
             </h2>
           </div>
@@ -669,9 +658,18 @@ export function InterimManagementClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 8. DISCOVERY & CONSULTATION BOOKING LEAD SECTION             */}
+      {/* 7. DISCOVERY & CONSULTATION BOOKING LEAD SECTION             */}
       {/* ============================================================ */}
-      <BookingLeadSection />
+      <BookingLeadSection
+        badgeTitle={isDe ? "SENIOR-FÜHRUNG AUF ABRUF" : "SENIOR LEADERSHIP ON DEMAND"}
+        title={isDe ? "Interim-HR-Führungskraft anfragen" : "Request an interim HR leader"}
+        subtitle={
+          isDe
+            ? "Teilen Sie uns Ihren Bedarf und gewünschten Starttermin mit. Wir stellen Ihnen innerhalb von 48 Stunden passende, geprüfte Senior-Führungskräfte vor."
+            : "Tell us about your vacancy or transition timeline. We match vetted senior HR leaders within 48 hours."
+        }
+        source="interim_management"
+      />
 
       {/* ============================================================ */}
       {/* 9. BLOG SECTION                                              */}

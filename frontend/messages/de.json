@@ -6,7 +6,7 @@
     },
     "about": {
       "title": "Über uns — Unsere Geschichte, Team & Vision",
-      "description": "Erfahren Sie mehr über Scaliifys Mission, die Lücke zwischen ambitioniertem Wachstum und operativer Exzellenz zu schließen. Lernen Sie die Partner Sarah Mittiga und Ben Böhmer sowie unser globales Netzwerk von über 100 Spezialist:innen kennen."
+      "description": "Erfahren Sie mehr über scaliifys Mission, die Lücke zwischen ambitioniertem Wachstum und operativer Exzellenz zu schließen. Lernen Sie die Gründer Sarah Mittiga und Ben Böhmer sowie unser globales Netzwerk von über 150 Spezialist:innen kennen."
     },
     "contact": {
       "title": "Kontakt",
@@ -34,7 +34,7 @@
     },
     "toolFinder": {
       "title": "HR Tool Finder — Finden Sie Ihre perfekte HR-Software",
-      "description": "Beantworten Sie 10 kurze Fragen und erhalten Sie personalisierte HR-Software-Empfehlungen, benchmarkt gegen über 20 führende europäische und globale Plattformen."
+      "description": "Beantworten Sie 9 Fragen und erhalten Sie Empfehlungen, die über 20+ Plattformen hinweg verglichen werden."
     },
     "privacy": {
       "title": "Datenschutzerklärung",
@@ -55,7 +55,7 @@
       },
       "hrItIntegrations": {
         "title": "HR-IT-Integrationen — Verbinden Sie Ihren Tech-Stack",
-        "description": "End-to-End HR-Systemintegrationen, die Ihr HRIS, Ihre Gehaltsabrechnung (DATEV), ATS, Performance-Tools und Unternehmenssysteme in automatisierte Workflows verbinden."
+        "description": "End-to-End HR-Systemintegrationen, die Ihr HRIS, Ihre Lohnabrechnungssysteme, ATS, Performance-Tools und Unternehmenssysteme in automatisierte Workflows verbinden."
       },
       "interimManagement": {
         "title": "Interimsmanagement — Senior-Führungskräfte auf Abruf",
@@ -88,12 +88,12 @@
     "implementationOptimisation": "Implementierung & Optimierung",
     "hrItIntegrations": "HR-IT-Integrationen",
     "exploreHrTech": "HR-Tech-Leistungen entdecken",
-    "advisoryLeadership": "Beratung & Führung",
-    "advisoryLeadershipSub": "Interimsführung & deutsche Arbeitsrecht-Compliance",
+    "advisoryLeadership": "Interimsmanagement & Beratung",
+    "advisoryLeadershipSub": "Interimsführung & strategische HR-Beratung",
     "interimManagement": "Interimsmanagement",
-    "outsourcedHr": "Ausgelagertes Personalmanagement",
+    "outsourcedHr": "Outsourced HR",
     "hrAdvisory": "HR-Beratung",
-    "scheinselbststaendigkeit": "Scheinselbstständigkeit ↗",
+    "scheinselbststaendigkeit": "Scheinselbstständigkeit",
     "exploreAdvisory": "Beratungsleistungen entdecken",
     "blog": "Blog",
     "blogSub": "Artikel & Trends zu modernem Personalwesen",
@@ -105,10 +105,10 @@
   },
   "footer": {
     "readySimplify": "Bereit, Ihr Personalwesen zu vereinfachen?",
-    "joinThousands": "Schließen Sie sich Tausenden von Teams an, die bereits Scaliify nutzen, um ihre Belegschaft intelligenter zu verwalten.",
-    "startFreeTrial": "Kostenlos testen • Kontakt aufnehmen",
+    "joinThousands": "Schließen Sie sich Hunderten von Teams an, die bereits mit Scaliify zusammenarbeiten, um ihre Belegschaft intelligenter zu verwalten.",
+    "startFreeTrial": "Kostenlose Beratung buchen",
     "tagline": "Intelligenteres Personalwesen beginnt hier. Scaliify hilft modernen Teams, Abläufe zu vereinfachen, Workflows zu automatisieren und bessere Arbeitsplätze zu schaffen – ohne Komplexität.",
-    "product": "Produkt",
+    "product": "Leistungen",
     "company": "Unternehmen",
     "resources": "Ressourcen",
     "connectWithUs": "Verbinden Sie sich mit uns:",
@@ -116,11 +116,12 @@
     "privacyPolicy": "Datenschutzerklärung",
     "termsOfService": "Nutzungsbedingungen",
     "links": {
-      "featuresOverview": "Funktionsübersicht",
-      "pricingPlans": "Preismodelle",
-      "integrations": "Integrationen",
-      "productUpdates": "Produkt-Updates",
-      "roadmap": "Roadmap",
+      "hrItSelection": "HR-IT-Auswahl",
+      "implementationOptimisation": "Implementierung & Optimierung",
+      "hrItIntegrations": "HR-IT-Integrationen",
+      "interimManagement": "Interimsmanagement",
+      "outsourcedHr": "Outsourced HR",
+      "hrAdvisory": "HR-Beratung",
       "aboutUs": "Über uns",
       "contactUs": "Kontakt",
       "letsTalk": "Kontakt aufnehmen",
@@ -135,16 +136,16 @@
     }
   },
   "hero": {
-    "headlinePart1": "Alles rund um HR,",
-    "headlinePart2": " für jedes Unternehmen",
+    "headlinePart1": "Alles rund um HR",
+    "headlinePart2": "für jedes Unternehmen",
     "subheading": "Ihr zentraler Partner für alles rund um HR: Technologie, Prozesse und Führung.",
     "emailPlaceholder": "Ihre geschäftliche E-Mail-Adresse *",
     "emailAriaLabel": "Geschäftliche E-Mail-Adresse",
-    "requestDemo": "Kostenlose Demo anfordern",
+    "requestDemo": "Kostenlose Beratung anfragen",
     "trustedBy": "Vertraut von",
-    "employeeStat": "1,6 Mio.+",
-    "employeesAtOver": "Mitarbeitenden bei über",
-    "orgCount": "16.000",
+    "employeeStat": "Tausenden von",
+    "employeesAtOver": "Mitarbeitenden bei",
+    "orgCount": "über 100",
     "organisations": "Organisationen:"
   },
   "heroTrustBar": {
@@ -203,12 +204,12 @@
     "scaleOperations": "Skalieren Sie Ihre HR-Prozesse"
   },
   "servicesOverview": {
-    "badge": "Vier Bereiche, eine Beratung",
+    "badge": "Ein Partner. Jeder HR-Bedarf abgedeckt.",
     "headingPart1": "Ein Partner.",
     "headingPart2": "Jeder HR-Bedarf abgedeckt.",
     "subtitle": "Statt fünf verschiedene Anbieter und Freelancer zu koordinieren, arbeiten unsere Kunden mit einem Team, das das große Ganze versteht: Technologie, Prozesse, Führungskapazität und Strategie – alles miteinander vernetzt.",
     "hrTechnology": "HR-Technologie",
-    "advisoryLeadership": "Beratung & Führung",
+    "advisoryLeadership": "Interimsmanagement & Beratung",
     "explorePage": "Seite entdecken",
     "bannerText": "Sie brauchen zuverlässige HR-Technologie oder strategische Beratung? Hier sind Sie richtig.",
     "bookACall": "TERMIN VEREINBAREN"
@@ -372,7 +373,7 @@
     "prioritySupport": "Prioritäts-Support verfügbar"
   },
   "bookingLead": {
-    "defaultTitle": "Erleben Sie Scaliify in Aktion",
+    "defaultTitle": "Kostenlose Beratung buchen",
     "defaultSubtitle": "Füllen Sie Ihre Daten aus, um ein Beratungsgespräch mit einer unserer People- & HR-Technologie-Expert:innen zu buchen.",
     "defaultBadge": "KENNENLERNEN & BERATUNG",
     "expectHeading": "Das erwartet Sie:",
@@ -382,12 +383,12 @@
     "trustHeading": "Unabhängige Expertise, der europäische Führungskräfte vertrauen:",
     "trustBadge1Title": "Top HR-Beratung",
     "trustBadge1Sub": "FRÜHJAHR 2026",
-    "trustBadge2Title": ">100 Spezialist:innen",
+    "trustBadge2Title": ">150 Spezialist:innen",
     "trustBadge2Sub": "GEPRÜFTES NETZWERK",
-    "trustBadge3Title": "100 % Herstellerunabhängig",
-    "trustBadge3Sub": "KEINE PROVISIONEN",
-    "trustBadge4Title": "96 % Erfolgsquote",
-    "trustBadge4Sub": "MEILENSTEINE ERREICHT",
+    "trustBadge3Title": "96 % Erfolgsquote",
+    "trustBadge3Sub": "MEILENSTEINE ERREICHT",
+    "trustBadge4Title": "Erstklassiger Support",
+    "trustBadge4Sub": "SCHNELLE ERGEBNISSE",
     "successHeading": "Vielen Dank, {firstName}!",
     "successMessage": "Wir haben Ihre Daten erhalten. Ein:e Senior-Partner:in von Scaliify wird sich innerhalb von 24 Stunden mit Ihnen in Verbindung setzen, um Ihr Beratungsgespräch zu koordinieren.",
     "submitAnother": "Weitere Anfrage stellen",
@@ -395,6 +396,8 @@
     "firstNamePlaceholder": "z. B. Alex",
     "lastNameLabel": "Nachname *",
     "lastNamePlaceholder": "z. B. Müller",
+    "jobTitleLabel": "Ihre Rolle / Position",
+    "jobTitlePlaceholder": "z. B. Head of People, Geschäftsführer:in, HR Lead",
     "emailLabel": "Geschäftliche E-Mail-Adresse *",
     "emailPlaceholder": "name@unternehmen.com",
     "companyLabel": "Unternehmen *",
@@ -412,7 +415,7 @@
     "consentText": "Mit dem Absenden dieses Formulars stimmen Sie unserer",
     "consentPrivacy": "Datenschutzerklärung",
     "consentEnd": " zu. Sie können Ihre Einwilligung jederzeit widerrufen.",
-    "submitButton": "Kostenloses Erstgespräch buchen",
+    "submitButton": "Kostenloses Beratungsgespräch buchen",
     "submitting": "Wird gesendet…"
   },
   "contact": {
@@ -542,13 +545,13 @@
     ]
   },
   "about": {
-    "kicker": "ÜBER SCALIIFY",
+    "kicker": "ÜBER scaliify",
     "heading": "Die Kraft von Menschen und operativer Exzellenz entfalten",
-    "intro1": "Bei Scaliify sind wir überzeugt, dass Menschen und operative Agilität die wichtigsten Erfolgsfaktoren für jede wachsende Organisation sind. Wir schließen die Lücke zwischen ambitioniertem Wachstum und operativer Umsetzung.",
+    "intro1": "Bei scaliify sind wir überzeugt, dass Menschen und operative Agilität die wichtigsten Erfolgsfaktoren für jede wachsende Organisation sind. Wir schließen die Lücke zwischen ambitioniertem Wachstum und operativer Umsetzung.",
     "intro2": "Heute helfen wir ambitionierten Unternehmen, intelligenter zu skalieren – mit praxisnaher HR-Führung, Big-4-Beratungsstandards und einem globalen Netzwerk spezialisierter Projektexpert:innen.",
     "talkToTeam": "Mit unserem Team sprechen",
     "readOurStory": "Unsere Geschichte lesen",
-    "stat1Value": "100+",
+    "stat1Value": "150+",
     "stat1Label": "Spezialist:innen im globalen Netzwerk",
     "stat2Value": "25+",
     "stat2Label": "Jahre Führungserfahrung & Big-4-Beratung",
@@ -558,32 +561,32 @@
     "stat4Label": "Einstellungen geleitet & eingearbeitet in 8 Monaten",
     "journeyKicker": "UNSERE REISE",
     "journeyHeading": "Unsere Geschichte",
-    "journeyIntro1": "Scaliify wurde mit einer klaren Vision gegründet:",
+    "journeyIntro1": "scaliify wurde mit einer klaren Vision gegründet:",
     "journeyIntro1Bold": " die Lücke zwischen ambitioniertem Wachstum und operativer Exzellenz zu schließen.",
     "journeyIntro2": "Basierend auf praktischer Erfahrung im Personalwesen und Marketing, kombiniert mit Big-4-Beratungsexpertise, sahen wir die Möglichkeit, Unternehmen praktische, ergebnisorientierte Lösungen ohne die Ineffizienzen traditioneller Modelle anzubieten.",
     "journeyIntro3": "Von Anfang an haben wir uns dem intelligenteren Arbeiten verpflichtet – mit einem Netzwerk von projektspezifischen Expert:innen, um maßgeschneiderte Strategien zu liefern, die maximale Wirkung bei Ressourceneffizienz erzielen.",
     "journeyIntro4": "Mit Hauptsitz in Dubai, einem Zentrum für Innovation und Vielfalt, sind wir stolz darauf, Unternehmen weltweit zu betreuen und zukunftsweisende Lösungen mit kulturellem Verständnis zu verbinden, um ihnen beim Skalieren und Wachsen zu helfen.",
     "milestonesKicker": "MEILENSTEINE & ENTWICKLUNG",
     "timeline": [
-      { "year": "2021", "title": "Vision & Gründung", "description": "Scaliify wurde gegründet, um die Lücke zwischen ambitioniertem Wachstum und operativer Exzellenz mit praxisnaher HR-Expertise und Big-4-Beratungsstandards zu schließen." },
+      { "year": "2021", "title": "Vision & Gründung", "description": "scaliify wurde gegründet, um die Lücke zwischen ambitioniertem Wachstum und operativer Exzellenz mit praxisnaher HR-Expertise und Big-4-Beratungsstandards zu schließen." },
       { "year": "2022", "title": "Schnelle Expansion im DACH-Raum", "description": "Über 30 Tech-Startups und mittelständische Unternehmen in Deutschland, Österreich und der Schweiz erfolgreich skaliert." },
       { "year": "2023", "title": "Globales Spezialistennetzwerk", "description": "Aufbau eines geprüften Netzwerks aus projektspezifischen Jurist:innen, HR-Tech-Entwickler:innen, Recruiter:innen und Vergütungsstrateg:innen." },
       { "year": "2024", "title": "Globaler Hauptsitz in Dubai", "description": "Gründung unseres globalen Hauptsitzes in Dubai – einem Zentrum für Innovation, Vielfalt und interkontinentale Vernetzung." },
-      { "year": "2025", "title": "100+ Netzwerk-Spezialist:innen", "description": "Erweiterung auf über 100 abrufbare HR-Spezialist:innen für Beratung, Interimsmanagement und Technologieberatung in über 5 Märkten." },
-      { "year": "2026", "title": "HR-Beratung der nächsten Generation", "description": "Hunderte von skalierenden Unternehmen werden mit End-to-End HR-Technologie und People-Operations-Beratung unterstützt." }
+      { "year": "2025", "title": "150+ Netzwerk-Spezialist:innen", "description": "Erweiterung auf über 150 abrufbare HR-Spezialist:innen für Beratung, Interimsmanagement und Technologieberatung in über 5 Märkten." },
+      { "year": "2026", "title": "KI & Next-Gen HR-Beratung", "description": "Hunderte von skalierenden Unternehmen werden mit KI-gestützten Workflows, herstellerneutraler HR-Softwareauswahl und zukunftssicheren People Operations unterstützt." }
     ],
-    "leadershipKicker": "FÜHRUNG & PARTNER",
-    "leadershipHeading": "Das Scaliify-Team",
+    "leadershipKicker": "FÜHRUNG & GRÜNDER",
+    "leadershipHeading": "Die scaliify-Gründer",
     "leadershipSubtitle": "Über 25 Jahre Erfahrung aus Big-4-Managementberatung, Vertriebsführung und High-Growth People Operations vereint.",
     "partner": "Partner",
     "sarahName": "Sarah Mittiga",
     "sarahRole": "Strategie, Change Management & Geschäftsentwicklung",
-    "sarahBio": "Mit über einem Jahrzehnt Projektleitungserfahrung in Big-4-Managementberatung, Vertrieb und strategischer Geschäftsentwicklung ist Sarah eine treibende Kraft in der Verbindung von Lösungen mit realen organisatorischen Herausforderungen. Ihre Expertise in Stakeholder-Management, Prozessoptimierung und Geschäftstransformation stellt sicher, dass jedes Scaliify-Engagement in messbare Geschäftsergebnisse mündet.",
+    "sarahBio": "Mit über einem Jahrzehnt Projektleitungserfahrung in Big-4-Managementberatung, Vertrieb und strategischer Geschäftsentwicklung ist Sarah eine treibende Kraft in der Verbindung von Lösungen mit realen organisatorischen Herausforderungen. Ihre Expertise in Stakeholder-Management, Prozessoptimierung und Geschäftstransformation stellt sicher, dass jedes scaliify-Engagement in messbare Geschäftsergebnisse mündet.",
     "sarahLinkedIn": "Auf LinkedIn vernetzen",
     "sarahBadge": "Ex-Big-4-Beraterin",
     "benName": "Ben Böhmer",
     "benRole": "People Operations, Unternehmenskultur & Skalierung",
-    "benBio": "Ben bringt über 15 Jahre People-Erfahrung aus High-Growth-Startups, Scaleups und internationalen Organisationen mit. Durch den persönlichen Aufbau und die Leitung von People-Operations-Teams in schnell skalierenden Umgebungen bringt er tiefes operatives Verständnis in jedes Scaliify-Projekt ein – vom Aufbau der HR-Infrastruktur am ersten Tag bis zur Gestaltung von Performance-Frameworks für Unternehmen mit über 500 Mitarbeitenden.",
+    "benBio": "Ben bringt über 15 Jahre People-Erfahrung aus High-Growth-Startups, Scaleups und internationalen Organisationen mit. Durch den persönlichen Aufbau und die Leitung von People-Operations-Teams in schnell skalierenden Umgebungen bringt er tiefes operatives Verständnis in jedes scaliify-Projekt ein – vom Aufbau der HR-Infrastruktur am ersten Tag bis zur Gestaltung von Performance-Frameworks für Unternehmen mit über 500 Mitarbeitenden.",
     "benLinkedIn": "Auf LinkedIn vernetzen",
     "benBadge": "15+ Jahre HR-Führung",
     "networkKicker": "GLOBALES SPEZIALISTENNETZWERK",
@@ -856,13 +859,18 @@
   },
   "toolFinder": {
     "heroKicker": "HR TOOL FINDER",
-    "heroHeading": "Finden Sie Ihre perfekte HR-Software in 2 Minuten",
-    "heroSubtitle": "Beantworten Sie 10 kurze Fragen und erhalten Sie personalisierte Empfehlungen, benchmarkt gegen über 20 führende europäische und globale Plattformen.",
+    "heroHeading": "Finden Sie Ihre perfekte\nHR-Software",
+    "heroHeadingLine1": "Finden Sie Ihre perfekte",
+    "heroHeadingLine2": "HR-Software",
+    "heroSubtitle": "Beantworten Sie 9 Fragen und erhalten Sie Empfehlungen, die über 20+ Plattformen hinweg verglichen werden.",
     "startAssessment": "Bewertung starten",
+    "assessmentTitle": "Unabhängige HR-Tool-Bewertung",
+    "assessmentSubtitle": "Beantworten Sie 9 Fragen, um Ihre Top-3-HR-Plattformen zu ermitteln.",
+    "step4Footnote": "* DSGVO-Konformität, EU-Hosting und revisionssichere Audit-Logs sind bei allen verglichenen Systemen standardmäßig vorausgesetzt.",
     "questions": [
       {
         "badge": "Schritt 01 | Wählen Sie eine Option",
-        "stepIndicator": "1 von 10",
+        "stepIndicator": "1 von 9",
         "title": "Wie viele Mitarbeitende hat Ihre Organisation?",
         "subtitle": "Anbieterarchitektur, Preismodelle und Compliance-Module skalieren direkt mit der Mitarbeiterzahl.",
         "options": [
@@ -874,123 +882,129 @@
       },
       {
         "badge": "Schritt 02 | Mehrfachauswahl möglich",
-        "stepIndicator": "2 von 10",
+        "stepIndicator": "2 von 9",
         "title": "Wo befinden sich Ihre Teammitglieder?",
-        "subtitle": "Gewährleistet lokale Arbeitsrecht-Compliance, deutsche BAG-Zeitvorschriften und lokale Payroll-Kompatibilität.",
+        "subtitle": "Gewährleistet Einhaltung lokaler Arbeitsgesetze, Arbeitszeitstandards und Gehaltsabrechnung.",
         "options": [
-          { "title": "DACH (Deutschland, Österreich, Schweiz)", "sub": "Strenge GDPR-Vorgaben, native DATEV-Integrationen, deutsches Arbeitsrecht" },
+          { "title": "DACH (Deutschland, Österreich, Schweiz)", "sub": "Strenge DSGVO-Vorgaben, native DATEV-Integrationen, deutsches Arbeitsrecht" },
           { "title": "UK & Westeuropa", "sub": "Geschäftstätigkeit in der Europäischen Union und dem Vereinigten Königreich" },
-          { "title": "Global Remote / Verteilt", "sub": "Internationale Einstellungen in über 10 Ländern mit EOR- und Freelancer-Bedarf" },
-          { "title": "Nordamerika", "sub": "Gesellschaften in den USA und Kanada" },
-          { "title": "MENA / Naher Osten", "sub": "VAE, Saudi-Arabien (WPS-konforme Gehaltsabrechnung und lokale Krankenversicherung)" }
+          { "title": "MENA / Naher Osten", "sub": "VAE, Saudi-Arabien (WPS-konforme Gehaltsabrechnung und lokale Krankenversicherung)" },
+          { "title": "Global Remote / Verteilt", "sub": "Internationale Einstellungen in über 10 Ländern mit EOR- und Freelancer-Bedarf" }
         ]
       },
       {
         "badge": "Schritt 03 | Wählen Sie eine Option",
-        "stepIndicator": "3 von 10",
+        "stepIndicator": "3 von 9",
         "title": "Was ist Ihr primäres Softwareziel?",
         "subtitle": "Führen Sie Ihre erste zentrale HR-Software ein oder implementieren Sie ein spezialisiertes Tool?",
         "options": [
-          { "title": "Neustart", "sub": "Umstieg von Tabellen, gemeinsamen Ordnern und E-Mail auf eine zentrale Plattform" },
+          { "title": "Neustart", "sub": "Umstieg von Excel, Tabellen, gemeinsamen Ordnern und E-Mail auf eine zentrale Plattform" },
           { "title": "Bestehendes HRIS ersetzen", "sub": "Migration zu einem moderneren, skalierbareren und mitarbeiterfreundlicheren Portal" },
           { "title": "Spezialisiertes ATS / Recruiting", "sub": "Suche nach Best-of-Breed-Scorecards, Multiposting und Kandidaten-CRM" },
-          { "title": "Dediziertes Performance & OKRs", "sub": "Implementierung von 360°-Reviews, Kompetenzrahmen und kontinuierlichen 1:1s" }
+          { "title": "Dedizierte Performance-Tools", "sub": "Implementierung von strukturierten Reviews, Kompetenzrahmen und kontinuierlichen 1:1s" }
         ]
       },
       {
         "badge": "Schritt 04 | Mehrfachauswahl möglich",
-        "stepIndicator": "4 von 10",
+        "stepIndicator": "4 von 9",
         "title": "Welche Core-HR-Administrationsfunktionen benötigen Sie?",
         "subtitle": "Wählen Sie die wesentlichen administrativen Workflows für Ihr Team.",
         "options": [
           { "title": "Digitale Personalakte", "sub": "Zentrales sicheres Mitarbeiterdatenarchiv mit rollenbasierten Zugriffsrechten" },
           { "title": "Automatisiertes On- & Offboarding", "sub": "Automatisierte Aufgaben-Checklisten für HR, IT-Bereitstellung und Führungskräfte" },
-          { "title": "GDPR-Compliance & Audit-Logs", "sub": "Strenge europäische Datenspeicherung, Audit-Trails und Löschrichtlinien" },
           { "title": "Integrierte E-Signaturen", "sub": "Rechtskonforme digitale Vertrags- und Dokumentenunterzeichnung" },
-          { "title": "Dynamisches Organigramm & Hierarchien", "sub": "Visuelle Darstellung von Vorgesetzten, Abteilungsstrukturen und Teams" }
+          { "title": "Mitarbeiter-Self-Service-Portal", "sub": "Zentrale Profilpflege, Dokumentenabruf und Unternehmensverzeichnis" }
         ]
       },
       {
         "badge": "Schritt 05 | Wählen Sie eine Option",
-        "stepIndicator": "5 von 10",
+        "stepIndicator": "5 von 9",
         "title": "Wie wird Ihre Gehaltsabrechnung verwaltet?",
-        "subtitle": "Wählen Sie Ihren Steuerberater-Workflow oder Ihre globale Payroll-Engine.",
+        "subtitle": "Wählen Sie Ihren Abrechnungs-Workflow oder Ihr Payroll-Partnermodell.",
         "options": [
-          { "title": "DATEV / Steuerberater-Export", "sub": "Monatliche Brutto-Gehaltsdaten direkt an Ihren deutschen Steuerberater exportieren" },
-          { "title": "Lokale europäische Payroll-Partner", "sub": "Direkte Integration mit lokalen Gehaltsabrechnungsdienstleistern" },
-          { "title": "Globaler Employer of Record (EOR)", "sub": "Schlüsselfertige Einstellungen in mehreren Ländern ohne lokale Gesellschaftsgründung" },
-          { "title": "Interne Lohnbuchhaltung", "sub": "Internes Payroll-Team, das Nettogehälter direkt berechnet" }
+          { "title": "Steuerberater", "sub": "Monatliche Lohnabstimmung direkt mit Ihrem externen Steuerberater" },
+          { "title": "Lokale Payroll-Partner", "sub": "Externer Abrechnungsdienstleister für lokale Brutto-Netto-Abrechnung" },
+          { "title": "Interne Lohnbuchhaltung", "sub": "Internes Payroll-Team, das Nettogehälter direkt berechnet" },
+          { "title": "Globaler Employer of Record (EOR)", "sub": "Schlüsselfertige Einstellungen in mehreren Ländern ohne lokale Gesellschaftsgründung" }
         ]
       },
       {
         "badge": "Schritt 06 | Mehrfachauswahl möglich",
-        "stepIndicator": "6 von 10",
+        "stepIndicator": "6 von 9",
         "title": "Was sind Ihre wichtigsten Recruiting-Prioritäten (ATS)?",
         "subtitle": "Wählen Sie die benötigten Funktionen für Kandidatengewinnung und Pipeline.",
         "options": [
           { "title": "1-Klick-Multiposting", "sub": "Stellenanzeigen gleichzeitig auf LinkedIn, Stepstone, Indeed und Google veröffentlichen" },
           { "title": "Strukturierte Scorecards & Kits", "sub": "Standardisierte Interview-Bewertungen über alle Hiring Manager hinweg" },
           { "title": "Gebrandetes Karriereportal", "sub": "Kandidaten-Self-Scheduling und moderner, mobiloptimierter Bewerbungsablauf" },
-          { "title": "Talentpool & CRM-Sourcing", "sub": "GDPR-konforme passive Kandidatendatenbank und Pipeline-Management" },
-          { "title": "Recruiting-Geschwindigkeit & Kanal-ROI", "sub": "Time-to-Hire, Angebotsannahmequote und Kanal-Conversion-Analysen" }
+          { "title": "Talentpool & CRM-Sourcing", "sub": "DSGVO-konforme passive Kandidatendatenbank und Pipeline-Management" },
+          { "title": "Standardisierte Vorlagen & digitale E-Signaturen", "sub": "Angebotsschreiben-Vorlagen und integrierte digitale Vertragsunterzeichnung" }
         ]
       },
       {
         "badge": "Schritt 07 | Mehrfachauswahl möglich",
-        "stepIndicator": "7 von 10",
+        "stepIndicator": "7 von 9",
         "title": "Wie managen Sie Performance & Mitarbeiterentwicklung?",
         "subtitle": "Wählen Sie Ihre gewünschten Performance-Review- und Zielrahmen.",
         "options": [
-          { "title": "360°-Review-Zyklen", "sub": "Strukturierte Peer-, Vorgesetzten-, Aufwärts- und Selbstbewertungen" },
-          { "title": "Unternehmens- & Team-OKRs", "sub": "Zielausrichtung direkt verknüpft mit individuellem Beitrag" },
-          { "title": "Kontinuierliche 1:1s & Puls-Umfragen", "sub": "Regelmäßige Check-in-Vorlagen und Echtzeit-Team-Engagement-Stimmungsbild" },
-          { "title": "Vergütungs-Benchmarking", "sub": "Job-Leveling, Gehaltsbänder und EU-Entgelttransparenz-Compliance" }
+          { "title": "Neustart / Kein formeller Prozess", "sub": "Aktuell kein formelles System vorhanden; Aufbau erster strukturierter Reviews" },
+          { "title": "Unternehmens- & Team-OKRs", "sub": "Zielausrichtung direkt verknüpft mit Unternehmensmeilensteinen" },
+          { "title": "Kontinuierliche 1:1s & Feedback", "sub": "Regelmäßige Check-in-Vorlagen und kontinuierliches Mitarbeiter-Feedback" },
+          { "title": "360°-Review-Zyklen", "sub": "Strukturierte Peer-, Vorgesetzten-, Aufwärts- und Selbstbewertungen" }
         ]
       },
       {
         "badge": "Schritt 08 | Mehrfachauswahl möglich",
-        "stepIndicator": "8 von 10",
+        "stepIndicator": "8 von 9",
         "title": "Was sind Ihre Anforderungen an Zeiterfassung & Anwesenheit?",
-        "subtitle": "Besonders relevant für EU-Unternehmen mit strengen BAG-Compliance-Anforderungen.",
+        "subtitle": "Gesetzeskonforme Erfassung, Abwesenheitsmanagement und Arbeitszeitmodelle.",
         "options": [
-          { "title": "BAG-konforme Zeiterfassung", "sub": "Exakte Ein-/Ausstempel-Zeiten gemäß EU-/deutschen Arbeitsgerichtsurteilen" },
+          { "title": "Gesetzeskonforme Zeiterfassung", "sub": "Exakte Ein-/Ausstempel-Zeiten gemäß geltenden Arbeitszeitgesetzen" },
           { "title": "Abwesenheits- & Urlaubsrichtlinien", "sub": "Anspruchsregeln, Feiertagskalender und Genehmigungsworkflows" },
-          { "title": "Schicht- & Dienstplanung", "sub": "Planung komplexer Schichtzuweisungen für Einzelhandel, Gastronomie oder Produktion" },
+          { "title": "Schicht- & Dienstplanung", "sub": "Planung komplexer Schichtzuweisungen für Einzelhandel, Betrieb oder Produktion" },
           { "title": "Projektbezogene abrechenbare Stunden", "sub": "Zeiterfassung für spezifische Kundenprojekte oder interne Kostenstellen" }
         ]
       },
       {
         "badge": "Schritt 09 | Mehrfachauswahl möglich",
-        "stepIndicator": "9 von 10",
+        "stepIndicator": "9 von 9",
         "title": "Welche bestehenden Systeme müssen nahtlos integriert werden?",
-        "subtitle": "Ihr HRIS dient als zentrale Datenquelle für Ihr gesamtes Tech-Ökosystem.",
+        "subtitle": "Verbinden Sie Ihre zentrale HR-Plattform mit Ihren bestehenden Geschäfts- und Finanzsystemen.",
         "options": [
-          { "title": "DATEV (LODAS / Lohn und Gehalt)", "sub": "Native API-Integration für Gehaltsexporte per Knopfdruck" },
+          { "title": "Lohnabrechnungssystem", "sub": "Bi-direktionaler oder automatisierter Abgleich mit Ihrem Payroll-Anbieter" },
+          { "title": "Reise- & Spesenmanagement", "sub": "Reisebuchungen, Beleg-Erfassung, Verpflegungsmehraufwand und Spesenabrechnung" },
+          { "title": "Active Directory / SSO (Azure / Okta / Google)", "sub": "Zentrales Identitätsmanagement, Single Sign-On und automatisiertes Provisioning" },
           { "title": "Slack / Microsoft Teams", "sub": "Automatische Geburtstagsbenachrichtigungen, Abwesenheitsmeldungen und Schnellfreigaben" },
-          { "title": "Google Workspace / M365", "sub": "Active-Directory-Benutzerbereitstellung, SSO und Kalendersynchronisation" },
-          { "title": "ERP / Buchhaltung (NetSuite, SAP)", "sub": "Kostenstellen-Zuordnung, Buchungseinträge und finanzielle Abstimmung" },
           { "title": "Individuelle Open-API-Zugriffe", "sub": "Entwicklerzugang für Webhooks und proprietäre interne Tools" }
         ]
       }
     ],
     "wizardIntro": {
-      "heading": "Finden Sie Ihren perfekten HR-Stack",
-      "subtitle": "Beantworten Sie 9 kurze Fragen zu Ihrer Organisation und erhalten Sie herstellerunabhängige Empfehlungen, benchmarkt gegen über 20 Plattformen.",
+      "heading": "Finden Sie Ihre perfekte HR-Software",
+      "subtitle": "Beantworten Sie 9 Fragen und erhalten Sie Empfehlungen, die über 20+ Plattformen hinweg verglichen werden.",
       "startButton": "Bewertung starten",
       "time": "Dauert ca. 2 Minuten"
     },
+    "wizardCalculating": {
+      "title": "Ihre Empfehlungen werden berechnet...",
+      "subtitle": "Ihre Anforderungen werden gegen 20+ geprüfte HRIS-, ATS- und Payroll-Plattformen abgeglichen.",
+      "step1": "Unternehmensgröße und regionale Anforderungen werden analysiert...",
+      "step2": "Schnittstellen zu Payroll- und Geschäftssystemen werden geprüft...",
+      "step3": "Core-HR-, Recruiting- und Zeiterfassungs-Workflows werden bewertet...",
+      "step4": "Ihre persönliche Kompatibilitäts-Scorecard wird erstellt..."
+    },
     "wizardLead": {
-      "heading": "Fast geschafft! Erzählen Sie uns von sich.",
-      "subtitle": "Wir senden Ihre personalisierten Empfehlungen an diese E-Mail-Adresse.",
+      "heading": "Ihre Empfehlungen sind bereit!",
+      "subtitle": "Geben Sie unten Ihre Kontaktdaten ein, um Ihre Scorecard einzusehen und eine Kopie per E-Mail zu erhalten.",
       "firstNameLabel": "Vorname",
       "lastNameLabel": "Nachname",
       "emailLabel": "Geschäftliche E-Mail",
       "companyLabel": "Unternehmen",
-      "jobTitleLabel": "Position",
+      "jobTitleLabel": "Position (optional)",
       "phoneLabel": "Telefon (optional)",
-      "submitButton": "Meine Empfehlungen erhalten",
-      "submitting": "Wird analysiert…",
-      "consent": "Mit dem Absenden stimmen Sie unserer Datenschutzerklärung zu."
+      "submitButton": "Scorecard freischalten",
+      "submitting": "Ergebnisse werden geladen…",
+      "consent": "Mit dem Absenden stimmen Sie unserer Datenschutzerklärung zu. Ihre Daten werden streng vertraulich behandelt."
     },
     "wizardResults": {
       "heading": "Ihr personalisierter HR-Tech-Stack",
@@ -1008,7 +1022,7 @@
       "kicker": "HR-IT-AUSWAHL",
       "heading": "Die richtige HR-Software finden – schneller",
       "subtitle": "Unabhängige, herstellerunabhängige Softwareberatung. Wir vergleichen über 20 Plattformen anhand Ihrer Anforderungen, Ihres Budgets und Ihrer Compliance-Bedürfnisse.",
-      "ctaButton": "Bewertung starten"
+      "ctaButton": "Gespräch vereinbaren"
     },
     "implementationOptimisation": {
       "kicker": "IMPLEMENTIERUNG & OPTIMIERUNG",
@@ -1019,7 +1033,7 @@
     "hrItIntegrations": {
       "kicker": "HR-IT-INTEGRATIONEN",
       "heading": "Ihren gesamten HR-Tech-Stack verbinden",
-      "subtitle": "End-to-End-Integrationen, die Ihr HRIS, Payroll (DATEV), ATS, Performance-Tools und Unternehmenssysteme in automatisierte, fehlerfreie Workflows verbinden.",
+      "subtitle": "End-to-End-Integrationen, die Ihr HRIS, Lohnabrechnungssysteme, ATS, Performance-Tools und Unternehmensplattformen in automatisierte, fehlerfreie Workflows verbinden.",
       "ctaButton": "Integrationen besprechen"
     },
     "interimManagement": {
@@ -1038,7 +1052,7 @@
       "kicker": "HR-BERATUNG",
       "heading": "Strategische Personalberatung",
       "subtitle": "Expertenberatung zu Organisationsdesign, Vergütungsstrukturen, Mitarbeiterbeziehungen und Veränderungsmanagement für wachsende europäische Unternehmen.",
-      "ctaButton": "Beratungstermin buchen"
+      "ctaButton": "HR-Beratung anfragen"
     }
   },
   "breadcrumbs": {
@@ -1071,12 +1085,5 @@
   "languageSwitcher": {
     "en": "EN",
     "de": "DE"
-  },
-  "toolFinder": {
-    "assessmentTitle": "Unabhängige HR-Tool-Bewertung",
-    "assessmentSubtitle": "Beantworten Sie 9 kurze Fragen, um Ihre Top-3-HR-Plattformen zu ermitteln.",
-    "heroHeading": "Finden Sie Ihre optimale HR-Software — kostenlos & herstellerunabhängig",
-    "heroSubtitle": "Beantworten Sie 9 Fragen und erhalten Sie herstellerunabhängige Empfehlungen aus über 20 Plattformen.",
-    "startAssessment": "Kostenlose Bewertung starten"
   }
 }

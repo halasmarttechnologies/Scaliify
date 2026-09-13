@@ -54,21 +54,12 @@ const moduleData: Record<ModuleKey, { title: string; question: string; answer: s
 export function ToolFinderAreasCovered() {
   const t = useTranslations("toolFinder");
   const [activeTab, setActiveTab] = useState<ModuleKey>("admin");
-  const [emailInput, setEmailInput] = useState("");
-  const [submitted, setSubmitted] = useState(false);
 
   const scrollToAssessment = (e: React.MouseEvent) => {
     e.preventDefault();
     const elem = document.getElementById("tool-finder-tool");
     if (elem) {
       elem.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (emailInput.trim() && emailInput.includes("@")) {
-      setSubmitted(true);
     }
   };
 
@@ -330,92 +321,6 @@ export function ToolFinderAreasCovered() {
 
           </motion.div>
 
-          {/* 4. Bottom Dual Action CTAs */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 w-full max-w-5xl">
-            
-            {/* Left Card: Personalized Consultation (7 cols) */}
-            <div className="md:col-span-7 bg-[#C5E8E1] text-brand-dark rounded-3xl p-7 sm:p-9 flex flex-col justify-between shadow-lg">
-              <div>
-                <span className="inline-block bg-[#F89C6B] text-brand-dark px-3.5 py-1 rounded-full text-xs font-bold tracking-wide mb-3">
-                  Expert run, 30 minute tour
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-brand-dark mb-4">
-                  Book your personalised demo
-                </h3>
-              </div>
-
-              {submitted ? (
-                <div className="bg-white/80 p-4 rounded-2xl border border-brand-dark/10 flex items-center gap-3 text-sm font-semibold text-brand-dark">
-                  <CheckCircle2 className="w-5 h-5 text-brand-dark shrink-0" />
-                  <span>Thank you! Our advisory team will reach out promptly.</span>
-                </div>
-              ) : (
-              <form onSubmit={handleEmailSubmit} className="w-full mt-4">
-                {/* Mobile: stacked layout */}
-                <div className="flex flex-col gap-2 sm:hidden">
-                  <input
-                    type="email"
-                    required
-                    value={emailInput}
-                    onChange={(e) => setEmailInput(e.target.value)}
-                    placeholder="What's your work email? *"
-                    aria-label="Work email address"
-                    className="w-full bg-white rounded-2xl px-4 py-3 text-sm text-gray-900 placeholder-gray-500 focus:outline-none border border-brand-dark/10 shadow-sm"
-                  />
-                  <button
-                    type="submit"
-                    className="group relative w-full bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark text-sm font-extrabold px-6 py-3 rounded-2xl border border-white/70 shadow-[0_2px_14px_rgba(129,216,208,0.55)] hover:shadow-[0_4px_24px_rgba(129,216,208,0.85)] hover:scale-[1.01] active:scale-[0.98] transition-all cursor-pointer overflow-hidden"
-                  >
-                    <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-2xl pointer-events-none" />
-                    <span className="relative z-10 tracking-tight">Request free demo</span>
-                  </button>
-                </div>
-
-                {/* Desktop: pill row layout */}
-                <div className="hidden sm:flex items-center gap-2 bg-white rounded-full p-1.5 shadow-sm border border-brand-dark/10 w-full">
-                  <input
-                    type="email"
-                    required
-                    value={emailInput}
-                    onChange={(e) => setEmailInput(e.target.value)}
-                    placeholder="What's your work email? *"
-                    aria-label="Work email address"
-                    className="w-full bg-transparent px-4 py-2.5 text-sm text-gray-900 placeholder-gray-500 focus:outline-none"
-                  />
-                  <button
-                    type="submit"
-                    className="group relative shrink-0 bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark text-sm font-extrabold px-6 py-3 rounded-full border border-white/70 shadow-[0_2px_14px_rgba(129,216,208,0.55)] hover:shadow-[0_4px_24px_rgba(129,216,208,0.85)] hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer overflow-hidden whitespace-nowrap"
-                  >
-                    <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-full pointer-events-none" />
-                    <span className="relative z-10 tracking-tight">Request free demo</span>
-                  </button>
-                </div>
-              </form>
-              )}
-            </div>
-
-            {/* Right Card: Interactive Product Tour (5 cols) */}
-            <div className="md:col-span-5 bg-brand-dark text-white rounded-3xl p-7 sm:p-9 flex flex-col justify-between border border-white/10 shadow-lg">
-              <div>
-                <span className="inline-block bg-white text-brand-dark px-3.5 py-1 rounded-full text-xs font-bold tracking-wide mb-3">
-                  Takes 2 minutes
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-6 leading-snug">
-                  Take an interactive <br className="hidden sm:inline" />
-                  product tour
-                </h3>
-              </div>
-
-              <button
-                onClick={scrollToAssessment}
-                className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark font-extrabold text-xs sm:text-sm px-6 py-3.5 rounded-full border border-white/70 shadow-[0_3px_16px_rgba(129,216,208,0.55)] hover:shadow-[0_4px_22px_rgba(129,216,208,0.85)] hover:scale-[1.03] active:scale-[0.98] transition-all cursor-pointer self-start w-full sm:w-auto overflow-hidden"
-              >
-                <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-full pointer-events-none" />
-                <span className="relative z-10">Take a product tour</span>
-              </button>
-            </div>
-
-          </div>
 
         </div>
       </div>

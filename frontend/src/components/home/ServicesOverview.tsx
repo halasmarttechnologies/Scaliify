@@ -23,13 +23,14 @@ interface ServiceColumnProps {
   services: Service[];
   icon: LucideIcon;
   exploreLabelKey: string;
+  headerLink?: string;
 }
 
 // ─────────────────────────────────────────────────────────────
 // Sub-components
 // ─────────────────────────────────────────────────────────────
 
-function ServiceAccordionColumn({ title, services, icon: Icon, exploreLabelKey }: ServiceColumnProps) {
+function ServiceAccordionColumn({ title, services, icon: Icon, exploreLabelKey, headerLink }: ServiceColumnProps) {
   const t = useTranslations("servicesOverview");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -40,12 +41,13 @@ function ServiceAccordionColumn({ title, services, icon: Icon, exploreLabelKey }
       <div className="flex items-center justify-between border-b border-gray-200 pb-4 sm:pb-6 mb-3 sm:mb-4">
         <h3 className="text-xl sm:text-3xl font-semibold tracking-tight">{title}</h3>
         <div className="flex items-center gap-2 sm:gap-3">
-          <button
+          <Link
+            href={headerLink ?? "/services/hr-it-selection"}
             aria-label="Go to services"
             className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-brand-dark hover:bg-gray-50 transition-colors"
           >
             <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-          </button>
+          </Link>
           <button
             aria-label="Services icon"
             className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-brand-teal flex items-center justify-center text-brand-dark hover:brightness-105 transition-colors"
@@ -130,9 +132,6 @@ export function ServicesOverview() {
             viewport={FADE_UP_FAST.viewport}
             className="flex flex-col items-center text-center mb-8 sm:mb-14 md:mb-20 px-2"
           >
-            <div className="bg-brand-teal text-brand-dark font-bold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full mb-4 sm:mb-8 select-none">
-              {t("badge")}
-            </div>
             <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-3 sm:mb-6 flex flex-col items-center gap-1">
               <span>{t("headingPart1")}</span>
               <span>{t("headingPart2")}</span>
@@ -156,12 +155,14 @@ export function ServicesOverview() {
                 services={hrTechnologyServices}
                 icon={MonitorSmartphone}
                 exploreLabelKey="explorePage"
+                headerLink="/services/hr-it-selection"
               />
               <ServiceAccordionColumn
                 title={t("advisoryLeadership")}
                 services={advisoryServices}
                 icon={Target}
                 exploreLabelKey="explorePage"
+                headerLink="/services/interim-management"
               />
             </div>
           </motion.div>

@@ -1,7 +1,6 @@
 "use client";
 
 import { Link } from "@/i18n/navigation";
-import Image from "next/image";
 import {
   ChevronRight,
   ChevronLeft,
@@ -47,19 +46,10 @@ export function NavMobileDrawer({
               <Link
                 href="/"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2.5"
+                className="flex items-center"
               >
-                <div className="relative w-8 h-8 shrink-0">
-                  <Image
-                    src="/company logo/logo.png"
-                    alt="Scaliify Logo"
-                    fill
-                    unoptimized
-                    className="object-contain"
-                  />
-                </div>
                 <span className="text-2xl font-extrabold tracking-tight text-gray-900">
-                  Scaliify
+                  scaliify
                 </span>
               </Link>
             ) : (
@@ -242,7 +232,7 @@ export function NavMobileDrawer({
                         onClick={() => setMobileMenuOpen(false)}
                         className="block hover:text-brand-teal transition-colors"
                       >
-                        {t("scheinselbststaendigkeit")} ↗
+                        {t("scheinselbststaendigkeit")}
                       </a>
                     </div>
                   </div>

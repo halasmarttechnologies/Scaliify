@@ -32,7 +32,6 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { companies } from "@/data/companies";
-import { Testimonials } from "@/components/home/Testimonials";
 import { BookingLeadSection } from "@/components/common/BookingLeadSection";
 import { BlogSection } from "@/components/home/BlogSection";
 import { AnimatedStatCounter } from "@/components/common/AnimatedStatCounter";
@@ -251,19 +250,19 @@ const interimModelPointsDe = [
 ];
 
 const outsourcedModelPointsEn = [
-  { text: "Scaliify runs your ongoing HR operations as a dedicated external team", badge: "Core Model" },
-  { text: "Engineered for 10–100 employees without a dedicated HR function yet", badge: "10–100 Scale" },
-  { text: "Relieves founders & office managers from absorbing HR tasks", badge: "Founder Relief" },
-  { text: "Available 5 days a week with a fixed contact person or team", badge: "5 Days / Week" },
-  { text: "Pay as you go — billed only for what you actually use", badge: "Pay As You Go" },
+  "Scaliify runs your ongoing HR operations as a dedicated external team",
+  "Engineered for 10–100 employees without a dedicated HR function yet",
+  "Relieves founders & office managers from absorbing HR tasks",
+  "Available 5 days a week with a fixed contact person or team",
+  "Pay as you go — billed only for what you actually use",
 ];
 
 const outsourcedModelPointsDe = [
-  { text: "scaliify führt Ihre laufenden HR-Prozesse als externes Team", badge: "Kernmodell" },
-  { text: "Entwickelt für Unternehmen mit 10–100 Mitarbeitenden ohne eigene HR-Abteilung", badge: "10–100 Team" },
-  { text: "Entlastet Gründer:innen & Office Manager von operativen HR-Aufgaben", badge: "Gründer-Entlastung" },
-  { text: "5 Tage die Woche verfügbar mit einer festen Ansprechperson / Team", badge: "5 Tage / Woche" },
-  { text: "Pay-as-you-go – abgerechnet wird nur, was Sie tatsächlich nutzen", badge: "Pay As You Go" },
+  "Scaliify führt Ihre laufenden HR-Prozesse als externes Team",
+  "Entwickelt für Unternehmen mit 10–100 Mitarbeitenden ohne eigene HR-Abteilung",
+  "Entlastet Gründer:innen & Office Manager von operativen HR-Aufgaben",
+  "5 Tage die Woche verfügbar mit einer festen Ansprechperson / Team",
+  "Pay-as-you-go – abgerechnet wird nur, was Sie tatsächlich nutzen",
 ];
 
 const outsourcedHrFaqsEn = [
@@ -373,7 +372,7 @@ export function OutsourcedHrClient() {
 
             <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
               <Link
-                href="/lets-talk"
+                href="/contact?topic=outsourced-hr"
                 className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 rounded-full text-xs sm:text-sm font-extrabold text-brand-dark bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep shadow-[0_4px_22px_rgba(129,216,208,0.65)] border border-white/80 hover:shadow-[0_6px_28px_rgba(129,216,208,0.95)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 overflow-hidden cursor-pointer"
               >
                 <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/75 to-transparent rounded-t-full pointer-events-none" />
@@ -381,14 +380,6 @@ export function OutsourcedHrClient() {
                   {t("ctaButton")}
                 </span>
                 <ArrowRight className="relative z-10 w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </Link>
-
-              <Link
-                href="#covered"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-black border border-gray-300 hover:border-[#2B4C55] px-6 py-3.5 rounded-full transition-all hover:bg-gray-50 cursor-pointer"
-              >
-                <span>{isDe ? "Leistungsumfang ansehen" : "Explore covered scope"}</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#2B4C55]" />
               </Link>
             </div>
           </div>
@@ -414,11 +405,11 @@ export function OutsourcedHrClient() {
       <section className="w-full bg-white py-8 sm:py-12 border-y border-gray-100 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto flex flex-col items-center">
           <div className="w-full flex flex-wrap items-center justify-center gap-6 sm:gap-10 lg:gap-14 opacity-80 grayscale hover:grayscale-0 transition-all duration-300">
-            {companies.slice(0, 6).map((c) => (
+            {companies.map((c) => (
               <div key={c.id} className="relative h-7 w-20 sm:w-24 shrink-0 flex items-center justify-center">
                 <Image
                   src={c.logoUrl}
-                  alt={`Partner ${c.id}`}
+                  alt={`${c.name} logo`}
                   fill
                   unoptimized
                   className="object-contain"
@@ -591,19 +582,12 @@ export function OutsourcedHrClient() {
                   {isDe ? "Ausgelagertes HR-Management" : "Outsourced HR Management"}
                 </h3>
                 <ul className="flex flex-col gap-4">
-                  {outsourcedModelPoints.map(({ text, badge }) => (
-                    <li key={text} className="flex items-start gap-3 text-xs sm:text-sm text-black font-semibold">
+                  {outsourcedModelPoints.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-xs sm:text-sm text-black font-semibold">
                       <div className="w-5 h-5 rounded-full bg-[#4FB8AA] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
                         <Check className="w-3.5 h-3.5 stroke-[3]" />
                       </div>
-                      <div className="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2.5">
-                        <span className="text-gray-950 font-bold leading-snug">{text}</span>
-                        {badge && (
-                          <span className="self-start sm:self-center shrink-0 text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wide bg-[#76D8C8]/30 text-[#05434B] px-2.5 py-0.5 rounded-full whitespace-nowrap">
-                            {badge}
-                          </span>
-                        )}
-                      </div>
+                      <span className="text-gray-950 font-bold leading-snug">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -614,12 +598,7 @@ export function OutsourcedHrClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 6. TESTIMONIALS SECTION                                      */}
-      {/* ============================================================ */}
-      <Testimonials />
-
-      {/* ============================================================ */}
-      {/* 7. FREQUENTLY ASKED QUESTIONS ACCORDION                      */}
+      {/* 6. FREQUENTLY ASKED QUESTIONS ACCORDION                      */}
       {/* ============================================================ */}
       <section className="w-full bg-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
         <div className="max-w-4xl mx-auto">
@@ -676,9 +655,18 @@ export function OutsourcedHrClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 8. DISCOVERY & CONSULTATION BOOKING LEAD SECTION             */}
+      {/* 7. DISCOVERY & CONSULTATION BOOKING LEAD SECTION             */}
       {/* ============================================================ */}
-      <BookingLeadSection />
+      <BookingLeadSection
+        badgeTitle={isDe ? "AUSGELAGERTES HR & PEOPLE OPS" : "OUTSOURCED HR & PEOPLE OPS"}
+        title={isDe ? "Mit ausgelagertem HR starten" : "Get started with outsourced HR"}
+        subtitle={
+          isDe
+            ? "Teilen Sie uns Ihre Teamgröße und Anforderungen mit. Wir richten Ihr dediziertes externes HR-Team in unter 48 Stunden ein."
+            : "Tell us about your team size and operational needs. We set up your dedicated HR team and workflows in under 48 hours."
+        }
+        source="outsourced_hr"
+      />
 
       {/* ============================================================ */}
       {/* 9. BLOG SECTION                                              */}

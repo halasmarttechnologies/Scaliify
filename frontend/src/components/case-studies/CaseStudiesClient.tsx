@@ -119,8 +119,8 @@ export function CaseStudiesClient() {
                     <div className="flex items-center justify-between text-gray-600">
                       <span>{isDe ? "Gehalt" : "Salary"}</span>
                       <div className="flex items-center gap-1.5">
-                        <span className="text-gray-400 line-through">£45,000</span>
-                        <span className="font-bold text-gray-900 bg-purple-50 text-purple-900 px-1.5 py-0.5 rounded">£48,500</span>
+                        <span className="text-gray-400 line-through">€45,000</span>
+                        <span className="font-bold text-gray-900 bg-purple-50 text-purple-900 px-1.5 py-0.5 rounded">€48,500</span>
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                       </div>
                     </div>
@@ -128,7 +128,7 @@ export function CaseStudiesClient() {
                     <div className="flex items-center justify-between text-gray-600">
                       <span>{isDe ? "Einmal-Bonus" : "One-time Bonus"}</span>
                       <div className="flex items-center gap-1.5">
-                        <span className="font-bold text-gray-900">£2,150</span>
+                        <span className="font-bold text-gray-900">€2,150</span>
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                       </div>
                     </div>

@@ -23,8 +23,11 @@ export function WizardLeadForm({ lead, setLead }: WizardLeadFormProps) {
     >
       <div className="mb-6">
         <div className="flex items-center justify-between gap-2">
-          <span className="text-xs font-bold text-gray-300 uppercase tracking-wider">Step 10 | Final Step</span>
-          <span className="text-xs text-gray-400 font-semibold">10 of 10</span>
+          <span className="text-xs font-bold text-brand-teal uppercase tracking-wider flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-brand-teal animate-pulse" />
+            Recommendations Calculated
+          </span>
+          <span className="text-xs text-gray-400 font-semibold">Final Step</span>
         </div>
         <h3 className="text-2xl sm:text-3xl font-bold text-white mt-1">
           {t("wizardLead.heading")}

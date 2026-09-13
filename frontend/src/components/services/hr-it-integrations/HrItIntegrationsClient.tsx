@@ -21,8 +21,7 @@ import {
   Clock,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { companies } from "@/data/companies";
-import { Testimonials } from "@/components/home/Testimonials";
+import { softwareList, ToolLogo } from "@/components/home/SoftwareStack";
 import { BookingLeadSection } from "@/components/common/BookingLeadSection";
 import { BlogSection } from "@/components/home/BlogSection";
 import { AnimatedStatCounter } from "@/components/common/AnimatedStatCounter";
@@ -41,7 +40,7 @@ const pillarsEn = [
   {
     icon: Workflow,
     title: "When There's No Ready-Made Integration",
-    desc: "Not every system connects to another right out of the box, and that's not where we stop. We'll build middleware, handle the API work ourselves, or sometimes redesign the process entirely so the integration isn't even needed anymore.",
+    desc: "Not every system connects out of the box, and that's not where we stop. Together with specialized technical integration partners, we connect systems via robust APIs and proven connectors — or redesign the workflow so complex custom development isn't even needed.",
   },
   {
     icon: Cpu,
@@ -64,7 +63,7 @@ const pillarsDe = [
   {
     icon: Workflow,
     title: "Wenn es keine Standard-Integration gibt",
-    desc: "Nicht jedes System verbindet sich sofort von Haus aus – und genau da setzen wir an. Wir entwickeln Middleware, übernehmen die API-Arbeit oder gestalten den Prozess so um, dass die Integration gar nicht mehr nötig ist.",
+    desc: "Nicht jedes System verbindet sich sofort von Haus aus – und genau da setzen wir an. Gemeinsam mit spezialisierten Integrationspartnern verbinden wir Systeme über robuste Schnittstellen und bewährte Konnektoren – oder gestalten den Prozess so um, dass aufwendige Sonderlösungen gar nicht nötig sind.",
   },
   {
     icon: Cpu,
@@ -75,21 +74,21 @@ const pillarsDe = [
 
 const marqueeCardsEn = [
   {
-    type: "quote-card",
-    bg: "bg-[#f0faf8]",
-    brandName: "techscale",
-    quote:
-      "Scaliify connected our HiBob HRIS directly with DATEV. We stopped copying employee records between systems and eliminated 15 hours of manual spreadsheet reconciliation every single month.",
-    author: "Elena Richter | Head of People Operations",
-    border: "border-[#76D8C8]/40",
-  },
-  {
     type: "image-card",
     image: "/images/hr-integrations-hero.jpg",
     quote:
       "When our ATS and HRIS didn't have a native integration, Scaliify didn't just sell us an expensive API build. They redesigned our onboarding workflow, which eliminated the need for custom coding entirely.",
     author: "Lukas Weber | VP of People & Culture",
     border: "border-gray-200/50",
+  },
+  {
+    type: "quote-card",
+    bg: "bg-[#f0faf8]",
+    brandName: "techscale",
+    quote:
+      "Scaliify connected our HiBob HRIS directly with our payroll system. We stopped copying employee records between systems and eliminated 15 hours of manual spreadsheet reconciliation every single month.",
+    author: "Elena Richter | Head of People Operations",
+    border: "border-[#76D8C8]/40",
   },
   {
     type: "stat-card",
@@ -101,10 +100,10 @@ const marqueeCardsEn = [
   },
   {
     type: "image-card",
-    image: "/images/hr-integrations-leader.jpg",
+    image: "/images/office-team.jpg",
     quote:
-      "Connecting our Core HR with NetSuite and DATEV gave our CFO and HR team identical real-time headcount numbers. Zero duplicate entries, zero discrepancies.",
-    author: "Sarah Lindemann | Chief People Officer",
+      "Scaliify acted as true HR IT consultants. They coordinated between our HR team, external software vendors, and IT security to ensure bank-grade data privacy.",
+    author: "Sophie Dubois | Global HR Operations",
     border: "border-gray-200/50",
   },
   {
@@ -112,30 +111,21 @@ const marqueeCardsEn = [
     bg: "bg-[#e8f7f4]",
     brandName: "scaleup group",
     quote:
-      "Our shift workers' tracked hours now flow directly into monthly payroll. Scaliify ensured all German BAG overtime regulations were automated without manual calculations.",
+      "Our shift workers' tracked hours now flow directly into monthly payroll. Scaliify ensured all regulatory overtime rules were automated without manual calculations.",
     author: "Markus Hoffmann | Managing Director",
     border: "border-[#4FB8AA]/40",
   },
   {
     type: "image-card",
-    image: "/images/office-team.jpg",
+    image: "/images/hr-integrations-leader.jpg",
     quote:
-      "Scaliify acted as true HR IT consultants. They coordinated between our HR team, external software vendors, and IT security to ensure bank-grade data privacy.",
-    author: "Sophie Dubois | Global HR Operations",
+      "Connecting our Core HR with NetSuite and payroll gave our CFO and HR team identical real-time headcount numbers. Zero duplicate entries, zero discrepancies.",
+    author: "Sarah Lindemann | Chief People Officer",
     border: "border-gray-200/50",
   },
 ];
 
 const marqueeCardsDe = [
-  {
-    type: "quote-card",
-    bg: "bg-[#f0faf8]",
-    brandName: "techscale",
-    quote:
-      "Scaliify hat unser HiBob HRIS direkt mit DATEV verbunden. Wir müssen keine Mitarbeiterdaten mehr manuell übertragen und sparen jeden Monat 15 Stunden nervige Tabellenarbeit.",
-    author: "Elena Richter | Head of People Operations",
-    border: "border-[#76D8C8]/40",
-  },
   {
     type: "image-card",
     image: "/images/hr-integrations-hero.jpg",
@@ -143,6 +133,15 @@ const marqueeCardsDe = [
       "Als für unser ATS und HRIS keine Standard-Schnittstelle existierte, hat Scaliify unseren Onboarding-Workflow so umgestaltet, dass eine teure API-Entwicklung gar nicht nötig war.",
     author: "Lukas Weber | VP of People & Culture",
     border: "border-gray-200/50",
+  },
+  {
+    type: "quote-card",
+    bg: "bg-[#f0faf8]",
+    brandName: "techscale",
+    quote:
+      "Scaliify hat unser HiBob HRIS direkt mit der Lohnabrechnung verbunden. Wir müssen keine Mitarbeiterdaten mehr manuell übertragen und sparen jeden Monat 15 Stunden nervige Tabellenarbeit.",
+    author: "Elena Richter | Head of People Operations",
+    border: "border-[#76D8C8]/40",
   },
   {
     type: "stat-card",
@@ -154,10 +153,10 @@ const marqueeCardsDe = [
   },
   {
     type: "image-card",
-    image: "/images/hr-integrations-leader.jpg",
+    image: "/images/office-team.jpg",
     quote:
-      "Die Verknüpfung unseres Core-HR mit NetSuite und DATEV liefert unserer CFO und HR stets identische Echtzeit-Mitarbeiterzahlen. Keine Doppeleingaben, keine Abweichungen.",
-    author: "Sarah Lindemann | Chief People Officer",
+      "Scaliify hat als echter HR-IT-Partner agiert: Perfekte Abstimmung zwischen HR-Team, Softwareherstellern und IT-Sicherheit für höchste Datenschutzstandards.",
+    author: "Sophie Dubois | Global HR Operations",
     border: "border-gray-200/50",
   },
   {
@@ -165,16 +164,16 @@ const marqueeCardsDe = [
     bg: "bg-[#e8f7f4]",
     brandName: "scaleup group",
     quote:
-      "Erfasste Arbeitszeiten fließen jetzt direkt in die Lohnabrechnung. Scaliify hat sichergestellt, dass alle BAG-Vorgaben ohne manuelle Nachberechnung eingehalten werden.",
+      "Erfasste Arbeitszeiten fließen jetzt direkt in die Lohnabrechnung. Scaliify hat sichergestellt, dass alle gesetzlichen Vorgaben ohne manuelle Nachberechnung eingehalten werden.",
     author: "Markus Hoffmann | Managing Director",
     border: "border-[#4FB8AA]/40",
   },
   {
     type: "image-card",
-    image: "/images/office-team.jpg",
+    image: "/images/hr-integrations-leader.jpg",
     quote:
-      "Scaliify hat als echter HR-IT-Partner agiert: Perfekte Abstimmung zwischen HR-Team, Softwareherstellern und IT-Sicherheit für höchste Datenschutzstandards.",
-    author: "Sophie Dubois | Global HR Operations",
+      "Die Verknüpfung unseres Core-HR mit NetSuite und Payroll liefert unserer CFO und HR stets identische Echtzeit-Mitarbeiterzahlen. Keine Doppeleingaben, keine Abweichungen.",
+    author: "Sarah Lindemann | Chief People Officer",
     border: "border-gray-200/50",
   },
 ];
@@ -196,26 +195,26 @@ const beforeItemsDe = [
 ];
 
 const afterItemsEn = [
-  { text: "One verified single source of truth across your HR tech stack", badge: "100% Accurate" },
-  { text: "Automated HRIS ↔ DATEV & Payroll sync without manual spreadsheets", badge: "Zero Manual CSVs" },
-  { text: "Instant ATS candidate-to-hire onboarding with zero duplicate entry", badge: "Zero Double-Entry" },
-  { text: "Process redesign first: simplifying workflows before building APIs", badge: "Cost-Effective" },
-  { text: "Fully GDPR-compliant encryption, automated audit logs & error alerts", badge: "Bank-Grade Security" },
+  "One verified single source of truth across your HR tech stack",
+  "Automated HRIS ↔ Payroll sync without manual spreadsheets or CSVs",
+  "Instant ATS candidate-to-hire onboarding with zero duplicate entry",
+  "Process redesign first: simplifying workflows before building custom APIs",
+  "Fully GDPR-compliant encryption, automated audit logs & error alerts",
 ];
 
 const afterItemsDe = [
-  { text: "Eine verifizierte Single Source of Truth für Ihren gesamten HR-Tech-Stack", badge: "100 % Exakt" },
-  { text: "Automatischer HRIS ↔ DATEV & Lohnabgleich ohne manuelle Excel-Listen", badge: "Keine CSV-Exporte" },
-  { text: "Nahtlose ATS-Übernahme ins Onboarding ohne doppelte Eingabe", badge: "Null Doppelarbeit" },
-  { text: "Prozessoptimierung zuerst: Workflows vereinfachen vor dem API-Bau", badge: "Kosteneffizient" },
-  { text: "DSGVO-konforme Verschlüsselung, Audit-Logs & automatische Fehler-Alerts", badge: "Höchste Sicherheit" },
+  "Eine verifizierte Single Source of Truth für Ihren gesamten HR-Tech-Stack",
+  "Automatischer HRIS ↔ Lohnabgleich ohne manuelle Excel-Listen oder CSV-Exporte",
+  "Nahtlose ATS-Übernahme ins Onboarding ohne doppelte Dateneingabe",
+  "Prozessoptimierung zuerst: Workflows vereinfachen vor dem API-Bau",
+  "DSGVO-konforme Verschlüsselung, Audit-Logs & automatische Fehler-Alerts",
 ];
 
 const hrIntegrationsFaqsEn = [
   {
     question: "What if our systems don't officially support integration with each other?",
     answer:
-      "That happens more often than you'd think, and it's not a dead end. We build custom solutions with middleware or direct API work when there's no native option.",
+      "That happens more often than you'd think, and it's not a dead end. Together with specialized technical integration partners, we connect systems via robust APIs and proven connectors — or redesign your workflow so complex custom connections aren't even needed.",
   },
   {
     question: "How long does setting up an integration usually take?",
@@ -243,7 +242,7 @@ const hrIntegrationsFaqsDe = [
   {
     question: "Was ist, wenn unsere Systeme eine direkte Integration offiziell nicht unterstützen?",
     answer:
-      "Das kommt häufiger vor als gedacht und ist kein Hindernis. Wir entwickeln maßgeschneiderte Lösungen über Middleware oder direkte API-Anbindungen, wenn keine native Schnittstelle vorhanden ist.",
+      "Das kommt häufiger vor als gedacht und ist kein Hindernis. Gemeinsam mit spezialisierten Integrationspartnern verbinden wir Systeme über bewährte Schnittstellen und Konnektoren – oder optimieren Ihre Prozesse so, dass aufwendige Sonderlösungen überflüssig werden.",
   },
   {
     question: "Wie lange dauert die Einrichtung einer Integration üblicherweise?",
@@ -318,7 +317,7 @@ export function HrItIntegrationsClient() {
 
             <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
               <Link
-                href="/lets-talk"
+                href="/contact?topic=integrations"
                 className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 rounded-full text-xs sm:text-sm font-extrabold text-brand-dark bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep shadow-[0_4px_22px_rgba(129,216,208,0.65)] border border-white/80 hover:shadow-[0_6px_28px_rgba(129,216,208,0.95)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 overflow-hidden cursor-pointer"
               >
                 <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/75 to-transparent rounded-t-full pointer-events-none" />
@@ -354,21 +353,27 @@ export function HrItIntegrationsClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 2. PARTNER / CLIENT LOGO STRIP                               */}
+      {/* 2. DYNAMIC HR SOFTWARE LOGO MARQUEE (INTEGRATED PLATFORMS)   */}
       {/* ============================================================ */}
-      <section className="w-full bg-white py-8 sm:py-12 border-y border-gray-100 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto flex flex-col items-center">
-          <div className="w-full flex flex-wrap items-center justify-center gap-6 sm:gap-10 lg:gap-14 opacity-80 grayscale hover:grayscale-0 transition-all duration-300">
-            {companies.slice(0, 6).map((c) => (
-              <div key={c.id} className="relative h-7 w-20 sm:w-24 shrink-0 flex items-center justify-center">
-                <Image
-                  src={c.logoUrl}
-                  alt={`Partner ${c.id}`}
-                  fill
-                  unoptimized
-                  className="object-contain"
-                  sizes="96px"
-                />
+      <section className="w-full bg-white py-7 sm:py-9 border-y border-gray-100 overflow-hidden select-none">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-3 sm:mb-4 text-center">
+          <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] text-gray-500">
+            {isDe
+              ? "HR-Systeme & Plattformen, die wir nahtlos integrieren"
+              : "HR systems & platforms we seamlessly integrate"}
+          </p>
+        </div>
+        <div className="relative w-full overflow-hidden">
+          <div className="animate-marquee-left flex items-center gap-3.5 sm:gap-5 w-max py-1">
+            {[...softwareList, ...softwareList].map((tool, idx) => (
+              <div
+                key={`${tool.id}-${idx}`}
+                className="flex items-center gap-2.5 px-4 sm:px-5 py-2 rounded-full bg-gray-50 border border-gray-200/80 hover:border-[#81D8D0] hover:bg-white transition-all shadow-2xs group shrink-0"
+              >
+                <ToolLogo id={tool.id} />
+                <span className="text-xs sm:text-sm font-bold text-gray-800 tracking-tight group-hover:text-black">
+                  {tool.name}
+                </span>
               </div>
             ))}
           </div>
@@ -536,19 +541,12 @@ export function HrItIntegrationsClient() {
                   {isDe ? "Mit Scaliify" : "After Scaliify"}
                 </h3>
                 <ul className="flex flex-col gap-4">
-                  {afterItems.map(({ text, badge }) => (
-                    <li key={text} className="flex items-start gap-3 text-xs sm:text-sm text-black font-semibold">
+                  {afterItems.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-xs sm:text-sm text-black font-semibold">
                       <div className="w-5 h-5 rounded-full bg-[#4FB8AA] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
                         <Check className="w-3.5 h-3.5 stroke-[3]" />
                       </div>
-                      <div className="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2.5">
-                        <span className="text-gray-950 font-bold leading-snug">{text}</span>
-                        {badge && (
-                          <span className="self-start sm:self-center shrink-0 text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wide bg-[#76D8C8]/30 text-[#05434B] px-2.5 py-0.5 rounded-full whitespace-nowrap">
-                            {badge}
-                          </span>
-                        )}
-                      </div>
+                      <span className="text-gray-950 font-bold leading-snug">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -559,12 +557,7 @@ export function HrItIntegrationsClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 6. TESTIMONIALS SECTION                                      */}
-      {/* ============================================================ */}
-      <Testimonials />
-
-      {/* ============================================================ */}
-      {/* 7. FREQUENTLY ASKED QUESTIONS ACCORDION                      */}
+      {/* 6. FREQUENTLY ASKED QUESTIONS ACCORDION                      */}
       {/* ============================================================ */}
       <section className="w-full bg-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
         <div className="max-w-4xl mx-auto">
@@ -621,9 +614,18 @@ export function HrItIntegrationsClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 8. DISCOVERY & CONSULTATION BOOKING LEAD SECTION             */}
+      {/* 7. INTEGRATIONS CONSULTATION BOOKING LEAD SECTION            */}
       {/* ============================================================ */}
-      <BookingLeadSection />
+      <BookingLeadSection
+        badgeTitle={isDe ? "KOSTENLOSE BERATUNG" : "FREE CONSULTATION"}
+        title={isDe ? "HR-IT-Integrationsgespräch buchen" : "Book an HR IT integration call"}
+        subtitle={
+          isDe
+            ? "Besprechen Sie Ihren Software-Stack, Schnittstellen und Datenflüsse mit unseren Spezialisten für HR-IT-Architektur."
+            : "Discuss your software stack, APIs, and data sync requirements with our HR IT architecture specialists."
+        }
+        source="hr_it_integrations"
+      />
 
       {/* ============================================================ */}
       {/* 9. BLOG SECTION                                              */}

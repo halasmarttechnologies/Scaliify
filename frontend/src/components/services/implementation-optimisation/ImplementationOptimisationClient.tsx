@@ -21,8 +21,7 @@ import {
   HelpCircle,
 } from "lucide-react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { companies } from "@/data/companies";
-import { Testimonials } from "@/components/home/Testimonials";
+import { softwareList, ToolLogo } from "@/components/home/SoftwareStack";
 import { BookingLeadSection } from "@/components/common/BookingLeadSection";
 import { BlogSection } from "@/components/home/BlogSection";
 
@@ -90,6 +89,8 @@ const pillarsEn = [
     icon: SearchCode,
     title: "HR IT Audit & System Review",
     desc: "Already have a system that isn't performing the way it should? Our HR IT Audit digs into what's going wrong and maps out what to fix.",
+    href: "/contact?topic=audit",
+    linkText: "Request HR IT Audit",
   },
 ];
 
@@ -113,6 +114,8 @@ const pillarsDe = [
     icon: SearchCode,
     title: "HR-IT-Audit & Systemprüfung",
     desc: "Haben Sie bereits ein System, das nicht die gewünschte Leistung bringt? Unser HR-IT-Audit analysiert bestehende Schwachstellen und zeigt konkrete Optimierungsschritte auf.",
+    href: "/contact?topic=audit",
+    linkText: "HR-IT-Audit anfragen",
   },
 ];
 
@@ -265,19 +268,19 @@ const beforeItemsDe = [
 ];
 
 const afterItemsEn = [
-  { text: "Optimized people processes tailored to system strengths", badge: "Strategic" },
-  { text: "Spotless data migration & rigorous multi-tier testing", badge: "Zero Loss" },
-  { text: "Empathetic cultural change & 98%+ user adoption", badge: "High Adoption" },
-  { text: "Advisors who challenge assumptions & design best setups", badge: "True Advisory" },
-  { text: "Harmonious, automated HR landscape built to scale", badge: "Effortless scale" },
+  "Optimized people processes tailored to system strengths",
+  "Spotless data migration & rigorous multi-tier testing",
+  "Empathetic cultural change & 98%+ user adoption",
+  "Advisors who challenge assumptions & design best setups",
+  "Harmonious, automated HR landscape built to scale",
 ];
 
 const afterItemsDe = [
-  { text: "Optimierte People-Prozesse, ausgerichtet an Systemstärken", badge: "Strategisch" },
-  { text: "Verlustfreie Datenmigration & mehrstufige Tests", badge: "Null Verlust" },
-  { text: "Begleiteter Kulturwandel & über 98 % Nutzerakzeptanz", badge: "Hohe Akzeptanz" },
-  { text: "Berater, die Annahmen hinterfragen & Best-Practice-Setups bauen", badge: "Echte Beratung" },
-  { text: "Harmonische, automatisierte HR-Landschaft, bereit zu skalieren", badge: "Skalierbar" },
+  "Optimierte People-Prozesse, ausgerichtet an Systemstärken",
+  "Verlustfreie Datenmigration & mehrstufige Tests",
+  "Begleiteter Kulturwandel & über 98 % Nutzerakzeptanz",
+  "Berater, die Annahmen hinterfragen & Best-Practice-Setups bauen",
+  "Harmonische, automatisierte HR-Landschaft, bereit zu skalieren",
 ];
 
 const implementationFaqsEn = [
@@ -398,7 +401,7 @@ export function ImplementationOptimisationClient() {
               </Link>
 
               <Link
-                href="/contact"
+                href="/contact?topic=audit"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-black border border-gray-300 hover:border-[#2B4C55] px-6 py-3.5 rounded-full transition-all hover:bg-gray-50 cursor-pointer"
               >
                 <span>{isDe ? "HR-IT-Audit anfragen" : "Request HR IT Audit"}</span>
@@ -423,21 +426,27 @@ export function ImplementationOptimisationClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 2. PARTNER / CLIENT LOGO STRIP                               */}
+      {/* 2. DYNAMIC HR SOFTWARE LOGO MARQUEE (IMPLEMENTED SYSTEMS)    */}
       {/* ============================================================ */}
-      <section className="w-full bg-white py-8 sm:py-12 border-y border-gray-100 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto flex flex-col items-center">
-          <div className="w-full flex flex-wrap items-center justify-center gap-6 sm:gap-10 lg:gap-14 opacity-80 grayscale hover:grayscale-0 transition-all duration-300">
-            {companies.slice(0, 6).map((c) => (
-              <div key={c.id} className="relative h-7 w-20 sm:w-24 shrink-0 flex items-center justify-center">
-                <Image
-                  src={c.logoUrl}
-                  alt={`Partner ${c.id}`}
-                  fill
-                  unoptimized
-                  className="object-contain"
-                  sizes="96px"
-                />
+      <section className="w-full bg-white py-7 sm:py-9 border-y border-gray-100 overflow-hidden select-none">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-3 sm:mb-4 text-center">
+          <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] text-gray-500">
+            {isDe
+              ? "HR-Softwaresysteme, die wir implementieren, konfigurieren und optimieren"
+              : "HR software systems we implement, configure & optimize"}
+          </p>
+        </div>
+        <div className="relative w-full overflow-hidden">
+          <div className="animate-marquee-left flex items-center gap-3.5 sm:gap-5 w-max py-1">
+            {[...softwareList, ...softwareList].map((tool, idx) => (
+              <div
+                key={`${tool.id}-${idx}`}
+                className="flex items-center gap-2.5 px-4 sm:px-5 py-2 rounded-full bg-gray-50 border border-gray-200/80 hover:border-[#81D8D0] hover:bg-white transition-all shadow-2xs group shrink-0"
+              >
+                <ToolLogo id={tool.id} />
+                <span className="text-xs sm:text-sm font-bold text-gray-800 tracking-tight group-hover:text-black">
+                  {tool.name}
+                </span>
               </div>
             ))}
           </div>
@@ -456,8 +465,8 @@ export function ImplementationOptimisationClient() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7 sm:gap-8">
-            {pillars.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="flex flex-col items-center text-center gap-3 group">
+            {pillars.map(({ icon: Icon, title, desc, href, linkText }: any) => (
+              <div key={title} className="flex flex-col items-center text-center gap-3 group h-full">
                 <div className="relative w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#5BC7BC] via-[#81D8D0] to-[#A8F5EE] text-[#05434B] flex items-center justify-center shrink-0 shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.85),0_8px_20px_rgba(129,216,208,0.38)] border border-white/70 mb-1 transition-all duration-300 group-hover:scale-110 group-hover:shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.95),0_12px_25px_rgba(129,216,208,0.55)] overflow-hidden">
                   <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/45 to-transparent pointer-events-none rounded-t-2xl" />
                   <Icon className="w-5 h-5 stroke-[2.4] relative z-10" />
@@ -468,6 +477,15 @@ export function ImplementationOptimisationClient() {
                 <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
                   {desc}
                 </p>
+                {href && (
+                  <Link
+                    href={href}
+                    className="mt-auto pt-2 inline-flex items-center gap-1.5 text-xs font-bold text-[#05434B] hover:text-black hover:underline transition-colors cursor-pointer"
+                  >
+                    <span>{linkText || (isDe ? "Audit anfragen" : "Request audit")}</span>
+                    <ArrowRight className="w-3 h-3 text-[#2B4C55]" />
+                  </Link>
+                )}
               </div>
             ))}
           </div>
@@ -605,19 +623,12 @@ export function ImplementationOptimisationClient() {
                   {isDe ? "Mit Scaliify" : "After Scaliify"}
                 </h3>
                 <ul className="flex flex-col gap-4">
-                  {afterItems.map(({ text, badge }) => (
-                    <li key={text} className="flex items-start justify-between gap-2 sm:gap-3 text-xs sm:text-sm text-white leading-relaxed font-semibold">
-                      <div className="flex items-start gap-2.5">
-                        <div className="w-5 h-5 rounded-full bg-[#81D8D0] text-[#05434B] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
-                          <Check className="w-3.5 h-3.5 stroke-[3]" />
-                        </div>
-                        <span className="text-white font-bold">{text}</span>
+                  {afterItems.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-xs sm:text-sm text-white leading-relaxed font-semibold">
+                      <div className="w-5 h-5 rounded-full bg-[#81D8D0] text-[#05434B] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                        <Check className="w-3.5 h-3.5 stroke-[3]" />
                       </div>
-                      {badge && (
-                        <span className="self-start shrink-0 text-[9px] font-extrabold uppercase tracking-wide bg-[#81D8D0]/30 text-[#A8F5EE] px-2.5 py-0.5 rounded-full whitespace-nowrap">
-                          {badge}
-                        </span>
-                      )}
+                      <span className="text-white font-bold">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -626,11 +637,6 @@ export function ImplementationOptimisationClient() {
           </div>
         </div>
       </section>
-
-      {/* ============================================================ */}
-      {/* 6. TESTIMONIALS SECTION                                      */}
-      {/* ============================================================ */}
-      <Testimonials />
 
       {/* ============================================================ */}
       {/* 7. FREQUENTLY ASKED QUESTIONS ACCORDION                      */}
@@ -690,9 +696,18 @@ export function ImplementationOptimisationClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 8. DISCOVERY & CONSULTATION BOOKING LEAD SECTION             */}
+      {/* 8. IMPLEMENTATION CONSULTATION BOOKING LEAD SECTION          */}
       {/* ============================================================ */}
-      <BookingLeadSection />
+      <BookingLeadSection
+        badgeTitle={isDe ? "KOSTENLOSE BERATUNG" : "FREE CONSULTATION"}
+        title={isDe ? "Implementierungs-Gespräch buchen" : "Book an implementation call"}
+        subtitle={
+          isDe
+            ? "Vereinbaren Sie ein unverbindliches Beratungsgespräch mit unseren Implementierungs-Spezialisten für Ihren Rollout."
+            : "Schedule a free consultation call with our implementation specialists to plan your rollout timeline and system setup."
+        }
+        source="implementation_call"
+      />
 
       {/* ============================================================ */}
       {/* 9. BLOG SECTION                                              */}

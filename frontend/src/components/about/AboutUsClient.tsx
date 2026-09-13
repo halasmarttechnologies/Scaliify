@@ -29,7 +29,6 @@ import { motion } from "framer-motion";
 import { AnimatedStatCounter } from "@/components/common/AnimatedStatCounter";
 import { BookingLeadSection } from "@/components/common/BookingLeadSection";
 import { BlogSection } from "@/components/home/BlogSection";
-import { Testimonials } from "@/components/home/Testimonials";
 
 function LinkedInIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
@@ -48,7 +47,7 @@ const milestonesEn = [
   {
     year: "2021",
     title: "Vision & Foundation",
-    description: "Scaliify was founded to bridge the gap between ambitious growth and operational excellence, combining HR leadership with Big-4 consulting rigor.",
+    description: "scaliify was founded to bridge the gap between ambitious growth and operational excellence, combining HR leadership with Big-4 consulting rigor.",
     position: "top",
   },
   {
@@ -71,14 +70,14 @@ const milestonesEn = [
   },
   {
     year: "2025",
-    title: "100+ Network Specialists",
-    description: "Expanded to over 100 on-demand HR specialists, providing turnkey interim leadership and outsourced HR operations.",
+    title: "150+ Network Specialists",
+    description: "Expanded to over 150 on-demand HR specialists, providing turnkey interim leadership and outsourced HR operations.",
     position: "top",
   },
   {
     year: "2026",
-    title: "Next-Gen HR Advisory",
-    description: "Empowering hundreds of scaling businesses with independent HR technology selection and high-impact people operations.",
+    title: "AI & Next-Gen HR Advisory",
+    description: "Empowering scaling businesses with AI-driven workflows, independent HR technology selection, and high-impact people operations.",
     position: "bottom",
   },
 ];
@@ -87,7 +86,7 @@ const milestonesDe = [
   {
     year: "2021",
     title: "Vision & Gründung",
-    description: "Scaliify wurde gegründet, um die Lücke zwischen ambitioniertem Wachstum und operativer Exzellenz zu schließen – mit praxisnaher HR-Führung und Big-4-Beratungskompetenz.",
+    description: "scaliify wurde gegründet, um die Lücke zwischen ambitioniertem Wachstum und operativer Exzellenz zu schließen – mit praxisnaher HR-Führung und Big-4-Beratungskompetenz.",
     position: "top",
   },
   {
@@ -110,14 +109,14 @@ const milestonesDe = [
   },
   {
     year: "2025",
-    title: "100+ Netzwerk-Spezialist:innen",
-    description: "Ausbau auf über 100 on-demand HR-Fachkräfte für Interimsführung und ausgelagertes Personalmanagement.",
+    title: "150+ Netzwerk-Spezialist:innen",
+    description: "Ausbau auf über 150 on-demand HR-Fachkräfte für Interimsführung und ausgelagertes Personalmanagement.",
     position: "top",
   },
   {
     year: "2026",
-    title: "Next-Gen HR-Beratung",
-    description: "Begleitung von hunderten wachsenden Unternehmen bei herstellerneutraler HR-Softwareauswahl und skalierbaren People Operations.",
+    title: "KI & Next-Gen HR-Beratung",
+    description: "Begleitung von Unternehmen mit KI-gestützten Workflows, herstellerneutraler HR-Softwareauswahl und skalierbaren People Operations.",
     position: "bottom",
   },
 ];
@@ -256,7 +255,7 @@ export function AboutUsClient() {
             {/* Stat 1 */}
             <div className="flex flex-col items-center">
               <p className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-none mb-2 tracking-tight">
-                <AnimatedStatCounter value={100} suffix="+" />
+                <AnimatedStatCounter value={150} suffix="+" />
               </p>
               <p className="text-xs sm:text-sm text-gray-700 font-semibold">
                 {isDe ? "Spezialist:innen im globalen Netzwerk" : "specialists in global network"}
@@ -322,7 +321,7 @@ export function AboutUsClient() {
                     Was uns unterscheidet: Unsere Beratung basiert auf echter Erfahrung in der Führung von HR-Abteilungen, nicht nur auf theoretischen Konzepten. Wir übergeben nicht einfach eine Strategie und gehen wieder. Wir bleiben dabei, bis es in der Praxis wirklich funktioniert.
                   </p>
                   <p>
-                    Um jedes Projekt optimal zu unterstützen, arbeiten wir mit einem Netzwerk von über 100 freiberuflichen Spezialist:innen zusammen – darunter Anwälte, Recruiter und HR Business Partner. So bringen wir für jeden Kunden genau die richtige Expertise ein, ohne ein kleines Kernteam zu überlasten.
+                    Um jedes Projekt optimal zu unterstützen, arbeiten wir mit einem Netzwerk von über 150 freiberuflichen Spezialist:innen zusammen – darunter Anwälte, Recruiter und HR Business Partner. So bringen wir für jeden Kunden genau die richtige Expertise ein, ohne ein kleines Kernteam zu überlasten.
                   </p>
                   <p>
                     Im Kern versteht sich scaliify als Partner, der sowohl die übergeordnete Strategie als auch das operative Tagesgeschäft versteht – und sich nahtlos zwischen beidem bewegt.
@@ -331,7 +330,7 @@ export function AboutUsClient() {
               ) : (
                 <>
                   <p>
-                    scaliify was founded 2022  in  by Ben and Sarah. We built it around one idea: most HR consultancies are either strong on strategy or strong on execution, rarely both. We combine the two.
+                    scaliify was founded in 2022 by Ben and Sarah. We built it around one idea: most HR consultancies are either strong on strategy or strong on execution, rarely both. We combine the two.
                   </p>
                   <p>
                     We're specialised in the DACH region while also working internationally, including a growing presence in the UAE. This means we understand the local rules, culture, and everyday HR realities of these markets, not just the general theory.
@@ -340,7 +339,7 @@ export function AboutUsClient() {
                     What makes us different is that our advice comes from real experience running HR functions, not just studying them. We don't just hand over a strategy and walk away. We stay involved until it actually works in practice.
                   </p>
                   <p>
-                    To support every project properly, we work with a network of over 100 freelance specialists, including lawyers, recruiters, and HR business partners. This lets us bring in exactly the right expertise for each client, without stretching a small team too thin.
+                    To support every project properly, we work with a network of over 150 freelance specialists, including lawyers, recruiters, and HR business partners. This lets us bring in exactly the right expertise for each client, without stretching a small team too thin.
                   </p>
                   <p>
                     At its core, scaliify exists as a partner who understands both the big-picture strategy and the everyday operational work, and can move easily between the two.
@@ -406,10 +405,10 @@ export function AboutUsClient() {
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
             <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#05434B] mb-3">
-              {isDe ? "FÜHRUNG & PARTNER" : "LEADERSHIP & PARTNERS"}
+              {isDe ? "FÜHRUNG & GRÜNDER" : "LEADERSHIP & FOUNDERS"}
             </p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black leading-tight mb-4">
-              {isDe ? "Das scaliify-Team" : "The scaliify Team"}
+              {isDe ? "Die scaliify-Gründer" : "The scaliify Founders"}
             </h2>
             <p className="text-sm sm:text-base text-gray-600 leading-relaxed max-w-xl mx-auto">
               {isDe
@@ -427,7 +426,7 @@ export function AboutUsClient() {
                   <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shadow-md border-2 border-white shrink-0 bg-gray-100">
                     <Image
                       src="/images/partner-sarah.png"
-                      alt="Sarah Mittiga - Partner at Scaliify"
+                      alt="Sarah Mittiga - Partner & Founder at scaliify"
                       fill
                       unoptimized
                       className="object-cover"
@@ -476,7 +475,7 @@ export function AboutUsClient() {
                   <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shadow-md border-2 border-white shrink-0 bg-gray-100">
                     <Image
                       src="/images/partner-ben.png"
-                      alt="Ben Böhmer - Partner at Scaliify"
+                      alt="Ben Böhmer - Partner & Founder at scaliify"
                       fill
                       unoptimized
                       className="object-cover"
@@ -592,15 +591,10 @@ export function AboutUsClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 6. TESTIMONIALS SECTION */}
-      {/* ============================================================ */}
-      <Testimonials />
-
-      {/* ============================================================ */}
-      {/* 7. DISCOVERY & CONSULTATION BOOKING LEAD SECTION */}
+      {/* 6. DISCOVERY & CONSULTATION BOOKING LEAD SECTION */}
       {/* ============================================================ */}
       <BookingLeadSection
-        title={isDe ? "Bereit für die Partnerschaft mit Scaliify?" : "Ready to partner with Scaliify?"}
+        title={isDe ? "Bereit für die Partnerschaft mit scaliify?" : "Ready to partner with scaliify?"}
         subtitle={
           isDe
             ? "Buchen Sie ein Erstgespräch mit Sarah Mittiga, Ben Böhmer oder einem unserer Senior-HR-Partner."

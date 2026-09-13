@@ -108,6 +108,15 @@ export function WizardQuestionStep({ currentStep, answers, setAnswers, toggleArr
           );
         })}
       </div>
+
+      {currentStep === 4 && (
+        <div className="mt-4 px-4 py-3 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2.5 text-xs text-gray-300">
+          <span className="text-brand-teal font-bold text-sm leading-none">*</span>
+          <span>
+            {t("step4Footnote")}
+          </span>
+        </div>
+      )}
     </motion.div>
   );
 }

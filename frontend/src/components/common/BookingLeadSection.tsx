@@ -13,17 +13,20 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { submitLead } from "@/lib/api";
 
 interface BookingLeadSectionProps {
   title?: string;
   subtitle?: string;
   badgeTitle?: string;
+  source?: string;
 }
 
 export function BookingLeadSection({
   title,
   subtitle,
   badgeTitle,
+  source = "consultation_call",
 }: BookingLeadSectionProps) {
   const t = useTranslations("bookingLead");
   const locale = useLocale();
@@ -36,17 +39,38 @@ export function BookingLeadSection({
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
+    jobTitle: "",
     email: "",
     companyName: "",
     employees: "10–50",
     phone: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.email && formData.firstName) {
+    if (!formData.email || !formData.firstName) return;
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    const result = await submitLead({
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
+      companyName: formData.companyName,
+      jobTitle: formData.jobTitle || undefined,
+      phone: formData.phone || undefined,
+      comments: `Team size: ${formData.employees}`,
+      source,
+    });
+
+    setIsSubmitting(false);
+    if (result.success) {
       setSubmitted(true);
+    } else {
+      setSubmitError(result.error || "Submission failed. Please try again.");
     }
   };
 
@@ -94,12 +118,12 @@ export function BookingLeadSection({
             </ul>
           </div>
 
-          {/* Trust Badges 2x2 Grid */}
+          {/* Trust Badges 3 Pillars in One Row */}
           <div>
             <p className="text-[11px] sm:text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">
               {t("trustHeading")}
             </p>
-            <div className="grid grid-cols-2 gap-2.5 w-full max-w-md">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 w-full max-w-lg">
               <div className="bg-white rounded-xl p-2.5 border border-gray-200/80 shadow-2xs flex items-center gap-2.5">
                 <div className="w-7 h-7 rounded-lg bg-[#05434B] text-[#81D8D0] flex items-center justify-center shrink-0 font-bold text-xs">
                   <Award className="w-3.5 h-3.5" />
@@ -127,16 +151,6 @@ export function BookingLeadSection({
                 <div>
                   <p className="text-[11px] font-bold text-gray-900 leading-tight">{t("trustBadge3Title")}</p>
                   <p className="text-[9px] text-gray-500 font-medium">{t("trustBadge3Sub")}</p>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-xl p-2.5 border border-gray-200/80 shadow-2xs flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-[#5BC7BC] to-[#81D8D0] text-[#05434B] flex items-center justify-center shrink-0 font-bold text-xs">
-                  <Zap className="w-3.5 h-3.5" />
-                </div>
-                <div>
-                  <p className="text-[11px] font-bold text-gray-900 leading-tight">{t("trustBadge4Title")}</p>
-                  <p className="text-[9px] text-gray-500 font-medium">{t("trustBadge4Sub")}</p>
                 </div>
               </div>
             </div>
@@ -238,6 +252,21 @@ export function BookingLeadSection({
 
                 <div>
                   <label className="block text-xs font-bold text-gray-800 mb-1">
+                    {t("jobTitleLabel")}
+                  </label>
+                  <input
+                    type="text"
+                    placeholder={t("jobTitlePlaceholder")}
+                    value={formData.jobTitle}
+                    onChange={(e) =>
+                      setFormData({ ...formData, jobTitle: e.target.value })
+                    }
+                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-gray-800 mb-1">
                     {t("employeesLabel")}
                   </label>
                   <select
@@ -278,14 +307,19 @@ export function BookingLeadSection({
                   {t("consentEnd")}
                 </p>
 
+                {submitError && (
+                  <p className="text-xs text-red-600 text-center">{submitError}</p>
+                )}
+
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="relative w-full inline-flex items-center justify-center gap-2 bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark text-sm font-bold py-3.5 rounded-xl sm:rounded-2xl shadow-[0_4px_18px_rgba(129,216,208,0.55)] hover:brightness-105 transition-all cursor-pointer active:scale-[0.98] border border-white/80 overflow-hidden"
+                    disabled={isSubmitting}
+                    className="relative w-full inline-flex items-center justify-center gap-2 bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark text-sm font-bold py-3.5 rounded-xl sm:rounded-2xl shadow-[0_4px_18px_rgba(129,216,208,0.55)] hover:brightness-105 transition-all cursor-pointer active:scale-[0.98] border border-white/80 overflow-hidden disabled:opacity-70"
                   >
                     <span className="absolute inset-x-0 top-0 h-[45%] bg-gradient-to-b from-white/70 to-transparent rounded-t-2xl pointer-events-none" />
                     <span className="relative z-10">
-                      {t("submitButton")}
+                      {isSubmitting ? (isDe ? "Wird gesendet…" : "Submitting…") : t("submitButton")}
                     </span>
                     <ArrowRight className="relative z-10 w-4 h-4" />
                   </button>

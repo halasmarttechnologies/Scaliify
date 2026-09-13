@@ -1,12 +1,33 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { ArrowRight, CheckCircle2, FileText, Download, Filter, Search } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  FileText,
+  Download,
+  Filter,
+  Search,
+  X,
+  Loader2,
+  Sparkles,
+  Check,
+} from "lucide-react";
 import { BookingLeadSection } from "@/components/common/BookingLeadSection";
 import { BlogSection } from "@/components/home/BlogSection";
+import { submitLead } from "@/lib/api";
 
-const guidesList = [
+interface GuideItem {
+  id: string;
+  category: string;
+  title: string;
+  desc: string;
+  readTime: string;
+  badge: string;
+  items: string[];
+}
+
+const guidesList: GuideItem[] = [
   {
     id: "hris-selection-2026",
     category: "Software Selection",
@@ -93,6 +114,17 @@ export function GuidesClient() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Modal State
+  const [activeGuide, setActiveGuide] = useState<GuideItem | null>(null);
+  const [modalForm, setModalForm] = useState({
+    name: "",
+    email: "",
+    company: "",
+    jobTitle: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
   const filteredGuides = guidesList.filter((guide) => {
     const matchesCategory = selectedCategory === "All" || guide.category === selectedCategory;
     const matchesSearch =
@@ -100,6 +132,60 @@ export function GuidesClient() {
       guide.desc.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
+
+  const handleOpenModal = (guide: GuideItem) => {
+    setActiveGuide(guide);
+    setSubmitted(false);
+    setModalForm({
+      name: "",
+      email: "",
+      company: "",
+      jobTitle: "",
+    });
+  };
+
+  const handleCloseModal = () => {
+    setActiveGuide(null);
+    setSubmitted(false);
+  };
+
+  const handleModalSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!activeGuide) return;
+    setIsSubmitting(true);
+
+    const names = modalForm.name.trim().split(" ");
+    const firstName = names[0] || "Guest";
+    const lastName = names.slice(1).join(" ") || "Lead";
+
+    await submitLead({
+      firstName,
+      lastName,
+      email: modalForm.email,
+      companyName: modalForm.company,
+      jobTitle: modalForm.jobTitle || undefined,
+      source: "guide_resource_kit_download",
+      comments: `[Resource Kit Download]: ${activeGuide.title} (${activeGuide.badge})`,
+    });
+
+    setIsSubmitting(false);
+    setSubmitted(true);
+  };
+
+  const handleDownloadFile = () => {
+    if (!activeGuide) return;
+    // Create a client-side text/markdown download representing the executive summary & checklist
+    const content = `# ${activeGuide.title}\nCategory: ${activeGuide.category}\nFormat: ${activeGuide.badge}\n\n## Overview\n${activeGuide.desc}\n\n## Key Included Artifacts & Checklists:\n${activeGuide.items.map((i) => `- [x] ${i}`).join("\n")}\n\n---\nProvided by scaliify (https://scaliify.com)\nIndependent, vendor-neutral HR tech & People operations advisory.`;
+    const blob = new Blob([content], { type: "text/markdown;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `${activeGuide.id}-scaliify-kit.md`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
 
   return (
     <main className="w-full bg-white text-gray-900 font-sans min-h-screen">
@@ -113,7 +199,7 @@ export function GuidesClient() {
             Guides &amp; Checklists
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Free, practical frameworks, implementation checklists, and vendor-neutral decision guides from Scaliify&apos;s senior advisors.
+            Free, practical frameworks, implementation checklists, and vendor-neutral decision guides from scaliify&apos;s senior advisors.
           </p>
         </div>
       </section>
@@ -159,7 +245,7 @@ export function GuidesClient() {
             {filteredGuides.map((guide) => (
               <div
                 key={guide.id}
-                className="bg-white rounded-3xl p-6 sm:p-7 border border-gray-200 hover:border-gray-400 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                className="bg-white rounded-3xl p-6 sm:p-7 border border-gray-200 hover:border-[#81D8D0]/80 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3.5">
@@ -192,13 +278,15 @@ export function GuidesClient() {
                   </div>
                 </div>
 
-                <Link
-                  href="/lets-talk"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-black text-white text-xs font-bold py-2.5 px-4 rounded-xl transition-colors"
+                {/* Pop-up trigger: Download Resource Kit */}
+                <button
+                  type="button"
+                  onClick={() => handleOpenModal(guide)}
+                  className="w-full inline-flex items-center justify-center gap-2 bg-gray-950 hover:bg-[#05434B] text-white text-xs font-bold py-3 px-4 rounded-2xl transition-all cursor-pointer shadow-xs hover:shadow-md active:scale-[0.98]"
                 >
-                  <FileText className="w-3.5 h-3.5" />
-                  <span>Request Playbook</span>
-                </Link>
+                  <Download className="w-3.5 h-3.5 text-[#81D8D0]" />
+                  <span>Download Resource Kit</span>
+                </button>
               </div>
             ))}
           </div>
@@ -214,6 +302,163 @@ export function GuidesClient() {
 
       {/* Blog Section */}
       <BlogSection />
+
+      {/* ============================================================ */}
+      {/* POP-UP DOWNLOAD RESOURCE MODAL                               */}
+      {/* Keeps user on current page so they can download multiple kits */}
+      {/* ============================================================ */}
+      {activeGuide && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-sm animate-in fade-in duration-200">
+          <div
+            className="relative w-full max-w-lg bg-white rounded-3xl p-6 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.3)] border border-gray-100 overflow-hidden"
+            role="dialog"
+            aria-modal="true"
+          >
+            {/* Close Button */}
+            <button
+              type="button"
+              onClick={handleCloseModal}
+              className="absolute top-5 right-5 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 flex items-center justify-center transition-colors cursor-pointer"
+              aria-label="Close modal"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            {submitted ? (
+              /* Success confirmation state */
+              <div className="py-6 flex flex-col items-center text-center">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#5BC7BC] to-[#81D8D0] text-[#05434B] flex items-center justify-center mb-5 shadow-sm">
+                  <Check className="w-7 h-7 stroke-[2.5]" />
+                </div>
+                <span className="text-[10.5px] font-extrabold uppercase tracking-widest text-[#05434B] mb-2">
+                  TOOLKIT UNLOCKED
+                </span>
+                <h3 className="text-xl sm:text-2xl font-extrabold text-gray-950 mb-2">
+                  Your Resource Kit is Ready!
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-600 max-w-md leading-relaxed mb-6">
+                  We&apos;ve sent a direct copy of <strong className="text-gray-900">{activeGuide.title}</strong> to <span className="text-brand-dark font-semibold">{modalForm.email}</span>. You can also download it right now below.
+                </p>
+
+                <div className="w-full flex flex-col sm:flex-row items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={handleDownloadFile}
+                    className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-b from-[#81D8D0] via-[#5BC7BC] to-[#05434B] text-white font-bold text-xs sm:text-sm py-3 px-5 rounded-xl shadow-md hover:brightness-105 transition-all cursor-pointer"
+                  >
+                    <Download className="w-4 h-4" />
+                    <span>Download Kit Now</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleCloseModal}
+                    className="w-full sm:w-auto inline-flex items-center justify-center text-xs font-semibold text-gray-600 hover:text-black py-3 px-5 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer"
+                  >
+                    Explore More Guides
+                  </button>
+                </div>
+              </div>
+            ) : (
+              /* Input Form */
+              <div>
+                <div className="mb-5 pr-6">
+                  <span className="inline-block text-[10px] font-extrabold uppercase tracking-wider bg-[#eaf7f5] text-[#05434B] px-2.5 py-1 rounded-full border border-[#76D8C8]/40 mb-2.5">
+                    {activeGuide.badge} • {activeGuide.category}
+                  </span>
+                  <h3 className="text-lg sm:text-xl font-extrabold text-gray-950 leading-snug">
+                    {activeGuide.title}
+                  </h3>
+                  <p className="text-xs text-gray-600 mt-1.5 leading-relaxed">
+                    Enter your work details to instantly access this resource kit without leaving this page.
+                  </p>
+                </div>
+
+                <form onSubmit={handleModalSubmit} className="flex flex-col gap-3">
+                  <div>
+                    <label className="block text-[11px] font-bold text-gray-700 mb-1">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={modalForm.name}
+                      onChange={(e) => setModalForm({ ...modalForm, name: e.target.value })}
+                      placeholder="e.g. Sarah Schmidt"
+                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-[11px] font-bold text-gray-700 mb-1">
+                      Work Email *
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      value={modalForm.email}
+                      onChange={(e) => setModalForm({ ...modalForm, email: e.target.value })}
+                      placeholder="name@company.com"
+                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-[11px] font-bold text-gray-700 mb-1">
+                        Company Name *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={modalForm.company}
+                        onChange={(e) => setModalForm({ ...modalForm, company: e.target.value })}
+                        placeholder="Company Ltd"
+                        className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-[11px] font-bold text-gray-700 mb-1">
+                        Job Title (Optional)
+                      </label>
+                      <input
+                        type="text"
+                        value={modalForm.jobTitle}
+                        onChange={(e) => setModalForm({ ...modalForm, jobTitle: e.target.value })}
+                        placeholder="Head of People, COO"
+                        className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full mt-2 inline-flex items-center justify-center gap-2 bg-gray-950 hover:bg-[#05434B] text-white text-xs sm:text-sm font-bold py-3 px-4 rounded-xl transition-all cursor-pointer shadow-md active:scale-[0.99] disabled:opacity-70"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin text-[#81D8D0]" />
+                        <span>Generating kit…</span>
+                      </>
+                    ) : (
+                      <>
+                        <Download className="w-4 h-4 text-[#81D8D0]" />
+                        <span>Download Resource Kit</span>
+                      </>
+                    )}
+                  </button>
+
+                  <p className="text-[10px] text-gray-400 text-center mt-1">
+                    Instant access • No credit card required • 100% vendor-neutral
+                  </p>
+                </form>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </main>
   );
 }

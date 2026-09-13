@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ContactPageClient } from "@/components/contact/ContactPageClient";
@@ -29,7 +30,9 @@ export default async function ContactPage({
           { name: "Contact", path: "/contact" },
         ]}
       />
-      <ContactPageClient />
+      <Suspense fallback={null}>
+        <ContactPageClient />
+      </Suspense>
     </>
   );
 }

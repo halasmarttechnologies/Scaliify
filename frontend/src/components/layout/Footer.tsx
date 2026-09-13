@@ -9,12 +9,13 @@ import { useTranslations } from "next-intl";
 export function Footer() {
   const t = useTranslations("footer");
 
-  const productLinks = [
-    { key: "featuresOverview", href: "#services" },
-    { key: "pricingPlans", href: "/contact" },
-    { key: "integrations", href: "/#software" },
-    { key: "productUpdates", href: "/#services" },
-    { key: "roadmap", href: "/#services" },
+  const servicesLinks = [
+    { key: "hrItSelection", href: "/services/hr-it-selection" },
+    { key: "implementationOptimisation", href: "/services/implementation-optimisation" },
+    { key: "hrItIntegrations", href: "/services/hr-it-integrations" },
+    { key: "interimManagement", href: "/services/interim-management" },
+    { key: "outsourcedHr", href: "/services/outsourced-hr" },
+    { key: "hrAdvisory", href: "/services/hr-advisory" },
   ] as const;
 
   const companyLinks = [
@@ -68,7 +69,7 @@ export function Footer() {
 
           {/* CTA Pill Button (Glossy Tiffany Blue Let's Talk Style) */}
           <Link
-            href="/contact"
+            href="/lets-talk"
             className="group relative inline-flex items-center gap-3.5 bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark font-extrabold text-sm sm:text-base pl-7 sm:pl-8 pr-3 sm:pr-3.5 py-3 rounded-full border border-white/70 shadow-[0_4px_22px_rgba(129,216,208,0.6)] hover:shadow-[0_6px_28px_rgba(129,216,208,0.9)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
           >
             {/* Top Glossy Specular Sheen */}
@@ -94,18 +95,18 @@ export function Footer() {
           
           {/* Brand Column (Spans 2 columns on lg) */}
           <div className="lg:col-span-2 flex flex-col items-start pr-0 lg:pr-12">
-            <Link href="/" className="flex items-center gap-3 mb-6 group">
-              <div className="relative w-8 h-8 sm:w-9 sm:h-9 shrink-0">
+            <Link href="/" className="flex items-center gap-2.5 sm:gap-3 mb-6 group">
+              <div className="relative h-8 sm:h-9 w-[15px] sm:w-[17px] shrink-0">
                 <Image
-                  src="/company logo/whitelogo.png"
-                  alt="Scaliify Logo"
+                  src="/2(1).png"
+                  alt="scaliify Logo"
                   fill
                   unoptimized
                   className="object-contain"
                 />
               </div>
               <span className="font-bold text-2xl tracking-tight text-white group-hover:text-brand-teal transition-colors">
-                Scaliify
+                scaliify
               </span>
             </Link>
             <p className="text-gray-400 text-sm sm:text-base leading-relaxed max-w-sm">
@@ -113,11 +114,11 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Product Links */}
+          {/* Services Links */}
           <div>
             <h3 className="font-semibold text-white text-sm sm:text-base mb-5">{t("product")}</h3>
             <ul className="flex flex-col gap-3.5">
-              {productLinks.map((link) => (
+              {servicesLinks.map((link) => (
                 <li key={link.key}>
                   <Link
                     href={link.href}

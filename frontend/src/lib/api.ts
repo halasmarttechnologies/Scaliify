@@ -106,7 +106,7 @@ export async function submitLead(data: {
   jobTitle?: string;
   phone?: string;
   comments?: string;
-  source?: "contact_page" | "lets_talk" | "tool_finder";
+  source?: "contact_page" | "lets_talk" | "tool_finder" | "hr_it_audit" | "implementation_call" | string;
 }): Promise<LeadSubmitResult> {
   try {
     const response = await fetch(`${API_BASE}/leads`, {

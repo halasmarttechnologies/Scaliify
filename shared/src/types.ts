@@ -3,7 +3,7 @@ export interface AssessmentAnswers {
   regions: string[];
   currentStatus: "status_scratch" | "status_replace_hris" | "status_dedicated_ats" | "status_dedicated_perf";
   coreHrNeeds: string[];
-  payrollModel: "payroll_datev" | "payroll_local_eu" | "payroll_global_eor" | "payroll_internal";
+  payrollModel: "payroll_datev" | "payroll_tax_advisor" | "payroll_local_eu" | "payroll_global_eor" | "payroll_internal";
   recruitingNeeds: string[];
   performanceNeeds: string[];
   timeAttendanceNeeds: string[];

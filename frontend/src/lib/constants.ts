@@ -23,8 +23,6 @@ export const ROTATING_COMPANIES: RotatingCompany[] = [
   { name: "Westbridge", type: "logo", id: "westbridge" },
   { name: "statista", type: "text", className: "font-bold tracking-tight text-white text-xs sm:text-sm lowercase" },
   { name: "KRONES AG", type: "logo", id: "krones" },
-  { name: "polaroid", type: "text", className: "font-bold tracking-tight text-white text-xs sm:text-sm lowercase" },
   { name: "symrise", type: "logo", id: "symrise" },
-  { name: "SPENDESK", type: "spendesk" },
   { name: "TIEMEYER", type: "logo", id: "tiemeyer" },
 ];

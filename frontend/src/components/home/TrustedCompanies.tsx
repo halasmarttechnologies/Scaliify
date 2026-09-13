@@ -26,7 +26,7 @@ export function TrustedCompanies() {
           </h2>
         </motion.div>
 
-        {/* Clean Logo Grid with 13 official partner logos */}
+        {/* Clean Logo Grid with 10 official partner logos */}
         <motion.div
           {...FADE_UP}
           whileInView={FADE_UP.animate}

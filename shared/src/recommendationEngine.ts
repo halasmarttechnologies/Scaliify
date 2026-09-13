@@ -49,8 +49,8 @@ const APPROX_HEADCOUNT: Record<string, number> = {
 };
 
 function generateRationale(tool: ToolData, answers: AssessmentAnswers, score: number): string {
-  if (answers.payrollModel === "payroll_datev" && (tool.id === "personio" || tool.id === "flair")) {
-    return `Scored ${score}% match due to native DATEV integration, BAG-compliant time recording, and proven European SME adoption.`;
+  if ((answers.payrollModel === "payroll_datev" || answers.payrollModel === "payroll_tax_advisor") && (tool.id === "personio" || tool.id === "flair")) {
+    return `Scored ${score}% match due to native tax advisor & payroll integration, compliant time recording, and proven European SME adoption.`;
   }
   if (answers.payrollModel === "payroll_global_eor" && (tool.id === "deel" || tool.id === "workmotion")) {
     return `Scored ${score}% match because of its turnkey multi-country EOR infrastructure, contractor management, and global payroll capabilities.`;
@@ -124,10 +124,10 @@ export function calculateRecommendations(answers: AssessmentAnswers, toolList: T
         totalScore += SCORING_WEIGHTS.coreHr * PARTIAL_MATCH.noSelectionCoreHr;
       }
 
-      if (answers.payrollModel === "payroll_datev") {
-        if (tool.features.includes("payroll_datev") || tool.integrations.includes("int_datev")) {
+      if (answers.payrollModel === "payroll_datev" || answers.payrollModel === "payroll_tax_advisor") {
+        if (tool.features.includes("payroll_datev") || tool.integrations.includes("int_datev") || tool.features.includes("payroll_local_eu")) {
           totalScore += SCORING_WEIGHTS.payroll;
-          matchedFeatures.push("Native DATEV & German tax advisor payroll sync");
+          matchedFeatures.push("Tax advisor & payroll system synchronization");
         } else if (tool.features.includes("payroll_local_eu")) {
           totalScore += SCORING_WEIGHTS.payroll * PARTIAL_MATCH.payrollPartialDatev;
         }
@@ -149,13 +149,16 @@ export function calculateRecommendations(answers: AssessmentAnswers, toolList: T
       if (answers.recruitingNeeds.length > 0) {
         let atsMatches = 0;
         for (const need of answers.recruitingNeeds) {
-          if (tool.features.includes(need)) {
+          if (tool.features.includes(need) || (need === "ats_templates_signatures" && (tool.features.includes("core_signatures") || tool.features.includes("ats_structured_hiring")))) {
             atsMatches++;
           }
         }
         const atsRatio = atsMatches / answers.recruitingNeeds.length;
         totalScore += SCORING_WEIGHTS.recruiting * atsRatio;
 
+        if (answers.recruitingNeeds.includes("ats_templates_signatures")) {
+          matchedFeatures.push("Standardized contract templates & e-signatures");
+        }
         if (answers.recruitingNeeds.includes("ats_multiposting") && tool.features.includes("ats_multiposting")) {
           matchedFeatures.push("One-click job board multiposting");
         }
@@ -172,7 +175,7 @@ export function calculateRecommendations(answers: AssessmentAnswers, toolList: T
       if (answers.performanceNeeds.length > 0) {
         let perfMatches = 0;
         for (const need of answers.performanceNeeds) {
-          if (tool.features.includes(need)) {
+          if (tool.features.includes(need) || (need === "perf_starting_fresh" && tool.features.includes("perf_continuous_1on1"))) {
             perfMatches++;
           }
         }
@@ -192,15 +195,15 @@ export function calculateRecommendations(answers: AssessmentAnswers, toolList: T
       if (answers.timeAttendanceNeeds.length > 0) {
         let timeMatches = 0;
         for (const need of answers.timeAttendanceNeeds) {
-          if (tool.features.includes(need)) {
+          if (tool.features.includes(need) || (need === "time_compliant" && tool.features.includes("time_bag_compliant"))) {
             timeMatches++;
           }
         }
         const timeRatio = timeMatches / answers.timeAttendanceNeeds.length;
         totalScore += SCORING_WEIGHTS.timeAttendance * timeRatio;
 
-        if (answers.timeAttendanceNeeds.includes("time_bag_compliant") && tool.features.includes("time_bag_compliant")) {
-          matchedFeatures.push("German BAG-compliant working time recording");
+        if ((answers.timeAttendanceNeeds.includes("time_bag_compliant") || answers.timeAttendanceNeeds.includes("time_compliant")) && tool.features.includes("time_bag_compliant")) {
+          matchedFeatures.push("Compliant working time & attendance recording");
         }
         if (answers.timeAttendanceNeeds.includes("time_project_billing") && tool.features.includes("time_project_billing")) {
           matchedFeatures.push("Project-based billable hours & client reporting");
@@ -212,15 +215,24 @@ export function calculateRecommendations(answers: AssessmentAnswers, toolList: T
       if (answers.integrations.length > 0) {
         let intMatches = 0;
         for (const intReq of answers.integrations) {
-          if (tool.integrations.includes(intReq)) {
+          if (
+            tool.integrations.includes(intReq) ||
+            (intReq === "int_payroll" && (tool.integrations.includes("int_datev") || tool.features.includes("payroll_local_eu"))) ||
+            (intReq === "int_expenses" && (tool.integrations.includes("int_custom_api") || tool.features.includes("core_digital_records"))) ||
+            (intReq === "int_active_directory" && tool.integrations.includes("int_google_ms")) ||
+            (intReq === "int_comms" && tool.integrations.includes("int_slack_teams"))
+          ) {
             intMatches++;
           }
         }
         const intRatio = intMatches / answers.integrations.length;
         totalScore += SCORING_WEIGHTS.integrations * intRatio;
 
-        if (answers.integrations.includes("int_slack_teams") && tool.integrations.includes("int_slack_teams")) {
+        if ((answers.integrations.includes("int_slack_teams") || answers.integrations.includes("int_comms")) && tool.integrations.includes("int_slack_teams")) {
           matchedFeatures.push("Slack & Microsoft Teams integration");
+        }
+        if (answers.integrations.includes("int_payroll")) {
+          matchedFeatures.push("Direct payroll system integration");
         }
       } else {
         totalScore += SCORING_WEIGHTS.integrations * PARTIAL_MATCH.noSelectionIntegrations;

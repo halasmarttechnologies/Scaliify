@@ -13,11 +13,10 @@ import {
   TrendingUp,
   ShieldCheck,
   Quote,
-  CheckCircle2,
   ChevronDown,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { companies } from "@/data/companies";
+import { softwareList, ToolLogo } from "@/components/home/SoftwareStack";
 import { Testimonials } from "@/components/home/Testimonials";
 import { BookingLeadSection } from "@/components/common/BookingLeadSection";
 import { BlogSection } from "@/components/home/BlogSection";
@@ -27,7 +26,7 @@ const pillarsEn = [
   {
     icon: Search,
     title: "Independent, Vendor-Neutral Guidance",
-    desc: "We don't take direction from any software provider, so what we recommend is based purely on what fits your business, not on who we're closest to.",
+    desc: "We don't take direction from any software provider, so what we recommend is based purely on what fits your business.",
   },
   {
     icon: Layers,
@@ -50,7 +49,7 @@ const pillarsDe = [
   {
     icon: Search,
     title: "Unabhängige, herstellerneutrale Beratung",
-    desc: "Wir lassen uns von keinem Softwareanbieter leiten. Was wir empfehlen, basiert rein darauf, was zu Ihrem Unternehmen passt – nicht darauf, wem wir am nächsten stehen.",
+    desc: "Wir lassen uns von keinem Softwareanbieter leiten. Was wir empfehlen, basiert rein darauf, was zu Ihrem Unternehmen passt.",
   },
   {
     icon: Layers,
@@ -99,7 +98,7 @@ const marqueeCardsEn = [
     type: "image-card",
     image: "/images/food-pantry.jpg",
     quote:
-      "Having independent HR advisors who don't take vendor commissions gave us total confidence in choosing our new European ATS and Core HR platform.",
+      "Having independent HR advisors who understand the European tool market gave us total confidence in choosing our new ATS and Core HR platform.",
     author: "Sarah Lindemann | Chief People Officer",
     border: "border-gray-200/50",
   },
@@ -119,6 +118,40 @@ const marqueeCardsEn = [
       "Scaliify helped us navigate GDPR compliance, German labor standards (BAG), and payroll integrations seamlessly during our HR software switch.",
     author: "Sophie Dubois | Global HR Operations",
     border: "border-gray-200/50",
+  },
+  {
+    type: "quote-card",
+    bg: "bg-[#f0faf8]",
+    brandName: "novapay",
+    quote:
+      "Comparing local payroll engines versus global EOR setups across 6 European entities was overwhelming until Scaliify audited our tech stack and structured the roadmap.",
+    author: "Julian Kramer | Director of Operations",
+    border: "border-[#76D8C8]/40",
+  },
+  {
+    type: "stat-card",
+    bg: "bg-gradient-to-br from-[#05434B] via-[#1b3a42] to-[#4FB8AA]",
+    stat: "73%",
+    sub: "faster time-to-value for newly adopted HR tools",
+    brand: "Scaliify Benchmarks",
+    border: "border-[#76D8C8]/30",
+  },
+  {
+    type: "quote-card",
+    bg: "bg-[#e8f7f4]",
+    brandName: "fintech europe",
+    quote:
+      "We streamlined our talent pipeline by connecting Greenhouse and Personio with custom automated candidate triggers. Hiring velocity improved immediately.",
+    author: "Clara Vance | VP People & Organization",
+    border: "border-[#4FB8AA]/40",
+  },
+  {
+    type: "stat-card",
+    bg: "bg-gradient-to-br from-[#2B4C55] via-[#05434B] to-[#76D8C8]",
+    stat: "28%",
+    sub: "average overall HR software cost savings",
+    brand: "Scaliify Impact",
+    border: "border-[#76D8C8]/30",
   },
 ];
 
@@ -152,7 +185,7 @@ const marqueeCardsDe = [
     type: "image-card",
     image: "/images/food-pantry.jpg",
     quote:
-      "Unabhängige HR-Berater zu haben, die keine Anbieter-Provisionen annehmen, gab uns absolute Sicherheit bei der Auswahl unseres neuen ATS- und HRIS-Systems.",
+      "Erfahrene HR-Berater an der Seite zu haben, die den europäischen Softwaremarkt genau kennen, gab uns absolute Sicherheit bei der Auswahl unseres neuen ATS- und HRIS-Systems.",
     author: "Sarah Lindemann | Chief People Officer",
     border: "border-gray-200/50",
   },
@@ -173,6 +206,40 @@ const marqueeCardsDe = [
     author: "Sophie Dubois | Global HR Operations",
     border: "border-gray-200/50",
   },
+  {
+    type: "quote-card",
+    bg: "bg-[#f0faf8]",
+    brandName: "novapay",
+    quote:
+      "Lokale Lohnabrechnungssysteme mit internationalen EOR-Lösungen für 6 Länder zu vergleichen, war überwältigend – bis Scaliify unseren Stack auditiert und strukturiert hat.",
+    author: "Julian Kramer | Director of Operations",
+    border: "border-[#76D8C8]/40",
+  },
+  {
+    type: "stat-card",
+    bg: "bg-gradient-to-br from-[#05434B] via-[#1b3a42] to-[#4FB8AA]",
+    stat: "73%",
+    sub: "schnellere Wertschöpfung bei neuen HR-Tools",
+    brand: "Scaliify Benchmarks",
+    border: "border-[#76D8C8]/30",
+  },
+  {
+    type: "quote-card",
+    bg: "bg-[#e8f7f4]",
+    brandName: "fintech europe",
+    quote:
+      "Wir haben unsere Recruiting-Pipeline beschleunigt, indem wir Greenhouse und Personio mit automatisierten Triggern verknüpft haben. Die Time-to-Hire sank spürbar.",
+    author: "Clara Vance | VP People & Organization",
+    border: "border-[#4FB8AA]/40",
+  },
+  {
+    type: "stat-card",
+    bg: "bg-gradient-to-br from-[#2B4C55] via-[#05434B] to-[#76D8C8]",
+    stat: "28%",
+    sub: "durchschnittliche HR-Software-Kosteneinsparung",
+    brand: "Scaliify Impact",
+    border: "border-[#76D8C8]/30",
+  },
 ];
 
 const beforeItemsEn = [
@@ -192,26 +259,26 @@ const beforeItemsDe = [
 ];
 
 const afterItemsEn = [
-  { text: "100% Independent & vendor-neutral selection", badge: "100% Unbiased" },
-  { text: "Harmonised, silo-free HR architecture", badge: null },
-  { text: "Automated, interconnected HR workflows", badge: "+40% faster" },
-  { text: "Centralised employee data & single source of truth", badge: null },
-  { text: "Future-proof infrastructure ready to scale", badge: "Effortless scale" },
+  "100% independent vendor selection",
+  "Harmonised, silo-free HR architecture",
+  "Automated, interconnected HR workflows",
+  "Centralised employee data & single source of truth",
+  "Future-proof infrastructure ready to scale",
 ];
 
 const afterItemsDe = [
-  { text: "100 % unabhängige & herstellerneutrale Auswahl", badge: "100 % Unabhängig" },
-  { text: "Harmonische, silofreie HR-Architektur", badge: null },
-  { text: "Automatisierte, vernetzte HR-Workflows", badge: "+40 % schneller" },
-  { text: "Zentrale Personaldaten als Single Source of Truth", badge: null },
-  { text: "Zukunftssichere Infrastruktur, bereit zu skalieren", badge: "Mühelose Skalierung" },
+  "100 % unabhängige & herstellerneutrale Auswahl",
+  "Harmonische, silofreie HR-Architektur",
+  "Automatisierte, vernetzte HR-Workflows",
+  "Zentrale Personaldaten als Single Source of Truth",
+  "Zukunftssichere Infrastruktur, bereit zu skalieren",
 ];
 
 const hrSelectionFaqsEn = [
   {
     question: "Do you only work with a specific HR software provider?",
     answer:
-      "No. We're completely independent and don't have partnerships or commission deals with any vendor. Whatever we recommend is based on what actually works for you.",
+      "No. We work across all standard HR software providers on the market (from all-in-one HRIS like Personio, Factorial, and Deel, to specialized ATS, payroll, and performance tools). We know the strengths, limitations, and pricing models of each system and ensure the final setup is uniquely tailored to fit your business.",
   },
   {
     question: "How long does the selection process usually take?",
@@ -239,7 +306,7 @@ const hrSelectionFaqsDe = [
   {
     question: "Arbeiten Sie nur mit bestimmten HR-Softwareanbietern zusammen?",
     answer:
-      "Nein. Wir sind vollkommen unabhängig und haben weder Partnerschaften noch Provisionsvereinbarungen mit Anbietern. Was wir empfehlen, basiert rein darauf, was für Sie funktioniert.",
+      "Nein. Wir arbeiten mit allen gängigen HR-Softwareanbietern auf dem Markt – darunter Personio, Deel, Workmotion, Factorial, Leapsome, BambooHR, HiBob, Greenhouse und viele mehr. Wir kennen die genauen Stärken, Grenzen und Preismodelle der verschiedenen Systeme, um sicherzustellen, dass Ihr Setup optimal auf Ihre Unternehmensanforderungen abgestimmt ist.",
   },
   {
     question: "Wie lange dauert der Auswahlprozess üblicherweise?",
@@ -274,19 +341,10 @@ export function HrItSelectionClient() {
   const afterItems = isDe ? afterItemsDe : afterItemsEn;
   const hrSelectionFaqs = isDe ? hrSelectionFaqsDe : hrSelectionFaqsEn;
 
-  const [emailInput, setEmailInput] = useState("");
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   const toggleFaq = (index: number) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
-  };
-
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (emailInput.trim()) {
-      setEmailSubmitted(true);
-    }
   };
 
   return (
@@ -328,7 +386,7 @@ export function HrItSelectionClient() {
                 href="/tool-finder"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-black border border-gray-300 hover:border-[#2B4C55] px-6 py-3.5 rounded-full transition-all hover:bg-gray-50 cursor-pointer"
               >
-                <span>{isDe ? "HR Tool Finder testen" : "Try HR Tool Finder"}</span>
+                <span>{isDe ? "Unseren HR Tool Finder testen" : "Try our HR Tool Finder"}</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#2B4C55]" />
               </Link>
             </div>
@@ -350,21 +408,25 @@ export function HrItSelectionClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 2. PARTNER / CLIENT LOGO STRIP                               */}
+      {/* 2. DYNAMIC HR SOFTWARE LOGO MARQUEE                         */}
       {/* ============================================================ */}
-      <section className="w-full bg-white py-8 sm:py-12 border-y border-gray-100 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto flex flex-col items-center">
-          <div className="w-full flex flex-wrap items-center justify-center gap-6 sm:gap-10 lg:gap-14 opacity-80 grayscale hover:grayscale-0 transition-all duration-300">
-            {companies.slice(0, 6).map((c) => (
-              <div key={c.id} className="relative h-7 w-20 sm:w-24 shrink-0 flex items-center justify-center">
-                <Image
-                  src={c.logoUrl}
-                  alt={`Partner ${c.id}`}
-                  fill
-                  unoptimized
-                  className="object-contain"
-                  sizes="96px"
-                />
+      <section className="w-full bg-white py-7 sm:py-9 border-y border-gray-100 overflow-hidden select-none">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-3 sm:mb-4 text-center">
+          <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] text-gray-500">
+            {isDe ? "Wir evaluieren und integrieren alle führenden HR-Softwarelösungen" : "We evaluate & integrate leading HR software providers"}
+          </p>
+        </div>
+        <div className="relative w-full overflow-hidden">
+          <div className="animate-marquee-left flex items-center gap-3.5 sm:gap-5 w-max py-1">
+            {[...softwareList, ...softwareList].map((tool, idx) => (
+              <div
+                key={`${tool.id}-${idx}`}
+                className="flex items-center gap-2.5 px-4 sm:px-5 py-2 rounded-full bg-gray-50 border border-gray-200/80 hover:border-[#81D8D0] hover:bg-white transition-all shadow-2xs group shrink-0"
+              >
+                <ToolLogo id={tool.id} />
+                <span className="text-xs sm:text-sm font-bold text-gray-800 tracking-tight group-hover:text-black">
+                  {tool.name}
+                </span>
               </div>
             ))}
           </div>
@@ -407,7 +469,7 @@ export function HrItSelectionClient() {
       <section className="w-full bg-white py-12 sm:py-16 overflow-hidden border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 mb-6 sm:mb-8 text-center">
           <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#4FB8AA] mb-2">
-            {isDe ? "TÄGLICH GENUTZT VON TEAMS MIT 50-5000 MITARBEITENDEN" : "USED DAILY BY TEAMS FROM 50-5000 EMPLOYEES"}
+            {isDe ? "WIR ARBEITEN MIT TEAMS VON 10 BIS 15.000+ MITARBEITENDEN" : "WE WORK WITH TEAMS FROM 10 TO 15,000+ EMPLOYEES"}
           </p>
           <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-black leading-tight">
             {isDe ? "Organisationen, die mit uns wachsen" : "Join the organisations unlocking impact"}
@@ -534,19 +596,12 @@ export function HrItSelectionClient() {
                   {isDe ? "Mit Scaliify" : "After Scaliify"}
                 </h3>
                 <ul className="flex flex-col gap-4">
-                  {afterItems.map(({ text, badge }) => (
-                    <li key={text} className="flex items-start gap-3 text-xs sm:text-sm text-black font-semibold">
+                  {afterItems.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-xs sm:text-sm text-black font-semibold">
                       <div className="w-5 h-5 rounded-full bg-[#4FB8AA] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
                         <Check className="w-3.5 h-3.5 stroke-[3]" />
                       </div>
-                      <div className="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2.5">
-                        <span className="text-gray-950 font-bold leading-snug">{text}</span>
-                        {badge && (
-                          <span className="self-start sm:self-center shrink-0 text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wide bg-[#76D8C8]/30 text-[#05434B] px-2.5 py-0.5 rounded-full whitespace-nowrap">
-                            {badge}
-                          </span>
-                        )}
-                      </div>
+                      <span className="text-gray-950 font-bold leading-snug">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -586,7 +641,7 @@ export function HrItSelectionClient() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-16 text-center">
             <div className="flex flex-col items-center">
               <span className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-none mb-2 tracking-tight">
-                <AnimatedStatCounter value={33} suffix="%" />
+                <AnimatedStatCounter value={73} suffix="%" />
               </span>
               <span className="text-xs sm:text-sm text-gray-800 font-semibold max-w-[200px]">
                 {isDe ? "produktivere HR-Teams" : "more productive HR teams"}
@@ -595,7 +650,7 @@ export function HrItSelectionClient() {
 
             <div className="flex flex-col items-center">
               <span className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-none mb-2 tracking-tight">
-                <AnimatedStatCounter value={12} suffix="%" />
+                <AnimatedStatCounter value={28} suffix="%" />
               </span>
               <span className="text-xs sm:text-sm text-gray-800 font-semibold max-w-[200px]">
                 {isDe ? "Gesamtkosteneinsparung im HR-Bereich" : "overall HR cost savings"}
@@ -604,41 +659,16 @@ export function HrItSelectionClient() {
 
             <div className="flex flex-col items-center">
               <span className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-none mb-2 tracking-tight">
-                <AnimatedStatCounter value={52} suffix="%" />
+                <AnimatedStatCounter value={73} suffix="%" />
               </span>
               <span className="text-xs sm:text-sm text-gray-800 font-semibold max-w-[200px]">
-                {isDe ? "spürbarer Mehrwert in den ersten 3 Monaten" : "saw value within first 3 months of rollout"}
+                {isDe ? "spürbarer Mehrwert in den ersten 3 Monaten" : "saw tangible value within first 3 months"}
               </span>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 items-stretch mb-10 sm:mb-14">
-            <div className="md:col-span-7 bg-gradient-to-b from-[#eaf7f5] via-white to-white rounded-[22px] sm:rounded-[26px] p-6 sm:p-8 md:p-12 flex flex-col justify-center items-center text-center border border-[#76D8C8]/40 shadow-xs min-h-[140px] sm:min-h-[180px]">
-              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#4FB8AA] mb-3">
-                {isDe ? "KUNDENSTORY" : "CUSTOMER STORY"}
-              </p>
-              <div className="relative h-10 sm:h-12 w-32 sm:w-36">
-                <Image
-                  src={companies[0]?.logoUrl ?? "/companies/logo-1.png"}
-                  alt="Customer Logo"
-                  fill
-                  unoptimized
-                  className="object-contain"
-                  sizes="144px"
-                />
-              </div>
-            </div>
-
-            <div className="md:col-span-5 bg-gradient-to-br from-[#81D8D0] via-[#76D8C8] to-[#A8F5EE] text-black rounded-[22px] sm:rounded-[26px] p-6 sm:p-8 md:p-10 flex flex-col justify-center min-h-[140px] sm:min-h-[180px] shadow-xs border border-white/60">
-              <p className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-none text-black mb-3">
-                <AnimatedStatCounter value={60} suffix="%" />
-              </p>
-              <p className="text-xs sm:text-sm font-bold text-black leading-snug">
-                {isDe ? "mehr Zeit pro Tag für die Mitarbeiterbetreuung" : "more time each day to focus on people"}
-              </p>
-            </div>
-
-            <div className="md:col-span-5 relative rounded-[22px] sm:rounded-[26px] overflow-hidden min-h-[220px] sm:min-h-[300px] shadow-xs border border-gray-200/80">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6 items-stretch">
+            <div className="md:col-span-5 relative rounded-[22px] sm:rounded-[26px] overflow-hidden min-h-[240px] sm:min-h-[320px] shadow-xs border border-gray-200/80">
               <Image
                 src="/images/hr-leader-story.jpg"
                 alt="Laura Mohan - HR Business Partner"
@@ -646,83 +676,42 @@ export function HrItSelectionClient() {
                 className="object-cover object-top"
                 sizes="(max-width: 768px) 100vw, 40vw"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#05434B]/85 via-transparent to-transparent" />
+              <div className="absolute inset-x-4 bottom-4 text-white">
+                <p className="text-sm sm:text-base font-bold text-white">Laura Mohan</p>
+                <p className="text-xs text-[#76D8C8] font-medium">HR Business Partner</p>
+              </div>
             </div>
 
-            <div className="md:col-span-7 bg-[#f0faf8] rounded-[22px] sm:rounded-[26px] p-6 sm:p-8 md:p-10 flex flex-col justify-between border border-[#4FB8AA]/30 shadow-xs min-h-[220px] sm:min-h-[300px]">
+            <div className="md:col-span-7 bg-[#f0faf8] rounded-[22px] sm:rounded-[26px] p-6 sm:p-8 md:p-10 flex flex-col justify-between border border-[#4FB8AA]/30 shadow-xs min-h-[240px] sm:min-h-[320px]">
               <div>
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-[#4FB8AA] to-[#76D8C8] text-[#05434B] flex items-center justify-center mb-4 sm:mb-5 shadow-xs">
-                  <Quote className="w-4 h-4 sm:w-5 sm:h-5 fill-current" />
+                <div className="flex items-center justify-between mb-4 sm:mb-5">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#4FB8AA] to-[#76D8C8] text-[#05434B] flex items-center justify-center shadow-xs">
+                    <Quote className="w-5 h-5 fill-current" />
+                  </div>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#05434B] bg-white px-3 py-1 rounded-full border border-[#76D8C8]/40 shadow-2xs">
+                    {isDe ? "KUNDENSTIMME" : "CLIENT QUOTE"}
+                  </span>
                 </div>
-                <p className="text-sm sm:text-base md:text-lg text-[#2B4C55] font-bold leading-snug mb-4">
+                <p className="text-base sm:text-lg md:text-xl text-[#2B4C55] font-bold leading-relaxed mb-6">
                   {isDe
-                    ? "„Durch die Partnerschaft mit Scaliify bei unserer HR-IT-Auswahl haben wir die Evaluierungszeit auf wenige Wochen verkürzt und teure Fehlentscheidungen verhindert. Onboarding, Reporting und Core-HR laufen jetzt absolut reibungslos.“"
+                    ? "„Durch die Zusammenarbeit mit Scaliify bei unserer HR-IT-Auswahl haben wir die Evaluierungszeit auf wenige Wochen verkürzt und teure Fehlentscheidungen verhindert. Onboarding, Reporting und Core-HR laufen jetzt absolut reibungslos.“"
                     : "“By partnering with Scaliify for our HR IT selection, we cut evaluation time to weeks and eliminated costly vendor lock-in. It streamlined everything around onboarding, reporting, and core HR systems.”"}
                 </p>
               </div>
-              <div>
-                <p className="text-xs sm:text-sm font-bold text-black">
-                  Laura Mohan <span className="font-normal text-gray-600">| HR Business Partner</span>
-                </p>
-              </div>
-            </div>
-          </div>
 
-          <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-7 items-stretch mt-10 sm:mt-16">
-            <div className="md:col-span-7 bg-[#cbece5] rounded-2xl sm:rounded-[32px] p-5 sm:p-7 md:p-10 flex flex-col justify-between shadow-[0_12px_35px_rgba(79,184,170,0.18)] border border-[#a6dfd4] relative overflow-hidden">
-              <div className="mb-6">
-                <div className="inline-flex items-center bg-[#ee7738] text-white text-[10.5px] sm:text-[11px] font-bold px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full uppercase tracking-wider mb-3 sm:mb-4 shadow-2xs">
-                  {isDe ? "Von Expert:innen geführt, 30 Min." : "Expert run, 30 minute tour"}
+              <div className="flex items-center justify-between pt-4 border-t border-[#4FB8AA]/20">
+                <div>
+                  <p className="text-xs sm:text-sm font-bold text-black">
+                    Laura Mohan <span className="font-normal text-gray-600">| HR Business Partner</span>
+                  </p>
                 </div>
-                <h3 className="text-xl sm:text-2xl lg:text-[32px] font-extrabold text-[#05434B] tracking-tight leading-[1.18]">
-                  {isDe ? "Personalisierte Demo anfordern" : "Book your personalised demo"}
-                </h3>
-              </div>
-
-              {emailSubmitted ? (
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold text-[#05434B] bg-white/80 backdrop-blur-sm border border-[#5BC7BC]/50 px-5 py-3.5 rounded-full">
-                  <CheckCircle2 className="w-4 h-4 text-[#2B4C55]" />
-                  <span>{isDe ? "Vielen Dank! Wir melden uns in Kürze." : "Thank you! We will reach out to schedule your tour."}</span>
+                <div className="text-right">
+                  <span className="text-xl sm:text-2xl font-black text-[#05434B] leading-none block">60%</span>
+                  <p className="text-[10px] sm:text-xs text-gray-600 font-medium">
+                    {isDe ? "mehr Zeit für People Ops" : "more time for People Ops"}
+                  </p>
                 </div>
-              ) : (
-                <form onSubmit={handleEmailSubmit} className="w-full">
-                  <div className="bg-white rounded-2xl sm:rounded-full p-1.5 sm:pl-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-0 shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)] border border-white/80 w-full">
-                    <input
-                      type="email"
-                      required
-                      value={emailInput}
-                      onChange={(e) => setEmailInput(e.target.value)}
-                      placeholder={isDe ? "Ihre geschäftliche E-Mail-Adresse *" : "What's your work email? *"}
-                      aria-label="Work email address"
-                      className="w-full px-3 py-2.5 sm:py-2 text-xs sm:text-sm text-black placeholder:text-gray-400 focus:outline-none bg-transparent"
-                    />
-                    <button
-                      type="submit"
-                      className="bg-gradient-to-r from-[#66cfc3] to-[#8fe4da] text-[#05434B] text-xs sm:text-sm font-bold px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl sm:rounded-full shadow-[0_4px_14px_rgba(102,207,195,0.45),inset_0_1px_1px_rgba(255,255,255,0.9)] hover:brightness-105 transition-all shrink-0 cursor-pointer active:scale-95 border border-white/40 text-center"
-                    >
-                      {isDe ? "Kostenlose Demo anfragen" : "Request free demo"}
-                    </button>
-                  </div>
-                </form>
-              )}
-            </div>
-
-            <div className="md:col-span-5 bg-[#032e35] text-white rounded-2xl sm:rounded-[32px] p-5 sm:p-7 md:p-10 flex flex-col justify-between shadow-[0_12px_35px_rgba(3,46,53,0.25)] border border-white/10 relative overflow-hidden">
-              <div className="mb-6">
-                <div className="inline-flex items-center bg-white text-[#05434B] text-[10.5px] sm:text-[11px] font-bold px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full uppercase tracking-wider mb-3 sm:mb-4 shadow-2xs">
-                  {isDe ? "Dauert 2 Minuten" : "Takes 2 minutes"}
-                </div>
-                <h3 className="text-xl sm:text-2xl lg:text-[32px] font-extrabold text-white tracking-tight leading-[1.18]">
-                  {isDe ? "Interaktiven Tool Finder starten" : "Take an interactive product tour"}
-                </h3>
-              </div>
-
-              <div>
-                <Link
-                  href="/tool-finder"
-                  className="w-full sm:w-auto inline-flex items-center justify-center bg-gradient-to-r from-[#66cfc3] to-[#8fe4da] text-[#05434B] text-xs sm:text-sm font-bold px-6 sm:px-7 py-3 sm:py-3.5 rounded-full shadow-[0_4px_16px_rgba(102,207,195,0.5),inset_0_1px_1px_rgba(255,255,255,0.9)] hover:brightness-105 transition-all cursor-pointer active:scale-95 border border-white/40 text-center"
-                >
-                  <span>{isDe ? "Tool Finder öffnen" : "Take a product tour"}</span>
-                </Link>
               </div>
             </div>
           </div>

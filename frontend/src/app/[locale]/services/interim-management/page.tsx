@@ -35,7 +35,7 @@ export default async function InterimManagementPage({
       />
       <ServiceJsonLd
         name="Interim HR Management"
-        description="Senior HR leadership placed at short notice. Immediate deployment of seasoned CPOs, VPs of People, and Heads of HR backed by a network of 100+ HR specialists."
+        description="Senior HR leadership placed at short notice. Immediate deployment of seasoned CPOs, VPs of People, and Heads of HR backed by a network of 150+ HR specialists."
         path="/services/interim-management"
       />
       <InterimManagementClient />

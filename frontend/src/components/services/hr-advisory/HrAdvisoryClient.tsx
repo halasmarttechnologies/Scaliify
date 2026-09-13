@@ -31,7 +31,6 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { companies } from "@/data/companies";
-import { Testimonials } from "@/components/home/Testimonials";
 import { BookingLeadSection } from "@/components/common/BookingLeadSection";
 import { BlogSection } from "@/components/home/BlogSection";
 import { AnimatedStatCounter } from "@/components/common/AnimatedStatCounter";
@@ -249,19 +248,19 @@ const traditionalConsultancyItemsDe = [
 ];
 
 const scaliifyAdvisoryItemsEn = [
-  { text: "Strategy consulting rigor combined with hands-on HR operations", badge: "Core Strength" },
-  { text: "On-demand expert input without retaining a full consultancy", badge: "On-Demand" },
-  { text: "Seasoned former CPOs and HR leaders with battle-tested track records", badge: "Top Experts" },
-  { text: "Pragmatic, implementation-ready deliverables tailored to your culture", badge: null },
-  { text: "Total flexibility: one-off sessions, retained hours, or pay as you go", badge: "Agile Formats" },
+  "Strategy consulting rigor combined with hands-on HR operations",
+  "On-demand expert input without retaining a full consultancy",
+  "Seasoned former CHROs and HR leaders with battle-tested track records",
+  "Pragmatic, implementation-ready deliverables tailored to your culture",
+  "Total flexibility: one-off sessions, retained hours, or pay as you go",
 ];
 
 const scaliifyAdvisoryItemsDe = [
-  { text: "Strategische Beratungskompetenz kombiniert mit operativer HR-Praxis", badge: "Kernstärke" },
-  { text: "On-Demand-Expertise ohne langfristige Bindung an Großberatungen", badge: "On-Demand" },
-  { text: "Erfahrene ehemalige CPOs und HR-Führungskräfte auf Augenhöhe", badge: "Top-Expertise" },
-  { text: "Pragmatische, sofort umsetzbare Ergebnisse abgestimmt auf Ihre Kultur", badge: null },
-  { text: "Volle Flexibilität: Einzelsessions, Stundenkontingente oder Pay-as-you-go", badge: "Agile Formate" },
+  "Strategische Beratungskompetenz kombiniert mit operativer HR-Praxis",
+  "On-Demand-Expertise ohne langfristige Bindung an Großberatungen",
+  "Erfahrene ehemalige CHROs und HR-Führungskräfte auf Augenhöhe",
+  "Pragmatische, sofort umsetzbare Ergebnisse abgestimmt auf Ihre Kultur",
+  "Volle Flexibilität: Einzelsessions, Stundenkontingente oder Pay-as-you-go",
 ];
 
 const hrAdvisoryFaqsEn = [
@@ -278,7 +277,7 @@ const hrAdvisoryFaqsEn = [
   {
     question: "What expertise and backgrounds do your HR advisors have?",
     answer:
-      "Our advisory team combines tier-1 strategy consulting backgrounds (ex-McKinsey, BCG, Bain, Big 4) with former Chief People Officers and Heads of People from high-growth European scaleups and mid-market firms. This unique blend ensures strategic executive rigor paired with practical, battle-tested operational feasibility.",
+      "Our advisory team combines tier-1 strategy consulting backgrounds (ex-McKinsey, BCG, Bain, Big 4) with former CHROs and Heads of People from high-growth European scaleups and mid-market firms. This unique blend ensures strategic executive rigor paired with practical, battle-tested operational feasibility.",
   },
   {
     question: "Can you advise on German labor law considerations and works council (Betriebsrat) topics?",
@@ -311,7 +310,7 @@ const hrAdvisoryFaqsDe = [
   {
     question: "Welche Qualifikationen und Hintergründe bringen die HR-Berater mit?",
     answer:
-      "Unser Team verbindet Erfahrung aus Top-Strategieberatungen (Big 4, McKinsey, BCG) mit ehemaligen CPOs und HR-Leitern führender europäischer Wachstumsunternehmen. Diese Kombination sichert methodische Exzellenz bei maximaler praktischer Umsetzbarkeit.",
+      "Unser Team verbindet Erfahrung aus Top-Strategieberatungen (Big 4, McKinsey, BCG) mit ehemaligen CHROs und HR-Leitern führender europäischer Wachstumsunternehmen. Diese Kombination sichert methodische Exzellenz bei maximaler praktischer Umsetzbarkeit.",
   },
   {
     question: "Beraten Sie auch zu deutschem Arbeitsrecht und Betriebsratsfragen?",
@@ -381,7 +380,7 @@ export function HrAdvisoryClient() {
 
             <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
               <Link
-                href="/lets-talk"
+                href="/contact?topic=hr-advisory"
                 className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 rounded-full text-xs sm:text-sm font-extrabold text-brand-dark bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep shadow-[0_4px_22px_rgba(129,216,208,0.65)] border border-white/80 hover:shadow-[0_6px_28px_rgba(129,216,208,0.95)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 overflow-hidden cursor-pointer"
               >
                 <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/75 to-transparent rounded-t-full pointer-events-none" />
@@ -389,14 +388,6 @@ export function HrAdvisoryClient() {
                   {t("ctaButton")}
                 </span>
                 <ArrowRight className="relative z-10 w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </Link>
-
-              <Link
-                href="#topics"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-black border border-gray-300 hover:border-[#2B4C55] px-6 py-3.5 rounded-full transition-all hover:bg-gray-50 cursor-pointer"
-              >
-                <span>{isDe ? "Themengebiete ansehen" : "Explore advisory topics"}</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#2B4C55]" />
               </Link>
             </div>
           </div>
@@ -422,11 +413,11 @@ export function HrAdvisoryClient() {
       <section className="w-full bg-white py-8 sm:py-12 border-y border-gray-100 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto flex flex-col items-center">
           <div className="w-full flex flex-wrap items-center justify-center gap-6 sm:gap-10 lg:gap-14 opacity-80 grayscale hover:grayscale-0 transition-all duration-300">
-            {companies.slice(0, 6).map((c) => (
+            {companies.map((c) => (
               <div key={c.id} className="relative h-7 w-20 sm:w-24 shrink-0 flex items-center justify-center">
                 <Image
                   src={c.logoUrl}
-                  alt={`Partner ${c.id}`}
+                  alt={`${c.name} logo`}
                   fill
                   unoptimized
                   className="object-contain"
@@ -599,19 +590,12 @@ export function HrAdvisoryClient() {
                   {isDe ? "Scaliify HR Advisory" : "Scaliify HR Advisory"}
                 </h3>
                 <ul className="flex flex-col gap-4">
-                  {scaliifyAdvisoryItems.map(({ text, badge }) => (
-                    <li key={text} className="flex items-start gap-3 text-xs sm:text-sm text-black font-semibold">
+                  {scaliifyAdvisoryItems.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-xs sm:text-sm text-black font-semibold">
                       <div className="w-5 h-5 rounded-full bg-[#4FB8AA] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
                         <Check className="w-3.5 h-3.5 stroke-[3]" />
                       </div>
-                      <div className="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2.5">
-                        <span className="text-gray-950 font-bold leading-snug">{text}</span>
-                        {badge && (
-                          <span className="self-start sm:self-center shrink-0 text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wide bg-[#76D8C8]/30 text-[#05434B] px-2.5 py-0.5 rounded-full whitespace-nowrap">
-                            {badge}
-                          </span>
-                        )}
-                      </div>
+                      <span className="text-gray-950 font-bold leading-snug">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -622,12 +606,7 @@ export function HrAdvisoryClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 6. TESTIMONIALS SECTION                                      */}
-      {/* ============================================================ */}
-      <Testimonials />
-
-      {/* ============================================================ */}
-      {/* 7. FREQUENTLY ASKED QUESTIONS ACCORDION                      */}
+      {/* 6. FREQUENTLY ASKED QUESTIONS ACCORDION                      */}
       {/* ============================================================ */}
       <section className="w-full bg-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
         <div className="max-w-4xl mx-auto">
@@ -684,9 +663,18 @@ export function HrAdvisoryClient() {
       </section>
 
       {/* ============================================================ */}
-      {/* 8. DISCOVERY & CONSULTATION BOOKING LEAD SECTION             */}
+      {/* 7. DISCOVERY & CONSULTATION BOOKING LEAD SECTION             */}
       {/* ============================================================ */}
-      <BookingLeadSection />
+      <BookingLeadSection
+        badgeTitle={isDe ? "STRATEGISCHE HR-BERATUNG" : "STRATEGIC HR ADVISORY"}
+        title={isDe ? "HR-Beratung anfragen" : "Request an HR advisory session"}
+        subtitle={
+          isDe
+            ? "Teilen Sie uns Ihre strategische Herausforderung mit. Wir matchen Sie innerhalb von 24 Stunden mit einer praxiserfahrenen HR-Führungskraft."
+            : "Tell us about your strategic People challenge or organizational goal. We will match you with a seasoned former CHRO or senior advisor within 24 hours."
+        }
+        source="hr_advisory"
+      />
 
       {/* ============================================================ */}
       {/* 9. BLOG SECTION                                              */}

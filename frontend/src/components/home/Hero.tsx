@@ -32,12 +32,23 @@ export function Hero() {
 
         {/* 1. Main Headline (H1) */}
         <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[68px] font-bold text-white text-center tracking-tight leading-[1.12] max-w-4xl mx-auto">
-          <span className="text-brand-teal">{t("headlinePart1")}</span> {t("headlinePart2")}
+          <span className="text-brand-teal">{t("headlinePart1")}</span>{" "}
+          <span className="block text-2xl sm:text-4xl md:text-5xl lg:text-[56px] font-normal sm:font-semibold text-white/95 mt-1 sm:mt-2 lowercase">
+            {t("headlinePart2")}
+          </span>
         </h1>
 
         {/* 2. Subheading */}
         <p className="mt-3 sm:mt-5 text-sm sm:text-base md:text-lg text-gray-300 text-center max-w-2xl mx-auto font-normal leading-relaxed">
-          {t("subheading")}
+          {t("subheading").includes(":") ? (
+            <>
+              <span>{t("subheading").split(":")[0]}:</span>
+              <br className="hidden sm:inline" />{" "}
+              <span className="text-gray-200">{t("subheading").split(":")[1]}</span>
+            </>
+          ) : (
+            t("subheading")
+          )}
         </p>
 
         {/* 3. Clean Input with Glossy Tiffany Blue CTA Button (No beam) */}
@@ -46,7 +57,7 @@ export function Hero() {
             onSubmit={(e) => {
               e.preventDefault();
               if (email) {
-                window.location.href = `/tool-finder?email=${encodeURIComponent(email)}`;
+                window.location.href = `/lets-talk?email=${encodeURIComponent(email)}`;
               }
             }}
             className="relative z-10 bg-white rounded-[15px] p-1.5 pl-4 sm:pl-5 flex items-center justify-between transition-all"

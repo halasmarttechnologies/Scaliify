@@ -27,12 +27,12 @@ export const DEFAULT_ANSWERS: AssessmentAnswers = {
   companySize: "size_sme",
   regions: ["region_dach"],
   currentStatus: "status_scratch",
-  coreHrNeeds: ["core_digital_records", "core_onboarding", "core_compliance"],
-  payrollModel: "payroll_datev",
+  coreHrNeeds: ["core_digital_records", "core_onboarding"],
+  payrollModel: "payroll_tax_advisor",
   recruitingNeeds: ["ats_multiposting", "ats_structured_hiring"],
-  performanceNeeds: ["perf_360_reviews", "perf_okrs"],
-  timeAttendanceNeeds: ["time_bag_compliant", "time_absence"],
-  integrations: ["int_datev", "int_slack_teams"],
+  performanceNeeds: ["perf_starting_fresh", "perf_okrs"],
+  timeAttendanceNeeds: ["time_compliant", "time_absence"],
+  integrations: ["int_payroll", "int_slack_teams"],
 };
 
 export const DEFAULT_LEAD: LeadContact = {
@@ -252,10 +252,6 @@ export function useToolFinderPersistence() {
     }
     if (!lead.companyName.trim()) {
       setErrorMsg("Please provide your company name.");
-      return;
-    }
-    if (!lead.jobTitle.trim()) {
-      setErrorMsg("Please provide your job title or role.");
       return;
     }
 
