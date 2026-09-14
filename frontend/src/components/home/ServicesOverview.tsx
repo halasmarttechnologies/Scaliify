@@ -174,10 +174,7 @@ export function ServicesOverview() {
             viewport={FADE_UP.viewport}
             className="w-full bg-brand-dark text-white rounded-3xl lg:rounded-full p-4 sm:p-5 lg:p-3 pl-4 lg:pl-6 flex flex-col lg:flex-row items-center justify-between gap-6 border border-white/10"
           >
-            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 text-center sm:text-left mt-2 lg:mt-0">
-              <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10">
-                <div className="w-4 h-4 border-2 border-gray-500 border-t-brand-teal rounded-full animate-spin" />
-              </div>
+            <div className="text-center sm:text-left mt-2 lg:mt-0">
               <p className="font-semibold text-sm md:text-base">{t("bannerText")}</p>
             </div>
             <Link

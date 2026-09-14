@@ -485,9 +485,6 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
                 <span>{t("joinCommunity")}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
-              <span className="text-[11px] text-gray-500 font-medium">
-                1,400+ People Leaders
-              </span>
             </div>
 
           </div>
@@ -578,8 +575,8 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
                   </h4>
                   <p className="text-xs text-gray-600 mt-1 leading-relaxed">
                     {isDe
-                      ? "Verbinden Sie sich mit über 1.400 People Leadern, tauschen Sie Best Practices aus und nehmen Sie an exklusiven Runden teil."
-                      : "Connect with 1,400+ People & HR executives, benchmark your software stack, and get peer-verified guidance."}
+                      ? "Verbinden Sie sich mit People Leadern, tauschen Sie Best Practices aus und nehmen Sie an exklusiven Runden teil."
+                      : "Connect with People & HR executives, benchmark your software stack, and get peer-verified guidance."}
                   </p>
                 </div>
 

@@ -168,7 +168,7 @@ const marqueeCardsEn = [
     authorColor: "text-[#2B4C55]",
     quote:
       "Working with scaliify was a game changer for our HR setup. Their team guided us through the successful implementation of Personio and helped us restructure our HR processes to be more efficient, transparent, and scalable.",
-    author: "Marion Kleber | Managing Director, Harrer Ingenieure GmbH",
+    author: "Marion Kleiber | Managing Director, Harrer Ingenieure GmbH",
     border: "border-[#76D8C8]/60",
   },
   {
@@ -234,7 +234,7 @@ const marqueeCardsDe = [
     authorColor: "text-[#2B4C55]",
     quote:
       "Die Zusammenarbeit mit scaliify war ein echter Meilenstein für unser HR-Setup. Das Team begleitete uns bei der erfolgreichen Einführung von Personio und half uns, unsere HR-Prozesse effizienter, transparenter und skalierbarer aufzustellen.",
-    author: "Marion Kleber | Managing Director, Harrer Ingenieure GmbH",
+    author: "Marion Kleiber | Managing Director, Harrer Ingenieure GmbH",
     border: "border-[#76D8C8]/60",
   },
   {
@@ -667,9 +667,8 @@ export function ImplementationOptimisationClient() {
                       {faq.question}
                     </span>
                     <ChevronDown
-                      className={`w-5 h-5 text-gray-700 shrink-0 transition-transform duration-300 ease-in-out group-hover:text-black ${
-                        isOpen ? "rotate-180 text-black" : ""
-                      }`}
+                      className={`w-5 h-5 text-gray-700 shrink-0 transition-transform duration-300 ease-in-out group-hover:text-black ${isOpen ? "rotate-180 text-black" : ""
+                        }`}
                     />
                   </button>
 

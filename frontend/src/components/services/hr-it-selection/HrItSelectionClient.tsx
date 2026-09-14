@@ -98,7 +98,7 @@ const marqueeCardsEn = [
     image: "/images/food-pantry.jpg",
     quote:
       "Working with scaliify was a game changer for our HR setup. Their team guided us through the successful implementation of Personio and helped us restructure our HR processes to be more efficient, transparent, and scalable.",
-    author: "Marion Kleber | Managing Director, Harrer Ingenieure GmbH",
+    author: "Marion Kleiber | Managing Director, Harrer Ingenieure GmbH",
     border: "border-gray-200/50",
   },
   {
@@ -185,7 +185,7 @@ const marqueeCardsDe = [
     image: "/images/food-pantry.jpg",
     quote:
       "Die Zusammenarbeit mit scaliify war für unser HR-Setup ein echter Gamechanger. Das Team begleitete uns bei der erfolgreichen Einführung von Personio und half uns, unsere HR-Prozesse effizienter, transparenter und skalierbarer aufzustellen.",
-    author: "Marion Kleber | Managing Director, Harrer Ingenieure GmbH",
+    author: "Marion Kleiber | Managing Director, Harrer Ingenieure GmbH",
     border: "border-gray-200/50",
   },
   {
@@ -671,15 +671,16 @@ export function HrItSelectionClient() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6 items-stretch">
             <div className="md:col-span-5 relative rounded-[22px] sm:rounded-[26px] overflow-hidden min-h-[240px] sm:min-h-[320px] shadow-xs border border-gray-200/80">
               <Image
-                src="/images/hr-leader-story.jpg"
-                alt="Marion Kleber - Managing Director, Harrer Ingenieure GmbH"
+                src="/images/marion-kleiber.jpg"
+                alt="Marion Kleiber - Managing Director, Harrer Ingenieure GmbH"
                 fill
                 className="object-cover object-top"
                 sizes="(max-width: 768px) 100vw, 40vw"
+                quality={95}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#05434B]/85 via-transparent to-transparent" />
               <div className="absolute inset-x-4 bottom-4 text-white">
-                <p className="text-sm sm:text-base font-bold text-white">Marion Kleber</p>
+                <p className="text-sm sm:text-base font-bold text-white">Marion Kleiber</p>
                 <p className="text-xs text-[#76D8C8] font-medium">Managing Director, Harrer Ingenieure GmbH</p>
               </div>
             </div>
@@ -704,7 +705,7 @@ export function HrItSelectionClient() {
               <div className="flex items-center justify-between pt-4 border-t border-[#4FB8AA]/20">
                 <div>
                   <p className="text-xs sm:text-sm font-bold text-black">
-                    Marion Kleber <span className="font-normal text-gray-600">| Managing Director, Harrer Ingenieure GmbH</span>
+                    Marion Kleiber <span className="font-normal text-gray-600">| Managing Director, Harrer Ingenieure GmbH</span>
                   </p>
                 </div>
                 <div className="text-right">

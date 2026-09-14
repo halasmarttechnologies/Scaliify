@@ -175,7 +175,7 @@ const marqueeCardsEn = [
     image: "/images/food-pantry.jpg",
     quote:
       "Working with scaliify was a game changer for our HR setup. Their team guided us through the successful implementation of Personio and helped us restructure our HR processes to be more efficient, transparent, and scalable.",
-    author: "Marion Kleber | Managing Director, Harrer Ingenieure GmbH",
+    author: "Marion Kleiber | Managing Director, Harrer Ingenieure GmbH",
     border: "border-gray-200/50",
   },
 ];
@@ -228,7 +228,7 @@ const marqueeCardsDe = [
     image: "/images/food-pantry.jpg",
     quote:
       "Die Zusammenarbeit mit scaliify war für unser HR-Setup ein echter Gamechanger. Das Team begleitete uns bei der erfolgreichen Einführung von Personio und half uns, unsere HR-Prozesse effizienter, transparenter und skalierbarer aufzustellen.",
-    author: "Marion Kleber | Managing Director, Harrer Ingenieure GmbH",
+    author: "Marion Kleiber | Managing Director, Harrer Ingenieure GmbH",
     border: "border-gray-200/50",
   },
 ];
