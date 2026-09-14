@@ -7,7 +7,7 @@ export const ROUTES = {
   hrItSelection: "/services/hr-it-selection",
 } as const;
 
-export const COMPANY_ROTATION_INTERVAL_MS = 1000;
+export const COMPANY_ROTATION_INTERVAL_MS = 1800;
 
 export interface RotatingCompany {
   name: string;

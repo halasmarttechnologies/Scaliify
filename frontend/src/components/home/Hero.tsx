@@ -1,14 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { HeroDashboardPreview } from "@/components/home/HeroDashboardPreview";
 import { HeroAuraWaves } from "@/components/ui/HeroAuraWaves";
+import { ROTATING_COMPANIES, COMPANY_ROTATION_INTERVAL_MS } from "@/lib/constants";
 
 export function Hero() {
   const t = useTranslations("hero");
   const [email, setEmail] = useState("");
+  const [companyIndex, setCompanyIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCompanyIndex((prev) => (prev + 1) % ROTATING_COMPANIES.length);
+    }, COMPANY_ROTATION_INTERVAL_MS);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div className="w-full min-h-screen relative bg-black text-white overflow-hidden flex flex-col justify-between">
@@ -70,14 +80,31 @@ export function Hero() {
           </form>
         </div>
 
-        {/* 4. Trust Statement */}
-        <p className="mt-6 sm:mt-8 text-xs sm:text-sm text-gray-300 flex items-center justify-center gap-1.5 flex-wrap text-center tracking-tight">
+        {/* 4. Trust Statement with Rolling Brand Names (Words only, no logo icons) */}
+        <div className="mt-6 sm:mt-8 flex items-center justify-center gap-1.5 text-xs sm:text-sm text-gray-300 flex-wrap text-center tracking-tight">
           <span>{t("trustedBy")}</span>
           <span className="font-bold text-brand-teal">{t("employeeStat")}</span>
           <span>{t("employeesAtOver")}</span>
           <span className="font-bold text-brand-teal">{t("orgCount")}</span>
           <span>{t("organisations")}</span>
-        </p>
+
+          <div className="inline-flex items-center min-w-[110px] h-6 overflow-hidden align-middle">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={companyIndex}
+                initial={{ y: 8, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -8, opacity: 0 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                className="inline-flex items-center font-bold text-white tracking-tight whitespace-nowrap"
+              >
+                <span className="text-xs sm:text-sm font-bold text-white tracking-tight">
+                  {ROTATING_COMPANIES[companyIndex].name}
+                </span>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
 
         {/* 5. Main Dashboard Mockup Card */}
         <HeroDashboardPreview />
