@@ -236,8 +236,21 @@ export function Footer() {
         </motion.div>
 
         {/* 6. Copyright & Legal Policies */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-gray-500">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-gray-500 text-center md:text-left">
           <p>{t("allRightsReserved", { year: new Date().getFullYear() })}</p>
+
+          <p className="text-gray-400">
+            {t("designedAndDevelopedBy")}{" "}
+            <a
+              href="https://halatechnology.ae/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brand-teal hover:underline hover:text-white transition-colors font-medium"
+            >
+              Hala Technology
+            </a>
+          </p>
+
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="hover:text-gray-300 transition-colors">
               {t("privacyPolicy")}
