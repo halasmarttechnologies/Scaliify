@@ -477,7 +477,7 @@ export const HeroDashboardPreview = React.memo(function HeroDashboardPreview() {
     <div className="mt-8 sm:mt-12 w-full max-w-5xl relative flex flex-col items-center">
       {/* ── 1. Interactive Service Pillar Toggles ───────────────── */}
       <div className="w-full mb-4 sm:mb-6 px-2 flex flex-col items-center">
-        <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-center items-center gap-1.5 sm:gap-2 p-1.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg w-full max-w-xl">
+        <div className="grid grid-cols-2 md:inline-flex md:flex-nowrap md:w-auto items-center gap-1.5 sm:gap-2 p-1.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg w-full max-w-md md:max-w-none">
           {(Object.keys(SERVICE_WORKFLOWS) as ServiceKey[]).map((key) => {
             const service = SERVICE_WORKFLOWS[key];
             const isActive = activeService === key;
@@ -490,7 +490,7 @@ export const HeroDashboardPreview = React.memo(function HeroDashboardPreview() {
                   setActiveService(key);
                   setActiveMobileStep(0);
                 }}
-                className={`flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 text-center cursor-pointer select-none ${
+                className={`flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 whitespace-nowrap cursor-pointer select-none ${
                   isActive
                     ? "bg-gradient-to-r from-[#81D8D0] to-[#5BC7BC] text-[#05434B] shadow-[0_2px_12px_rgba(129,216,208,0.45)] scale-[1.02]"
                     : "text-gray-300 hover:text-white hover:bg-white/10"
