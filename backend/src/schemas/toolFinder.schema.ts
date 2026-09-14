@@ -212,7 +212,7 @@ export const leadContactSchema = z.object({
     .optional()
     .or(z.literal("")),
 
-  source: z.enum(["contact_page", "lets_talk", "tool_finder"]).optional(),
+  source: z.string().trim().max(100).optional(),
 });
 
 // ─────────────────────────────────────────────────────────────

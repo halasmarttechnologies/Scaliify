@@ -4,79 +4,73 @@ import { useState } from "react";
 import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 import { submitLead } from "@/lib/api";
+import { useLocale, useTranslations } from "next-intl";
 
-const steps = [
-  {
-    n: "1",
-    title: "Tell us about your HR needs",
-    desc: "We'll learn your HR needs and explore if Scaliify is the right fit.",
-  },
-  {
-    n: "2",
-    title: "We'll build a tailored demo",
-    desc: "Explore a customised walkthrough, aligned to your exact goals.",
-  },
-  {
-    n: "3",
-    title: "Experience Scaliify in action",
-    desc: "Ask personalised questions and learn how Scaliify could support your business.",
-  },
-];
-
-const marqueeCards = [
-  // 1. Polaroid pastel blue card
-  {
-    type: "quote-card",
-    bg: "bg-[#edf4fb]",
-    brandName: "polaroid",
-    quote:
-      "Scaliify's Customer Service was brilliant! Our Advisory Manager understood HR, was really responsive and I really had the feeling we would get good customer service.",
-    author: "Melinda Brooks Bray | Polaroid",
-  },
-  // 2. Rowing Team Full Image Card
-  {
-    type: "image-card",
-    image: "/images/rowing-team.jpg",
-    quote:
-      "If we want to be a future robust organisation, we cannot keep doing things manually. Automations help, so you can put your effort somewhere more useful.",
-    author: "Nina Johansson | British Rowing",
-  },
-  // 3. Deliciously Ella Purple Stat Card
-  {
-    type: "stat-card",
-    bg: "bg-[#63207e]",
-    stat: "50%",
-    sub: "faster recruitment",
-    brand: "deliciously ella®",
-  },
-  // 4. Food Pantry Full Image Card
-  {
-    type: "image-card",
-    image: "/images/food-pantry.jpg",
-    quote:
-      "It's really intuitive and easy to use for everyone in the business. We don't need loads of different systems anymore which can be expensive and confusing.",
-    author: "Fran Newman | Deliciously Ella",
-  },
-  // 5. Mint green quote card
-  {
-    type: "quote-card",
-    bg: "bg-[#edfbf7]",
-    brandName: "aryza",
-    quote:
-      "Scaliify benchmarked 20+ vendors for our European operations in days. We saved months of manual demos and evaluation meetings.",
-    author: "Jack Wilson | Aryza Group",
-  },
-  // 6. Modern Office Team Full Image Card
-  {
-    type: "image-card",
-    image: "/images/office-team.jpg",
-    quote:
-      "Having an unbiased HR tech partner guiding our system selection saved us from costly contractual misalignments.",
-    author: "Sophie Dubois | ScaleUp Ops",
-  },
-];
 
 export function LetsTalkClient() {
+  const locale = useLocale();
+  const isDe = locale === "de";
+  const t = useTranslations("letsTalk");
+
+  const steps = [
+    {
+      n: "1",
+      title: t("steps.0.title"),
+      desc: t("steps.0.desc"),
+    },
+    {
+      n: "2",
+      title: t("steps.1.title"),
+      desc: t("steps.1.desc"),
+    },
+    {
+      n: "3",
+      title: t("steps.2.title"),
+      desc: t("steps.2.desc"),
+    },
+  ];
+
+  const marqueeCards = [
+    {
+      type: "quote-card" as const,
+      bg: "bg-[#edf4fb]",
+      brandName: t("marqueeCards.0.brandName"),
+      quote: t("marqueeCards.0.quote"),
+      author: t("marqueeCards.0.author"),
+    },
+    {
+      type: "image-card" as const,
+      image: "/images/rowing-team.jpg",
+      quote: t("marqueeCards.1.quote"),
+      author: t("marqueeCards.1.author"),
+    },
+    {
+      type: "stat-card" as const,
+      bg: "bg-[#05434B]",
+      stat: t("marqueeCards.2.stat"),
+      sub: t("marqueeCards.2.sub"),
+      brand: t("marqueeCards.2.brand"),
+    },
+    {
+      type: "image-card" as const,
+      image: "/images/food-pantry.jpg",
+      quote: t("marqueeCards.3.quote"),
+      author: t("marqueeCards.3.author"),
+    },
+    {
+      type: "quote-card" as const,
+      bg: "bg-[#edfbf7]",
+      brandName: t("marqueeCards.4.brandName"),
+      quote: t("marqueeCards.4.quote"),
+      author: t("marqueeCards.4.author"),
+    },
+    {
+      type: "image-card" as const,
+      image: "/images/office-team.jpg",
+      quote: t("marqueeCards.5.quote"),
+      author: t("marqueeCards.5.author"),
+    },
+  ];
   const [email, setEmail] = useState("");
   const [step, setStep] = useState(1);
   const [company, setCompany] = useState("");
@@ -110,6 +104,7 @@ export function LetsTalkClient() {
       email,
       companyName: company,
       source: "lets_talk",
+      comments: "[Consultation Request via Let's Talk]",
     });
 
     setIsSubmitting(false);
@@ -134,13 +129,15 @@ export function LetsTalkClient() {
 
           {/* Kicker (Black color text) */}
           <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-black mb-3">
-            BOOK A DEMO
+            {t("kicker")}
           </p>
 
           {/* H1 (Black color text) */}
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-black leading-[1.08] mb-6 sm:mb-8 max-w-3xl">
-            See Scaliify in action
+            {t("heading")}
           </h1>
+
+
 
           {/* ── FORM CARD ── */}
           <div className="w-full max-w-[420px] bg-white border border-gray-200/90 rounded-3xl p-6 sm:p-7 text-left shadow-[0_10px_35px_rgba(0,0,0,0.06)]">
@@ -149,18 +146,18 @@ export function LetsTalkClient() {
                 <div className="w-12 h-12 rounded-full bg-brand-teal/20 flex items-center justify-center">
                   <CheckCircle2 className="w-7 h-7 text-black stroke-[2.5]" />
                 </div>
-                <h2 className="text-base font-bold text-black">You&apos;re booked in!</h2>
+                <h2 className="text-base font-bold text-black">{t("successHeading")}</h2>
                 <p className="text-xs text-gray-800 leading-relaxed max-w-[280px]">
-                  A Scaliify advisor will reach out within 1 business day to confirm your demo.
+                  {t("successMessage")}
                 </p>
               </div>
             ) : (
               <>
                 {/* Form title + step indicator */}
                 <div className="mb-4">
-                  <p className="text-sm font-bold text-black mb-1">Book your demo</p>
+                  <p className="text-sm font-bold text-black mb-1">{t("formTitle")}</p>
                   <div className="flex items-center justify-between text-[11px] font-semibold text-gray-700 mb-1">
-                    <span>Step {step} of 3</span>
+                    <span>{t("stepOf", { step })}</span>
                   </div>
                   <div className="flex gap-1.5">
                     {[1, 2, 3].map((s) => (
@@ -183,20 +180,28 @@ export function LetsTalkClient() {
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Business Email Address"
-                      aria-label="Business email address"
+                      placeholder={t("emailPlaceholder")}
+                      aria-label={isDe ? "Geschäftliche E-Mail-Adresse" : "Business email address"}
                       className="w-full border-b border-gray-300 focus:border-black py-2 text-sm text-black placeholder:text-gray-400 focus:outline-none bg-transparent transition-colors"
                     />
                     <button
                       type="submit"
                       className="w-full bg-black text-white text-sm font-bold py-3 rounded-xl hover:bg-gray-900 transition-colors mt-0.5 cursor-pointer active:scale-[0.99]"
                     >
-                      Continue
+                      {t("continue")}
                     </button>
                     <p className="text-[10px] text-gray-600 text-center leading-relaxed">
-                      This site is protected by reCAPTCHA and the Google{" "}
-                      <a href="/privacy" className="underline font-medium text-black">Privacy Policy</a> and{" "}
-                      <a href="/terms" className="underline font-medium text-black">Terms of Service</a> apply.
+                      {isDe ? (
+                        <>Diese Website wird durch reCAPTCHA geschützt. Es gelten die Google-{" "}
+                          <a href="/privacy" className="underline font-medium text-black">Datenschutzerklärung</a> und{" "}
+                          <a href="/terms" className="underline font-medium text-black">Nutzungsbedingungen</a>.
+                        </>
+                      ) : (
+                        <>This site is protected by reCAPTCHA and the Google{" "}
+                          <a href="/privacy" className="underline font-medium text-black">Privacy Policy</a> and{" "}
+                          <a href="/terms" className="underline font-medium text-black">Terms of Service</a> apply.
+                        </>
+                      )}
                     </p>
                   </form>
                 )}
@@ -209,22 +214,22 @@ export function LetsTalkClient() {
                       required
                       value={company}
                       onChange={(e) => setCompany(e.target.value)}
-                      placeholder="Company Name"
-                      aria-label="Company name"
+                      placeholder={t("companyPlaceholder")}
+                      aria-label={isDe ? "Unternehmen" : "Company name"}
                       className="w-full border-b border-gray-300 focus:border-black py-2 text-sm text-black placeholder:text-gray-400 focus:outline-none bg-transparent transition-colors"
                     />
                     <button
                       type="submit"
                       className="w-full bg-black text-white text-sm font-bold py-3 rounded-xl hover:bg-gray-900 transition-colors mt-0.5 cursor-pointer active:scale-[0.99]"
                     >
-                      Continue
+                      {t("continue")}
                     </button>
                     <button
                       type="button"
                       onClick={() => setStep(1)}
                       className="text-xs text-black font-semibold hover:underline text-center transition-colors cursor-pointer"
                     >
-                      ← Back
+                      {t("back")}
                     </button>
                   </form>
                 )}
@@ -237,8 +242,8 @@ export function LetsTalkClient() {
                       required
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      placeholder="Your Full Name"
-                      aria-label="Full name"
+                      placeholder={t("namePlaceholder")}
+                      aria-label={isDe ? "Vollständiger Name" : "Full name"}
                       disabled={isSubmitting}
                       className="w-full border-b border-gray-300 focus:border-black py-2 text-sm text-black placeholder:text-gray-400 focus:outline-none bg-transparent transition-colors disabled:opacity-50"
                     />
@@ -252,7 +257,7 @@ export function LetsTalkClient() {
                       disabled={isSubmitting}
                       className="w-full bg-black text-white text-sm font-bold py-3 rounded-xl hover:bg-gray-900 transition-colors mt-0.5 cursor-pointer active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      {isSubmitting ? "Submitting…" : "Book my demo"}
+                      {isSubmitting ? t("submitting") : t("bookMyDemo")}
                     </button>
                     <button
                       type="button"
@@ -260,7 +265,7 @@ export function LetsTalkClient() {
                       disabled={isSubmitting}
                       className="text-xs text-black font-semibold hover:underline text-center transition-colors cursor-pointer disabled:opacity-50"
                     >
-                      ← Back
+                      {t("back")}
                     </button>
                   </form>
                 )}
@@ -268,10 +273,9 @@ export function LetsTalkClient() {
             )}
           </div>
 
-          {/* Trusted by 16,000 companies line */}
           <p className="mt-5 text-xs sm:text-sm text-black font-semibold flex items-center justify-center gap-2">
-            <span>Trusted by over 16,000 companies including</span>
-            <span className="font-extrabold tracking-tight text-base font-serif italic">aryza</span>
+            <span>{isDe ? "Führende Organisationen vertrauen uns, darunter" : "Trusted by leading organisations including"}</span>
+            <span className="font-extrabold tracking-tight text-sm sm:text-base font-sans">Westbridge, SoftwareOne & TAKKT Group</span>
           </p>
         </div>
       </section>
@@ -285,11 +289,11 @@ export function LetsTalkClient() {
           {/* Header */}
           <div className="text-center mb-8 sm:mb-10">
             <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-black mb-2">
-              YOUR TAILORED SOLUTION
-            </p>
-            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-black">
-              Here&apos;s what to expect
-            </h2>
+            {t("tailoredSolution")}
+          </p>
+          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-black">
+            {t("whatToExpect")}
+          </h2>
           </div>
 
           {/* 3-Step Grid */}
@@ -314,10 +318,10 @@ export function LetsTalkClient() {
       <section className="w-full bg-white py-10 sm:py-14 overflow-hidden border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 mb-6 sm:mb-8 text-center">
           <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-black mb-2">
-            USED DAILY BY TEAMS FROM 50-5000 EMPLOYEES
+            {t("usedDaily")}
           </p>
           <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-black leading-tight">
-            Join the organisations unlocking impact
+            {t("joinOrgs")}
           </h2>
         </div>
 
@@ -333,7 +337,7 @@ export function LetsTalkClient() {
                     className={`${card.bg} rounded-[26px] p-6 sm:p-7 w-[280px] sm:w-[310px] h-[370px] sm:h-[400px] flex flex-col justify-between border border-gray-200/50 shadow-xs hover:shadow-md transition-all duration-300`}
                   >
                     <div className="pt-1">
-                      <span className="text-2xl sm:text-3xl font-extrabold text-black tracking-tighter lowercase block">
+                      <span className="text-2xl sm:text-3xl font-extrabold text-black tracking-tighter block">
                         {card.brandName}
                       </span>
                     </div>

@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { FADE_UP, FADE_UP_SLOW } from "@/lib/motion";
+import { CompanyLogo } from "@/components/ui/CompanyLogo";
 import type { ReactNode } from "react";
 
 // ─────────────────────────────────────────────────────────────
@@ -19,31 +20,20 @@ interface TestimonialItem {
 }
 
 // ─────────────────────────────────────────────────────────────
-// Company logo icons — data-driven, no if/else chain
+// Company logo icons — data-driven with verified partners
 // ─────────────────────────────────────────────────────────────
 
 const COMPANY_ICONS: Record<string, ReactNode> = {
-  Luckycharm: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <rect x="2" y="2" width="9" height="9" rx="2.5" fill="#10B981" />
-      <rect x="13" y="2" width="9" height="9" rx="2.5" fill="#059669" />
-      <rect x="2" y="13" width="9" height="9" rx="2.5" fill="#059669" />
-      <rect x="13" y="13" width="9" height="9" rx="2.5" fill="#047857" />
-    </svg>
-  ),
-  Prometheus: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M2 8l18-5v4l-18 5V8z" fill="#4B5563" />
-      <path d="M2 14l18-5v4l-18 5v-4z" fill="#374151" />
-      <path d="M2 20l18-5v4l-18 5v-4z" fill="#1F2937" />
-    </svg>
-  ),
-  Nietzsche: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="9" stroke="#F97316" strokeWidth="2.5" strokeDasharray="4 3" fill="transparent" />
-      <circle cx="12" cy="12" r="5" fill="#EA580C" />
-    </svg>
-  ),
+  Westbridge: <CompanyLogo id="westbridge" className="w-5 h-5" />,
+  SoftwareOne: <CompanyLogo id="softwareone" className="w-5 h-5" />,
+  "SoftwareOne Germany GmbH": <CompanyLogo id="softwareone" className="w-5 h-5" />,
+  "SoftwareONE": <CompanyLogo id="softwareone" className="w-5 h-5" />,
+  "Harrer Ingenieure": <CompanyLogo id="harrer" className="w-5 h-5" />,
+  "Harrer Ingenieure GmbH": <CompanyLogo id="harrer" className="w-5 h-5" />,
+  "TAKKT Group AG": <CompanyLogo id="takkt" className="w-5 h-5" />,
+  "think-cell": <CompanyLogo id="think-cell" className="w-5 h-5" />,
+  KRONES: <CompanyLogo id="krones" className="w-5 h-5" />,
+  Symrise: <CompanyLogo id="symrise" className="w-5 h-5" />,
 };
 
 // ─────────────────────────────────────────────────────────────
@@ -51,7 +41,9 @@ const COMPANY_ICONS: Record<string, ReactNode> = {
 // ─────────────────────────────────────────────────────────────
 
 function CompanyBadge({ company }: { company: string }) {
-  const icon = COMPANY_ICONS[company] ?? null;
+  const icon =
+    COMPANY_ICONS[company] ??
+    <CompanyLogo id={company.toLowerCase().replace(/[^a-z0-9]/g, "")} className="w-5 h-5" />;
   return (
     <div className="flex items-center gap-2.5 mb-5">
       {icon && <span className="flex-shrink-0">{icon}</span>}

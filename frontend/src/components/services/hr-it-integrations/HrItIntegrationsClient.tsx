@@ -74,21 +74,21 @@ const pillarsDe = [
 
 const marqueeCardsEn = [
   {
+    type: "quote-card",
+    bg: "bg-[#f0faf8]",
+    brandName: "Westbridge",
+    quote:
+      "scaliify has been an invaluable partner in optimising our HR processes. From answering our Personio-related questions with deep expertise to building a custom recruiting dashboard, their support has helped us bring structure and efficiency into our hiring workflows.",
+    author: "Wiebke Weidner | Head of HR, Westbridge",
+    border: "border-[#76D8C8]/40",
+  },
+  {
     type: "image-card",
     image: "/images/hr-integrations-hero.jpg",
     quote:
-      "When our ATS and HRIS didn't have a native integration, Scaliify didn't just sell us an expensive API build. They redesigned our onboarding workflow, which eliminated the need for custom coding entirely.",
-    author: "Lukas Weber | VP of People & Culture",
+      "Working with scaliify was a game changer for our HR setup. Their team guided us through the successful implementation of Personio and helped us restructure our HR processes to be more efficient, transparent, and scalable.",
+    author: "Marion Kleber | Managing Director, Harrer Ingenieure GmbH",
     border: "border-gray-200/50",
-  },
-  {
-    type: "quote-card",
-    bg: "bg-[#f0faf8]",
-    brandName: "techscale",
-    quote:
-      "Scaliify connected our HiBob HRIS directly with our payroll system. We stopped copying employee records between systems and eliminated 15 hours of manual spreadsheet reconciliation every single month.",
-    author: "Elena Richter | Head of People Operations",
-    border: "border-[#76D8C8]/40",
   },
   {
     type: "stat-card",
@@ -102,46 +102,46 @@ const marqueeCardsEn = [
     type: "image-card",
     image: "/images/office-team.jpg",
     quote:
-      "Scaliify acted as true HR IT consultants. They coordinated between our HR team, external software vendors, and IT security to ensure bank-grade data privacy.",
-    author: "Sophie Dubois | Global HR Operations",
+      "scaliify managed our Personio implementation with great reliability and focus. The team ensured the project stayed on track, coordinated effectively across teams, and handled challenges pragmatically.",
+    author: "Head of HR | Client in the Tech Industry",
     border: "border-gray-200/50",
   },
   {
     type: "quote-card",
     bg: "bg-[#e8f7f4]",
-    brandName: "scaleup group",
+    brandName: "TAKKT Group AG",
     quote:
-      "Our shift workers' tracked hours now flow directly into monthly payroll. Scaliify ensured all regulatory overtime rules were automated without manual calculations.",
-    author: "Markus Hoffmann | Managing Director",
+      "Ben worked with us as HR Operations Co-Lead, focusing on the system side of the payroll transition in Germany. He independently implemented the required data structure changes during a period when our team was severely understaffed.",
+    author: "Stefanie Mühlbauer | Executive Vice President HR, TAKKT Group AG",
     border: "border-[#4FB8AA]/40",
   },
   {
     type: "image-card",
     image: "/images/hr-integrations-leader.jpg",
     quote:
-      "Connecting our Core HR with NetSuite and payroll gave our CFO and HR team identical real-time headcount numbers. Zero duplicate entries, zero discrepancies.",
-    author: "Sarah Lindemann | Chief People Officer",
+      "scaliify brought both structure and strategic thinking to our operations. As our Interim HR Project Manager and Shift Planner, scaliify played a key role in improving our workforce planning processes and driving forward HR-related initiatives.",
+    author: "Head of Service Operations | Client in the Energy Sector",
     border: "border-gray-200/50",
   },
 ];
 
 const marqueeCardsDe = [
   {
+    type: "quote-card",
+    bg: "bg-[#f0faf8]",
+    brandName: "Westbridge",
+    quote:
+      "scaliify war für uns ein unschätzbarer Partner bei der Optimierung unserer HR-Prozesse. Von der Beantwortung unserer Personio-Fragen mit tiefem Fachwissen bis hin zum Aufbau eines maßgeschneiderten Recruiting-Dashboards – ihre Unterstützung hat uns geholfen, Struktur und Effizienz in unsere Hiring-Workflows zu bringen.",
+    author: "Wiebke Weidner | Head of HR, Westbridge",
+    border: "border-[#76D8C8]/40",
+  },
+  {
     type: "image-card",
     image: "/images/hr-integrations-hero.jpg",
     quote:
-      "Als für unser ATS und HRIS keine Standard-Schnittstelle existierte, hat Scaliify unseren Onboarding-Workflow so umgestaltet, dass eine teure API-Entwicklung gar nicht nötig war.",
-    author: "Lukas Weber | VP of People & Culture",
+      "Die Zusammenarbeit mit scaliify war für unser HR-Setup ein echter Gamechanger. Das Team begleitete uns bei der erfolgreichen Einführung von Personio und half uns, unsere HR-Prozesse effizienter, transparenter und skalierbarer aufzustellen.",
+    author: "Marion Kleber | Managing Director, Harrer Ingenieure GmbH",
     border: "border-gray-200/50",
-  },
-  {
-    type: "quote-card",
-    bg: "bg-[#f0faf8]",
-    brandName: "techscale",
-    quote:
-      "Scaliify hat unser HiBob HRIS direkt mit der Lohnabrechnung verbunden. Wir müssen keine Mitarbeiterdaten mehr manuell übertragen und sparen jeden Monat 15 Stunden nervige Tabellenarbeit.",
-    author: "Elena Richter | Head of People Operations",
-    border: "border-[#76D8C8]/40",
   },
   {
     type: "stat-card",
@@ -155,25 +155,25 @@ const marqueeCardsDe = [
     type: "image-card",
     image: "/images/office-team.jpg",
     quote:
-      "Scaliify hat als echter HR-IT-Partner agiert: Perfekte Abstimmung zwischen HR-Team, Softwareherstellern und IT-Sicherheit für höchste Datenschutzstandards.",
-    author: "Sophie Dubois | Global HR Operations",
+      "scaliify hat unsere Personio-Einführung mit hoher Zuverlässigkeit und Fokus gesteuert. Das Team sorgte dafür, dass das Projekt im Zeitplan blieb, koordinierte effizient über Teams hinweg und ging Herausforderungen pragmatisch an.",
+    author: "Head of HR | Kunde in der Technologiebranche",
     border: "border-gray-200/50",
   },
   {
     type: "quote-card",
     bg: "bg-[#e8f7f4]",
-    brandName: "scaleup group",
+    brandName: "TAKKT Group AG",
     quote:
-      "Erfasste Arbeitszeiten fließen jetzt direkt in die Lohnabrechnung. Scaliify hat sichergestellt, dass alle gesetzlichen Vorgaben ohne manuelle Nachberechnung eingehalten werden.",
-    author: "Markus Hoffmann | Managing Director",
+      "Ben arbeitete mit uns als HR Operations Co-Lead mit Fokus auf die systemseitige Entgeltabrechnungs-Umstellung in Deutschland. In einer Phase personeller Engpässe setzte er die notwendigen Datenstruktur-Anpassungen eigenständig um.",
+    author: "Stefanie Mühlbauer | Executive Vice President HR, TAKKT Group AG",
     border: "border-[#4FB8AA]/40",
   },
   {
     type: "image-card",
     image: "/images/hr-integrations-leader.jpg",
     quote:
-      "Die Verknüpfung unseres Core-HR mit NetSuite und Payroll liefert unserer CFO und HR stets identische Echtzeit-Mitarbeiterzahlen. Keine Doppeleingaben, keine Abweichungen.",
-    author: "Sarah Lindemann | Chief People Officer",
+      "scaliify brachte Struktur und strategisches Denken in unsere Operations. Als unser Interim HR Projektmanager und Schichtplaner spielte scaliify eine Schlüsselrolle bei der Optimierung unserer Personaleinsatzplanung und trieb wichtige HR-Initiativen voran.",
+    author: "Head of Service Operations | Kunde im Energiesektor",
     border: "border-gray-200/50",
   },
 ];
@@ -432,7 +432,7 @@ export function HrItIntegrationsClient() {
                     className={`${card.bg} ${card.border} rounded-[26px] p-6 sm:p-7 w-[280px] sm:w-[310px] h-[370px] sm:h-[400px] flex flex-col justify-between border shadow-xs hover:shadow-md transition-all duration-300`}
                   >
                     <div className="pt-1">
-                      <span className="text-2xl sm:text-3xl font-extrabold text-[#2B4C55] tracking-tighter lowercase block">
+                      <span className="text-2xl sm:text-3xl font-extrabold text-[#2B4C55] tracking-tighter block">
                         {card.brandName}
                       </span>
                     </div>

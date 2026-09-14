@@ -46,46 +46,50 @@ export const ToolLogo = React.memo(function ToolLogo({ id }: { id: string }) {
       return (
         <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="24" height="24" rx="6" fill="#1B48E0" />
-          <path d="M8 17V7h5c2.8 0 4.5 1.7 4.5 4s-1.7 4-4.5 4h-2.5v2H8zm3-5h2c1.1 0 1.8-.6 1.8-1.5s-.7-1.5-1.8-1.5h-2V12z" fill="#FFFFFF" />
+          <path d="M7 6.5h5.4c2.8 0 4.6 1.7 4.6 4.3 0 2.7-1.8 4.4-4.6 4.4H9.6V18H7V6.5zm5.1 6.3c1.3 0 2.1-.8 2.1-1.9 0-1.1-.8-1.9-2.1-1.9H9.6v3.8h2.5z" fill="#FFFFFF" />
+          <circle cx="17" cy="7" r="1.5" fill="#38BDF8" />
         </svg>
       );
     case "deel":
       return (
         <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="24" height="24" rx="6" fill="#15357A" />
-          <circle cx="12" cy="12" r="6" stroke="#2CD5C4" strokeWidth="1.8" />
-          <circle cx="12" cy="12" r="2.5" fill="#2CD5C4" />
+          <rect width="24" height="24" rx="6" fill="#11244E" />
+          <path d="M6.5 17.5V6.5h5.2c3.4 0 5.8 2.3 5.8 5.5s-2.4 5.5-5.8 5.5H6.5zm3.1-2.7h2.1c1.8 0 2.9-1.2 2.9-2.8s-1.1-2.8-2.9-2.8H9.6v5.6z" fill="#2CD5C4" />
         </svg>
       );
     case "factorial":
       return (
         <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="24" height="24" rx="6" fill="#FF3B5C" />
-          <path d="M7 7h10v3h-6v2h5v3h-5v3H7V7z" fill="#FFFFFF" />
+          <rect width="24" height="24" rx="6" fill="#FF385C" />
+          <circle cx="12" cy="12" r="2.2" fill="#FFFFFF" />
+          <circle cx="12" cy="6.8" r="1.8" fill="#FFFFFF" />
+          <circle cx="12" cy="17.2" r="1.8" fill="#FFFFFF" />
+          <circle cx="7.5" cy="9.4" r="1.8" fill="#FFFFFF" />
+          <circle cx="16.5" cy="9.4" r="1.8" fill="#FFFFFF" />
+          <circle cx="7.5" cy="14.6" r="1.8" fill="#FFFFFF" />
+          <circle cx="16.5" cy="14.6" r="1.8" fill="#FFFFFF" />
         </svg>
       );
     case "flair":
       return (
         <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="24" height="24" rx="6" fill="#6C47FF" />
-          <circle cx="12" cy="12" r="4.5" stroke="#FFFFFF" strokeWidth="1.8" />
-          <path d="M12 5v2.5M12 16.5V19M5 12h2.5M16.5 12H19" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" />
+          <path d="M12 4.5c0 4.1-3.4 7.5-7.5 7.5 4.1 0 7.5 3.4 7.5 7.5 0-4.1 3.4-7.5 7.5-7.5-4.1 0-7.5-3.4-7.5-7.5z" fill="#FFFFFF" />
         </svg>
       );
     case "leapsome":
       return (
         <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="24" height="24" rx="6" fill="#00C48C" />
-          <circle cx="9.5" cy="12" r="3.5" stroke="#FFFFFF" strokeWidth="1.6" />
-          <circle cx="14.5" cy="12" r="3.5" stroke="#FFFFFF" strokeWidth="1.6" strokeDasharray="2 1.5" />
+          <path d="M8.5 8.5C6.6 8.5 5 10.1 5 12s1.6 3.5 3.5 3.5c1.4 0 2.6-.8 3.1-2h.8c.5 1.2 1.7 2 3.1 2 1.9 0 3.5-1.6 3.5-3.5s-1.6-3.5-3.5-3.5c-1.4 0-2.6.8-3.1 2h-.8c-.5-1.2-1.7-2-3.1-2zm0 2c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5S7 12.8 7 12s.7-1.5 1.5-1.5zm7 0c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5z" fill="#FFFFFF" />
         </svg>
       );
     case "shapes":
       return (
         <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="24" height="24" rx="6" fill="#18181B" />
-          <path d="M8 17l4-8 4 8H8z" fill="#81D8D0" />
-          <circle cx="15" cy="11" r="2.5" fill="#F59E0B" />
+          <path d="M8 16.5L12 7l4 9.5H8z" fill="#81D8D0" />
+          <circle cx="15.5" cy="10" r="2" fill="#F59E0B" />
         </svg>
       );
     case "tellent-manage":
@@ -93,100 +97,102 @@ export const ToolLogo = React.memo(function ToolLogo({ id }: { id: string }) {
       return (
         <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="24" height="24" rx="6" fill="#5B21B6" />
-          <path d="M7 8h10v2.5h-3.8v6.5h-2.4v-6.5H7V8z" fill="#C4B5FD" />
-          <circle cx="16" cy="16" r="2" fill="#81D8D0" />
+          <path d="M6.5 8.5h11v2.5h-4.2V17h-2.6v-6H6.5V8.5z" fill="#FFFFFF" />
+          <circle cx="16.5" cy="15.5" r="1.8" fill="#81D8D0" />
         </svg>
       );
     case "rippling":
       return (
         <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="24" height="24" rx="6" fill="#FBBF24" />
-          <path d="M7 11.5c1.5-2.5 4-2.5 5.5 0s4 2.5 5.5 0" stroke="#78350F" strokeWidth="1.8" strokeLinecap="round" />
-          <path d="M7 15c1.5-2.5 4-2.5 5.5 0s4 2.5 5.5 0" stroke="#B45309" strokeWidth="1.8" strokeLinecap="round" />
+          <rect width="24" height="24" rx="6" fill="#F59E0B" />
+          <path d="M6 10.5c2-2.5 5-2.5 7 0s5 2.5 7 0" stroke="#78350F" strokeWidth="2.2" strokeLinecap="round" />
+          <path d="M6 14.5c2-2.5 5-2.5 7 0s5 2.5 7 0" stroke="#B45309" strokeWidth="2.2" strokeLinecap="round" />
         </svg>
       );
     case "bayzat":
       return (
         <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="24" height="24" rx="6" fill="#0E7490" />
-          <path d="M7 17C7 11 12 7 17 7" stroke="#38BDF8" strokeWidth="2.2" strokeLinecap="round" />
-          <circle cx="10" cy="14" r="2.2" fill="#F43F5E" />
+          <path d="M7 16c0-4.5 3.5-8 8-8" stroke="#38BDF8" strokeWidth="2.4" strokeLinecap="round" />
+          <circle cx="11" cy="13.5" r="2.5" fill="#F43F5E" />
         </svg>
       );
     case "d-vinci":
       return (
         <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="24" height="24" rx="6" fill="#1E3A8A" />
-          <path d="M8 8v8c0 1.5 1.5 2.5 3.5 2.5s5-1.5 5-4.5-2.2-4.5-5-4.5H9.5" stroke="#93C5FD" strokeWidth="1.8" strokeLinecap="round" />
+          <path d="M8 7v10c0 1.5 1.5 2 3.5 2s4.5-1.5 4.5-4.5-2-4.5-4.5-4.5H9.5" stroke="#93C5FD" strokeWidth="2" strokeLinecap="round" />
         </svg>
       );
     case "greenhouse":
       return (
         <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="24" height="24" rx="6" fill="#047857" />
-          <path d="M12 5.5c-3 3.5-5.5 6.5-5.5 9.5 0 2.8 2.5 5 5.5 5s5.5-2.2 5.5-5c0-3-2.5-6-5.5-9.5z" fill="#34D399" />
-          <path d="M12 8v8" stroke="#047857" strokeWidth="1.6" strokeLinecap="round" />
+          <circle cx="12" cy="14" r="4.5" fill="#34D399" />
+          <path d="M12 6.5C12 9.5 9.5 12 6.5 12" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+          <path d="M12 6.5v8" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
         </svg>
       );
     case "tellent-recruitee":
       return (
         <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="24" height="24" rx="6" fill="#0284C7" />
-          <circle cx="12" cy="12" r="5.5" stroke="#FFFFFF" strokeWidth="1.8" />
-          <path d="M9.5 12h5M12 9.5v5" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" />
+          <circle cx="12" cy="12" r="5.5" stroke="#FFFFFF" strokeWidth="2" />
+          <path d="M9.5 12h5M12 9.5v5" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
         </svg>
       );
     case "teamtailor":
       return (
         <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="24" height="24" rx="6" fill="#EC4899" />
-          <path d="M8 8h8M12 8v8M10 12h4" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+          <path d="M7 8.5h10M10 8.5v8M14 8.5v8" stroke="#FFFFFF" strokeWidth="2.2" strokeLinecap="round" />
         </svg>
       );
     case "ashby":
       return (
         <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="24" height="24" rx="6" fill="#EA580C" />
-          <path d="M7 18l5-11 5 11h-3l-2-4.5-2 4.5H7z" fill="#FFFFFF" />
+          <path d="M6.5 17.5l5.5-11 5.5 11h-3.2l-2.3-4.8-2.3 4.8H6.5z" fill="#FFFFFF" />
         </svg>
       );
     case "hrcast":
       return (
         <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="24" height="24" rx="6" fill="#7C3AED" />
-          <circle cx="12" cy="14" r="2" fill="#FFFFFF" />
-          <path d="M8 9.5a5.5 5.5 0 018 0M6 7a8.5 8.5 0 0112 0" stroke="#DDD6FE" strokeWidth="1.6" strokeLinecap="round" />
+          <circle cx="12" cy="13.5" r="2.5" fill="#FFFFFF" />
+          <path d="M7.5 9a6 6 0 019 0" stroke="#DDD6FE" strokeWidth="1.8" strokeLinecap="round" />
+          <path d="M5.5 6.5a9 9 0 0113 0" stroke="#DDD6FE" strokeWidth="1.8" strokeLinecap="round" />
         </svg>
       );
     case "gradar":
       return (
         <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="24" height="24" rx="6" fill="#2563EB" />
-          <path d="M7 17h2.5v-3.5H7V17zm4 0h2.5v-6H11V17zm4 0h2.5V8H15v9z" fill="#DBEAFE" />
+          <rect x="6.5" y="12.5" width="2.5" height="4.5" rx="0.8" fill="#DBEAFE" />
+          <rect x="10.7" y="9.5" width="2.5" height="7.5" rx="0.8" fill="#DBEAFE" />
+          <rect x="15" y="6.5" width="2.5" height="10.5" rx="0.8" fill="#FFFFFF" />
         </svg>
       );
     case "hr-autopilot":
       return (
         <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="24" height="24" rx="6" fill="#0891B2" />
-          <path d="M6 14l6-7 6 7-6-2.5L6 14z" fill="#A5F3FC" />
-          <circle cx="12" cy="15.5" r="1.8" fill="#FFFFFF" />
+          <path d="M5.5 14.5l13-6-6 10-2-4.5-5 .5z" fill="#A5F3FC" />
         </svg>
       );
     case "workmotion":
       return (
         <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="24" height="24" rx="6" fill="#0F172A" />
-          <path d="M7 10l3 5 2.5-3.5 2.5 3.5 3-5" stroke="#38BDF8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M6.5 9.5l3.5 6 2-3 2 3 3.5-6" stroke="#38BDF8" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       );
     case "zep":
       return (
         <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="24" height="24" rx="6" fill="#D97706" />
-          <circle cx="12" cy="13" r="5.5" stroke="#FEF3C7" strokeWidth="1.6" />
-          <path d="M12 10.5v3l2.5 1.5" stroke="#FEF3C7" strokeWidth="1.6" strokeLinecap="round" />
-          <path d="M10.5 6h3" stroke="#FEF3C7" strokeWidth="1.6" strokeLinecap="round" />
+          <circle cx="12" cy="12.5" r="5.5" stroke="#FEF3C7" strokeWidth="1.8" />
+          <path d="M12 9.5v3l2.5 1.5" stroke="#FEF3C7" strokeWidth="1.8" strokeLinecap="round" />
         </svg>
       );
     default:

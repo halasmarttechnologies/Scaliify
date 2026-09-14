@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight, ShieldCheck, Mail, MapPin, Phone, FileText } from "lucide-react";
 
 const navSections = [

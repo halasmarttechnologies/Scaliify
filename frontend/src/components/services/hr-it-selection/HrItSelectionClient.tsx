@@ -17,7 +17,6 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { softwareList, ToolLogo } from "@/components/home/SoftwareStack";
-import { Testimonials } from "@/components/home/Testimonials";
 import { BookingLeadSection } from "@/components/common/BookingLeadSection";
 import { BlogSection } from "@/components/home/BlogSection";
 import { AnimatedStatCounter } from "@/components/common/AnimatedStatCounter";
@@ -72,18 +71,18 @@ const marqueeCardsEn = [
   {
     type: "quote-card",
     bg: "bg-[#f0faf8]",
-    brandName: "techscale",
+    brandName: "Westbridge",
     quote:
-      "Scaliify benchmarked 15+ HRIS solutions for our European expansion. Their vendor-neutral evaluation saved us 4 months of sales demos and prevented costly software lock-in.",
-    author: "Elena Richter | Head of People Operations",
+      "scaliify has been an invaluable partner in optimising our HR processes. From answering our Personio-related questions with deep expertise to building a custom recruiting dashboard, their support has helped us bring structure and efficiency into our hiring workflows.",
+    author: "Wiebke Weidner | Head of HR, Westbridge",
     border: "border-[#76D8C8]/40",
   },
   {
     type: "image-card",
     image: "/images/rowing-team.jpg",
     quote:
-      "We replaced 4 disconnected spreadsheets with an interconnected HR & DATEV payroll architecture. Our headcount doubled without adding administrative overhead.",
-    author: "Lukas Weber | VP of People & Culture",
+      "scaliify managed our Personio implementation with great reliability and focus. The team ensured the project stayed on track, coordinated effectively across teams, and handled challenges pragmatically.",
+    author: "Head of HR | Client in the Tech Industry",
     border: "border-gray-200/50",
   },
   {
@@ -91,41 +90,41 @@ const marqueeCardsEn = [
     bg: "bg-gradient-to-br from-[#2B4C55] via-[#05434B] to-[#4FB8AA]",
     stat: "40%",
     sub: "faster software evaluation cycle",
-    brand: "Scaliify HR Advisory",
+    brand: "scaliify HR Advisory",
     border: "border-[#76D8C8]/30",
   },
   {
     type: "image-card",
     image: "/images/food-pantry.jpg",
     quote:
-      "Having independent HR advisors who understand the European tool market gave us total confidence in choosing our new ATS and Core HR platform.",
-    author: "Sarah Lindemann | Chief People Officer",
+      "Working with scaliify was a game changer for our HR setup. Their team guided us through the successful implementation of Personio and helped us restructure our HR processes to be more efficient, transparent, and scalable.",
+    author: "Marion Kleber | Managing Director, Harrer Ingenieure GmbH",
     border: "border-gray-200/50",
   },
   {
     type: "quote-card",
     bg: "bg-[#e8f7f4]",
-    brandName: "scaleup group",
+    brandName: "SoftwareOne",
     quote:
-      "From RFP requirements to vendor shortlisting and contract negotiations, Scaliify ensured our HR architecture scales effortlessly from 100 to 1,000+ employees.",
-    author: "Markus Hoffmann | Managing Director",
+      "Ben is one of those rare professionals who combines strategic insight with operational excellence. During his time at SoftwareOne, he led complex HR initiatives across EMEA with clarity, structure, and empathy.",
+    author: "Thomai Carapali | Head of P&C EMEA, SoftwareOne Germany GmbH",
     border: "border-[#4FB8AA]/40",
   },
   {
     type: "image-card",
     image: "/images/office-team.jpg",
     quote:
-      "Scaliify helped us navigate GDPR compliance, German labor standards (BAG), and payroll integrations seamlessly during our HR software switch.",
-    author: "Sophie Dubois | Global HR Operations",
+      "As our interim CHRO, scaliify brought clarity and momentum to our organizational development. scaliify helped us streamline recruiting, introduce scalable HR structures, and prepare our future team growth.",
+    author: "Managing Director | Client in the Tech Industry",
     border: "border-gray-200/50",
   },
   {
     type: "quote-card",
     bg: "bg-[#f0faf8]",
-    brandName: "novapay",
+    brandName: "TAKKT Group AG",
     quote:
-      "Comparing local payroll engines versus global EOR setups across 6 European entities was overwhelming until Scaliify audited our tech stack and structured the roadmap.",
-    author: "Julian Kramer | Director of Operations",
+      "Ben worked with us as HR Operations Co-Lead, focusing on the system side of the payroll transition in Germany. He independently implemented the required data structure changes during a period when our team was severely understaffed.",
+    author: "Stefanie Mühlbauer | Executive Vice President HR, TAKKT Group AG",
     border: "border-[#76D8C8]/40",
   },
   {
@@ -133,24 +132,24 @@ const marqueeCardsEn = [
     bg: "bg-gradient-to-br from-[#05434B] via-[#1b3a42] to-[#4FB8AA]",
     stat: "73%",
     sub: "faster time-to-value for newly adopted HR tools",
-    brand: "Scaliify Benchmarks",
+    brand: "scaliify Benchmarks",
     border: "border-[#76D8C8]/30",
   },
   {
     type: "quote-card",
     bg: "bg-[#e8f7f4]",
-    brandName: "fintech europe",
+    brandName: "Energy Sector",
     quote:
-      "We streamlined our talent pipeline by connecting Greenhouse and Personio with custom automated candidate triggers. Hiring velocity improved immediately.",
-    author: "Clara Vance | VP People & Organization",
+      "scaliify brought both structure and strategic thinking to our operations. As our Interim HR Project Manager and Shift Planner, scaliify played a key role in improving our workforce planning processes and driving forward HR-related initiatives.",
+    author: "Head of Service Operations | Client in the Energy Sector",
     border: "border-[#4FB8AA]/40",
   },
   {
     type: "stat-card",
     bg: "bg-gradient-to-br from-[#2B4C55] via-[#05434B] to-[#76D8C8]",
-    stat: "28%",
+    stat: "38%",
     sub: "average overall HR software cost savings",
-    brand: "Scaliify Impact",
+    brand: "scaliify Impact",
     border: "border-[#76D8C8]/30",
   },
 ];
@@ -159,18 +158,18 @@ const marqueeCardsDe = [
   {
     type: "quote-card",
     bg: "bg-[#f0faf8]",
-    brandName: "techscale",
+    brandName: "Westbridge",
     quote:
-      "Scaliify hat über 15 HRIS-Lösungen für unsere europäische Expansion evaluiert. Der neutrale Vergleich hat uns 4 Monate Vertriebs-Demos gespart und Fehlentscheidungen verhindert.",
-    author: "Elena Richter | Head of People Operations",
+      "scaliify war für uns ein unschätzbarer Partner bei der Optimierung unserer HR-Prozesse. Von der Beantwortung unserer Personio-Fragen mit tiefem Fachwissen bis hin zum Aufbau eines maßgeschneiderten Recruiting-Dashboards – ihre Unterstützung hat uns geholfen, Struktur und Effizienz in unsere Hiring-Workflows zu bringen.",
+    author: "Wiebke Weidner | Head of HR, Westbridge",
     border: "border-[#76D8C8]/40",
   },
   {
     type: "image-card",
     image: "/images/rowing-team.jpg",
     quote:
-      "Wir haben unzählige getrennte Tabellen durch eine vernetzte HR- und DATEV-Lohnarchitektur ersetzt. Unser Team hat sich verdoppelt – ohne zusätzlichen Verwaltungsaufwand.",
-    author: "Lukas Weber | VP of People & Culture",
+      "scaliify hat unsere Personio-Einführung mit hoher Zuverlässigkeit und Fokus gesteuert. Das Team sorgte dafür, dass das Projekt im Zeitplan blieb, koordinierte effizient über Teams hinweg und ging Herausforderungen pragmatisch an.",
+    author: "Head of HR | Kunde in der Technologiebranche",
     border: "border-gray-200/50",
   },
   {
@@ -178,41 +177,41 @@ const marqueeCardsDe = [
     bg: "bg-gradient-to-br from-[#2B4C55] via-[#05434B] to-[#4FB8AA]",
     stat: "40%",
     sub: "schnellere Software-Auswahl",
-    brand: "Scaliify HR Advisory",
+    brand: "scaliify HR Advisory",
     border: "border-[#76D8C8]/30",
   },
   {
     type: "image-card",
     image: "/images/food-pantry.jpg",
     quote:
-      "Erfahrene HR-Berater an der Seite zu haben, die den europäischen Softwaremarkt genau kennen, gab uns absolute Sicherheit bei der Auswahl unseres neuen ATS- und HRIS-Systems.",
-    author: "Sarah Lindemann | Chief People Officer",
+      "Die Zusammenarbeit mit scaliify war für unser HR-Setup ein echter Gamechanger. Das Team begleitete uns bei der erfolgreichen Einführung von Personio und half uns, unsere HR-Prozesse effizienter, transparenter und skalierbarer aufzustellen.",
+    author: "Marion Kleber | Managing Director, Harrer Ingenieure GmbH",
     border: "border-gray-200/50",
   },
   {
     type: "quote-card",
     bg: "bg-[#e8f7f4]",
-    brandName: "scaleup group",
+    brandName: "SoftwareOne",
     quote:
-      "Vom Anforderungskatalog bis zur Vertragsverhandlung hat Scaliify sichergestellt, dass unsere HR-Architektur reibungslos von 100 auf über 1.000 Mitarbeitende mitskaliert.",
-    author: "Markus Hoffmann | Managing Director",
+      "Ben ist einer der seltenen Experten, die strategischen Weitblick mit operativer Exzellenz verbinden. Während seiner Zeit bei SoftwareOne leitete er komplexe HR-Initiativen in der EMEA-Region mit Klarheit, Struktur und Empathie.",
+    author: "Thomai Carapali | Head of P&C EMEA, SoftwareOne Germany GmbH",
     border: "border-[#4FB8AA]/40",
   },
   {
     type: "image-card",
     image: "/images/office-team.jpg",
     quote:
-      "Scaliify hat uns bei DSGVO-Konformität, deutschen BAG-Vorgaben und DATEV-Integrationen während des Software-Wechsels perfekt begleitet.",
-    author: "Sophie Dubois | Global HR Operations",
+      "Als unser Interim-CHRO brachte scaliify Klarheit und Dynamik in unsere Organisationsentwicklung. scaliify half uns, das Recruiting zu optimieren, skalierbare HR-Strukturen aufzubauen und unser künftiges Teamwachstum vorzubereiten.",
+    author: "Managing Director | Kunde in der Technologiebranche",
     border: "border-gray-200/50",
   },
   {
     type: "quote-card",
     bg: "bg-[#f0faf8]",
-    brandName: "novapay",
+    brandName: "TAKKT Group AG",
     quote:
-      "Lokale Lohnabrechnungssysteme mit internationalen EOR-Lösungen für 6 Länder zu vergleichen, war überwältigend – bis Scaliify unseren Stack auditiert und strukturiert hat.",
-    author: "Julian Kramer | Director of Operations",
+      "Ben arbeitete mit uns als HR Operations Co-Lead mit Fokus auf die systemseitige Entgeltabrechnungs-Umstellung in Deutschland. In einer Phase personeller Engpässe setzte er die notwendigen Datenstruktur-Anpassungen eigenständig um.",
+    author: "Stefanie Mühlbauer | Executive Vice President HR, TAKKT Group AG",
     border: "border-[#76D8C8]/40",
   },
   {
@@ -220,24 +219,24 @@ const marqueeCardsDe = [
     bg: "bg-gradient-to-br from-[#05434B] via-[#1b3a42] to-[#4FB8AA]",
     stat: "73%",
     sub: "schnellere Wertschöpfung bei neuen HR-Tools",
-    brand: "Scaliify Benchmarks",
+    brand: "scaliify Benchmarks",
     border: "border-[#76D8C8]/30",
   },
   {
     type: "quote-card",
     bg: "bg-[#e8f7f4]",
-    brandName: "fintech europe",
+    brandName: "Energiesektor",
     quote:
-      "Wir haben unsere Recruiting-Pipeline beschleunigt, indem wir Greenhouse und Personio mit automatisierten Triggern verknüpft haben. Die Time-to-Hire sank spürbar.",
-    author: "Clara Vance | VP People & Organization",
+      "scaliify brachte Struktur und strategisches Denken in unsere Operations. Als unser Interim HR Projektmanager und Schichtplaner spielte scaliify eine Schlüsselrolle bei der Optimierung unserer Personaleinsatzplanung und trieb wichtige HR-Initiativen voran.",
+    author: "Head of Service Operations | Kunde im Energiesektor",
     border: "border-[#4FB8AA]/40",
   },
   {
     type: "stat-card",
     bg: "bg-gradient-to-br from-[#2B4C55] via-[#05434B] to-[#76D8C8]",
-    stat: "28%",
+    stat: "38%",
     sub: "durchschnittliche HR-Software-Kosteneinsparung",
-    brand: "Scaliify Impact",
+    brand: "scaliify Impact",
     border: "border-[#76D8C8]/30",
   },
 ];
@@ -372,7 +371,7 @@ export function HrItSelectionClient() {
 
             <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
               <Link
-                href="/lets-talk"
+                href="/contact?topic=selection"
                 className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 rounded-full text-xs sm:text-sm font-extrabold text-brand-dark bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep shadow-[0_4px_22px_rgba(129,216,208,0.65)] border border-white/80 hover:shadow-[0_6px_28px_rgba(129,216,208,0.95)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 overflow-hidden cursor-pointer"
               >
                 <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/75 to-transparent rounded-t-full pointer-events-none" />
@@ -451,9 +450,11 @@ export function HrItSelectionClient() {
                   <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/45 to-transparent pointer-events-none rounded-t-2xl" />
                   <Icon className="w-5 h-5 stroke-[2.4] relative z-10" />
                 </div>
-                <h3 className="text-base sm:text-[17px] font-bold text-black leading-snug">
-                  {title}
-                </h3>
+                <div className="h-12 sm:h-14 flex items-center justify-center">
+                  <h3 className="text-base sm:text-[17px] font-bold text-black leading-snug">
+                    {title}
+                  </h3>
+                </div>
                 <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
                   {desc}
                 </p>
@@ -485,7 +486,7 @@ export function HrItSelectionClient() {
                     className={`${card.bg} ${card.border} rounded-[26px] p-6 sm:p-7 w-[280px] sm:w-[310px] h-[370px] sm:h-[400px] flex flex-col justify-between border shadow-xs hover:shadow-md transition-all duration-300`}
                   >
                     <div className="pt-1">
-                      <span className="text-2xl sm:text-3xl font-extrabold text-[#2B4C55] tracking-tighter lowercase block">
+                      <span className="text-2xl sm:text-3xl font-extrabold text-[#2B4C55] tracking-tighter block">
                         {card.brandName}
                       </span>
                     </div>
@@ -559,10 +560,10 @@ export function HrItSelectionClient() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10 sm:mb-14">
             <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#4FB8AA] mb-2.5">
-              {isDe ? "DER SCALIIFY-UNTERSCHIED" : "THE SCALIIFY DIFFERENCE"}
+              {isDe ? "DER scaliify-UNTERSCHIED" : "THE scaliify DIFFERENCE"}
             </p>
             <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-black">
-              {isDe ? "Warum stark wachsende Unternehmen Scaliify wählen" : "Why fast-growing companies choose Scaliify"}
+              {isDe ? "Warum stark wachsende Unternehmen scaliify wählen" : "Why fast-growing companies choose scaliify"}
             </h2>
           </div>
 
@@ -570,11 +571,11 @@ export function HrItSelectionClient() {
             <div className="absolute top-0 right-0 w-96 h-96 bg-[radial-gradient(circle,rgba(118,216,200,0.25)_0%,transparent_70%)] pointer-events-none blur-2xl" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-[radial-gradient(circle,rgba(79,184,170,0.18)_0%,transparent_70%)] pointer-events-none blur-2xl" />
 
-            {/* Left: Before Scaliify */}
+            {/* Left: Before scaliify */}
             <div className="flex flex-col justify-between py-2 sm:py-4 pr-0 md:pr-6 relative z-10 text-white">
               <div>
                 <h3 className="text-lg sm:text-xl font-bold text-white mb-6">
-                  {isDe ? "Vor Scaliify" : "Before Scaliify"}
+                  {isDe ? "Vor scaliify" : "Before scaliify"}
                 </h3>
                 <ul className="flex flex-col gap-4">
                   {beforeItems.map((item) => (
@@ -589,11 +590,11 @@ export function HrItSelectionClient() {
               </div>
             </div>
 
-            {/* Right: After Scaliify */}
+            {/* Right: With scaliify */}
             <div className="bg-white text-gray-900 rounded-2xl p-6 sm:p-8 shadow-sm border border-[#76D8C8]/50 flex flex-col justify-between relative z-10">
               <div>
                 <h3 className="text-lg sm:text-xl font-bold text-[#2B4C55] mb-6">
-                  {isDe ? "Mit Scaliify" : "After Scaliify"}
+                  {isDe ? "Mit scaliify" : "With scaliify"}
                 </h3>
                 <ul className="flex flex-col gap-4">
                   {afterItems.map((item) => (
@@ -650,7 +651,7 @@ export function HrItSelectionClient() {
 
             <div className="flex flex-col items-center">
               <span className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-none mb-2 tracking-tight">
-                <AnimatedStatCounter value={28} suffix="%" />
+                <AnimatedStatCounter value={38} suffix="%" />
               </span>
               <span className="text-xs sm:text-sm text-gray-800 font-semibold max-w-[200px]">
                 {isDe ? "Gesamtkosteneinsparung im HR-Bereich" : "overall HR cost savings"}
@@ -659,7 +660,7 @@ export function HrItSelectionClient() {
 
             <div className="flex flex-col items-center">
               <span className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-none mb-2 tracking-tight">
-                <AnimatedStatCounter value={73} suffix="%" />
+                <AnimatedStatCounter value={87} suffix="%" />
               </span>
               <span className="text-xs sm:text-sm text-gray-800 font-semibold max-w-[200px]">
                 {isDe ? "spürbarer Mehrwert in den ersten 3 Monaten" : "saw tangible value within first 3 months"}
@@ -671,15 +672,15 @@ export function HrItSelectionClient() {
             <div className="md:col-span-5 relative rounded-[22px] sm:rounded-[26px] overflow-hidden min-h-[240px] sm:min-h-[320px] shadow-xs border border-gray-200/80">
               <Image
                 src="/images/hr-leader-story.jpg"
-                alt="Laura Mohan - HR Business Partner"
+                alt="Marion Kleber - Managing Director, Harrer Ingenieure GmbH"
                 fill
                 className="object-cover object-top"
                 sizes="(max-width: 768px) 100vw, 40vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#05434B]/85 via-transparent to-transparent" />
               <div className="absolute inset-x-4 bottom-4 text-white">
-                <p className="text-sm sm:text-base font-bold text-white">Laura Mohan</p>
-                <p className="text-xs text-[#76D8C8] font-medium">HR Business Partner</p>
+                <p className="text-sm sm:text-base font-bold text-white">Marion Kleber</p>
+                <p className="text-xs text-[#76D8C8] font-medium">Managing Director, Harrer Ingenieure GmbH</p>
               </div>
             </div>
 
@@ -695,21 +696,21 @@ export function HrItSelectionClient() {
                 </div>
                 <p className="text-base sm:text-lg md:text-xl text-[#2B4C55] font-bold leading-relaxed mb-6">
                   {isDe
-                    ? "„Durch die Zusammenarbeit mit Scaliify bei unserer HR-IT-Auswahl haben wir die Evaluierungszeit auf wenige Wochen verkürzt und teure Fehlentscheidungen verhindert. Onboarding, Reporting und Core-HR laufen jetzt absolut reibungslos.“"
-                    : "“By partnering with Scaliify for our HR IT selection, we cut evaluation time to weeks and eliminated costly vendor lock-in. It streamlined everything around onboarding, reporting, and core HR systems.”"}
+                    ? "„Die Zusammenarbeit mit scaliify war für unser HR-Setup ein echter Gamechanger. Das Team begleitete uns bei der erfolgreichen Einführung von Personio und half uns, unsere HR-Prozesse effizienter, transparenter und skalierbarer aufzustellen. Das Projekt wurde mit höchster Klarheit und Präzision umgesetzt. Wir haben nun ein optimiertes HR-System, das unseren Arbeitsalltag und unser zukünftiges Wachstum nachhaltig unterstützt.“"
+                    : "“Working with scaliify was a game changer for our HR setup. Their team guided us through the successful implementation of Personio and helped us restructure our HR processes to be more efficient, transparent, and scalable. The project was executed with clarity and precision. We now have a streamlined HR system that supports our day-to-day operations and future growth.”"}
                 </p>
               </div>
 
               <div className="flex items-center justify-between pt-4 border-t border-[#4FB8AA]/20">
                 <div>
                   <p className="text-xs sm:text-sm font-bold text-black">
-                    Laura Mohan <span className="font-normal text-gray-600">| HR Business Partner</span>
+                    Marion Kleber <span className="font-normal text-gray-600">| Managing Director, Harrer Ingenieure GmbH</span>
                   </p>
                 </div>
                 <div className="text-right">
-                  <span className="text-xl sm:text-2xl font-black text-[#05434B] leading-none block">60%</span>
+                  <span className="text-xl sm:text-2xl font-black text-[#05434B] leading-none block">87%</span>
                   <p className="text-[10px] sm:text-xs text-gray-600 font-medium">
-                    {isDe ? "mehr Zeit für People Ops" : "more time for People Ops"}
+                    {isDe ? "spürbarer Mehrwert in 3 Monaten" : "tangible value in 3 months"}
                   </p>
                 </div>
               </div>
@@ -717,11 +718,6 @@ export function HrItSelectionClient() {
           </div>
         </div>
       </section>
-
-      {/* ============================================================ */}
-      {/* 7. TESTIMONIALS SECTION                                      */}
-      {/* ============================================================ */}
-      <Testimonials />
 
       {/* ============================================================ */}
       {/* 8. FREQUENTLY ASKED QUESTIONS ACCORDION                      */}

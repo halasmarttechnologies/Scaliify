@@ -131,18 +131,18 @@ const marqueeCardsEn = [
   {
     type: "quote-card",
     bg: "bg-[#f0faf8]",
-    brandName: "growth stage ai",
+    brandName: "Tech Industry",
     quote:
-      "As founders, we were spending two days every month preparing payroll data and managing vacation requests. Scaliify stepped in as our external team in 48 hours and freed us completely.",
-    author: "Hannah Lindqvist | Co-Founder & CEO",
+      "As our interim CHRO, scaliify brought clarity and momentum to our organizational development. scaliify helped us streamline recruiting, introduce scalable HR structures, and prepare our future team growth.",
+    author: "Managing Director | Client in the Tech Industry",
     border: "border-[#76D8C8]/40",
   },
   {
     type: "image-card",
     image: "/images/rowing-team.jpg",
     quote:
-      "Having a dedicated senior HR contact available 5 days a week without paying full-time overhead is a game changer for a 35-person company.",
-    author: "Marc Steiner | Chief Operating Officer",
+      "scaliify brought both structure and strategic thinking to our operations. As our Interim HR Project Manager and Shift Planner, scaliify played a key role in improving our workforce planning processes and driving forward HR-related initiatives.",
+    author: "Head of Service Operations | Client in the Energy Sector",
     border: "border-gray-200/50",
   },
   {
@@ -157,25 +157,25 @@ const marqueeCardsEn = [
     type: "image-card",
     image: "/images/office-team.jpg",
     quote:
-      "When we scaled past 80 people, Scaliify even helped us hire and onboard our first permanent in-house HR manager with a flawless transition.",
-    author: "Julia Brandt | Managing Director",
+      "scaliify has been an invaluable partner in optimising our HR processes. From answering our Personio-related questions with deep expertise to building a custom recruiting dashboard, their support has helped us bring structure and efficiency into our hiring workflows.",
+    author: "Wiebke Weidner | Head of HR, Westbridge",
     border: "border-gray-200/50",
   },
   {
     type: "quote-card",
     bg: "bg-[#e8f7f4]",
-    brandName: "b2b software",
+    brandName: "TAKKT Group AG",
     quote:
-      "Transparent pay-as-you-go billing. We only pay for the HR hours we actually consume each month, scaling effortlessly as hiring demands shift.",
-    author: "Florian Beck | Head of Operations",
+      "Ben worked with us as HR Operations Co-Lead, focusing on the system side of the payroll transition in Germany. He independently implemented the required data structure changes during a period when our team was severely understaffed.",
+    author: "Stefanie Mühlbauer | Executive Vice President HR, TAKKT Group AG",
     border: "border-[#4FB8AA]/40",
   },
   {
     type: "image-card",
     image: "/images/food-pantry.jpg",
     quote:
-      "Standardised onboarding, clean employment contracts, and zero payroll errors with our external Steuerberater from month one.",
-    author: "Sarah König | Co-Founder & COO",
+      "Working with scaliify was a game changer for our HR setup. Their team guided us through the successful implementation of Personio and helped us restructure our HR processes to be more efficient, transparent, and scalable.",
+    author: "Marion Kleber | Managing Director, Harrer Ingenieure GmbH",
     border: "border-gray-200/50",
   },
 ];
@@ -184,18 +184,18 @@ const marqueeCardsDe = [
   {
     type: "quote-card",
     bg: "bg-[#f0faf8]",
-    brandName: "growth stage ai",
+    brandName: "Technologiebranche",
     quote:
-      "Als Gründer haben wir jeden Monat zwei volle Tage mit Gehaltsvorbereitung und Urlaubsfreigaben verbracht. Scaliify hat innerhalb von 48 Stunden übernommen und uns komplett entlastet.",
-    author: "Hannah Lindqvist | Co-Founder & CEO",
+      "Als unser Interim-CHRO brachte scaliify Klarheit und Dynamik in unsere Organisationsentwicklung. scaliify half uns, das Recruiting zu optimieren, skalierbare HR-Strukturen aufzubauen und unser künftiges Teamwachstum vorzubereiten.",
+    author: "Managing Director | Kunde in der Technologiebranche",
     border: "border-[#76D8C8]/40",
   },
   {
     type: "image-card",
     image: "/images/rowing-team.jpg",
     quote:
-      "Eine feste Senior-HR-Ansprechperson 5 Tage die Woche zu haben, ohne eine Vollzeitstelle finanzieren zu müssen, ist für ein 35-Personen-Team Gold wert.",
-    author: "Marc Steiner | Chief Operating Officer",
+      "scaliify brachte Struktur und strategisches Denken in unsere Operations. Als unser Interim HR Projektmanager und Schichtplaner spielte scaliify eine Schlüsselrolle bei der Optimierung unserer Personaleinsatzplanung und trieb wichtige HR-Initiativen voran.",
+    author: "Head of Service Operations | Kunde im Energiesektor",
     border: "border-gray-200/50",
   },
   {
@@ -210,25 +210,25 @@ const marqueeCardsDe = [
     type: "image-card",
     image: "/images/office-team.jpg",
     quote:
-      "Als wir über 80 Mitarbeitende gewachsen sind, hat uns Scaliify sogar bei der Einstellung und Einarbeitung unserer ersten internen HR-Managerin perfekt unterstützt.",
-    author: "Julia Brandt | Managing Director",
+      "scaliify war für uns ein unschätzbarer Partner bei der Optimierung unserer HR-Prozesse. Von der Beantwortung unserer Personio-Fragen mit tiefem Fachwissen bis hin zum Aufbau eines maßgeschneiderten Recruiting-Dashboards – ihre Unterstützung hat uns geholfen, Struktur und Effizienz in unsere Hiring-Workflows zu bringen.",
+    author: "Wiebke Weidner | Head of HR, Westbridge",
     border: "border-gray-200/50",
   },
   {
     type: "quote-card",
     bg: "bg-[#e8f7f4]",
-    brandName: "b2b software",
+    brandName: "TAKKT Group AG",
     quote:
-      "Transparente Pay-as-you-go-Abrechnung: Wir zahlen flexibel nur für die HR-Stunden, die wir tatsächlich benötigen.",
-    author: "Florian Beck | Head of Operations",
+      "Ben arbeitete mit uns als HR Operations Co-Lead mit Fokus auf die systemseitige Entgeltabrechnungs-Umstellung in Deutschland. In einer Phase personeller Engpässe setzte er die notwendigen Datenstruktur-Anpassungen eigenständig um.",
+    author: "Stefanie Mühlbauer | Executive Vice President HR, TAKKT Group AG",
     border: "border-[#4FB8AA]/40",
   },
   {
     type: "image-card",
     image: "/images/food-pantry.jpg",
     quote:
-      "Standardisiertes Onboarding, rechtssichere Arbeitsverträge und ab dem ersten Monat null Fehler bei der monatlichen Übergabe an den Steuerberater.",
-    author: "Sarah König | Co-Founder & COO",
+      "Die Zusammenarbeit mit scaliify war für unser HR-Setup ein echter Gamechanger. Das Team begleitete uns bei der erfolgreichen Einführung von Personio und half uns, unsere HR-Prozesse effizienter, transparenter und skalierbarer aufzustellen.",
+    author: "Marion Kleber | Managing Director, Harrer Ingenieure GmbH",
     border: "border-gray-200/50",
   },
 ];
@@ -473,7 +473,7 @@ export function OutsourcedHrClient() {
                     className={`${card.bg} ${card.border} rounded-[26px] p-6 sm:p-7 w-[280px] sm:w-[310px] h-[370px] sm:h-[400px] flex flex-col justify-between border shadow-xs hover:shadow-md transition-all duration-300`}
                   >
                     <div className="pt-1">
-                      <span className="text-2xl sm:text-3xl font-extrabold text-[#2B4C55] tracking-tighter lowercase block">
+                      <span className="text-2xl sm:text-3xl font-extrabold text-[#2B4C55] tracking-tighter block">
                         {card.brandName}
                       </span>
                     </div>

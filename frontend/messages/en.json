@@ -13,8 +13,8 @@
       "description": "Get in touch with Scaliify's HR technology advisory team. Schedule a consultation, request a custom software benchmark, or ask about our services."
     },
     "letsTalk": {
-      "title": "Book a Demo",
-      "description": "Book a personalised HR technology demo with Scaliify. Tell us about your needs and we'll build a tailored walkthrough aligned to your exact goals."
+      "title": "Request a Consultation",
+      "description": "Request an HR consultation with Scaliify. Tell us about your needs and speak with an independent HR technology and operations specialist."
     },
     "blog": {
       "title": "Blog & Insights",
@@ -58,8 +58,8 @@
         "description": "End-to-end HR system integrations connecting your HRIS, payroll systems, ATS, performance tools, and enterprise platforms into automated workflows."
       },
       "interimManagement": {
-        "title": "Interim HR Management — Senior Leadership on Demand",
-        "description": "Experienced HR leaders and People Ops specialists available immediately for transitions, parental leaves, rapid scaling, and organisational change."
+        "title": "Interim HR Management — Managers & Specialists on Demand",
+        "description": "Experienced HR leaders, business partners, recruiters, and People Ops specialists available immediately for transitions, parental leaves, rapid scaling, and organisational change."
       },
       "outsourcedHr": {
         "title": "Outsourced HR Management — Your Dedicated HR Team",
@@ -276,22 +276,22 @@
     "subtitle": "See how companies are transforming their HR with Scaliify.",
     "items": [
       {
-        "quote": "Scaliify completely transformed how we manage team dynamics and performance tracking. The real-time analytics dashboard alone saved us hours every week, and the intuitive automated workflows have streamlined our onboarding processes significantly.",
-        "author": "Marvin McKinney",
-        "title": "HR Manager",
-        "company": "Luckycharm"
+        "quote": "scaliify has been an invaluable partner in optimising our HR processes. From answering our Personio-related questions with deep expertise to building a custom recruiting dashboard, their support has helped us bring structure and efficiency into our hiring workflows. Thanks to their hands-on approach and strategic mindset, we’re now in a much stronger position to scale our HR operations.",
+        "author": "Wiebke Weidner",
+        "title": "Head of HR",
+        "company": "Westbridge"
       },
       {
-        "quote": "We've tried several HR platforms before settling on Scaliify, and it's been a game-changer for our growing team. The advisory team went above and beyond, and the implementation was seamless—we were fully operational in under two weeks.",
-        "author": "Leslie Alexander",
-        "title": "Prometheus Founder",
-        "company": "Prometheus"
+        "quote": "Ben is one of those rare professionals who combines strategic insight with operational excellence. During his time at SoftwareOne, he led complex HR initiatives across EMEA with clarity, structure, and empathy. His ability to navigate change, align stakeholders, and drive impact made him a highly trusted partner to both senior leadership and local HR teams.",
+        "author": "Thomai Carapali",
+        "title": "Head of P&C EMEA",
+        "company": "SoftwareOne Germany GmbH"
       },
       {
-        "quote": "Managing remote teams across multiple time zones used to be a nightmare until we found Scaliify. Their consulting approach is truly vendor-neutral and focused on what actually works for your specific company needs.",
-        "author": "Guy Hawkins",
-        "title": "Nietzsche, Inc.",
-        "company": "Nietzsche"
+        "quote": "Working with scaliify was a game changer for our HR setup. Their team guided us through the successful implementation of Personio and helped us restructure our HR processes to be more efficient, transparent, and scalable. The project was executed with clarity and precision. We now have a streamlined HR system that supports our day-to-day operations and future growth.",
+        "author": "Marion Kleber",
+        "title": "Managing Director",
+        "company": "Harrer Ingenieure GmbH"
       }
     ]
   },
@@ -337,7 +337,7 @@
     "kicker": "SEAMLESS SUPPORT",
     "heading": "Support from day one.",
     "subtitle": "Get help throughout implementation and beyond. From onboarding resources and self-service diagnostic toolkits to senior HR advisory and a thriving community of People leaders, Scaliify helps you get up and running quickly and make the most of your HR ecosystem.",
-    "bookConsultation": "Book a consultation",
+    "bookConsultation": "Request a consultation",
     "card1Kicker": "HELP AT YOUR FINGERTIPS",
     "card1Heading": "Solutions, how-to-guides and a 24/7 help centre with +500 articles.",
     "searchPlaceholder": "Search for topics...",
@@ -472,17 +472,17 @@
     ]
   },
   "letsTalk": {
-    "kicker": "BOOK A DEMO",
-    "heading": "See Scaliify in action",
-    "formTitle": "Book your demo",
+    "kicker": "REQUEST A CALL",
+    "heading": "Speak with an HR specialist",
+    "formTitle": "Request a consultation",
     "stepOf": "Step {step} of 3",
-    "successHeading": "You're booked in!",
-    "successMessage": "A Scaliify advisor will reach out within 1 business day to confirm your demo.",
+    "successHeading": "Request received!",
+    "successMessage": "A Scaliify advisor will reach out within 1 business day to coordinate your call.",
     "emailPlaceholder": "Business Email Address",
     "companyPlaceholder": "Company Name",
     "namePlaceholder": "Your Full Name",
     "continue": "Continue",
-    "bookMyDemo": "Book my demo",
+    "bookMyDemo": "Request consultation",
     "submitting": "Submitting…",
     "back": "← Back",
     "recaptchaNotice": "This site is protected by reCAPTCHA and the Google {privacyLink} and {termsLink} apply.",
@@ -495,15 +495,15 @@
     "steps": [
       {
         "title": "Tell us about your HR needs",
-        "desc": "We'll learn your HR needs and explore if Scaliify is the right fit."
+        "desc": "We'll learn your HR goals and understand your current setup."
       },
       {
-        "title": "We'll build a tailored demo",
-        "desc": "Explore a customised walkthrough, aligned to your exact goals."
+        "title": "Tailored HR roadmap",
+        "desc": "We'll map out a clear plan and discuss potential solutions for your business."
       },
       {
-        "title": "Experience Scaliify in action",
-        "desc": "Ask personalised questions and learn how Scaliify could support your business."
+        "title": "Practical expert guidance",
+        "desc": "Get direct, independent answers to your HR technology and operations questions."
       }
     ],
     "usedDaily": "USED DAILY BY TEAMS FROM 50-5000 EMPLOYEES",
@@ -511,36 +511,36 @@
     "marqueeCards": [
       {
         "type": "quote-card",
-        "brandName": "polaroid",
-        "quote": "Scaliify's Customer Service was brilliant! Our Advisory Manager understood HR, was really responsive and I really had the feeling we would get good customer service.",
-        "author": "Melinda Brooks Bray | Polaroid"
+        "brandName": "Westbridge",
+        "quote": "scaliify has been an invaluable partner in optimising our HR processes. From answering our Personio-related questions with deep expertise to building a custom recruiting dashboard, their support has helped us bring structure and efficiency into our hiring workflows.",
+        "author": "Wiebke Weidner | Head of HR, Westbridge"
       },
       {
         "type": "image-card",
-        "quote": "If we want to be a future robust organisation, we cannot keep doing things manually. Automations help, so you can put your effort somewhere more useful.",
-        "author": "Nina Johansson | British Rowing"
+        "quote": "scaliify managed our Personio implementation with great reliability and focus. The team ensured the project stayed on track, coordinated effectively across teams, and handled challenges pragmatically.",
+        "author": "Head of HR | Client in the Tech Industry"
       },
       {
         "type": "stat-card",
-        "stat": "50%",
-        "sub": "faster recruitment",
-        "brand": "deliciously ella®"
+        "stat": "73%",
+        "sub": "faster time-to-value for newly adopted HR tools",
+        "brand": "Scaliify Impact"
       },
       {
         "type": "image-card",
-        "quote": "It's really intuitive and easy to use for everyone in the business. We don't need loads of different systems anymore which can be expensive and confusing.",
-        "author": "Fran Newman | Deliciously Ella"
+        "quote": "Working with scaliify was a game changer for our HR setup. Their team guided us through the successful implementation of Personio and helped us restructure our HR processes to be more efficient, transparent, and scalable.",
+        "author": "Marion Kleber | Managing Director, Harrer Ingenieure GmbH"
       },
       {
         "type": "quote-card",
-        "brandName": "aryza",
-        "quote": "Scaliify benchmarked 20+ vendors for our European operations in days. We saved months of manual demos and evaluation meetings.",
-        "author": "Jack Wilson | Aryza Group"
+        "brandName": "SoftwareOne",
+        "quote": "Ben is one of those rare professionals who combines strategic insight with operational excellence. During his time at SoftwareOne, he led complex HR initiatives across EMEA with clarity, structure, and empathy.",
+        "author": "Thomai Carapali | Head of P&C EMEA, SoftwareOne Germany GmbH"
       },
       {
         "type": "image-card",
-        "quote": "Having an unbiased HR tech partner guiding our system selection saved us from costly contractual misalignments.",
-        "author": "Sophie Dubois | ScaleUp Ops"
+        "quote": "Ben worked with us as HR Operations Co-Lead, focusing on the system side of the payroll transition in Germany. He independently implemented the required data structure changes during a period when our team was severely understaffed.",
+        "author": "Stefanie Mühlbauer | Executive Vice President HR, TAKKT Group AG"
       }
     ]
   },
@@ -1022,31 +1022,31 @@
       "kicker": "HR IT SELECTION",
       "heading": "Find the right HR software, faster",
       "subtitle": "Independent, vendor-neutral software advisory. We benchmark 20+ platforms against your requirements, budget, and compliance needs.",
-      "ctaButton": "Book a call"
+      "ctaButton": "Request IT selection call"
     },
     "implementationOptimisation": {
       "kicker": "IMPLEMENTATION & OPTIMISATION",
       "heading": "Seamless HR tech rollout & optimisation",
       "subtitle": "From data migration and system configuration to user training and adoption — we ensure your HR tools deliver maximum value from day one.",
-      "ctaButton": "Book implementation call"
+      "ctaButton": "Request implementation call"
     },
     "hrItIntegrations": {
       "kicker": "HR IT INTEGRATIONS",
       "heading": "Connect your entire HR tech stack",
       "subtitle": "End-to-end integrations linking your HRIS, payroll systems, ATS, performance tools, and enterprise platforms into automated, error-free workflows.",
-      "ctaButton": "Discuss integrations"
+      "ctaButton": "Request integration call"
     },
     "interimManagement": {
       "kicker": "INTERIM MANAGEMENT",
-      "heading": "Senior HR leadership, on demand",
-      "subtitle": "Experienced HR leaders and People Ops specialists available immediately for transitions, parental leaves, rapid scaling, and organisational change.",
-      "ctaButton": "Request an interim leader"
+      "heading": "Interim HR managers & specialists, on demand",
+      "subtitle": "Experienced HR leaders, business partners, recruiters, and People Ops specialists available immediately for transitions, parental leaves, rapid scaling, and organisational change.",
+      "ctaButton": "Request an interim manager"
     },
     "outsourcedHr": {
       "kicker": "OUTSOURCED HR",
       "heading": "Your dedicated HR department",
       "subtitle": "Full-service HR outsourcing tailored to your business. We cover contracts, payroll prep, compliance, onboarding, and employee relations.",
-      "ctaButton": "Get started"
+      "ctaButton": "Request outsourced HR call"
     },
     "hrAdvisory": {
       "kicker": "HR ADVISORY",
@@ -1059,7 +1059,7 @@
     "home": "Home",
     "about": "About Us",
     "contact": "Contact",
-    "letsTalk": "Book a Demo",
+    "letsTalk": "Request a Call",
     "blog": "Blog",
     "caseStudies": "Case Studies",
     "resources": "Resources",

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowUpRight, Plus, Minus, ArrowRight, MonitorSmartphone, Target, LucideIcon } from "lucide-react";
 import { hrTechnologyServices, advisoryServices } from "@/data/services";
 import { motion, AnimatePresence } from "framer-motion";

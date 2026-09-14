@@ -16,6 +16,7 @@ import {
 import { BookingLeadSection } from "@/components/common/BookingLeadSection";
 import { BlogSection } from "@/components/home/BlogSection";
 import { submitLead } from "@/lib/api";
+import { useLocale } from "next-intl";
 
 interface GuideItem {
   id: string;
@@ -108,9 +109,17 @@ const guidesList: GuideItem[] = [
   },
 ];
 
-const categories = ["All", "Software Selection", "Payroll & Integrations", "Compliance & Legal", "Org Strategy"];
+const categories = [
+  { key: "All", en: "All", de: "Alle" },
+  { key: "Software Selection", en: "Software Selection", de: "Software-Auswahl" },
+  { key: "Payroll & Integrations", en: "Payroll & Integrations", de: "Payroll & Integrationen" },
+  { key: "Compliance & Legal", en: "Compliance & Legal", de: "Compliance & Recht" },
+  { key: "Org Strategy", en: "Org Strategy", de: "Organisationsstrategie" },
+];
 
 export function GuidesClient() {
+  const locale = useLocale();
+  const isDe = locale === "de";
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -193,13 +202,15 @@ export function GuidesClient() {
       <section className="w-full pt-28 sm:pt-36 lg:pt-40 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#05434B] block mb-3">
-            HR PLAYBOOKS &amp; SOFTWARE GUIDES
+            {isDe ? "HR-LEITFÄDEN & SOFTWARE-RATGEBER" : "HR PLAYBOOKS & SOFTWARE GUIDES"}
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-950 leading-[1.12] mb-4">
-            Guides &amp; Checklists
+            {isDe ? "Leitfäden & Checklisten" : "Guides & Checklists"}
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Free, practical frameworks, implementation checklists, and vendor-neutral decision guides from scaliify&apos;s senior advisors.
+            {isDe
+              ? "Kostenlose, praxiserprobte Frameworks, Implementierungs-Checklisten und herstellerneutrale Entscheidungsleitfäden unserer Senior-Berater:innen."
+              : "Free, practical frameworks, implementation checklists, and vendor-neutral decision guides from scaliify's senior advisors."}
           </p>
         </div>
       </section>
@@ -211,15 +222,15 @@ export function GuidesClient() {
           <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0">
             {categories.map((cat) => (
               <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
+                key={cat.key}
+                onClick={() => setSelectedCategory(cat.key)}
                 className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-colors cursor-pointer ${
-                  selectedCategory === cat
+                  selectedCategory === cat.key
                     ? "bg-[#05434B] text-white"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
               >
-                {cat}
+                {isDe ? cat.de : cat.en}
               </button>
             ))}
           </div>
@@ -229,7 +240,7 @@ export function GuidesClient() {
             <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type="text"
-              placeholder="Search guides..."
+              placeholder={isDe ? "Leitfäden durchsuchen..." : "Search guides..."}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-9 pr-4 py-2 rounded-full bg-gray-50 border border-gray-200 text-xs text-gray-900 focus:outline-none focus:bg-white focus:border-black transition-colors"
@@ -295,9 +306,14 @@ export function GuidesClient() {
 
       {/* Discovery Lead Section */}
       <BookingLeadSection
-        title="Need bespoke playbooks for your team?"
-        subtitle="Book a working session with our senior HR operations and legal advisory team."
-        badgeTitle="CUSTOM TEMPLATES"
+        badgeTitle={isDe ? "MASSGESCHNEIDERTE VORLAGEN" : "CUSTOM TEMPLATES"}
+        title={isDe ? "Benötigen Sie maßgeschneiderte Playbooks für Ihr Team?" : "Need bespoke playbooks for your team?"}
+        subtitle={
+          isDe
+            ? "Buchen Sie ein Arbeitsgespräch mit unserem Senior-Team für HR-Operations und strategische Beratung."
+            : "Book a working session with our senior HR operations and legal advisory team."
+        }
+        source="guides_page"
       />
 
       {/* Blog Section */}
@@ -370,35 +386,37 @@ export function GuidesClient() {
                     {activeGuide.title}
                   </h3>
                   <p className="text-xs text-gray-600 mt-1.5 leading-relaxed">
-                    Enter your work details to instantly access this resource kit without leaving this page.
+                    {isDe
+                      ? "Geben Sie Ihre Daten ein, um sofort auf dieses Ressourcen-Kit zuzugreifen."
+                      : "Enter your work details to instantly access this resource kit without leaving this page."}
                   </p>
                 </div>
 
                 <form onSubmit={handleModalSubmit} className="flex flex-col gap-3">
                   <div>
                     <label className="block text-[11px] font-bold text-gray-700 mb-1">
-                      Full Name *
+                      {isDe ? "Vollständiger Name *" : "Full Name *"}
                     </label>
                     <input
                       type="text"
                       required
                       value={modalForm.name}
                       onChange={(e) => setModalForm({ ...modalForm, name: e.target.value })}
-                      placeholder="e.g. Sarah Schmidt"
+                      placeholder={isDe ? "z. B. Sarah Schmidt" : "e.g. Sarah Schmidt"}
                       className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors"
                     />
                   </div>
 
                   <div>
                     <label className="block text-[11px] font-bold text-gray-700 mb-1">
-                      Work Email *
+                      {isDe ? "Geschäftliche E-Mail *" : "Work Email *"}
                     </label>
                     <input
                       type="email"
                       required
                       value={modalForm.email}
                       onChange={(e) => setModalForm({ ...modalForm, email: e.target.value })}
-                      placeholder="name@company.com"
+                      placeholder={isDe ? "name@unternehmen.de" : "name@company.com"}
                       className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors"
                     />
                   </div>
@@ -406,27 +424,27 @@ export function GuidesClient() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                       <label className="block text-[11px] font-bold text-gray-700 mb-1">
-                        Company Name *
+                        {isDe ? "Unternehmen *" : "Company Name *"}
                       </label>
                       <input
                         type="text"
                         required
                         value={modalForm.company}
                         onChange={(e) => setModalForm({ ...modalForm, company: e.target.value })}
-                        placeholder="Company Ltd"
+                        placeholder={isDe ? "Ihr Unternehmen" : "Company Ltd"}
                         className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors"
                       />
                     </div>
 
                     <div>
                       <label className="block text-[11px] font-bold text-gray-700 mb-1">
-                        Job Title (Optional)
+                        {isDe ? "Position (optional)" : "Job Title (Optional)"}
                       </label>
                       <input
                         type="text"
                         value={modalForm.jobTitle}
                         onChange={(e) => setModalForm({ ...modalForm, jobTitle: e.target.value })}
-                        placeholder="Head of People, COO"
+                        placeholder={isDe ? "z. B. Head of People, COO" : "Head of People, COO"}
                         className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors"
                       />
                     </div>
@@ -440,18 +458,20 @@ export function GuidesClient() {
                     {isSubmitting ? (
                       <>
                         <Loader2 className="w-4 h-4 animate-spin text-[#81D8D0]" />
-                        <span>Generating kit…</span>
+                        <span>{isDe ? "Kit wird erstellt…" : "Generating kit…"}</span>
                       </>
                     ) : (
                       <>
                         <Download className="w-4 h-4 text-[#81D8D0]" />
-                        <span>Download Resource Kit</span>
+                        <span>{isDe ? "Ressourcen-Kit herunterladen" : "Download Resource Kit"}</span>
                       </>
                     )}
                   </button>
 
                   <p className="text-[10px] text-gray-400 text-center mt-1">
-                    Instant access • No credit card required • 100% vendor-neutral
+                    {isDe
+                      ? "Sofortiger Zugang • Keine Kreditkarte erforderlich • 100 % herstellerneutral"
+                      : "Instant access • No credit card required • 100% vendor-neutral"}
                   </p>
                 </form>
               </div>

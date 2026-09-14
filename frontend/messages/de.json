@@ -13,8 +13,8 @@
       "description": "Nehmen Sie Kontakt mit dem HR-Technologieberatungsteam von Scaliify auf. Vereinbaren Sie eine Beratung, fordern Sie einen individuellen Software-Benchmark an oder erfahren Sie mehr über unsere Leistungen."
     },
     "letsTalk": {
-      "title": "Demo buchen",
-      "description": "Buchen Sie eine personalisierte HR-Technologie-Demo mit Scaliify. Teilen Sie uns Ihre Anforderungen mit und wir erstellen eine maßgeschneiderte Präsentation, die auf Ihre Ziele abgestimmt ist."
+      "title": "Beratungsgespräch anfragen",
+      "description": "Fordern Sie ein HR-Beratungsgespräch mit Scaliify an. Sprechen Sie mit unabhängigen Spezialisten für HR-Technologie und People Operations."
     },
     "blog": {
       "title": "Blog & Einblicke",
@@ -58,8 +58,8 @@
         "description": "End-to-End HR-Systemintegrationen, die Ihr HRIS, Ihre Lohnabrechnungssysteme, ATS, Performance-Tools und Unternehmenssysteme in automatisierte Workflows verbinden."
       },
       "interimManagement": {
-        "title": "Interimsmanagement — Senior-Führungskräfte auf Abruf",
-        "description": "Erfahrene HR-Führungskräfte und People-Ops-Spezialist:innen, sofort verfügbar für Übergangsphasen, Elternzeiten, schnelles Wachstum und organisatorischen Wandel."
+        "title": "Interimsmanagement — HR-Manager & Spezialist:innen auf Abruf",
+        "description": "Erfahrene HR-Führungskräfte, Business Partner, Recruiter und People-Ops-Spezialist:innen, sofort verfügbar für Übergangsphasen, Elternzeiten, schnelles Wachstum und organisatorischen Wandel."
       },
       "outsourcedHr": {
         "title": "Ausgelagertes Personalmanagement — Ihr dediziertes HR-Team",
@@ -272,26 +272,26 @@
     }
   },
   "testimonials": {
-    "heading": "Von Teams wie Ihrem geschätzt",
-    "subtitle": "Erfahren Sie, wie Unternehmen ihr Personalwesen mit Scaliify transformieren.",
+    "heading": "Von führenden Teams geschätzt",
+    "subtitle": "Erfahren Sie, wie europäische Unternehmen ihre HR-Prozesse mit scaliify transformieren.",
     "items": [
       {
-        "quote": "Scaliify hat die Art und Weise, wie wir Teamdynamiken und Leistungsnachverfolgung managen, komplett verändert. Allein das Echtzeit-Analyse-Dashboard hat uns jede Woche Stunden gespart, und die intuitiven automatisierten Workflows haben unsere Onboarding-Prozesse erheblich optimiert.",
-        "author": "Marvin McKinney",
-        "title": "HR Manager",
-        "company": "Luckycharm"
+        "quote": "scaliify war für uns ein unschätzbarer Partner bei der Optimierung unserer HR-Prozesse. Von der Beantwortung unserer Personio-Fragen mit fundiertem Fachwissen bis hin zum Aufbau eines maßgeschneiderten Recruiting-Dashboards – ihre Unterstützung hat Struktur und Effizienz in unsere Workflows gebracht. Dank ihres praxisnahen Ansatzes und ihrer strategischen Denkweise sind wir nun bestens aufgestellt, um unsere HR-Abläufe zu skalieren.",
+        "author": "Wiebke Weidner",
+        "title": "Head of HR",
+        "company": "Westbridge"
       },
       {
-        "quote": "Wir haben mehrere HR-Plattformen ausprobiert, bevor wir uns für Scaliify entschieden haben, und es war ein echter Gamechanger für unser wachsendes Team. Das Beratungsteam hat alle Erwartungen übertroffen, und die Implementierung war nahtlos – wir waren in weniger als zwei Wochen voll einsatzbereit.",
-        "author": "Leslie Alexander",
-        "title": "Prometheus Gründer",
-        "company": "Prometheus"
+        "quote": "Ben ist einer dieser seltenen Experten, die strategische Weitsicht mit operativer Exzellenz verbinden. Während seiner Zeit bei SoftwareOne leitete er komplexe HR-Initiativen in ganz EMEA mit Klarheit, Struktur und Empathie. Seine Fähigkeit, Veränderungen zu steuern, Stakeholder zu einen und spürbare Wirkung zu erzielen, machte ihn zu einem hochgeschätzten Partner für die Unternehmensleitung und die lokalen HR-Teams.",
+        "author": "Thomai Carapali",
+        "title": "Head of P&C EMEA",
+        "company": "SoftwareOne Germany GmbH"
       },
       {
-        "quote": "Die Verwaltung von Remote-Teams über mehrere Zeitzonen hinweg war ein Albtraum, bis wir Scaliify gefunden haben. Ihr Beratungsansatz ist wirklich herstellerunabhängig und fokussiert auf das, was tatsächlich für die spezifischen Bedürfnisse Ihres Unternehmens funktioniert.",
-        "author": "Guy Hawkins",
-        "title": "Nietzsche, Inc.",
-        "company": "Nietzsche"
+        "quote": "Die Zusammenarbeit mit scaliify war ein echter Meilenstein für unser HR-Setup. Das Team begleitete uns bei der erfolgreichen Einführung von Personio und half uns, unsere HR-Prozesse effizienter, transparenter und skalierbarer aufzustellen. Das Projekt wurde mit höchster Präzision umgesetzt – wir verfügen nun über ein modernes HR-System, das unser Tagesgeschäft und unser weiteres Wachstum optimal unterstützt.",
+        "author": "Marion Kleber",
+        "title": "Managing Director",
+        "company": "Harrer Ingenieure GmbH"
       }
     ]
   },
@@ -337,7 +337,7 @@
     "kicker": "NAHTLOSE UNTERSTÜTZUNG",
     "heading": "Unterstützung vom ersten Tag an.",
     "subtitle": "Erhalten Sie Hilfe während der gesamten Implementierung und darüber hinaus. Von Onboarding-Ressourcen und Self-Service-Diagnose-Toolkits bis hin zu Senior-HR-Beratung und einer aktiven Community von People-Führungskräften – Scaliify hilft Ihnen beim schnellen Start und der optimalen Nutzung Ihres HR-Ökosystems.",
-    "bookConsultation": "Beratungsgespräch buchen",
+    "bookConsultation": "Beratungsgespräch anfragen",
     "card1Kicker": "HILFE AUF KNOPFDRUCK",
     "card1Heading": "Lösungen, Anleitungen und ein rund um die Uhr verfügbares Hilfecenter mit über 500 Artikeln.",
     "searchPlaceholder": "Themen durchsuchen...",
@@ -472,17 +472,17 @@
     ]
   },
   "letsTalk": {
-    "kicker": "DEMO BUCHEN",
-    "heading": "Erleben Sie Scaliify in Aktion",
-    "formTitle": "Demo buchen",
+    "kicker": "GESPRÄCH ANFRAGEN",
+    "heading": "Sprechen Sie mit unseren HR-Experten",
+    "formTitle": "Beratungsgespräch anfragen",
     "stepOf": "Schritt {step} von 3",
-    "successHeading": "Sie sind eingebucht!",
-    "successMessage": "Ein:e Scaliify-Berater:in wird sich innerhalb eines Werktags bei Ihnen melden, um Ihre Demo zu bestätigen.",
+    "successHeading": "Anfrage erhalten!",
+    "successMessage": "Ein:e Scaliify-Berater:in wird sich innerhalb eines Werktags bei Ihnen melden, um den Termin abzustimmen.",
     "emailPlaceholder": "Geschäftliche E-Mail-Adresse",
     "companyPlaceholder": "Unternehmen",
     "namePlaceholder": "Ihr vollständiger Name",
     "continue": "Weiter",
-    "bookMyDemo": "Meine Demo buchen",
+    "bookMyDemo": "Beratungsgespräch anfragen",
     "submitting": "Wird gesendet…",
     "back": "← Zurück",
     "recaptchaNotice": "Diese Website wird durch reCAPTCHA geschützt. Es gelten die Google-{privacyLink} und {termsLink}.",
@@ -495,15 +495,15 @@
     "steps": [
       {
         "title": "Erzählen Sie uns von Ihren HR-Anforderungen",
-        "desc": "Wir lernen Ihre HR-Bedürfnisse kennen und prüfen, ob Scaliify die richtige Lösung ist."
+        "desc": "Wir lernen Ihre HR-Ziele kennen und verstehen Ihr aktuelles Setup."
       },
       {
-        "title": "Wir erstellen eine maßgeschneiderte Demo",
-        "desc": "Erleben Sie eine individuelle Präsentation, die auf Ihre konkreten Ziele abgestimmt ist."
+        "title": "Maßgeschneiderte HR-Roadmap",
+        "desc": "Wir erstellen einen klaren Fahrplan und besprechen konkrete Lösungsansätze."
       },
       {
-        "title": "Erleben Sie Scaliify in Aktion",
-        "desc": "Stellen Sie personalisierte Fragen und erfahren Sie, wie Scaliify Ihr Unternehmen unterstützen kann."
+        "title": "Praxisnahe Expertenberatung",
+        "desc": "Erhalten Sie direkte, unabhängige Antworten auf Ihre Fragen zu HR-Tech und Prozessen."
       }
     ],
     "usedDaily": "TÄGLICH GENUTZT VON TEAMS MIT 50–5.000 MITARBEITENDEN",
@@ -511,36 +511,36 @@
     "marqueeCards": [
       {
         "type": "quote-card",
-        "brandName": "polaroid",
-        "quote": "Der Kundenservice von Scaliify war hervorragend! Unsere Beratungsmanagerin verstand HR, war sehr reaktionsschnell und ich hatte wirklich das Gefühl, erstklassig betreut zu werden.",
-        "author": "Melinda Brooks Bray | Polaroid"
+        "brandName": "Westbridge",
+        "quote": "scaliify war für uns ein unschätzbarer Partner bei der Optimierung unserer HR-Prozesse. Von der Beantwortung unserer Personio-Fragen mit tiefem Fachwissen bis hin zum Aufbau eines maßgeschneiderten Recruiting-Dashboards – ihre Unterstützung hat uns geholfen, Struktur und Effizienz in unsere Hiring-Workflows zu bringen.",
+        "author": "Wiebke Weidner | Head of HR, Westbridge"
       },
       {
         "type": "image-card",
-        "quote": "Wenn wir eine zukunftsfähige Organisation sein wollen, können wir nicht alles weiterhin manuell erledigen. Automatisierungen helfen, damit Sie Ihre Energie sinnvoller einsetzen können.",
-        "author": "Nina Johansson | British Rowing"
+        "quote": "scaliify hat unsere Personio-Einführung mit hoher Zuverlässigkeit und Fokus gesteuert. Das Team sorgte dafür, dass das Projekt im Zeitplan blieb, koordinierte effizient über Teams hinweg und ging Herausforderungen pragmatisch an.",
+        "author": "Head of HR | Kunde in der Technologiebranche"
       },
       {
         "type": "stat-card",
-        "stat": "50 %",
-        "sub": "schnelleres Recruiting",
-        "brand": "deliciously ella®"
+        "stat": "73 %",
+        "sub": "schnellere Wertschöpfung bei neuen HR-Tools",
+        "brand": "Scaliify Impact"
       },
       {
         "type": "image-card",
-        "quote": "Es ist wirklich intuitiv und einfach für alle im Unternehmen zu bedienen. Wir brauchen nicht mehr unzählige verschiedene Systeme, die teuer und verwirrend sein können.",
-        "author": "Fran Newman | Deliciously Ella"
+        "quote": "Die Zusammenarbeit mit scaliify war für unser HR-Setup ein echter Gamechanger. Das Team begleitete uns bei der erfolgreichen Einführung von Personio und half uns, unsere HR-Prozesse effizienter, transparenter und skalierbarer aufzustellen.",
+        "author": "Marion Kleber | Managing Director, Harrer Ingenieure GmbH"
       },
       {
         "type": "quote-card",
-        "brandName": "aryza",
-        "quote": "Scaliify hat über 20 Anbieter für unsere europäischen Aktivitäten innerhalb weniger Tage verglichen. Wir haben Monate an manuellen Demos und Evaluierungsmeetings eingespart.",
-        "author": "Jack Wilson | Aryza Group"
+        "brandName": "SoftwareOne",
+        "quote": "Ben ist einer der seltenen Experten, die strategischen Weitblick mit operativer Exzellenz verbinden. Während seiner Zeit bei SoftwareOne leitete er komplexe HR-Initiativen in der EMEA-Region mit Klarheit, Struktur und Empathie.",
+        "author": "Thomai Carapali | Head of P&C EMEA, SoftwareOne Germany GmbH"
       },
       {
         "type": "image-card",
-        "quote": "Einen unparteiischen HR-Tech-Partner zu haben, der unsere Systemauswahl begleitet, hat uns vor kostspieligen vertraglichen Fehlentscheidungen bewahrt.",
-        "author": "Sophie Dubois | ScaleUp Ops"
+        "quote": "Ben arbeitete mit uns als HR Operations Co-Lead mit Fokus auf die systemseitige Entgeltabrechnungs-Umstellung in Deutschland. In einer Phase personeller Engpässe setzte er die notwendigen Datenstruktur-Anpassungen eigenständig um.",
+        "author": "Stefanie Mühlbauer | Executive Vice President HR, TAKKT Group AG"
       }
     ]
   },
@@ -1022,31 +1022,31 @@
       "kicker": "HR-IT-AUSWAHL",
       "heading": "Die richtige HR-Software finden – schneller",
       "subtitle": "Unabhängige, herstellerunabhängige Softwareberatung. Wir vergleichen über 20 Plattformen anhand Ihrer Anforderungen, Ihres Budgets und Ihrer Compliance-Bedürfnisse.",
-      "ctaButton": "Gespräch vereinbaren"
+      "ctaButton": "IT-Auswahlgespräch anfragen"
     },
     "implementationOptimisation": {
       "kicker": "IMPLEMENTIERUNG & OPTIMIERUNG",
       "heading": "Nahtloser HR-Tech-Rollout & Optimierung",
       "subtitle": "Von Datenmigration und Systemkonfiguration über Anwenderschulungen bis hin zur Adoption – wir stellen sicher, dass Ihre HR-Tools vom ersten Tag an maximalen Mehrwert liefern.",
-      "ctaButton": "Implementierungsgespräch buchen"
+      "ctaButton": "Implementierungsgespräch anfragen"
     },
     "hrItIntegrations": {
       "kicker": "HR-IT-INTEGRATIONEN",
       "heading": "Ihren gesamten HR-Tech-Stack verbinden",
       "subtitle": "End-to-End-Integrationen, die Ihr HRIS, Lohnabrechnungssysteme, ATS, Performance-Tools und Unternehmensplattformen in automatisierte, fehlerfreie Workflows verbinden.",
-      "ctaButton": "Integrationen besprechen"
+      "ctaButton": "Integrationsgespräch anfragen"
     },
     "interimManagement": {
       "kicker": "INTERIMSMANAGEMENT",
-      "heading": "Senior-HR-Führung auf Abruf",
-      "subtitle": "Erfahrene HR-Führungskräfte und People-Ops-Spezialist:innen, sofort verfügbar für Übergangsphasen, Elternzeiten, schnelles Wachstum und organisatorischen Wandel.",
-      "ctaButton": "Interim-Führungskraft anfragen"
+      "heading": "Interim-HR-Manager & Spezialist:innen auf Abruf",
+      "subtitle": "Erfahrene HR-Führungskräfte, Business Partner, Recruiter und People-Ops-Spezialist:innen, sofort verfügbar für Übergangsphasen, Elternzeiten, schnelles Wachstum und organisatorischen Wandel.",
+      "ctaButton": "Interim-Manager anfragen"
     },
     "outsourcedHr": {
       "kicker": "AUSGELAGERTES PERSONALMANAGEMENT",
       "heading": "Ihre dedizierte HR-Abteilung",
       "subtitle": "Maßgeschneidertes Full-Service HR-Outsourcing für Ihr Unternehmen. Wir übernehmen Verträge, Gehaltsvorbereitung, Compliance, Onboarding und Mitarbeiterbeziehungen.",
-      "ctaButton": "Jetzt starten"
+      "ctaButton": "Ausgelagertes HR anfragen"
     },
     "hrAdvisory": {
       "kicker": "HR-BERATUNG",
@@ -1059,7 +1059,7 @@
     "home": "Startseite",
     "about": "Über uns",
     "contact": "Kontakt",
-    "letsTalk": "Demo buchen",
+    "letsTalk": "Gespräch anfragen",
     "blog": "Blog",
     "caseStudies": "Fallstudien",
     "resources": "Ressourcen",

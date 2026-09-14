@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import { CompanyLogo } from "@/components/ui/CompanyLogo";
 import { HeroDashboardPreview } from "@/components/home/HeroDashboardPreview";
-import { HeroTrustBar } from "@/components/home/HeroTrustBar";
 import { HeroAuraWaves } from "@/components/ui/HeroAuraWaves";
 import { ROTATING_COMPANIES, COMPANY_ROTATION_INTERVAL_MS } from "@/lib/constants";
 
@@ -100,33 +99,16 @@ export function Hero() {
                 transition={{ duration: 0.2, ease: "easeOut" }}
                 className="inline-flex items-center gap-1 font-bold text-white whitespace-nowrap"
               >
-                {ROTATING_COMPANIES[companyIndex].type === "logo" && (
+                {ROTATING_COMPANIES[companyIndex].id ? (
                   <>
                     <CompanyLogo id={ROTATING_COMPANIES[companyIndex].id!} className="w-4 h-4" />
                     <span className="text-xs sm:text-sm font-bold text-white tracking-tight">
                       {ROTATING_COMPANIES[companyIndex].name}
                     </span>
                   </>
-                )}
-                {ROTATING_COMPANIES[companyIndex].type === "text" && (
-                  <span className={ROTATING_COMPANIES[companyIndex].className}>
+                ) : (
+                  <span className={ROTATING_COMPANIES[companyIndex].className ?? "text-xs sm:text-sm font-bold text-white tracking-tight"}>
                     {ROTATING_COMPANIES[companyIndex].name}
-                  </span>
-                )}
-                {ROTATING_COMPANIES[companyIndex].type === "orderbird" && (
-                  <span className="font-black text-xs sm:text-sm tracking-tight text-white flex items-center gap-1">
-                    <svg className="w-3.5 h-3.5 fill-current text-white" viewBox="0 0 24 24">
-                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                    </svg>
-                    orderbird
-                  </span>
-                )}
-                {ROTATING_COMPANIES[companyIndex].type === "spendesk" && (
-                  <span className="font-black text-xs sm:text-sm tracking-tight text-white flex items-center gap-1">
-                    <svg className="w-3.5 h-3.5 fill-current text-white" viewBox="0 0 24 24">
-                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                    </svg>
-                    SPENDESK
                   </span>
                 )}
               </motion.div>
@@ -136,9 +118,6 @@ export function Hero() {
 
         {/* 5. Main Dashboard Mockup Card */}
         <HeroDashboardPreview />
-
-        {/* 6. Bottom Trusted Companies Metrics Bar */}
-        <HeroTrustBar />
 
       </div>
     </div>

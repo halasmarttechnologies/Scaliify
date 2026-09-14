@@ -11,18 +11,20 @@ export const COMPANY_ROTATION_INTERVAL_MS = 1000;
 
 export interface RotatingCompany {
   name: string;
-  type: "text" | "logo" | "orderbird" | "spendesk";
+  type: "text" | "logo";
   id?: string;
   className?: string;
 }
 
 export const ROTATING_COMPANIES: RotatingCompany[] = [
-  { name: "LUSH", type: "text", className: "font-black tracking-tight text-white text-xs sm:text-sm" },
   { name: "SoftwareOne", type: "logo", id: "softwareone" },
-  { name: "orderbird", type: "orderbird" },
   { name: "Westbridge", type: "logo", id: "westbridge" },
-  { name: "statista", type: "text", className: "font-bold tracking-tight text-white text-xs sm:text-sm lowercase" },
+  { name: "think-cell", type: "logo", id: "think-cell" },
   { name: "KRONES AG", type: "logo", id: "krones" },
-  { name: "symrise", type: "logo", id: "symrise" },
+  { name: "Symrise", type: "logo", id: "symrise" },
+  { name: "IDnow", type: "logo", id: "idnow" },
+  { name: "TSCNET Services", type: "logo", id: "tscnet" },
   { name: "TIEMEYER", type: "logo", id: "tiemeyer" },
+  { name: "ARMEDANGELS", type: "logo", id: "armedangels" },
+  { name: "Harrer Ingenieure", type: "logo", id: "harrer" },
 ];

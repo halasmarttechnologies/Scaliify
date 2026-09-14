@@ -26,7 +26,7 @@ export default async function LetsTalkPage({
       <BreadcrumbJsonLd
         items={[
           { name: "Home", path: "/" },
-          { name: "Book a Demo", path: "/lets-talk" },
+          { name: "Request a Call", path: "/lets-talk" },
         ]}
       />
       <LetsTalkClient />

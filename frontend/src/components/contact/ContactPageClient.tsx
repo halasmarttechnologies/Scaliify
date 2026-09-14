@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useSearchParams } from "next/navigation";
 import { useLocale } from "next-intl";
 import {
@@ -13,7 +13,7 @@ import { companies } from "@/data/companies";
 import { SupportFromDayOne } from "@/components/common/SupportFromDayOne";
 import { submitLead } from "@/lib/api";
 
-const employeeRanges = [
+const employeeRangesEn = [
   "1–10 employees",
   "11–50 employees",
   "51–200 employees",
@@ -22,7 +22,16 @@ const employeeRanges = [
   "2,000+ employees",
 ];
 
-const europeanCountries = [
+const employeeRangesDe = [
+  "1–10 Mitarbeitende",
+  "11–50 Mitarbeitende",
+  "51–200 Mitarbeitende",
+  "201–500 Mitarbeitende",
+  "501–2.000 Mitarbeitende",
+  "2.000+ Mitarbeitende",
+];
+
+const europeanCountriesEn = [
   { code: "DE", name: "Germany", dial: "+49" },
   { code: "AT", name: "Austria", dial: "+43" },
   { code: "CH", name: "Switzerland", dial: "+41" },
@@ -39,11 +48,38 @@ const europeanCountries = [
   { code: "Other", name: "Other", dial: "+" },
 ];
 
+const europeanCountriesDe = [
+  { code: "DE", name: "Deutschland", dial: "+49" },
+  { code: "AT", name: "Österreich", dial: "+43" },
+  { code: "CH", name: "Schweiz", dial: "+41" },
+  { code: "GB", name: "Vereinigtes Königreich", dial: "+44" },
+  { code: "NL", name: "Niederlande", dial: "+31" },
+  { code: "FR", name: "Frankreich", dial: "+33" },
+  { code: "ES", name: "Spanien", dial: "+34" },
+  { code: "IT", name: "Italien", dial: "+39" },
+  { code: "PL", name: "Polen", dial: "+48" },
+  { code: "SE", name: "Schweden", dial: "+46" },
+  { code: "DK", name: "Dänemark", dial: "+45" },
+  { code: "BE", name: "Belgien", dial: "+32" },
+  { code: "PT", name: "Portugal", dial: "+351" },
+  { code: "Other", name: "Andere", dial: "+" },
+];
+
 export function ContactPageClient() {
   const locale = useLocale();
   const isDe = locale === "de";
   const searchParams = useSearchParams();
   const topic = searchParams.get("topic");
+  const isImplementation =
+    topic === "implementation" ||
+    topic === "implementation-optimisation" ||
+    topic === "implementation_optimisation" ||
+    topic === "optimisation";
+  const isSelection =
+    topic === "selection" ||
+    topic === "hr-it-selection" ||
+    topic === "it-selection" ||
+    topic === "software-selection";
   const isOutsourced = topic === "outsourced-hr" || topic === "outsourced" || topic === "outsourced_hr";
   const isInterim = topic === "interim" || topic === "interim-management";
   const isAudit = topic === "audit" || topic === "hr-it-audit";
@@ -70,6 +106,9 @@ export function ContactPageClient() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
+  const employeeRanges = isDe ? employeeRangesDe : employeeRangesEn;
+  const europeanCountries = isDe ? europeanCountriesDe : europeanCountriesEn;
+
   const handleCountryChange = (code: string) => {
     const found = europeanCountries.find((c) => c.code === code);
     setFormData({
@@ -88,7 +127,13 @@ export function ContactPageClient() {
       ? `${formData.dialCode} ${formData.phone}`.trim()
       : undefined;
 
-    const leadSource = isAdvisory
+    const leadSource = isImplementation
+      ? "implementation_call"
+      : isSelection
+      ? "it_selection_call"
+      : isIntegrations
+      ? "hr_it_integrations"
+      : isAdvisory
       ? "hr_advisory"
       : isInterim
       ? "interim_management"
@@ -96,16 +141,22 @@ export function ContactPageClient() {
       ? "outsourced_hr"
       : isAudit
       ? "hr_it_audit"
-      : isIntegrations
-      ? "hr_it_integrations"
       : "contact_page";
 
-    const comments = isAdvisory
+    const comments = isImplementation
+      ? `[Implementation & Optimisation Call Request]\nJob Title: ${formData.jobTitle || "Not specified"}\nTeam Headcount: ${formData.employees || "Not specified"}\n\nProject Scope & Objectives:\n${formData.message}`
+      : isSelection
+      ? `[HR IT Selection Call Request]\nJob Title: ${formData.jobTitle || "Not specified"}\nTeam Headcount: ${formData.employees || "Not specified"}\n\nSoftware Requirements & Challenges:\n${formData.message}`
+      : isIntegrations
+      ? `[HR IT Integration Call Request]\nJob Title: ${formData.jobTitle || "Not specified"}\nTeam Headcount: ${formData.employees || "Not specified"}\n\nSystems & Integration Needs:\n${formData.message}`
+      : isAdvisory
       ? `[HR Strategic Advisory Request]\nYour Role/Position: ${formData.positionRequired || formData.jobTitle || "Not specified"}\nTeam Headcount: ${formData.employees || "Not specified"}\n\nStrategic Challenge & Focus Areas:\n${formData.message}`
       : isInterim
       ? `[Interim HR Request]\nPosition Required: ${formData.positionRequired || "Not specified"}\nTarget Start Date: ${formData.startDate || "Not specified"}\n\nContext & Requirements:\n${formData.message}`
       : isOutsourced
       ? `[Outsourced HR Request]\nYour Role/Position: ${formData.positionRequired || formData.jobTitle || "Not specified"}\nTarget Start Date: ${formData.startDate || "Not specified"}\nTeam Headcount: ${formData.employees || "Not specified"}\n\nCurrent Needs & Scope:\n${formData.message}`
+      : isAudit
+      ? `[HR IT Audit Request]\nJob Title: ${formData.jobTitle || "Not specified"}\nTeam Headcount: ${formData.employees || "Not specified"}\n\nCurrent IT Setup & Bottlenecks:\n${formData.message}`
       : formData.message || undefined;
 
     const result = await submitLead({
@@ -127,7 +178,31 @@ export function ContactPageClient() {
     }
   };
 
-  const bullets = isAdvisory
+  const bullets = isImplementation
+    ? isDe
+      ? [
+          "Hands-on-Implementierung & Konfiguration für Personio, Factorial, HiBob u.v.m.",
+          "Datenmigration, automatisierte Workflows, Berechtigungen & Lohnvorbereitung",
+          "Optimierung nach dem Go-Live & nachhaltige Nutzerakzeptanz",
+        ]
+      : [
+          "Hands-on implementation & configuration for Personio, Factorial, HiBob & more",
+          "Data migration, automated workflows, permissions & payroll prep",
+          "Post-go-live optimisation & continuous user adoption support",
+        ]
+    : isSelection
+    ? isDe
+      ? [
+          "100 % herstellerunabhängige Evaluierung von 20+ führenden HR-Systemen",
+          "Anforderungsanalyse, Budgetabgleich & DSGVO-Compliance",
+          "Beschleunigte Software-Auswahl ohne Provisionsinteressen",
+        ]
+      : [
+          "100% vendor-neutral evaluation across 20+ leading HR platforms",
+          "Requirements scoping, budget alignment & compliance check",
+          "Accelerate software procurement with zero vendor bias",
+        ]
+    : isAdvisory
     ? isDe
       ? [
           "Senior HR-Führungskräfte & ehemalige CHROs auf Abruf",
@@ -154,12 +229,12 @@ export function ContactPageClient() {
     : isInterim
     ? isDe
       ? [
-          "Erfahrene Senior-Führungskräfte in unter 48h einsatzbereit",
+          "Erfahrene Interim-Manager & HR-Spezialist:innen in unter 48h einsatzbereit",
           "Passgenau gematcht nach Rolle, Unternehmen & Starttermin",
           "100 % Verantwortung für greifbare Meilensteine",
         ]
       : [
-          "Vetted senior practitioners operational in <48h",
+          "Vetted interim HR managers & specialists operational in <48h",
           "Customized to role, company & start timeline",
           "100% delivery accountability beyond placement",
         ]
@@ -205,6 +280,16 @@ export function ContactPageClient() {
       {/* 1. TOP HEADER SECTION (Clean White Background)               */}
       {/* ============================================================ */}
       <div className="w-full pt-28 sm:pt-36 lg:pt-40 pb-6 sm:pb-10 px-4 sm:px-6 text-center max-w-4xl mx-auto flex flex-col items-center">
+        {isImplementation && (
+          <span className="inline-block text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#05434B] bg-[#81D8D0]/30 border border-[#81D8D0]/50 rounded-full px-3.5 py-1 mb-4">
+            {isDe ? "Implementierung & Optimierung" : "Implementation & Optimisation"}
+          </span>
+        )}
+        {isSelection && (
+          <span className="inline-block text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#05434B] bg-[#81D8D0]/30 border border-[#81D8D0]/50 rounded-full px-3.5 py-1 mb-4">
+            {isDe ? "HR-IT-Auswahl" : "HR IT Selection"}
+          </span>
+        )}
         {isAdvisory && (
           <span className="inline-block text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#05434B] bg-[#81D8D0]/30 border border-[#81D8D0]/50 rounded-full px-3.5 py-1 mb-4">
             {isDe ? "Strategische HR-Beratung" : "Strategic HR Advisory"}
@@ -217,7 +302,7 @@ export function ContactPageClient() {
         )}
         {isInterim && (
           <span className="inline-block text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#05434B] bg-[#81D8D0]/30 border border-[#81D8D0]/50 rounded-full px-3.5 py-1 mb-4">
-            {isDe ? "Senior-Führung auf Abruf" : "Senior Leadership on Demand"}
+            {isDe ? "Interim-Management auf Abruf" : "Interim HR Management"}
           </span>
         )}
         {isAudit && (
@@ -227,24 +312,28 @@ export function ContactPageClient() {
         )}
         {isIntegrations && (
           <span className="inline-block text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#05434B] bg-[#81D8D0]/30 border border-[#81D8D0]/50 rounded-full px-3.5 py-1 mb-4">
-            {isDe ? "Kostenloses Integrationsgespräch" : "Free Integration Consultation"}
+            {isDe ? "HR-IT-Integrationen" : "HR IT Integrations"}
           </span>
         )}
 
         {/* Main Title (H1) in pure black */}
         <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-gray-950 leading-[1.1] mb-4">
-          {isAdvisory ? (
+          {isImplementation ? (
+            isDe ? "Implementierungsgespräch anfragen" : "Request an implementation call"
+          ) : isSelection ? (
+            isDe ? "IT-Auswahlgespräch anfragen" : "Request an IT selection call"
+          ) : isAdvisory ? (
             isDe ? "HR-Beratung anfragen" : "Request an HR advisory session"
           ) : isOutsourced ? (
             isDe ? "Mit ausgelagertem HR starten" : "Get started with outsourced HR"
           ) : isInterim ? (
-            isDe ? "Interim-HR-Führungskraft anfragen" : "Request an interim HR leader"
+            isDe ? "Interim-HR-Manager anfragen" : "Request an interim HR manager"
           ) : isAudit ? (
-            isDe ? "Buchen Sie Ihr kostenloses 15-minütiges HR-IT-Audit" : "Book your free 15-minute HR IT audit"
+            isDe ? "Kostenloses 15-Minuten-Audit anfragen" : "Request your free 15-minute HR IT audit"
           ) : isIntegrations ? (
-            isDe ? "HR-IT-Integrationsgespräch vereinbaren" : "Book an HR IT integration call"
+            isDe ? "HR-IT-Integrationsgespräch anfragen" : "Request an HR IT integration call"
           ) : isDe ? (
-            <>Haben Sie Fragen?<br />Lassen Sie sie uns beantworten</>
+            <>Haben Sie Fragen?<br />Wir beraten Sie gerne</>
           ) : (
             <>Have a question?<br />Let&apos;s get it answered</>
           )}
@@ -252,7 +341,15 @@ export function ContactPageClient() {
 
         {/* Subtitle */}
         <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto mb-8 sm:mb-12">
-          {isAdvisory
+          {isImplementation
+            ? isDe
+              ? "Besprechen Sie Ihr HR-Software-Rollout, Ihre Datenmigration oder Prozessoptimierung mit unseren zertifizierten Implementierungsexperten."
+              : "Discuss your HR software rollout, data migration, or process optimisation with our certified implementation specialists."
+            : isSelection
+            ? isDe
+              ? "Unabhängige, herstellerneutrale Softwareberatung. Wir vergleichen über 20 Plattformen anhand Ihrer Anforderungen, Ihres Budgets und Ihrer Compliance."
+              : "Independent, vendor-neutral software advisory. We benchmark 20+ platforms against your requirements, budget, and compliance needs."
+            : isAdvisory
             ? isDe
               ? "Teilen Sie uns Ihre strategische Herausforderung oder Fragestellung mit. Wir matchen Sie innerhalb von 24 Stunden mit einem praxiserfahrenen Senior-Advisor oder ehemaligen CHRO."
               : "Tell us about your strategic People challenge, organizational design, or upcoming milestone. We match you with a seasoned advisor within 24 hours."
@@ -273,7 +370,7 @@ export function ContactPageClient() {
               ? "Besprechen Sie Ihren Software-Stack, Schnittstellen und Datenflüsse mit unseren Spezialisten für HR-IT-Architektur."
               : "Discuss your software stack, APIs, and data sync requirements with our HR IT architecture specialists."
             : isDe
-            ? "Einer unserer Experten meldet sich in Kürze bei Ihnen. Das können Sie erwarten:"
+            ? "Unser Beratungsteam meldet sich in Kürze bei Ihnen. Das können Sie erwarten:"
             : "One of our experts will contact you shortly. Here's what you can expect:"}
         </p>
 
@@ -310,7 +407,15 @@ export function ContactPageClient() {
                   <CheckCircle2 className="w-8 h-8 text-brand-dark" />
                 </div>
                 <h2 className="text-xl sm:text-2xl font-bold text-gray-950 mb-2 tracking-tight">
-                  {isAdvisory
+                  {isImplementation
+                    ? isDe
+                      ? "Implementierungsanfrage erhalten!"
+                      : "Implementation request received!"
+                    : isSelection
+                    ? isDe
+                      ? "IT-Auswahlanfrage erhalten!"
+                      : "IT selection request received!"
+                    : isAdvisory
                     ? isDe
                       ? "Beratungsanfrage erhalten!"
                       : "Advisory request received!"
@@ -321,7 +426,7 @@ export function ContactPageClient() {
                     : isInterim
                     ? isDe
                       ? "Interim-Anfrage erhalten!"
-                      : "Interim leader request received!"
+                      : "Interim HR manager request received!"
                     : isAudit
                     ? isDe
                       ? "Audit-Anfrage erhalten!"
@@ -335,7 +440,15 @@ export function ContactPageClient() {
                     : "Thank you!"}
                 </h2>
                 <p className="text-sm text-gray-600 max-w-xs mb-6">
-                  {isAdvisory
+                  {isImplementation
+                    ? isDe
+                      ? "Ihre Anfrage für ein Implementierungsgespräch ist eingegangen. Ein leitender scaliify-Implementierungsexperte meldet sich innerhalb eines Werktages bei Ihnen."
+                      : "Your request for an implementation call has been received. A senior scaliify implementation specialist will follow up within 1 business day."
+                    : isSelection
+                    ? isDe
+                      ? "Ihre Anfrage für ein IT-Auswahlgespräch ist eingegangen. Ein leitender scaliify-Softwareberater meldet sich innerhalb eines Werktages bei Ihnen."
+                      : "Your request for an IT selection call has been received. A senior scaliify software advisor will follow up within 1 business day."
+                    : isAdvisory
                     ? isDe
                       ? "Ihre Anfrage für strategische HR-Beratung ist eingegangen. Ein leitender scaliify-Partner meldet sich innerhalb von 24 Stunden bei Ihnen, um das passende Sparring zu koordinieren."
                       : "Your request for strategic HR advisory has been received. A senior scaliify partner will review your focus areas and connect with you within 24 hours."
@@ -345,8 +458,8 @@ export function ContactPageClient() {
                       : "Your request for outsourced HR has been received. A senior scaliify advisor will follow up within 1 business day to discuss your tailored team setup."
                     : isInterim
                     ? isDe
-                      ? "Ihre Anfrage für eine Interim-HR-Führungskraft ist eingegangen. Ein leitender scaliify-Partner meldet sich innerhalb von 24 Stunden bei Ihnen, um das Kandidaten-Matching zu koordinieren."
-                      : "Your request for an interim HR leader has been received. A senior scaliify partner will review your requirements and follow up within 24 hours to match candidate profiles."
+                      ? "Ihre Anfrage für einen Interim-HR-Manager ist eingegangen. Ein leitender scaliify-Partner meldet sich innerhalb von 24 Stunden bei Ihnen, um das passende Profil vorzustellen."
+                      : "Your request for an interim HR manager has been received. A senior scaliify partner will review your requirements and follow up within 24 hours to match candidate profiles."
                     : isAudit
                     ? isDe
                       ? "Ihre Anfrage für das HR-IT-Audit ist eingegangen. Ein leitender scaliify-Berater meldet sich innerhalb eines Werktages, um Ihr kostenloses 15-minütiges Audit zu koordinieren."
@@ -393,8 +506,8 @@ export function ContactPageClient() {
                     required
                     value={formData.firstName}
                     onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                    placeholder="First Name"
-                    aria-label="First name"
+                    placeholder={isDe ? "Vorname" : "First Name"}
+                    aria-label={isDe ? "Vorname" : "First name"}
                     className="w-full bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
                   />
                   <input
@@ -402,8 +515,8 @@ export function ContactPageClient() {
                     required
                     value={formData.lastName}
                     onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                    placeholder="Last Name"
-                    aria-label="Last name"
+                    placeholder={isDe ? "Nachname" : "Last Name"}
+                    aria-label={isDe ? "Nachname" : "Last name"}
                     className="w-full bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
                   />
                 </div>
@@ -414,8 +527,8 @@ export function ContactPageClient() {
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="Business Email Address"
-                  aria-label="Business email address"
+                  placeholder={isDe ? "Geschäftliche E-Mail-Adresse" : "Business Email Address"}
+                  aria-label={isDe ? "Geschäftliche E-Mail-Adresse" : "Business email address"}
                   className="w-full bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
                 />
 
@@ -426,7 +539,7 @@ export function ContactPageClient() {
                   value={formData.companyName}
                   onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                   placeholder={isDe ? "Unternehmen *" : "Company Name *"}
-                  aria-label="Company name"
+                  aria-label={isDe ? "Unternehmen" : "Company name"}
                   className="w-full bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
                 />
 
@@ -446,7 +559,11 @@ export function ContactPageClient() {
                         ? "Gesuchte Position (z. B. Interim Head of HR, Recruiter, VP People) *"
                         : "Required Position (e.g. Interim Head of HR, Recruiter, VP People) *"
                     }
-                    aria-label={isOutsourced ? "Your role or position" : "Required position"}
+                    aria-label={
+                      isOutsourced
+                        ? isDe ? "Ihre Rolle oder Position" : "Your role or position"
+                        : isDe ? "Gesuchte Position" : "Required position"
+                    }
                     className="w-full bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
                   />
                 ) : (
@@ -454,8 +571,8 @@ export function ContactPageClient() {
                     type="text"
                     value={formData.jobTitle}
                     onChange={(e) => setFormData({ ...formData, jobTitle: e.target.value })}
-                    placeholder="Job Title"
-                    aria-label="Job title"
+                    placeholder={isDe ? "Position" : "Job Title"}
+                    aria-label={isDe ? "Position" : "Job title"}
                     className="w-full bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
                   />
                 )}
@@ -467,7 +584,7 @@ export function ContactPageClient() {
                       required
                       value={formData.startDate}
                       onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
-                      aria-label="Target start date"
+                      aria-label={isDe ? "Gewünschter Starttermin" : "Target start date"}
                       className="w-full appearance-none bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all cursor-pointer"
                     >
                       <option value="" disabled>
@@ -503,10 +620,10 @@ export function ContactPageClient() {
                     required
                     value={formData.employees}
                     onChange={(e) => setFormData({ ...formData, employees: e.target.value })}
-                    aria-label="Number of employees"
+                    aria-label={isDe ? "Anzahl der Mitarbeitenden" : "Number of employees"}
                     className="w-full appearance-none bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all cursor-pointer"
                   >
-                    <option value="" disabled>Number of Employees</option>
+                    <option value="" disabled>{isDe ? "Anzahl der Mitarbeitenden" : "Number of Employees"}</option>
                     {employeeRanges.map((r) => (
                       <option key={r} value={r}>{r}</option>
                     ))}
@@ -523,7 +640,7 @@ export function ContactPageClient() {
                   <select
                     value={formData.country}
                     onChange={(e) => handleCountryChange(e.target.value)}
-                    aria-label="Country"
+                    aria-label={isDe ? "Land" : "Country"}
                     className="w-full appearance-none bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all cursor-pointer"
                   >
                     {europeanCountries.map((c) => (
@@ -543,7 +660,7 @@ export function ContactPageClient() {
                     <select
                       value={formData.dialCode}
                       onChange={(e) => setFormData({ ...formData, dialCode: e.target.value })}
-                      aria-label="Dial code"
+                      aria-label={isDe ? "Ländervorwahl" : "Dial code"}
                       className="appearance-none bg-white/80 border border-gray-200/70 rounded-2xl pl-4 pr-8 py-3 text-sm text-gray-800 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all cursor-pointer"
                     >
                       {europeanCountries.map((c) => (
@@ -560,8 +677,8 @@ export function ContactPageClient() {
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="Phone Number"
-                    aria-label="Phone number"
+                    placeholder={isDe ? "Telefonnummer" : "Phone Number"}
+                    aria-label={isDe ? "Telefonnummer" : "Phone number"}
                     className="flex-1 bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
                   />
                 </div>
@@ -569,7 +686,15 @@ export function ContactPageClient() {
                 {/* Message / Describe IT setup or Integrations or Interim role or Outsourced HR or Advisory */}
                 <div className="flex flex-col gap-1.5">
                   <label className="text-xs font-bold text-gray-700">
-                    {isAdvisory
+                    {isImplementation
+                      ? isDe
+                        ? "Beschreiben Sie Ihr Implementierungs- oder Optimierungsvorhaben *"
+                        : "Describe your implementation or optimisation project *"
+                      : isSelection
+                      ? isDe
+                        ? "Beschreiben Sie Ihre Softwareanforderungen & aktuellen Herausforderungen *"
+                        : "Describe your software requirements & current challenges *"
+                      : isAdvisory
                       ? isDe
                         ? "Beschreiben Sie Ihre strategische Herausforderung oder Fragestellung *"
                         : "Describe your strategic challenge or advisory needs *"
@@ -595,11 +720,19 @@ export function ContactPageClient() {
                   </label>
                   <textarea
                     rows={4}
-                    required={isOutsourced || isInterim || isAudit || isIntegrations || isAdvisory}
+                    required={isImplementation || isSelection || isOutsourced || isInterim || isAudit || isIntegrations || isAdvisory}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder={
-                      isAdvisory
+                      isImplementation
+                        ? isDe
+                          ? "Welche HR-Software führen Sie ein oder möchten Sie optimieren (z. B. Personio, Factorial, HiBob)? Was ist Ihr Zeitplan und Ihre wichtigste Herausforderung?"
+                          : "Which HR tools are you implementing or optimising (e.g. Personio, Factorial, HiBob)? What is your timeline and key objective?..."
+                        : isSelection
+                        ? isDe
+                          ? "Welche Tools nutzen Sie bisher? Wie groß ist Ihr Team und welche Kernmodule benötigen Sie (z. B. Core HR, Lohn, ATS, Performance)?"
+                          : "What tools are you currently using? What is your headcount and which modules are you looking for (e.g. Core HR, Payroll, ATS, Performance)?..."
+                        : isAdvisory
                         ? isDe
                           ? "Welche strategischen Themen möchten Sie adressieren (z. B. Org Design, Gehaltsbänder, Performance Management, Betriebsrat, Restrukturierung)? Wo stehen Sie aktuell?"
                           : "Describe the strategic challenge, context, or upcoming transition (e.g. org design, compensation bands, performance management, works council, restructuring)..."
@@ -624,17 +757,21 @@ export function ContactPageClient() {
                         : "Your message"
                     }
                     aria-label={
-                      isAdvisory
-                        ? "Describe your strategic challenge or advisory needs"
+                      isImplementation
+                        ? isDe ? "Implementierungsvorhaben beschreiben" : "Describe your implementation or optimisation project"
+                        : isSelection
+                        ? isDe ? "Softwareanforderungen beschreiben" : "Describe your software requirements and challenges"
+                        : isAdvisory
+                        ? isDe ? "Strategische Herausforderung beschreiben" : "Describe your strategic challenge or advisory needs"
                         : isOutsourced
-                        ? "Describe your current needs"
+                        ? isDe ? "HR-Bedarf beschreiben" : "Describe your current needs"
                         : isInterim
-                        ? "Role context and requirements"
+                        ? isDe ? "Rahmenbedingungen und Kontext beschreiben" : "Role context and requirements"
                         : isAudit
-                        ? "Describe your current IT setup"
+                        ? isDe ? "IT-Setup beschreiben" : "Describe your current IT setup"
                         : isIntegrations
-                        ? "Describe your systems and integration requirements"
-                        : "Message"
+                        ? isDe ? "Integrationsanforderungen beschreiben" : "Describe your systems and integration requirements"
+                        : isDe ? "Ihre Nachricht" : "Message"
                     }
                     className="w-full bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all resize-y"
                   />
@@ -659,9 +796,9 @@ export function ContactPageClient() {
                 {/* Privacy Link */}
                 <p className="text-xs text-gray-500">
                   {isDe ? "Details finden Sie in unserer " : "See the "}
-                  <a href="/privacy" className="underline underline-offset-2 hover:text-gray-900 transition-colors">
+                  <Link href="/privacy" className="underline underline-offset-2 hover:text-gray-900 transition-colors">
                     {isDe ? "Datenschutzerklärung" : "privacy policy"}
-                  </a>
+                  </Link>
                   {isDe ? "." : " for more details."}
                 </p>
 
@@ -675,6 +812,14 @@ export function ContactPageClient() {
                     ? isDe
                       ? "Wird übermittelt…"
                       : "Submitting…"
+                    : isImplementation
+                    ? isDe
+                      ? "Implementierungsgespräch anfragen"
+                      : "Request implementation call"
+                    : isSelection
+                    ? isDe
+                      ? "IT-Auswahlgespräch anfragen"
+                      : "Request IT selection call"
                     : isAdvisory
                     ? isDe
                       ? "HR-Beratung anfragen"
@@ -682,19 +827,19 @@ export function ContactPageClient() {
                     : isOutsourced
                     ? isDe
                       ? "Ausgelagertes HR anfragen"
-                      : "Get started with outsourced HR"
+                      : "Request outsourced HR"
                     : isInterim
                     ? isDe
-                      ? "Interim-Führungskraft anfragen"
-                      : "Request interim leader"
+                      ? "Interim-Manager anfragen"
+                      : "Request interim manager"
                     : isAudit
                     ? isDe
                       ? "Kostenloses HR-IT-Audit anfragen"
                       : "Request free HR IT audit"
                     : isIntegrations
                     ? isDe
-                      ? "Integrations-Gespräch vereinbaren"
-                      : "Book integration call"
+                      ? "Integrationsgespräch anfragen"
+                      : "Request integration call"
                     : isDe
                     ? "Anfrage absenden"
                     : "Submit request"}
@@ -708,7 +853,9 @@ export function ContactPageClient() {
 
                 {/* reCAPTCHA Notice */}
                 <p className="text-[11px] text-gray-500 text-center leading-relaxed">
-                  This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+                  {isDe
+                    ? "Diese Website wird durch reCAPTCHA geschützt. Es gelten die Google-Datenschutzerklärung und Nutzungsbedingungen."
+                    : "This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply."}
                 </p>
               </form>
             )}

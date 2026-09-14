@@ -30,13 +30,10 @@ import {
 import { CompanyLogo } from "@/components/ui/CompanyLogo";
 import { HeroAuraWaves } from "@/components/ui/HeroAuraWaves";
 import { ROTATING_COMPANIES, COMPANY_ROTATION_INTERVAL_MS } from "@/lib/constants";
-import { HeroTrustBar } from "@/components/home/HeroTrustBar";
 
 export function ToolFinderHero() {
   const t = useTranslations("toolFinder");
   const tHero = useTranslations("hero");
-  const tTrustBar = useTranslations("heroTrustBar");
-  const [email, setEmail] = useState("");
   const [companyIndex, setCompanyIndex] = useState(0);
 
   useEffect(() => {
@@ -77,30 +74,20 @@ export function ToolFinderHero() {
           {t("heroSubtitle")}
         </p>
 
-        {/* 3. Clean Input with Glossy Tiffany Blue CTA Button */}
-        <div className="mt-7 sm:mt-8 w-full max-w-sm sm:max-w-md relative p-[1px] rounded-2xl bg-white/20 border border-white/30 shadow-[0_4px_24px_rgba(0,0,0,0.4)]">
-          <form
-            onSubmit={scrollToAssessment}
-            className="relative z-10 bg-white rounded-[15px] p-1.5 pl-4 sm:pl-5 flex items-center justify-between transition-all"
+        {/* 3. Glossy Tiffany Blue CTA Button */}
+        <div className="mt-7 sm:mt-8 flex justify-center">
+          <button
+            type="button"
+            onClick={scrollToAssessment}
+            className="group relative bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark text-sm sm:text-base font-extrabold px-8 sm:px-10 py-3.5 sm:py-4 rounded-2xl border border-white/70 shadow-[0_4px_20px_rgba(129,216,208,0.55)] hover:shadow-[0_6px_28px_rgba(129,216,208,0.85)] hover:scale-[1.03] active:scale-[0.98] transition-all shrink-0 cursor-pointer whitespace-nowrap overflow-hidden"
           >
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder={tHero("emailPlaceholder")}
-              aria-label={tHero("emailAriaLabel")}
-              className="w-full bg-transparent text-gray-900 placeholder:text-gray-400 text-xs sm:text-sm font-medium focus:outline-none pr-2"
-              required
-            />
-            <button
-              type="submit"
-              className="group relative bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark text-xs sm:text-sm font-extrabold px-4 sm:px-5 py-2.5 rounded-xl border border-white/70 shadow-[0_2px_14px_rgba(129,216,208,0.55)] hover:shadow-[0_4px_22px_rgba(129,216,208,0.85)] hover:scale-[1.03] active:scale-[0.98] transition-all shrink-0 cursor-pointer whitespace-nowrap overflow-hidden"
-            >
-              {/* Glossy Top Specular Sheen */}
-              <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-xl pointer-events-none" />
-              <span className="relative z-10">{t("startAssessment")}</span>
-            </button>
-          </form>
+            {/* Glossy Top Specular Sheen */}
+            <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-2xl pointer-events-none" />
+            <span className="relative z-10 flex items-center gap-2">
+              <span>{t("startAssessment")}</span>
+              <ChevronDown className="w-4 h-4 text-brand-dark" />
+            </span>
+          </button>
         </div>
 
         {/* 4. Trust Statement with Rotating Animated Logo */}
@@ -121,37 +108,22 @@ export function ToolFinderHero() {
                 transition={{ duration: 0.2, ease: "easeOut" }}
                 className="inline-flex items-center gap-1 font-bold text-white whitespace-nowrap"
               >
-                {ROTATING_COMPANIES[companyIndex].type === "logo" && (
+                {ROTATING_COMPANIES[companyIndex].id ? (
                   <>
                     <CompanyLogo id={ROTATING_COMPANIES[companyIndex].id!} className="w-4 h-4" />
                     <span className="text-xs sm:text-sm font-bold text-white tracking-tight">
                       {ROTATING_COMPANIES[companyIndex].name}
                     </span>
                   </>
-                )}
-                {ROTATING_COMPANIES[companyIndex].type === "text" && (
-                  <span className={ROTATING_COMPANIES[companyIndex].className}>
+                ) : (
+                  <span className={ROTATING_COMPANIES[companyIndex].className ?? "text-xs sm:text-sm font-bold text-white tracking-tight"}>
                     {ROTATING_COMPANIES[companyIndex].name}
-                  </span>
-                )}
-                {ROTATING_COMPANIES[companyIndex].type === "orderbird" && (
-                  <span className="font-extrabold tracking-tighter text-xs sm:text-sm text-white flex items-center gap-0.5">
-                    <span className="text-white text-base leading-none">›</span>
-                    <span>orderbird</span>
-                  </span>
-                )}
-                {ROTATING_COMPANIES[companyIndex].type === "spendesk" && (
-                  <span className="font-black tracking-widest text-[11px] sm:text-xs text-white uppercase">
-                    SPENDESK
                   </span>
                 )}
               </motion.div>
             </AnimatePresence>
           </div>
         </div>
-
-        {/* Bottom Trusted Companies Bar (no descriptions) */}
-        <HeroTrustBar />
       </div>
     </div>
   );

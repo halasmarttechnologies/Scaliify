@@ -123,21 +123,21 @@ const marqueeCardsEn = [
   {
     type: "quote-card",
     bg: "bg-[#043339]",
-    brandName: "techscale",
+    brandName: "Westbridge",
     brandColor: "text-[#81D8D0]",
     quoteColor: "text-white/95",
     authorColor: "text-[#76D8C8]",
     quote:
-      "Scaliify didn’t just configure our new HRIS—they redesigned our onboarding and payroll workflows first. The cultural rollout was flawless across 4 European entities.",
-    author: "Elena Richter | Head of People Operations",
+      "scaliify has been an invaluable partner in optimising our HR processes. From answering our Personio-related questions with deep expertise to building a custom recruiting dashboard, their support has helped us bring structure and efficiency into our hiring workflows.",
+    author: "Wiebke Weidner | Head of HR, Westbridge",
     border: "border-[#81D8D0]/40",
   },
   {
     type: "image-card",
     image: "/images/rowing-team.jpg",
     quote:
-      "Our team adoption reached 99% within the first month. Scaliify guided our managers through every workflow change with hands-on empathy and technical precision.",
-    author: "Lukas Weber | VP of People & Culture",
+      "Ben worked with us as HR Operations Co-Lead, focusing on the system side of the payroll transition in Germany. He independently implemented the required data structure changes during a period when our team was severely understaffed.",
+    author: "Stefanie Mühlbauer | Executive Vice President HR, TAKKT Group AG",
     border: "border-gray-200/50",
   },
   {
@@ -155,32 +155,32 @@ const marqueeCardsEn = [
     type: "image-card",
     image: "/images/food-pantry.jpg",
     quote:
-      "The HR IT Audit exposed data bottlenecks we had struggled with for two years. Scaliify reconfigured our entire stack without interrupting daily payroll.",
-    author: "Sarah Lindemann | Chief People Officer",
+      "scaliify brought both structure and strategic thinking to our operations. As our Interim HR Project Manager and Shift Planner, scaliify played a key role in improving our workforce planning processes and driving forward HR-related initiatives.",
+    author: "Head of Service Operations | Client in the Energy Sector",
     border: "border-gray-200/50",
   },
   {
     type: "quote-card",
     bg: "bg-[#E2F7F3]",
-    brandName: "scaleup group",
+    brandName: "Harrer Ingenieure GmbH",
     brandColor: "text-[#05434B]",
     quoteColor: "text-gray-900",
     authorColor: "text-[#2B4C55]",
     quote:
-      "Unlike traditional IT contractors who just follow instructions, Scaliify told us what we actually needed to change to future-proof our organization.",
-    author: "Markus Hoffmann | Managing Director",
+      "Working with scaliify was a game changer for our HR setup. Their team guided us through the successful implementation of Personio and helped us restructure our HR processes to be more efficient, transparent, and scalable.",
+    author: "Marion Kleber | Managing Director, Harrer Ingenieure GmbH",
     border: "border-[#76D8C8]/60",
   },
   {
     type: "quote-card",
     bg: "bg-gradient-to-br from-[#08383F] via-[#05434B] to-[#12535C]",
-    brandName: "globalflow",
+    brandName: "Tech Enterprise",
     brandColor: "text-[#A8F5EE]",
     quoteColor: "text-white/95",
     authorColor: "text-[#81D8D0]",
     quote:
-      "From data migration to custom DATEV integration, Scaliify handled all the heavy lifting while coaching our internal HR team on best practices.",
-    author: "Sophie Dubois | Global HR Operations",
+      "scaliify managed our Personio implementation with great reliability and focus. The team ensured the project stayed on track, coordinated effectively across teams, and handled challenges pragmatically.",
+    author: "Head of HR | Client in the Tech Industry",
     border: "border-[#81D8D0]/50",
   },
 ];
@@ -189,21 +189,21 @@ const marqueeCardsDe = [
   {
     type: "quote-card",
     bg: "bg-[#043339]",
-    brandName: "techscale",
+    brandName: "Westbridge",
     brandColor: "text-[#81D8D0]",
     quoteColor: "text-white/95",
     authorColor: "text-[#76D8C8]",
     quote:
-      "Scaliify hat nicht nur unser neues HRIS eingerichtet, sondern zuerst unsere Onboarding- und Lohnprozesse optimiert. Der Rollout über 4 europäische Einheiten lief reibungslos.",
-    author: "Elena Richter | Head of People Operations",
+      "scaliify war für uns ein unschätzbarer Partner bei der Optimierung unserer HR-Prozesse. Von der Beantwortung unserer Personio-Fragen mit fundiertem Fachwissen bis hin zum Aufbau eines maßgeschneiderten Recruiting-Dashboards – ihre Unterstützung hat Struktur und Effizienz in unsere Workflows gebracht.",
+    author: "Wiebke Weidner | Head of HR, Westbridge",
     border: "border-[#81D8D0]/40",
   },
   {
     type: "image-card",
     image: "/images/rowing-team.jpg",
     quote:
-      "Unsere Nutzerakzeptanz lag im ersten Monat bei 99 %. Scaliify hat unsere Führungskräfte mit Empathie und technischer Präzision durch jeden Schritt geführt.",
-    author: "Lukas Weber | VP of People & Culture",
+      "Ben arbeitete mit uns als HR Operations Co-Lead mit Fokus auf die systemseitige Entgeltabrechnungs-Umstellung in Deutschland. In einer Phase personeller Engpässe setzte er die notwendigen Datenstruktur-Anpassungen eigenständig um.",
+    author: "Stefanie Mühlbauer | Executive Vice President HR, TAKKT Group AG",
     border: "border-gray-200/50",
   },
   {
@@ -221,32 +221,32 @@ const marqueeCardsDe = [
     type: "image-card",
     image: "/images/food-pantry.jpg",
     quote:
-      "Das HR-IT-Audit hat Datenengpässe aufgedeckt, mit denen wir zwei Jahre gekämpft hatten. Scaliify hat den Stack ohne Unterbrechung der Gehaltsabrechnung neu konfiguriert.",
-    author: "Sarah Lindemann | Chief People Officer",
+      "scaliify brachte Struktur und strategisches Denken in unsere Operations. Als unser Interim HR Projektmanager und Schichtplaner spielte scaliify eine Schlüsselrolle bei der Optimierung unserer Personaleinsatzplanung und trieb wichtige HR-Initiativen voran.",
+    author: "Head of Service Operations | Kunde im Energiesektor",
     border: "border-gray-200/50",
   },
   {
     type: "quote-card",
     bg: "bg-[#E2F7F3]",
-    brandName: "scaleup group",
+    brandName: "Harrer Ingenieure GmbH",
     brandColor: "text-[#05434B]",
     quoteColor: "text-gray-900",
     authorColor: "text-[#2B4C55]",
     quote:
-      "Anders als klassische IT-Dienstleister, die nur Anweisungen abarbeiten, hat uns Scaliify genau gesagt, was wir ändern müssen, um zukunftssicher aufgestellt zu sein.",
-    author: "Markus Hoffmann | Managing Director",
+      "Die Zusammenarbeit mit scaliify war ein echter Meilenstein für unser HR-Setup. Das Team begleitete uns bei der erfolgreichen Einführung von Personio und half uns, unsere HR-Prozesse effizienter, transparenter und skalierbarer aufzustellen.",
+    author: "Marion Kleber | Managing Director, Harrer Ingenieure GmbH",
     border: "border-[#76D8C8]/60",
   },
   {
     type: "quote-card",
     bg: "bg-gradient-to-br from-[#08383F] via-[#05434B] to-[#12535C]",
-    brandName: "globalflow",
+    brandName: "Tech-Unternehmen",
     brandColor: "text-[#A8F5EE]",
     quoteColor: "text-white/95",
     authorColor: "text-[#81D8D0]",
     quote:
-      "Von der Datenmigration bis zur DATEV-Integration hat Scaliify die gesamte Vorarbeit geleistet und unser internes Team geschult.",
-    author: "Sophie Dubois | Global HR Operations",
+      "scaliify hat unsere Personio-Einführung mit herausragender Verlässlichkeit und Fokus gesteuert. Dank ihres strukturierten Vorgehens und klarer Kommunikation haben wir den Rollout effizient abgeschlossen.",
+    author: "Head of HR | Kunde in der Technologiebranche",
     border: "border-[#81D8D0]/50",
   },
 ];
@@ -390,7 +390,7 @@ export function ImplementationOptimisationClient() {
 
             <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
               <Link
-                href="/lets-talk"
+                href="/contact?topic=implementation"
                 className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 rounded-full text-xs sm:text-sm font-extrabold text-brand-dark bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep shadow-[0_4px_22px_rgba(129,216,208,0.65)] border border-white/80 hover:shadow-[0_6px_28px_rgba(129,216,208,0.95)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 overflow-hidden cursor-pointer"
               >
                 <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/75 to-transparent rounded-t-full pointer-events-none" />

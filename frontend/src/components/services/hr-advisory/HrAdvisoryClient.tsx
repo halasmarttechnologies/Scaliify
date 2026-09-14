@@ -129,18 +129,18 @@ const marqueeCardsEn = [
   {
     type: "quote-card",
     bg: "bg-[#f0faf8]",
-    brandName: "fintech leader",
+    brandName: "SoftwareOne",
     quote:
-      "Scaliify helped us restructure our compensation bands across 4 European entities in 3 weeks. Fast, pragmatic, and directly backed by real market data.",
-    author: "Constantin von Weizsäcker | Chief Financial Officer",
+      "Ben is one of those rare professionals who combines strategic insight with operational excellence. During his time at SoftwareOne, he led complex HR initiatives across EMEA with clarity, structure, and empathy.",
+    author: "Thomai Carapali | Head of P&C EMEA, SoftwareOne Germany GmbH",
     border: "border-[#76D8C8]/40",
   },
   {
     type: "image-card",
     image: "/images/rowing-team.jpg",
     quote:
-      "We needed urgent advisory for complex Betriebsrat negotiations regarding our new HR software rollout. Scaliify's advisor delivered a compliant works agreement in record time.",
-    author: "Elena Rost | VP People & Culture",
+      "As our interim CHRO, scaliify brought clarity and momentum to our organizational development. scaliify helped us streamline recruiting, introduce scalable HR structures, and prepare our future team growth.",
+    author: "Managing Director | Client in the Tech Industry",
     border: "border-gray-200/50",
   },
   {
@@ -155,25 +155,25 @@ const marqueeCardsEn = [
     type: "image-card",
     image: "/images/office-team.jpg",
     quote:
-      "Instead of paying a traditional consultancy €50k for theoretical slides, we booked retained hours with Scaliify. Pragmatic solutions from Day One.",
-    author: "Niklas Weber | Managing Director",
+      "scaliify brought both structure and strategic thinking to our operations. As our Interim HR Project Manager and Shift Planner, scaliify played a key role in improving our workforce planning processes and driving forward HR-related initiatives.",
+    author: "Head of Service Operations | Client in the Energy Sector",
     border: "border-gray-200/50",
   },
   {
     type: "quote-card",
     bg: "bg-[#e8f7f4]",
-    brandName: "mobility tech",
+    brandName: "Westbridge",
     quote:
-      "Their org design workshop gave our executive team clarity on managerial spans of control and level hierarchies before our Series B hiring ramp.",
-    author: "Sarah Lindemann | Chief Operating Officer",
+      "Thanks to their hands-on approach and strategic mindset, we’re now in a much stronger position to scale our HR operations.",
+    author: "Wiebke Weidner | Head of HR, Westbridge",
     border: "border-[#4FB8AA]/40",
   },
   {
     type: "image-card",
     image: "/images/food-pantry.jpg",
     quote:
-      "High-level strategy consulting rigor combined with real hands-on HR experience. The best advisory investment we made this year.",
-    author: "Dominik Franke | Founder & CEO",
+      "Working with scaliify was a game changer for our HR setup. Their team guided us through the successful implementation of Personio and helped us restructure our HR processes to be more efficient, transparent, and scalable.",
+    author: "Marion Kleber | Managing Director, Harrer Ingenieure GmbH",
     border: "border-gray-200/50",
   },
 ];
@@ -182,18 +182,18 @@ const marqueeCardsDe = [
   {
     type: "quote-card",
     bg: "bg-[#f0faf8]",
-    brandName: "fintech leader",
+    brandName: "SoftwareOne",
     quote:
-      "Scaliify hat unsere Gehaltsbänder über 4 europäische Länder in nur 3 Wochen harmonisiert. Schnell, pragmatisch und auf fundierten Marktdaten basierend.",
-    author: "Constantin von Weizsäcker | Chief Financial Officer",
+      "Ben ist einer der seltenen Experten, die strategischen Weitblick mit operativer Exzellenz verbinden. Während seiner Zeit bei SoftwareOne leitete er komplexe HR-Initiativen in der EMEA-Region mit Klarheit, Struktur und Empathie.",
+    author: "Thomai Carapali | Head of P&C EMEA, SoftwareOne Germany GmbH",
     border: "border-[#76D8C8]/40",
   },
   {
     type: "image-card",
     image: "/images/rowing-team.jpg",
     quote:
-      "Wir brauchten dringende Unterstützung bei Betriebsratsverhandlungen für unser neues HR-System. Scaliify hat eine rechtssichere Betriebsvereinbarung in Rekordzeit verhandelt.",
-    author: "Elena Rost | VP People & Culture",
+      "Als unser Interim-CHRO brachte scaliify Klarheit und Dynamik in unsere Organisationsentwicklung. scaliify half uns, das Recruiting zu optimieren, skalierbare HR-Strukturen aufzubauen und unser künftiges Teamwachstum vorzubereiten.",
+    author: "Managing Director | Kunde in der Technologiebranche",
     border: "border-gray-200/50",
   },
   {
@@ -208,25 +208,25 @@ const marqueeCardsDe = [
     type: "image-card",
     image: "/images/office-team.jpg",
     quote:
-      "Statt einer traditionellen Beratung 50.000 € für theoretische Folien zu zahlen, haben wir Beratungsstunden bei Scaliify gebucht. Pragmatische Lösungen ab Tag eins.",
-    author: "Niklas Weber | Managing Director",
+      "scaliify brachte Struktur und strategisches Denken in unsere Operations. Als unser Interim HR Projektmanager und Schichtplaner spielte scaliify eine Schlüsselrolle bei der Optimierung unserer Personaleinsatzplanung und trieb wichtige HR-Initiativen voran.",
+    author: "Head of Service Operations | Kunde im Energiesektor",
     border: "border-gray-200/50",
   },
   {
     type: "quote-card",
     bg: "bg-[#e8f7f4]",
-    brandName: "mobility tech",
+    brandName: "Westbridge",
     quote:
-      "Der Org-Design-Workshop hat unserer Geschäftsführung absolute Klarheit über Führungsspannen und Hierarchien vor unserem Series-B-Wachstum gegeben.",
-    author: "Sarah Lindemann | Chief Operating Officer",
+      "Dank ihres praxisnahen Ansatzes und strategischen Denkens sind wir nun in einer viel stärkeren Position, um unsere HR-Operations zu skalieren.",
+    author: "Wiebke Weidner | Head of HR, Westbridge",
     border: "border-[#4FB8AA]/40",
   },
   {
     type: "image-card",
     image: "/images/food-pantry.jpg",
     quote:
-      "Strategische Beratungskompetenz kombiniert mit echter HR-Praxiserfahrung. Die beste Beratungsinvestition unseres Jahres.",
-    author: "Dominik Franke | Founder & CEO",
+      "Die Zusammenarbeit mit scaliify war für unser HR-Setup ein echter Gamechanger. Das Team begleitete uns bei der erfolgreichen Einführung von Personio und half uns, unsere HR-Prozesse effizienter, transparenter und skalierbarer aufzustellen.",
+    author: "Marion Kleber | Managing Director, Harrer Ingenieure GmbH",
     border: "border-gray-200/50",
   },
 ];
@@ -481,7 +481,7 @@ export function HrAdvisoryClient() {
                     className={`${card.bg} ${card.border} rounded-[26px] p-6 sm:p-7 w-[280px] sm:w-[310px] h-[370px] sm:h-[400px] flex flex-col justify-between border shadow-xs hover:shadow-md transition-all duration-300`}
                   >
                     <div className="pt-1">
-                      <span className="text-2xl sm:text-3xl font-extrabold text-[#2B4C55] tracking-tighter lowercase block">
+                      <span className="text-2xl sm:text-3xl font-extrabold text-[#2B4C55] tracking-tighter block">
                         {card.brandName}
                       </span>
                     </div>

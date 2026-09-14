@@ -10,7 +10,16 @@ export const metadata: Metadata = buildMetadata({
   path: "/resources",
 });
 
-export default function ResourcesPage() {
+import { setRequestLocale } from "next-intl/server";
+
+export default async function ResourcesPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <>
       <BreadcrumbJsonLd

@@ -124,18 +124,18 @@ const marqueeCardsEn = [
   {
     type: "quote-card",
     bg: "bg-[#f0faf8]",
-    brandName: "fintech group",
+    brandName: "TAKKT Group AG",
     quote:
-      "When our Head of People stepped down during Series B, Scaliify placed an Interim VP of People within 48 hours. She led our hiring sprint and set up our leadership review framework seamlessly.",
-    author: "Maximilian Koch | Co-Founder & CEO",
+      "Ben worked with us as HR Operations Co-Lead, focusing on the system side of the payroll transition in Germany. He independently implemented the required data structure changes during a period when our team was severely understaffed, and his structured, solution-oriented approach was key to the project’s success.",
+    author: "Stefanie Mühlbauer | Executive Vice President HR, TAKKT Group AG",
     border: "border-[#76D8C8]/40",
   },
   {
     type: "image-card",
     image: "/images/rowing-team.jpg",
     quote:
-      "Scaliify covered a 9-month parental leave for our HR Director. No learning curve, full accountability for team OKRs, and impeccable executive presence.",
-    author: "Hannah von Berg | Chief Operations Officer",
+      "scaliify brought both structure and strategic thinking to our operations. As our Interim HR Project Manager and Shift Planner, scaliify played a key role in improving our workforce planning processes and driving forward HR-related initiatives.",
+    author: "Head of Service Operations | Client in the Energy Sector",
     border: "border-gray-200/50",
   },
   {
@@ -150,25 +150,25 @@ const marqueeCardsEn = [
     type: "image-card",
     image: "/images/office-team.jpg",
     quote:
-      "Unlike recruitment agencies that disappear after signing, Scaliify's interim leaders remained accountable for weekly milestones and outcome delivery.",
-    author: "David Althaus | Managing Director",
+      "Ben is one of those rare professionals who combines strategic insight with operational excellence. During his time at SoftwareOne, he led complex HR initiatives across EMEA with clarity, structure, and empathy.",
+    author: "Thomai Carapali | Head of P&C EMEA, SoftwareOne",
     border: "border-gray-200/50",
   },
   {
     type: "quote-card",
     bg: "bg-[#e8f7f4]",
-    brandName: "mobility scaleup",
+    brandName: "Tech Enterprise",
     quote:
-      "We leveraged Scaliify's specialist network for our post-merger integration. They harmonized contracts across 3 European entities in record time.",
-    author: "Laura Sommer | VP People & Organization",
+      "As our interim CHRO, scaliify brought clarity and momentum to our organizational development. scaliify helped us streamline recruiting, introduce scalable HR structures, and prepare our future team growth.",
+    author: "Managing Director | Client in the Tech Industry",
     border: "border-[#4FB8AA]/40",
   },
   {
     type: "image-card",
     image: "/images/food-pantry.jpg",
     quote:
-      "Immediate start, deep German labor law knowledge, and hands-on operational leadership when we needed it most.",
-    author: "Julian Meier | Head of Talent & Culture",
+      "scaliify managed our Personio implementation with great reliability and focus. The team ensured the project stayed on track, coordinated effectively across teams, and handled challenges pragmatically.",
+    author: "Head of HR | Client in the Tech Industry",
     border: "border-gray-200/50",
   },
 ];
@@ -177,18 +177,18 @@ const marqueeCardsDe = [
   {
     type: "quote-card",
     bg: "bg-[#f0faf8]",
-    brandName: "fintech group",
+    brandName: "TAKKT Group AG",
     quote:
-      "Als unsere Head of People während der Series-B ging, hat Scaliify innerhalb von 48 Stunden eine Interim VP of People gestellt. Sie hat unseren Recruiting-Sprint und die Führungsentwicklung nahtlos übernommen.",
-    author: "Maximilian Koch | Co-Founder & CEO",
+      "Ben war bei uns als HR Operations Co-Lead tätig und konzentrierte sich auf die systemseitige Umsetzung der Payroll-Umstellung in Deutschland. Er hat die erforderlichen Datenstrukturanpassungen in einer Phase starker Unterbesetzung unseres Teams eigenständig umgesetzt – sein strukturierter, lösungsorientierter Ansatz war entscheidend für den Projekterfolg.",
+    author: "Stefanie Mühlbauer | Executive Vice President HR, TAKKT Group AG",
     border: "border-[#76D8C8]/40",
   },
   {
     type: "image-card",
     image: "/images/rowing-team.jpg",
     quote:
-      "Scaliify hat die 9-monatige Elternzeit unserer HR-Direktorin überbrückt. Keine Einarbeitungszeit, volle Verantwortung für Team-OKRs und souveränes C-Level-Auftreten.",
-    author: "Hannah von Berg | Chief Operations Officer",
+      "scaliify brachte Struktur und strategisches Denken in unsere Abläufe. Als Interim HR-Projektmanager und Schichtplaner spielte scaliify eine Schlüsselrolle bei der Optimierung unserer Personaleinsatzplanung und trieb wichtige HR-Initiativen verlässlich voran.",
+    author: "Head of Service Operations | Kunde im Energiesektor",
     border: "border-gray-200/50",
   },
   {
@@ -203,25 +203,25 @@ const marqueeCardsDe = [
     type: "image-card",
     image: "/images/office-team.jpg",
     quote:
-      "Anders als Personalvermittler, die nach Vertragsunterzeichnung verschwinden, blieben die Interim-Manager von Scaliify für Meilensteine und Ergebnisse voll verantwortlich.",
-    author: "David Althaus | Managing Director",
+      "Ben ist einer jener seltenen Experten, die strategische Weitsicht mit operativer Exzellenz verbinden. Bei SoftwareOne leitete er komplexe HR-Initiativen in ganz EMEA mit Klarheit, Struktur und Empathie und schuf nachhaltigen Mehrwert für Führungsebene und Teams.",
+    author: "Thomai Carapali | Head of P&C EMEA, SoftwareOne",
     border: "border-gray-200/50",
   },
   {
     type: "quote-card",
     bg: "bg-[#e8f7f4]",
-    brandName: "mobility scaleup",
+    brandName: "Tech-Unternehmen",
     quote:
-      "Wir haben das Spezialistennetzwerk von Scaliify für unsere Post-Merger-Integration genutzt. Sie haben Arbeitsverträge über 3 europäische Länder in Rekordzeit harmonisiert.",
-    author: "Laura Sommer | VP People & Organization",
+      "Als unser Interim-CHRO brachte scaliify Klarheit und Dynamik in unsere Organisationsentwicklung. Sie halfen uns, das Recruiting zu optimieren, skalierbare HR-Strukturen aufzubauen und unser künftiges Wachstum vorzubereiten.",
+    author: "Managing Director | Kunde in der Technologiebranche",
     border: "border-[#4FB8AA]/40",
   },
   {
     type: "image-card",
     image: "/images/food-pantry.jpg",
     quote:
-      "Sofortiger Start, fundiertes deutsches Arbeitsrecht-Know-how und anpackende operative Führung genau im richtigen Moment.",
-    author: "Julian Meier | Head of Talent & Culture",
+      "scaliify hat unsere Personio-Einführung mit herausragender Verlässlichkeit und Fokus gesteuert. Dank ihres strukturierten Vorgehens und klarer Kommunikation haben wir den Rollout effizient abgeschlossen und ein solides Fundament gelegt.",
+    author: "Head of HR | Kunde in der Technologiebranche",
     border: "border-gray-200/50",
   },
 ];
@@ -358,12 +358,12 @@ export function InterimManagementClient() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-black leading-[1.12] mb-5">
               {isDe ? (
                 <>
-                  Senior-HR-Führung
+                  Interim-HR-Manager & Spezialist:innen
                   <span className="block">auf Abruf</span>
                 </>
               ) : (
                 <>
-                  Senior HR leadership,
+                  Interim HR managers & specialists,
                   <span className="block">on demand</span>
                 </>
               )}
@@ -380,7 +380,7 @@ export function InterimManagementClient() {
               >
                 <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/75 to-transparent rounded-t-full pointer-events-none" />
                 <span className="relative z-10 tracking-tight font-extrabold">
-                  {isDe ? "Interim-Führungskraft anfragen" : "Request an interim leader"}
+                  {isDe ? "Interim-Manager anfragen" : "Request an interim manager"}
                 </span>
                 <ArrowRight className="relative z-10 w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </Link>
@@ -391,7 +391,7 @@ export function InterimManagementClient() {
             <div className="relative w-full aspect-[4/3] rounded-[28px] overflow-hidden shadow-[0_15px_45px_rgba(0,0,0,0.08)] border border-gray-200/80">
               <Image
                 src="/images/interim-management-hero.jpg"
-                alt="Scaliify Interim HR Management Senior Leadership Advisory"
+                alt="Scaliify Interim HR Management Specialists & Practitioners"
                 fill
                 priority
                 className="object-cover"
@@ -431,7 +431,7 @@ export function InterimManagementClient() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-black">
-              {isDe ? "Wann brauchen Sie ein Interim-HR-Management?" : "When do you need an interim HR leader?"}
+              {isDe ? "Wann brauchen Sie Interim-HR-Management?" : "When do you need an interim HR manager?"}
             </h2>
           </div>
 
@@ -551,7 +551,7 @@ export function InterimManagementClient() {
               {isDe ? "DER SCALIIFY-UNTERSCHIED" : "THE SCALIIFY DIFFERENCE"}
             </p>
             <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-black">
-              {isDe ? "Warum Unternehmen Scaliify für Interimsführung wählen" : "Why companies choose Scaliify for interim leadership"}
+              {isDe ? "Warum Unternehmen Scaliify für Interim-HR-Management wählen" : "Why companies choose Scaliify for interim HR management"}
             </h2>
           </div>
 
@@ -661,12 +661,12 @@ export function InterimManagementClient() {
       {/* 7. DISCOVERY & CONSULTATION BOOKING LEAD SECTION             */}
       {/* ============================================================ */}
       <BookingLeadSection
-        badgeTitle={isDe ? "SENIOR-FÜHRUNG AUF ABRUF" : "SENIOR LEADERSHIP ON DEMAND"}
-        title={isDe ? "Interim-HR-Führungskraft anfragen" : "Request an interim HR leader"}
+        badgeTitle={isDe ? "INTERIM-MANAGEMENT AUF ABRUF" : "INTERIM HR MANAGEMENT ON DEMAND"}
+        title={isDe ? "Interim-HR-Manager anfragen" : "Request an interim HR manager"}
         subtitle={
           isDe
-            ? "Teilen Sie uns Ihren Bedarf und gewünschten Starttermin mit. Wir stellen Ihnen innerhalb von 48 Stunden passende, geprüfte Senior-Führungskräfte vor."
-            : "Tell us about your vacancy or transition timeline. We match vetted senior HR leaders within 48 hours."
+            ? "Teilen Sie uns Ihren Bedarf und gewünschten Starttermin mit. Wir stellen Ihnen innerhalb von 48 Stunden passende, geprüfte HR-Manager:innen und Expert:innen vor."
+            : "Tell us about your requirements and transition timeline. We match vetted interim HR managers and specialists within 48 hours."
         }
         source="interim_management"
       />

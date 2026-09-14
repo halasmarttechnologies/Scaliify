@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { LeadContact } from "@/lib/api";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 interface WizardLeadFormProps {
   lead: LeadContact;
@@ -12,6 +12,8 @@ interface WizardLeadFormProps {
 
 export function WizardLeadForm({ lead, setLead }: WizardLeadFormProps) {
   const t = useTranslations("toolFinder");
+  const locale = useLocale();
+  const isDe = locale === "de";
   return (
     <motion.div
       key="step-10"
@@ -25,9 +27,9 @@ export function WizardLeadForm({ lead, setLead }: WizardLeadFormProps) {
         <div className="flex items-center justify-between gap-2">
           <span className="text-xs font-bold text-brand-teal uppercase tracking-wider flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-brand-teal animate-pulse" />
-            Recommendations Calculated
+            {isDe ? "Empfehlungen berechnet" : "Recommendations Calculated"}
           </span>
-          <span className="text-xs text-gray-400 font-semibold">Final Step</span>
+          <span className="text-xs text-gray-400 font-semibold">{isDe ? "Letzter Schritt" : "Final Step"}</span>
         </div>
         <h3 className="text-2xl sm:text-3xl font-bold text-white mt-1">
           {t("wizardLead.heading")}
@@ -44,7 +46,7 @@ export function WizardLeadForm({ lead, setLead }: WizardLeadFormProps) {
             <input
               type="text"
               className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all"
-              placeholder="Jane"
+              placeholder={isDe ? "z. B. Anna" : "Jane"}
               value={lead.firstName}
               onChange={(e) => setLead({ ...lead, firstName: e.target.value })}
             />
@@ -54,7 +56,7 @@ export function WizardLeadForm({ lead, setLead }: WizardLeadFormProps) {
             <input
               type="text"
               className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all"
-              placeholder="Doe"
+              placeholder={isDe ? "z. B. Müller" : "Doe"}
               value={lead.lastName}
               onChange={(e) => setLead({ ...lead, lastName: e.target.value })}
             />
@@ -67,7 +69,7 @@ export function WizardLeadForm({ lead, setLead }: WizardLeadFormProps) {
             <input
               type="email"
               className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all"
-              placeholder="jane@company.com"
+              placeholder={isDe ? "anna@unternehmen.de" : "jane@company.com"}
               value={lead.email}
               onChange={(e) => setLead({ ...lead, email: e.target.value })}
             />
@@ -100,7 +102,7 @@ export function WizardLeadForm({ lead, setLead }: WizardLeadFormProps) {
             <input
               type="text"
               className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all"
-              placeholder="Head of HR"
+              placeholder={isDe ? "z. B. Head of HR" : "Head of HR"}
               value={lead.jobTitle}
               onChange={(e) => setLead({ ...lead, jobTitle: e.target.value })}
             />
