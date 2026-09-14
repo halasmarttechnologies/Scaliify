@@ -1,47 +1,14 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import { Link } from "@/i18n/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
 import { useTranslations } from "next-intl";
-import {
-  Search,
-  Clock,
-  FileText,
-  Building,
-  Zap,
-  Users,
-  Briefcase,
-  TrendingUp,
-  CreditCard,
-  Home as HomeIcon,
-  Inbox as InboxIcon,
-  Bot,
-  ChevronRight,
-  ChevronDown,
-  CheckCircle2,
-  Sliders,
-  ShieldCheck,
-  Download,
-  RotateCcw,
-} from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
-import { CompanyLogo } from "@/components/ui/CompanyLogo";
 import { HeroAuraWaves } from "@/components/ui/HeroAuraWaves";
-import { ROTATING_COMPANIES, COMPANY_ROTATION_INTERVAL_MS } from "@/lib/constants";
 
 export function ToolFinderHero() {
   const t = useTranslations("toolFinder");
   const tHero = useTranslations("hero");
-  const [companyIndex, setCompanyIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCompanyIndex((prev) => (prev + 1) % ROTATING_COMPANIES.length);
-    }, COMPANY_ROTATION_INTERVAL_MS);
-    return () => clearInterval(timer);
-  }, []);
 
   const scrollToAssessment = (e: React.FormEvent) => {
     e.preventDefault();
@@ -90,40 +57,14 @@ export function ToolFinderHero() {
           </button>
         </div>
 
-        {/* 4. Trust Statement with Rotating Animated Logo */}
-        <div className="mt-6 sm:mt-8 flex items-center justify-center gap-1.5 text-xs sm:text-sm text-gray-300 flex-wrap text-center">
+        {/* 4. Trust Statement */}
+        <p className="mt-6 sm:mt-8 text-xs sm:text-sm text-gray-300 flex items-center justify-center gap-1.5 flex-wrap text-center tracking-tight">
           <span>{tHero("trustedBy")}</span>
           <span className="font-bold text-brand-teal">{tHero("employeeStat")}</span>
           <span>{tHero("employeesAtOver")}</span>
           <span className="font-bold text-brand-teal">{tHero("orgCount")}</span>
           <span>{tHero("organisations")}</span>
-          
-          <div className="inline-flex items-center min-w-[95px] h-6 overflow-hidden align-middle">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={companyIndex}
-                initial={{ y: 8, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -8, opacity: 0 }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
-                className="inline-flex items-center gap-1 font-bold text-white whitespace-nowrap"
-              >
-                {ROTATING_COMPANIES[companyIndex].id ? (
-                  <>
-                    <CompanyLogo id={ROTATING_COMPANIES[companyIndex].id!} className="w-4 h-4" />
-                    <span className="text-xs sm:text-sm font-bold text-white tracking-tight">
-                      {ROTATING_COMPANIES[companyIndex].name}
-                    </span>
-                  </>
-                ) : (
-                  <span className={ROTATING_COMPANIES[companyIndex].className ?? "text-xs sm:text-sm font-bold text-white tracking-tight"}>
-                    {ROTATING_COMPANIES[companyIndex].name}
-                  </span>
-                )}
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </div>
+        </p>
       </div>
     </div>
   );

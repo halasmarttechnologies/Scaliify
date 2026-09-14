@@ -12,6 +12,7 @@ import {
   Loader2,
   Sparkles,
   Check,
+  Send,
 } from "lucide-react";
 import { BookingLeadSection } from "@/components/common/BookingLeadSection";
 import { BlogSection } from "@/components/home/BlogSection";
@@ -173,27 +174,12 @@ export function GuidesClient() {
       email: modalForm.email,
       companyName: modalForm.company,
       jobTitle: modalForm.jobTitle || undefined,
-      source: "guide_resource_kit_download",
-      comments: `[Resource Kit Download]: ${activeGuide.title} (${activeGuide.badge})`,
+      source: "template_request",
+      comments: `[Guide/Checklist Request]: ${activeGuide.title} (${activeGuide.badge})`,
     });
 
     setIsSubmitting(false);
     setSubmitted(true);
-  };
-
-  const handleDownloadFile = () => {
-    if (!activeGuide) return;
-    // Create a client-side text/markdown download representing the executive summary & checklist
-    const content = `# ${activeGuide.title}\nCategory: ${activeGuide.category}\nFormat: ${activeGuide.badge}\n\n## Overview\n${activeGuide.desc}\n\n## Key Included Artifacts & Checklists:\n${activeGuide.items.map((i) => `- [x] ${i}`).join("\n")}\n\n---\nProvided by scaliify (https://scaliify.com)\nIndependent, vendor-neutral HR tech & People operations advisory.`;
-    const blob = new Blob([content], { type: "text/markdown;charset=utf-8;" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = `${activeGuide.id}-scaliify-kit.md`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
   };
 
   return (
@@ -202,15 +188,15 @@ export function GuidesClient() {
       <section className="w-full pt-28 sm:pt-36 lg:pt-40 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#05434B] block mb-3">
-            {isDe ? "HR-LEITFÄDEN & SOFTWARE-RATGEBER" : "HR PLAYBOOKS & SOFTWARE GUIDES"}
+            {isDe ? "LEITFÄDEN & CHECKLISTEN AUF ANFRAGE" : "ON-DEMAND GUIDES & PLAYBOOKS"}
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-950 leading-[1.12] mb-4">
-            {isDe ? "Leitfäden & Checklisten" : "Guides & Checklists"}
+            {isDe ? "Welche Leitfäden & Checklisten benötigen Sie?" : "Which guides & checklists do you need?"}
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
             {isDe
-              ? "Kostenlose, praxiserprobte Frameworks, Implementierungs-Checklisten und herstellerneutrale Entscheidungsleitfäden unserer Senior-Berater:innen."
-              : "Free, practical frameworks, implementation checklists, and vendor-neutral decision guides from scaliify's senior advisors."}
+              ? "Teilen Sie uns Ihren konkreten Bedarf mit – unser People-Operations-Team stellt Ihnen die passenden Implementierungs-Checklisten und Leitfäden individuell zusammen und sendet sie Ihnen direkt zu."
+              : "Tell us what you're working on, and our People operations advisory team will prepare and send the right playbooks and checklists straight to your inbox."}
           </p>
         </div>
       </section>
@@ -289,14 +275,14 @@ export function GuidesClient() {
                   </div>
                 </div>
 
-                {/* Pop-up trigger: Download Resource Kit */}
+                {/* Request Guide Button */}
                 <button
                   type="button"
                   onClick={() => handleOpenModal(guide)}
                   className="w-full inline-flex items-center justify-center gap-2 bg-gray-950 hover:bg-[#05434B] text-white text-xs font-bold py-3 px-4 rounded-2xl transition-all cursor-pointer shadow-xs hover:shadow-md active:scale-[0.98]"
                 >
-                  <Download className="w-3.5 h-3.5 text-[#81D8D0]" />
-                  <span>Download Resource Kit</span>
+                  <Send className="w-3.5 h-3.5 text-[#81D8D0]" />
+                  <span>{isDe ? "Diesen Leitfaden anfordern" : "Request This Guide"}</span>
                 </button>
               </div>
             ))}
@@ -347,31 +333,24 @@ export function GuidesClient() {
                   <Check className="w-7 h-7 stroke-[2.5]" />
                 </div>
                 <span className="text-[10.5px] font-extrabold uppercase tracking-widest text-[#05434B] mb-2">
-                  TOOLKIT UNLOCKED
+                  {isDe ? "ANFRAGE ERHALTEN" : "REQUEST RECEIVED"}
                 </span>
                 <h3 className="text-xl sm:text-2xl font-extrabold text-gray-950 mb-2">
-                  Your Resource Kit is Ready!
+                  {isDe ? "Unterlagen werden vorbereitet" : "Your Guide Is On Its Way!"}
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 max-w-md leading-relaxed mb-6">
-                  We&apos;ve sent a direct copy of <strong className="text-gray-900">{activeGuide.title}</strong> to <span className="text-brand-dark font-semibold">{modalForm.email}</span>. You can also download it right now below.
+                  {isDe
+                    ? `Wir haben Ihre Anfrage für "${activeGuide.title}" erfasst. Unser Beratungsteam sendet Ihnen die Unterlagen in Kürze an ${modalForm.email} zu.`
+                    : `We've logged your request for "${activeGuide.title}". Our People Ops advisory team is preparing your kit and will send it to ${modalForm.email} shortly.`}
                 </p>
 
-                <div className="w-full flex flex-col sm:flex-row items-center gap-3">
-                  <button
-                    type="button"
-                    onClick={handleDownloadFile}
-                    className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-b from-[#81D8D0] via-[#5BC7BC] to-[#05434B] text-white font-bold text-xs sm:text-sm py-3 px-5 rounded-xl shadow-md hover:brightness-105 transition-all cursor-pointer"
-                  >
-                    <Download className="w-4 h-4" />
-                    <span>Download Kit Now</span>
-                  </button>
-
+                <div className="w-full flex justify-center">
                   <button
                     type="button"
                     onClick={handleCloseModal}
-                    className="w-full sm:w-auto inline-flex items-center justify-center text-xs font-semibold text-gray-600 hover:text-black py-3 px-5 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center text-xs font-bold text-white bg-[#05434B] hover:bg-black py-3 px-6 rounded-xl transition-colors cursor-pointer"
                   >
-                    Explore More Guides
+                    {isDe ? "Schließen & weitere Leitfäden ansehen" : "Explore More Guides"}
                   </button>
                 </div>
               </div>
@@ -387,8 +366,8 @@ export function GuidesClient() {
                   </h3>
                   <p className="text-xs text-gray-600 mt-1.5 leading-relaxed">
                     {isDe
-                      ? "Geben Sie Ihre Daten ein, um sofort auf dieses Ressourcen-Kit zuzugreifen."
-                      : "Enter your work details to instantly access this resource kit without leaving this page."}
+                      ? "Geben Sie Ihre Daten ein – unser Beratungsteam sendet Ihnen diesen Leitfaden direkt per E-Mail zu."
+                      : "Enter your work details and our advisory team will send this playbook directly to your inbox."}
                   </p>
                 </div>
 
@@ -458,12 +437,12 @@ export function GuidesClient() {
                     {isSubmitting ? (
                       <>
                         <Loader2 className="w-4 h-4 animate-spin text-[#81D8D0]" />
-                        <span>{isDe ? "Kit wird erstellt…" : "Generating kit…"}</span>
+                        <span>{isDe ? "Wird übermittelt…" : "Submitting…"}</span>
                       </>
                     ) : (
                       <>
-                        <Download className="w-4 h-4 text-[#81D8D0]" />
-                        <span>{isDe ? "Ressourcen-Kit herunterladen" : "Download Resource Kit"}</span>
+                        <Send className="w-4 h-4 text-[#81D8D0]" />
+                        <span>{isDe ? "Leitfaden per E-Mail anfordern" : "Send Me This Guide"}</span>
                       </>
                     )}
                   </button>

@@ -25,12 +25,12 @@
       "description": "Erfahren Sie, wie europäische Scaleups und mittelständische Unternehmen reibungslose HR-Prozesse, fehlerfreie Gehaltsabrechnung und strategische Organisationsklarheit mit Scaliify erreicht haben."
     },
     "resources": {
-      "title": "HR-Ressourcen & Vorlagen",
-      "description": "Kostenlose HR-Vorlagen, RFP-Bewertungsmodelle, Compliance-Kits und Anbieter-Evaluierungsrahmen vom erfahrenen People-Ops-Beratungsteam von Scaliify."
+      "title": "HR-Vorlagen & Ressourcen auf Anfrage | Scaliify",
+      "description": "Fordern Sie maßgeschneiderte HR-Vorlagen, RFP-Bewertungsmodelle und Compliance-Kits direkt von unserem People-Operations-Team an."
     },
     "guides": {
-      "title": "Leitfäden & Checklisten",
-      "description": "Kostenlose HR-Implementierungs-Playbooks, Compliance-Checklisten und herstellerunabhängige Software-Auswahlhilfen vom Beratungsteam von Scaliify."
+      "title": "Leitfäden & Checklisten auf Anfrage | Scaliify",
+      "description": "Fordern Sie praxisnahe HR-Implementierungs-Playbooks, Compliance-Checklisten und Software-Auswahlhilfen direkt von unserem Beratungsteam an."
     },
     "toolFinder": {
       "title": "HR Tool Finder — Finden Sie Ihre perfekte HR-Software",
@@ -142,11 +142,11 @@
     "emailPlaceholder": "Ihre geschäftliche E-Mail-Adresse *",
     "emailAriaLabel": "Geschäftliche E-Mail-Adresse",
     "requestDemo": "Kostenlose Beratung anfragen",
-    "trustedBy": "Vertraut von",
-    "employeeStat": "Tausenden von",
-    "employeesAtOver": "Mitarbeitenden bei",
+    "trustedBy": "Über",
+    "employeeStat": "Tausende von",
+    "employeesAtOver": "Mitarbeitenden in",
     "orgCount": "über 100",
-    "organisations": "Organisationen:"
+    "organisations": "Organisationen vertrauen auf uns."
   },
   "heroTrustBar": {
     "softwareone": { "employees": "1000+ Mitarbeitende", "metric": "80 % schnelleres Onboarding" },

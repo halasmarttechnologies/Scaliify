@@ -25,12 +25,12 @@
       "description": "Explore how European scaleups and mid-market companies achieved seamless HR operations, zero payroll errors, and strategic organizational clarity with Scaliify."
     },
     "resources": {
-      "title": "HR Resources & Templates",
-      "description": "Free HR resource templates, RFP scoring models, compliance kits, and vendor evaluation frameworks from Scaliify's senior People Ops advisory team."
+      "title": "HR Templates & Resources — On-Demand",
+      "description": "Request tailored HR resource templates, RFP scoring models, compliance kits, and vendor evaluation frameworks from Scaliify's senior People Ops advisory team."
     },
     "guides": {
-      "title": "Guides & Checklists",
-      "description": "Free HR implementation playbooks, compliance checklists, and vendor-neutral software selection guides from Scaliify's advisory team."
+      "title": "Guides & Checklists — On-Demand Playbooks",
+      "description": "Request practical HR implementation playbooks, compliance checklists, and vendor-neutral software selection guides from Scaliify's advisory team."
     },
     "toolFinder": {
       "title": "HR Tool Finder — Find Your Perfect HR Software",
@@ -144,9 +144,9 @@
     "requestDemo": "Request free consultation",
     "trustedBy": "Trusted by",
     "employeeStat": "thousands of",
-    "employeesAtOver": "employees at",
+    "employeesAtOver": "employees and",
     "orgCount": "over 100",
-    "organisations": "organisations:"
+    "organisations": "organizations."
   },
   "heroTrustBar": {
     "softwareone": { "employees": "1000+ employees", "metric": "80% faster onboarding" },
