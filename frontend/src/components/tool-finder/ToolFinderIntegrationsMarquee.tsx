@@ -69,25 +69,25 @@ export function ToolFinderIntegrationsMarquee() {
       {/* 2-Row Infinite Logo Marquee Strip across Entire 100% Page Width with 0 Side Padding */}
       <div className="w-full overflow-hidden flex flex-col gap-3.5 select-none">
         {/* Row 1: Scrolling Left */}
-        <div className="animate-marquee-left flex items-center gap-3">
+        <div className="animate-marquee-left flex items-center gap-3 sm:gap-3.5">
           {[...row1Apps, ...row1Apps, ...row1Apps].map((app, idx) => (
             <div
               key={`m1-${idx}`}
-              className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl ${app.bg} ${app.text} border border-gray-200/80 flex items-center justify-center font-bold text-xs sm:text-sm tracking-tight shrink-0 shadow-none`}
+              className={`min-w-[64px] sm:min-w-[72px] h-12 sm:h-14 px-3.5 sm:px-4 rounded-xl sm:rounded-2xl ${app.bg} ${app.text} border border-gray-200/80 flex items-center justify-center font-bold text-xs sm:text-sm tracking-tight shrink-0 overflow-hidden whitespace-nowrap shadow-xs`}
             >
-              <span>{app.label}</span>
+              <span className="truncate">{app.label}</span>
             </div>
           ))}
         </div>
 
         {/* Row 2: Scrolling Right */}
-        <div className="animate-marquee-right flex items-center gap-3">
+        <div className="animate-marquee-right flex items-center gap-3 sm:gap-3.5">
           {[...row2Apps, ...row2Apps, ...row2Apps].map((app, idx) => (
             <div
               key={`m2-${idx}`}
-              className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl ${app.bg} ${app.text} border border-gray-200/80 flex items-center justify-center font-bold text-xs sm:text-sm tracking-tight shrink-0 shadow-none`}
+              className={`min-w-[64px] sm:min-w-[72px] h-12 sm:h-14 px-3.5 sm:px-4 rounded-xl sm:rounded-2xl ${app.bg} ${app.text} border border-gray-200/80 flex items-center justify-center font-bold text-xs sm:text-sm tracking-tight shrink-0 overflow-hidden whitespace-nowrap shadow-xs`}
             >
-              <span>{app.label}</span>
+              <span className="truncate">{app.label}</span>
             </div>
           ))}
         </div>

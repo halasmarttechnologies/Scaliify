@@ -30,12 +30,11 @@ export function BlogSection() {
               {t("subtitle")}
             </p>
           </div>
-          <a
-            href="/blog"
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-brand-dark hover:text-brand-teal transition-colors shrink-0 whitespace-nowrap"
+          <span
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-gray-400 shrink-0 whitespace-nowrap cursor-default select-none"
           >
-            <span>{t("exploreAll")} &rarr;</span>
-          </a>
+            <span>{t("exploreAll")}</span>
+          </span>
         </div>
 
         <BlogFilter

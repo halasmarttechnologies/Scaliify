@@ -1,24 +1,193 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import Image from "next/image";
 import { Link, useRouter } from "@/i18n/navigation";
-import { Search, X, CheckCircle2, ArrowRight, Sparkles, Send } from "lucide-react";
+import {
+  Search,
+  X,
+  CheckCircle2,
+  ArrowRight,
+  Sparkles,
+  Send,
+  Cpu,
+  Users,
+  UserCheck,
+  Compass,
+  Zap,
+  Layers,
+  Sliders,
+  FileText,
+  CalendarCheck,
+  Laptop,
+  MessageSquare,
+  ShieldCheck,
+  BarChart3,
+  Target,
+} from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 
 interface SupportFromDayOneProps {
   className?: string;
 }
 
+interface SearchablePage {
+  id: string;
+  title: string;
+  titleDe: string;
+  category: string;
+  categoryDe: string;
+  description: string;
+  descriptionDe: string;
+  path: string;
+  icon: React.ElementType;
+  keywords: string[];
+}
+
+const SEARCHABLE_PAGES: SearchablePage[] = [
+  {
+    id: "hr-it-selection",
+    title: "HR IT Selection & Optimization",
+    titleDe: "HR-IT-Auswahl & Optimierung",
+    category: "Services",
+    categoryDe: "Leistungen",
+    description: "Vendor-neutral software evaluation across 20+ European platforms.",
+    descriptionDe: "Unabhängige Software-Auswahl aus über 20 europäischen HR-Systemen.",
+    path: "/services/hr-it-selection",
+    icon: Cpu,
+    keywords: ["hr", "it", "selection", "software", "tech", "personio", "hibob", "tools", "systems", "procurement", "evaluation"],
+  },
+  {
+    id: "outsourced-hr",
+    title: "Outsourced HR Management",
+    titleDe: "Ausgelagertes HR-Management",
+    category: "Services",
+    categoryDe: "Leistungen",
+    description: "Turnkey People Operations handling contracts, preliminary payroll, and compliance.",
+    descriptionDe: "Ihr ausgelagertes HR-Team für Verträge, Lohnvorbereitung und Arbeitsrecht.",
+    path: "/services/outsourced-hr",
+    icon: Users,
+    keywords: ["hr", "management", "outsourced", "payroll", "contracts", "people ops", "operations", "compliance", "admin"],
+  },
+  {
+    id: "interim-management",
+    title: "Interim HR Management",
+    titleDe: "Interim-HR-Management",
+    category: "Services",
+    categoryDe: "Leistungen",
+    description: "Experienced interim HR managers & leaders placed within 48 hours.",
+    descriptionDe: "Erfahrene Interim-HR-Manager und Führungskräfte innerhalb von 48 Stunden.",
+    path: "/services/interim-management",
+    icon: UserCheck,
+    keywords: ["management", "interim", "leadership", "interim manager", "hr", "director", "head of people", "people lead", "recruiter", "hrbp"],
+  },
+  {
+    id: "hr-advisory",
+    title: "Strategic HR Advisory & Org Design",
+    titleDe: "Strategische HR-Beratung & Org-Design",
+    category: "Services",
+    categoryDe: "Leistungen",
+    description: "Compensation leveling, Works Council negotiation, and change management.",
+    descriptionDe: "Vergütungsbänder, Betriebsrat-Verhandlungen und Organisationsentwicklung.",
+    path: "/services/hr-advisory",
+    icon: Compass,
+    keywords: ["hr", "management", "advisory", "consulting", "org design", "compensation", "leveling", "salary bands", "betriebsrat", "works council"],
+  },
+  {
+    id: "implementation-optimisation",
+    title: "Implementation & Optimization",
+    titleDe: "Implementierung & Optimierung",
+    category: "Services",
+    categoryDe: "Leistungen",
+    description: "Data migration, workflow automation, and custom tool rollout.",
+    descriptionDe: "Datenmigration, Prozess-Automatisierung und reibungslose System-Einführung.",
+    path: "/services/implementation-optimisation",
+    icon: Zap,
+    keywords: ["implementation", "optimization", "rollout", "migration", "hris", "setup", "datev", "processes"],
+  },
+  {
+    id: "hr-it-integrations",
+    title: "HR IT Integrations & APIs",
+    titleDe: "HR-IT-Integrationen & Schnittstellen",
+    category: "Services",
+    categoryDe: "Leistungen",
+    description: "Connect your HRIS, DATEV, Slack, ATS, and ERP into one automated pipeline.",
+    descriptionDe: "Verbinden Sie HRIS, DATEV, Slack und ERP zu einem nahtlosen Datenfluss.",
+    path: "/services/hr-it-integrations",
+    icon: Layers,
+    keywords: ["integrations", "it", "datev", "slack", "api", "pipeline", "automated", "sync", "payroll"],
+  },
+  {
+    id: "tool-finder",
+    title: "HR Tool Finder Benchmark",
+    titleDe: "HR Tool Finder Vergleich",
+    category: "Tools",
+    categoryDe: "Tools",
+    description: "9-question vendor-neutral assessment benchmarked against 20+ platforms.",
+    descriptionDe: "9-Fragen-Quick-Check für die perfekte HR-Software nach Ihren Kriterien.",
+    path: "/tool-finder",
+    icon: Sliders,
+    keywords: ["tool finder", "software", "benchmark", "hr", "quiz", "recommendation", "personio", "hibob", "workday"],
+  },
+  {
+    id: "resources",
+    title: "HR Templates & Checklists Hub",
+    titleDe: "HR-Vorlagen & Checklisten",
+    category: "Resources",
+    categoryDe: "Ressourcen",
+    description: "On-demand RFP scoring models, DATEV cutover checklists, and compliance kits.",
+    descriptionDe: "Individuelle RFP-Vorlagen, DATEV-Checklisten und HR-Musterdokumente.",
+    path: "/resources",
+    icon: FileText,
+    keywords: ["resources", "templates", "checklists", "rfp", "datev", "compliance", "downloads", "hr"],
+  },
+  {
+    id: "case-studies",
+    title: "Case Studies & Client Results",
+    titleDe: "Fallstudien & Kundenerfolge",
+    category: "Proof",
+    categoryDe: "Erfolge",
+    description: "Real European scaleup transformations: Westbridge, Harrer, and SoftwareOne.",
+    descriptionDe: "Echte Erfolgsgeschichten europäischer Unternehmen mit Scaliify.",
+    path: "/case-studies",
+    icon: Sparkles,
+    keywords: ["case studies", "clients", "results", "westbridge", "softwareone", "harrer", "proof", "outcomes"],
+  },
+  {
+    id: "about",
+    title: "About Scaliify & Founders",
+    titleDe: "Über Scaliify & die Gründer",
+    category: "Company",
+    categoryDe: "Unternehmen",
+    description: "Meet founders Sarah Mittiga & Ben Böhmer and our network of 150+ specialists.",
+    descriptionDe: "Lernen Sie Sarah Mittiga, Ben Böhmer und unser Netzwerk von über 150 Experten kennen.",
+    path: "/about",
+    icon: Users,
+    keywords: ["about", "company", "team", "sarah mittiga", "ben böhmer", "founders", "specialists"],
+  },
+  {
+    id: "lets-talk",
+    title: "Request a Consultation",
+    titleDe: "Kostenlose Beratung anfragen",
+    category: "Contact",
+    categoryDe: "Kontakt",
+    description: "Speak directly with an independent HR technology and operations specialist.",
+    descriptionDe: "Sprechen Sie direkt mit unseren unabhängigen HR- und Technologie-Experten.",
+    path: "/lets-talk",
+    icon: ArrowRight,
+    keywords: ["contact", "lets talk", "consultation", "call", "book", "meeting", "advisory", "demo"],
+  },
+];
+
 const TOPIC_PILLS = [
-  { id: "p1", title: "Advance vacation allowance", titleDe: "Urlaubsanspruch berechnen", icon: "🏖️", link: "/guides" },
-  { id: "p2", title: "Reporting work from home", titleDe: "Homeoffice & Zeiterfassung", icon: "📅", link: "/guides" },
-  { id: "p3", title: "Request absence from Slack", titleDe: "Abwesenheiten via Slack anfragen", icon: "💬", link: "/guides" },
-  { id: "p4", title: "Overtime & BAG compliance", titleDe: "Überstunden & BAG-Compliance", icon: "⚡", link: "/guides" },
-  { id: "p5", title: "Timesheets for payroll sync", titleDe: "Stundenzettel für Lohnexport", icon: "📊", link: "/guides" },
-  { id: "p6", title: "360° review cycle templates", titleDe: "360°-Feedback Vorlagen", icon: "🎯", link: "/guides" },
-  { id: "p7", title: "DATEV LODAS cutover checklist", titleDe: "DATEV LODAS Checkliste", icon: "📑", link: "/guides" },
-  { id: "p8", title: "Personio + contract automation", titleDe: "Personio + Vertragsautomatisierung", icon: "✨", link: "/guides" },
+  { id: "p1", title: "Advance vacation allowance", titleDe: "Urlaubsanspruch berechnen", icon: CalendarCheck, query: "vacation" },
+  { id: "p2", title: "Reporting work from home", titleDe: "Homeoffice & Zeiterfassung", icon: Laptop, query: "work from home" },
+  { id: "p3", title: "Request absence from Slack", titleDe: "Abwesenheiten via Slack anfragen", icon: MessageSquare, query: "slack" },
+  { id: "p4", title: "Overtime & BAG compliance", titleDe: "Überstunden & BAG-Compliance", icon: ShieldCheck, query: "compliance" },
+  { id: "p5", title: "Timesheets for payroll sync", titleDe: "Stundenzettel für Lohnexport", icon: BarChart3, query: "payroll" },
+  { id: "p6", title: "360° review cycle templates", titleDe: "360°-Feedback Vorlagen", icon: Target, query: "review" },
+  { id: "p7", title: "DATEV LODAS cutover checklist", titleDe: "DATEV LODAS Checkliste", icon: FileText, query: "datev" },
+  { id: "p8", title: "Personio + contract automation", titleDe: "Personio + Vertragsautomatisierung", icon: Cpu, query: "personio" },
 ];
 
 export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
@@ -38,18 +207,30 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
   const [communitySubmitting, setCommunitySubmitting] = useState(false);
   const [communitySubmitted, setCommunitySubmitted] = useState(false);
 
-  const filteredPills = searchQuery.trim()
-    ? TOPIC_PILLS.filter((pill) =>
-        (isDe ? pill.titleDe : pill.title).toLowerCase().includes(searchQuery.toLowerCase())
-      )
-    : TOPIC_PILLS.slice(0, 6);
+  const normalizedQuery = searchQuery.trim().toLowerCase();
+
+  const matchedPages = useMemo(() => {
+    if (!normalizedQuery) return [];
+    return SEARCHABLE_PAGES.filter((page) => {
+      const titleMatch = page.title.toLowerCase().includes(normalizedQuery);
+      const titleDeMatch = page.titleDe.toLowerCase().includes(normalizedQuery);
+      const descMatch = page.description.toLowerCase().includes(normalizedQuery);
+      const descDeMatch = page.descriptionDe.toLowerCase().includes(normalizedQuery);
+      const catMatch = page.category.toLowerCase().includes(normalizedQuery) || page.categoryDe.toLowerCase().includes(normalizedQuery);
+      const keywordMatch = page.keywords.some((kw) => kw.includes(normalizedQuery) || normalizedQuery.includes(kw));
+
+      return titleMatch || titleDeMatch || descMatch || descDeMatch || catMatch || keywordMatch;
+    });
+  }, [normalizedQuery]);
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchQuery.trim()) {
-      router.push(`/guides?search=${encodeURIComponent(searchQuery.trim())}`);
+    if (matchedPages.length > 0) {
+      router.push(matchedPages[0].path);
+    } else if (searchQuery.trim()) {
+      router.push(`/resources?search=${encodeURIComponent(searchQuery.trim())}`);
     } else {
-      router.push("/guides");
+      router.push("/resources");
     }
   };
 
@@ -119,47 +300,100 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
               {/* Central Interactive Search Bar */}
               <form
                 onSubmit={handleSearchSubmit}
-                className="w-full max-w-md bg-white rounded-2xl p-1.5 pl-4 shadow-[0_8px_30px_rgba(5,67,75,0.1)] border border-[#76D8C8]/50 flex items-center gap-2.5 z-20 mb-5"
+                className="w-full max-w-md bg-white rounded-2xl p-1.5 pl-4 shadow-[0_8px_30px_rgba(5,67,75,0.1)] border border-[#76D8C8]/50 flex items-center gap-2.5 z-20 mb-4"
               >
                 <Search className="w-4 h-4 text-[#00D2C4] shrink-0" />
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={isDe ? "Themen durchsuchen (z. B. Urlaub, DATEV, Slack)..." : "Search topics (e.g. vacation, DATEV, Slack)..."}
+                  placeholder={isDe ? "Themen oder Seiten suchen (z. B. HR, Management, DATEV)..." : "Search topics or pages (e.g. HR, management, DATEV)..."}
                   className="w-full bg-transparent text-xs sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none"
                 />
                 {searchQuery && (
                   <button
                     type="button"
                     onClick={() => setSearchQuery("")}
-                    className="p-1 text-gray-400 hover:text-gray-600"
+                    className="p-1 text-gray-400 hover:text-gray-600 cursor-pointer"
                   >
                     <X className="w-3.5 h-3.5" />
                   </button>
                 )}
                 <button
                   type="submit"
-                  className="bg-[#00D2C4] hover:bg-[#76D8C8] text-[#05434B] font-extrabold text-xs px-3.5 py-2 rounded-xl shrink-0 transition-colors cursor-pointer"
+                  className="bg-[#00D2C4] hover:bg-[#76D8C8] text-[#05434B] font-extrabold text-xs px-3.5 py-2 rounded-xl shrink-0 transition-colors cursor-pointer active:scale-95"
                 >
                   {isDe ? "Finden" : "Search"}
                 </button>
               </form>
 
-              {/* Responsive Filterable Pill Cloud */}
-              <div className="w-full flex flex-wrap items-center justify-center gap-2">
-                {filteredPills.map((pill) => (
-                  <button
-                    key={pill.id}
-                    type="button"
-                    onClick={() => setSearchQuery(isDe ? pill.titleDe : pill.title)}
-                    className="bg-white/85 hover:bg-white text-gray-800 border border-[#76D8C8]/40 hover:border-[#00D2C4] px-3 py-1.5 rounded-full text-xs font-semibold shadow-2xs transition-all cursor-pointer flex items-center gap-1.5 active:scale-95"
-                  >
-                    <span>{pill.icon}</span>
-                    <span>{isDe ? pill.titleDe : pill.title}</span>
-                  </button>
-                ))}
-              </div>
+              {/* Dynamic Content: Live Filtered Pages List OR Topic Pills */}
+              {searchQuery.trim() ? (
+                <div className="w-full max-w-md bg-white/95 backdrop-blur-md rounded-2xl border border-[#76D8C8]/60 shadow-lg p-2 sm:p-2.5 max-h-[220px] overflow-y-auto space-y-1 z-30 animate-in fade-in duration-150">
+                  <div className="flex items-center justify-between px-2 py-1 text-[10px] font-bold text-gray-400 uppercase tracking-wider border-b border-gray-100">
+                    <span>{isDe ? "Passende Seiten" : "Matching Pages & Services"}</span>
+                    <span>{matchedPages.length} {isDe ? "Treffer" : "results"}</span>
+                  </div>
+
+                  {matchedPages.length > 0 ? (
+                    matchedPages.map((page) => {
+                      const PageIcon = page.icon;
+                      return (
+                        <Link
+                          key={page.id}
+                          href={page.path}
+                          className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-[#eaf7f2] transition-colors group border border-transparent hover:border-[#76D8C8]/40"
+                        >
+                          <div className="w-7 h-7 rounded-lg bg-[#5BC7BC]/20 text-[#05434B] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform mt-0.5">
+                            <PageIcon className="w-3.5 h-3.5" />
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <div className="flex items-center gap-1.5">
+                              <span className="font-bold text-xs text-gray-900 group-hover:text-[#05434B] transition-colors truncate">
+                                {isDe ? page.titleDe : page.title}
+                              </span>
+                              <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-gray-100 text-gray-600 shrink-0">
+                                {isDe ? page.categoryDe : page.category}
+                              </span>
+                            </div>
+                            <p className="text-[10px] text-gray-500 leading-snug line-clamp-1 mt-0.5">
+                              {isDe ? page.descriptionDe : page.description}
+                            </p>
+                          </div>
+                          <ArrowRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-[#05434B] group-hover:translate-x-0.5 transition-all shrink-0 self-center" />
+                        </Link>
+                      );
+                    })
+                  ) : (
+                    <div className="py-4 text-center text-xs text-gray-500">
+                      <p className="font-bold text-gray-700 mb-0.5">
+                        {isDe ? "Keine direkte Seite gefunden" : "No exact matching page found"}
+                      </p>
+                      <p className="text-[10px]">
+                        {isDe ? "Versuchen Sie „HR“, „Management“, „DATEV“ oder „Software“." : "Try searching for \"HR\", \"management\", \"DATEV\", or \"software\"."}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                /* Responsive Filterable Pill Cloud with Professional Vector Icons */
+                <div className="w-full flex flex-wrap items-center justify-center gap-2">
+                  {TOPIC_PILLS.map((pill) => {
+                    const PillIcon = pill.icon;
+                    return (
+                      <button
+                        key={pill.id}
+                        type="button"
+                        onClick={() => setSearchQuery(isDe ? pill.titleDe : pill.title)}
+                        className="bg-white/85 hover:bg-white text-gray-800 border border-[#76D8C8]/40 hover:border-[#00D2C4] px-3 py-1.5 rounded-full text-xs font-semibold shadow-2xs transition-all cursor-pointer flex items-center gap-1.5 active:scale-95 group"
+                      >
+                        <PillIcon className="w-3.5 h-3.5 text-[#05434B] group-hover:text-[#00D2C4] transition-colors shrink-0" />
+                        <span>{isDe ? pill.titleDe : pill.title}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
             </div>
 
             {/* Bottom Link to Guides / Blog */}

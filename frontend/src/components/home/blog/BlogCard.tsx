@@ -10,8 +10,8 @@ interface BlogCardProps {
 
 export function BlogCard({ post }: BlogCardProps) {
   return (
-    <article className="group flex flex-col justify-between h-full">
-      <Link href={`/insights/blog/${post.slug}`} className="flex flex-col flex-1">
+    <article className="group flex flex-col justify-between h-full select-none cursor-default">
+      <div className="flex flex-col flex-1">
         {/* Cover Graphic / Thumbnail */}
         <BlogCoverGraphic post={post} />
 
@@ -21,7 +21,7 @@ export function BlogCard({ post }: BlogCardProps) {
         </time>
 
         {/* Title */}
-        <h3 className="text-lg sm:text-xl font-bold text-gray-900 tracking-tight leading-snug group-hover:text-[#05434b] transition-colors mb-4 line-clamp-3">
+        <h3 className="text-lg sm:text-xl font-bold text-gray-900 tracking-tight leading-snug mb-4 line-clamp-3">
           {post.title}
         </h3>
 
@@ -31,7 +31,7 @@ export function BlogCard({ post }: BlogCardProps) {
             {post.category}
           </span>
         </div>
-      </Link>
+      </div>
 
       {/* Card Bottom Divider Line (Matching Screenshot) */}
       <div className="w-full h-px bg-gray-900/70 mt-6" />
