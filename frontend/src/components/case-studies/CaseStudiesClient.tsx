@@ -119,8 +119,8 @@ export function CaseStudiesClient() {
                     <div className="flex items-center justify-between text-gray-600">
                       <span>{isDe ? "Gehalt" : "Salary"}</span>
                       <div className="flex items-center gap-1.5">
-                        <span className="text-gray-400 line-through">$45,000</span>
-                        <span className="font-bold text-gray-900 bg-purple-50 text-purple-900 px-1.5 py-0.5 rounded">$48,500</span>
+                        <span className="text-gray-400 line-through">€45,000</span>
+                        <span className="font-bold text-gray-900 bg-purple-50 text-purple-900 px-1.5 py-0.5 rounded">€48,500</span>
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                       </div>
                     </div>
@@ -128,7 +128,7 @@ export function CaseStudiesClient() {
                     <div className="flex items-center justify-between text-gray-600">
                       <span>{isDe ? "Einmal-Bonus" : "One-time Bonus"}</span>
                       <div className="flex items-center gap-1.5">
-                        <span className="font-bold text-gray-900">$2,150</span>
+                        <span className="font-bold text-gray-900">€2,150</span>
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                       </div>
                     </div>
@@ -167,7 +167,7 @@ export function CaseStudiesClient() {
                         </div>
                         <span className="truncate">Franzi Holz</span>
                       </div>
-                      <span className="col-span-3 text-right font-bold">$82,000</span>
+                      <span className="col-span-3 text-right font-bold">€82,000</span>
                       <span className="col-span-2 text-right text-gray-500">1</span>
                       <span className="col-span-2 text-right text-gray-500">6</span>
                     </div>
@@ -179,7 +179,7 @@ export function CaseStudiesClient() {
                         </div>
                         <span className="truncate">Sana Davoud</span>
                       </div>
-                      <span className="col-span-3 text-right font-bold">$72,000</span>
+                      <span className="col-span-3 text-right font-bold">€72,000</span>
                       <span className="col-span-2 text-right text-gray-500">0</span>
                       <span className="col-span-2 text-right text-gray-500">5</span>
                     </div>
@@ -191,7 +191,7 @@ export function CaseStudiesClient() {
                         </div>
                         <span className="truncate">Sven Jansen</span>
                       </div>
-                      <span className="col-span-3 text-right font-bold">$68,000</span>
+                      <span className="col-span-3 text-right font-bold">€68,000</span>
                       <span className="col-span-2 text-right text-gray-500">3</span>
                       <span className="col-span-2 text-right text-gray-500">11</span>
                     </div>
@@ -303,7 +303,7 @@ export function CaseStudiesClient() {
                     <div className="grid grid-cols-12 items-center py-1.5 border-t border-gray-50 text-gray-800 font-medium">
                       <span className="col-span-4 truncate font-bold">Sana Davoud</span>
                       <span className="col-span-3 text-gray-500">{isDe ? "Gehaltsband" : "Salary Band"}</span>
-                      <span className="col-span-3 text-right text-emerald-700 font-bold">$7,800/mo</span>
+                      <span className="col-span-3 text-right text-emerald-700 font-bold">€7,800/mo</span>
                       <span className="col-span-2 text-right text-gray-400">21 Feb</span>
                     </div>
                   </div>
