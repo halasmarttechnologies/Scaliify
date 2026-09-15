@@ -702,18 +702,10 @@ export function HrItSelectionClient() {
                 </p>
               </div>
 
-              <div className="flex items-center justify-between pt-4 border-t border-[#4FB8AA]/20">
-                <div>
-                  <p className="text-xs sm:text-sm font-bold text-black">
-                    Marion Kleiber <span className="font-normal text-gray-600">| Managing Director, Harrer Ingenieure GmbH</span>
-                  </p>
-                </div>
-                <div className="text-right">
-                  <span className="text-xl sm:text-2xl font-black text-[#05434B] leading-none block">87%</span>
-                  <p className="text-[10px] sm:text-xs text-gray-600 font-medium">
-                    {isDe ? "spürbarer Mehrwert in 3 Monaten" : "tangible value in 3 months"}
-                  </p>
-                </div>
+              <div className="pt-4 border-t border-[#4FB8AA]/20">
+                <p className="text-xs sm:text-sm font-bold text-black">
+                  Marion Kleiber <span className="font-normal text-gray-600">| Managing Director, Harrer Ingenieure GmbH</span>
+                </p>
               </div>
             </div>
           </div>
