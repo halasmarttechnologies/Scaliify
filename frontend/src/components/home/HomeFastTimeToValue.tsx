@@ -13,29 +13,29 @@ import {
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-// Specialist Avatars for the 21-dot network grid
+// Specialist Avatars for the 21-dot network grid — all unique
 const specialistAvatars = [
-  { src: "/avatars/bente.jpg", alt: "Specialist 1" },
-  { src: "/avatars/catherine.jpg", alt: "Specialist 2" },
-  { src: "/avatars/felix.jpg", alt: "Specialist 3" },
-  { src: "/avatars/max.jpg", alt: "Specialist 4" },
-  { src: "/avatars/mo.jpg", alt: "Specialist 5" },
-  { src: "/avatars/pim.jpg", alt: "Specialist 6" },
-  { src: "/avatars/silvia.jpg", alt: "Specialist 7" },
-  { src: "/avatars/catherine.jpg", alt: "Specialist 8" },
-  { src: "/avatars/bente.jpg", alt: "Specialist 9" },
-  { src: "/avatars/mo.jpg", alt: "Specialist 10" },
-  { src: "/avatars/silvia.jpg", alt: "Specialist 11" },
-  { src: "/avatars/felix.jpg", alt: "Specialist 12" },
-  { src: "/avatars/max.jpg", alt: "Specialist 13" },
-  { src: "/avatars/pim.jpg", alt: "Specialist 14" },
-  { src: "/avatars/felix.jpg", alt: "Specialist 15" },
-  { src: "/avatars/silvia.jpg", alt: "Specialist 16" },
-  { src: "/avatars/bente.jpg", alt: "Specialist 17" },
-  { src: "/avatars/catherine.jpg", alt: "Specialist 18" },
+  { src: "/avatars/marcus.jpg", alt: "Specialist 1" },
+  { src: "/avatars/elena.jpg", alt: "Specialist 2" },
+  { src: "/avatars/david.jpg", alt: "Specialist 3" },
+  { src: "/avatars/ananya.jpg", alt: "Specialist 4" },
+  { src: "/avatars/lucas.jpg", alt: "Specialist 5" },
+  { src: "/avatars/sophie.jpg", alt: "Specialist 6" },
+  { src: "/avatars/kai.jpg", alt: "Specialist 7" },
+  { src: "/avatars/emma.jpg", alt: "Specialist 8" },
+  { src: "/avatars/omar.jpg", alt: "Specialist 9" },
+  { src: "/avatars/charlotte.jpg", alt: "Specialist 10" },
+  { src: "/avatars/mateo.jpg", alt: "Specialist 11" },
+  { src: "/avatars/hanna.jpg", alt: "Specialist 12" },
+  { src: "/avatars/liam.jpg", alt: "Specialist 13" },
+  { src: "/avatars/sarah.jpg", alt: "Specialist 14" },
+  { src: "/avatars/bente.jpg", alt: "Specialist 15" },
+  { src: "/avatars/catherine.jpg", alt: "Specialist 16" },
+  { src: "/avatars/felix.jpg", alt: "Specialist 17" },
+  { src: "/avatars/max.jpg", alt: "Specialist 18" },
   { src: "/avatars/mo.jpg", alt: "Specialist 19" },
   { src: "/avatars/pim.jpg", alt: "Specialist 20" },
-  { src: "/avatars/max.jpg", alt: "Specialist 21" },
+  { src: "/avatars/silvia.jpg", alt: "Specialist 21" },
 ];
 
 export function HomeFastTimeToValue() {

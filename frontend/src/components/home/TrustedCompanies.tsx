@@ -22,7 +22,7 @@ export function TrustedCompanies() {
           className="text-center mb-8 sm:mb-14 px-2"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-bold tracking-tight text-gray-900 leading-tight">
-            Trusted by growing teams worldwide
+            {t("heading")}
           </h2>
         </motion.div>
 

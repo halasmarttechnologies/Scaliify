@@ -31,7 +31,7 @@ export function Hero() {
         {/* 1. Main Headline (H1) */}
         <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[68px] font-bold text-white text-center tracking-tight leading-[1.12] max-w-4xl mx-auto">
           <span className="text-brand-teal">{t("headlinePart1")}</span>{" "}
-          <span className="block text-2xl sm:text-4xl md:text-5xl lg:text-[56px] font-normal sm:font-semibold text-white/95 mt-1 sm:mt-2 lowercase">
+          <span className="block text-2xl sm:text-4xl md:text-5xl lg:text-[56px] font-normal sm:font-semibold text-white/95 mt-1 sm:mt-2">
             {t("headlinePart2")}
           </span>
         </h1>

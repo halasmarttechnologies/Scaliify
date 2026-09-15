@@ -506,7 +506,7 @@ export function ContactPageClient() {
                     required
                     value={formData.firstName}
                     onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                    placeholder={isDe ? "Vorname" : "First Name"}
+                    placeholder={isDe ? "Vorname *" : "First Name *"}
                     aria-label={isDe ? "Vorname" : "First name"}
                     className="w-full bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
                   />
@@ -515,7 +515,7 @@ export function ContactPageClient() {
                     required
                     value={formData.lastName}
                     onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                    placeholder={isDe ? "Nachname" : "Last Name"}
+                    placeholder={isDe ? "Nachname *" : "Last Name *"}
                     aria-label={isDe ? "Nachname" : "Last name"}
                     className="w-full bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
                   />
@@ -527,7 +527,7 @@ export function ContactPageClient() {
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder={isDe ? "Geschäftliche E-Mail-Adresse" : "Business Email Address"}
+                  placeholder={isDe ? "Geschäftliche E-Mail-Adresse *" : "Business Email Address *"}
                   aria-label={isDe ? "Geschäftliche E-Mail-Adresse" : "Business email address"}
                   className="w-full bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
                 />

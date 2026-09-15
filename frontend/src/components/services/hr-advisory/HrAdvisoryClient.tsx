@@ -232,35 +232,35 @@ const marqueeCardsDe = [
 ];
 
 const traditionalConsultancyItemsEn = [
-  "Rigid 6-figure retainers and bloated project overhead",
-  "Theoretical 100-slide decks created by junior analysts",
-  "Zero hands-on experience in daily HR operations",
-  "Protracted multi-month timelines before seeing results",
-  "Advisors disappear during critical execution phases",
+  "Rigid 6-figure retainers and bloated project overhead.",
+  "Theoretical 100-slide decks created by junior analysts.",
+  "Zero hands-on experience in daily HR operations.",
+  "Protracted multi-month waits before results become visible.",
+  "Advisors disappear during critical execution phases.",
 ];
 
 const traditionalConsultancyItemsDe = [
-  "Starre 6-stellige Honorare und aufgeblähter Projekt-Overhead",
-  "Theoretische 100-Seiten-Präsentationen von Junior-Beratern",
-  "Keine eigene Erfahrung im operativen HR-Tagesgeschäft",
-  "Monatelange Projektlaufzeiten vor ersten konkreten Resultaten",
-  "Berater sind bei der praktischen Umsetzung nicht mehr greifbar",
+  "Starre 6-stellige Honorare und aufgeblähter Projekt-Overhead.",
+  "Theoretische 100-Seiten-Präsentationen von Junior-Beratern.",
+  "Keine eigene Erfahrung im operativen HR-Tagesgeschäft.",
+  "Monatelange Wartezeiten, bis Ergebnisse sichtbar werden.",
+  "Berater sind bei der praktischen Umsetzung nicht mehr greifbar.",
 ];
 
 const scaliifyAdvisoryItemsEn = [
-  "Strategy consulting rigor combined with hands-on HR operations",
-  "On-demand expert input without retaining a full consultancy",
-  "Seasoned former CHROs and HR leaders with battle-tested track records",
-  "Pragmatic, implementation-ready deliverables tailored to your culture",
-  "Total flexibility: one-off sessions, retained hours, or pay as you go",
+  "Strategy consulting rigor combined with hands-on HR operations.",
+  "On-demand expert input without retaining a full consultancy.",
+  "Seasoned former CHROs and HR leaders with battle-tested track records.",
+  "Pragmatic, implementation-ready deliverables tailored to your culture.",
+  "Total flexibility: one-off sessions, retained hours, or pay as you go.",
 ];
 
 const scaliifyAdvisoryItemsDe = [
-  "Strategische Beratungskompetenz kombiniert mit operativer HR-Praxis",
-  "On-Demand-Expertise ohne langfristige Bindung an Großberatungen",
-  "Erfahrene ehemalige CHROs und HR-Führungskräfte auf Augenhöhe",
-  "Pragmatische, sofort umsetzbare Ergebnisse abgestimmt auf Ihre Kultur",
-  "Volle Flexibilität: Einzelsessions, Stundenkontingente oder Pay-as-you-go",
+  "Strategische Beratungskompetenz kombiniert mit operativer HR-Praxis.",
+  "On-Demand-Expertise ohne langfristige Bindung an Großberatungen.",
+  "Erfahrene ehemalige CHROs und HR-Führungskräfte auf Augenhöhe.",
+  "Pragmatische, sofort umsetzbare Ergebnisse abgestimmt auf Ihre Kultur.",
+  "Volle Flexibilität: Einzelsessions, Stundenkontingente oder Pay-as-you-go.",
 ];
 
 const hrAdvisoryFaqsEn = [
@@ -305,7 +305,7 @@ const hrAdvisoryFaqsDe = [
   {
     question: "Wie funktioniert die Zusammenarbeit (Einzelsession vs. Retainer vs. Pay-as-you-go)?",
     answer:
-      "Wir bieten drei flexible Formate: (1) Einmalige Deep-Dive-Strategiesessions für dringende Fragestellungen, (2) Monatliche Retainer-Stunden für kontinuierliches Sparring der Geschäftsführung und (3) Pay-as-you-go, bei dem Sie flexibel nur gebuchte Stunden ohne Mindestlaufzeit zahlen.",
+      "Wir bieten drei flexible Beratungsformate an: einmalige, vertiefende Strategiegespräche für akute Fragestellungen oder eine unabhängige Zweitmeinung, monatliche Stundenkontingente für regelmäßige Führungsgespräche und die laufende Begleitung von Projekten sowie Beratung auf Abruf. Dabei buchen und bezahlen Sie ausschließlich die tatsächlich benötigten Stunden, ohne sich langfristig zu binden.",
   },
   {
     question: "Welche Qualifikationen und Hintergründe bringen die HR-Berater mit?",
@@ -465,7 +465,7 @@ export function HrAdvisoryClient() {
       <section className="w-full bg-white py-12 sm:py-16 overflow-hidden border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 mb-6 sm:mb-8 text-center">
           <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#4FB8AA] mb-2">
-            {isDe ? "BERATUNGSERFOLG IN ÜBER 100 STRATEGISCHEN MANDATEN" : "TRUSTED BY BOARDS & HR LEADERS ACROSS EUROPE"}
+            {isDe ? "VON VORSTÄNDEN UND PERSONALVERANTWORTLICHEN IN GANZ EUROPA VERTRAUT" : "TRUSTED BY BOARDS & HR LEADERS ACROSS EUROPE"}
           </p>
           <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-black leading-tight">
             {isDe ? "Pragmatische Lösungen mit messbarem Geschäftserfolg" : "Pragmatic solutions driving real business outcomes"}
@@ -611,9 +611,6 @@ export function HrAdvisoryClient() {
       <section className="w-full bg-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
-            <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#2B4C55] mb-2.5">
-              {isDe ? "KLARE ANTWORTEN" : "CLEAR ANSWERS"}
-            </p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">
               {isDe ? "Häufig gestellte Fragen" : "Frequently asked questions"}
             </h2>

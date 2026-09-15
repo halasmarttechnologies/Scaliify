@@ -3,6 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import Script from "next/script";
 import { routing } from "@/i18n/routing";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -56,6 +57,12 @@ export default async function LocaleLayout({
             </LenisProvider>
           </SecurityProvider>
         </NextIntlClientProvider>
+        {/* HighLevel / msgsndr External Tracking */}
+        <Script
+          src="https://link.msgsndr.com/js/external-tracking.js"
+          data-tracking-id="tk_d18c012d488e4216a8a01609b30fbc40"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

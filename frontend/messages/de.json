@@ -257,7 +257,7 @@
     "bottomBadge": "Herstellerunabhängige Auswahl · Hands-on-Implementierung · Laufende strategische Beratung"
   },
   "trustedCompanies": {
-    "heading": "Von wachsenden Teams weltweit vertraut"
+    "heading": "Weltweit vertrauen wachsende Teams scaliify"
   },
   "softwareStack": {
     "kicker": "Software, mit der wir arbeiten",
@@ -274,7 +274,7 @@
   },
   "testimonials": {
     "heading": "Von führenden Teams geschätzt",
-    "subtitle": "Erfahren Sie, wie europäische Unternehmen ihre HR-Prozesse mit scaliify transformieren.",
+    "subtitle": "Erfahren Sie, wie europäische Unternehmen Ihre HR-Prozesse mit scaliify transformieren.",
     "items": [
       {
         "quote": "scaliify war für uns ein unschätzbarer Partner bei der Optimierung unserer HR-Prozesse. Von der Beantwortung unserer Personio-Fragen mit fundiertem Fachwissen bis hin zum Aufbau eines maßgeschneiderten Recruiting-Dashboards – ihre Unterstützung hat Struktur und Effizienz in unsere Workflows gebracht. Dank ihres praxisnahen Ansatzes und ihrer strategischen Denkweise sind wir nun bestens aufgestellt, um unsere HR-Abläufe zu skalieren.",
@@ -337,7 +337,7 @@
   "supportFromDayOne": {
     "kicker": "NAHTLOSE UNTERSTÜTZUNG",
     "heading": "Unterstützung vom ersten Tag an.",
-    "subtitle": "Erhalten Sie Hilfe während der gesamten Implementierung und darüber hinaus. Von Onboarding-Ressourcen und Self-Service-Diagnose-Toolkits bis hin zu Senior-HR-Beratung und einer aktiven Community von People-Führungskräften – Scaliify hilft Ihnen beim schnellen Start und der optimalen Nutzung Ihres HR-Ökosystems.",
+    "subtitle": "Erhalten Sie Hilfe während der gesamten Implementierung und darüber hinaus. Von Onboarding-Ressourcen und Self-Service-Diagnose-Toolkits bis hin zu Senior-HR-Beratung und einer aktiven Community von People-Führungskräften – Scaliify hilft Ihnen beim schnellen Start und der optimalen Nutzung Ihrer HR-Systemlandschaft.",
     "bookConsultation": "Beratungsgespräch anfragen",
     "card1Kicker": "HILFE AUF KNOPFDRUCK",
     "card1Heading": "Lösungen, Anleitungen und ein rund um die Uhr verfügbares Hilfecenter mit über 500 Artikeln.",
@@ -378,7 +378,7 @@
     "defaultSubtitle": "Füllen Sie Ihre Daten aus, um ein Beratungsgespräch mit einer unserer People- & HR-Technologie-Expert:innen zu buchen.",
     "defaultBadge": "KENNENLERNEN & BERATUNG",
     "expectHeading": "Das erwartet Sie:",
-    "expect1": "Ein unverbindlicher Überblick über Ihr HR-Ökosystem",
+    "expect1": "Ein unverbindlicher Überblick über Ihre HR-Systemlandschaft",
     "expect2": "Ein Gespräch, das auf die Prioritäten und den Zeitplan Ihres Teams zugeschnitten ist",
     "expect3": "Direkte, ehrliche Antworten von erfahrenen HR- & Tech-Praktiker:innen",
     "trustHeading": "Unabhängige Expertise, der europäische Führungskräfte vertrauen:",
@@ -646,7 +646,7 @@
   "caseStudies": {
     "kicker": "KUNDENWIRKUNG & ERGEBNISSE",
     "heading": "Echte Ergebnisse für wachsende europäische Unternehmen",
-    "subtitle": "Wie wachsende Unternehmen HR-Tech-Altlasten eliminieren, Payroll-Umstellungen automatisieren und ihre People Operations mit Scaliify skalieren.",
+    "subtitle": "Wie wachsende Unternehmen mit scaliify Ihren Technologie-Rückstand bewältigen, Personalprozesse automatisieren und skalieren.",
     "discussChallenge": "Ihre Herausforderung besprechen",
     "payrollKicker1": "VORBEREITENDE GEHALTSABRECHNUNG",
     "payrollKicker2": "DOKUMENTENAUTOMATISIERUNG",
@@ -1053,7 +1053,7 @@
       "kicker": "HR-BERATUNG",
       "heading": "Strategische Personalberatung",
       "subtitle": "Expertenberatung zu Organisationsdesign, Vergütungsstrukturen, Mitarbeiterbeziehungen und Veränderungsmanagement für wachsende europäische Unternehmen.",
-      "ctaButton": "HR-Beratung anfragen"
+      "ctaButton": "Beratung anfordern"
     }
   },
   "breadcrumbs": {

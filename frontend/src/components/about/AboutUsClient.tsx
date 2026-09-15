@@ -198,8 +198,8 @@ export function AboutUsClient() {
 
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6 max-w-xl">
               {isDe
-                ? "scaliify wurde 2022 von Ben und Sarah aus einer Überzeugung heraus gegründet: Die meisten HR-Beratungen sind entweder stark in der Strategie oder stark in der Umsetzung – selten in beidem. Wir verbinden beides."
-                : "scaliify was founded in 2022 by Ben and Sarah around one conviction: most HR consultancies are either strong on strategy or strong on execution, rarely both. We combine the two."}
+                ? "scaliify wurde 2022 von Ben und Sarah aus einer Überzeugung heraus gegründet: Die meisten HR-Beratungen sind entweder stark in der Strategie oder stark in der Umsetzung. Wir verbinden beides."
+                : "scaliify was founded in 2022 by Ben and Sarah around one conviction: most HR consultancies are either strong on strategy or strong on execution. We combine the two."}
             </p>
 
             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-8 max-w-xl font-medium">
@@ -312,16 +312,16 @@ export function AboutUsClient() {
               {isDe ? (
                 <>
                   <p>
-                    scaliify wurde 2022 von Ben und Sarah gegründet. Wir haben es um eine Idee herum aufgebaut: Die meisten HR-Beratungen sind entweder stark in der Strategie oder stark in der Umsetzung – selten in beidem. Wir kombinieren beides.
+                    scaliify wurde 2022 von Ben und Sarah gegründet. Wir haben es um eine Idee herum aufgebaut: Die meisten HR-Beratungen sind entweder stark in der Strategie oder stark in der Umsetzung. Wir kombinieren beides.
                   </p>
                   <p>
                     Wir sind auf die DACH-Region spezialisiert und arbeiten gleichzeitig international, mit einer wachsenden Präsenz in den VAE. Das bedeutet, dass wir die lokalen Vorschriften, die Kultur und die alltäglichen HR-Realitäten dieser Märkte verstehen, nicht nur die Theorie.
                   </p>
                   <p>
-                    Was uns unterscheidet: Unsere Beratung basiert auf echter Erfahrung in der Führung von HR-Abteilungen, nicht nur auf theoretischen Konzepten. Wir übergeben nicht einfach eine Strategie und gehen wieder. Wir bleiben dabei, bis es in der Praxis wirklich funktioniert.
+                    Was uns unterscheidet: Unsere Beratung basiert auf echter Erfahrung in der Führung von HR-Abteilungen, nicht nur auf theoretischen Konzepten. Wir liefern nicht einfach eine Strategie und lassen unsere Kunden damit alleine. Falls erwünscht, bleiben wir an Ihrer Seite bis sich die Strategie in der Praxis bewährt hat.
                   </p>
                   <p>
-                    Um jedes Projekt optimal zu unterstützen, arbeiten wir mit einem Netzwerk von über 150 freiberuflichen Spezialist:innen zusammen – darunter Anwälte, Recruiter und HR Business Partner. So bringen wir für jeden Kunden genau die richtige Expertise ein, ohne ein kleines Kernteam zu überlasten.
+                    Um jedes Projekt optimal zu unterstützen, arbeiten wir mit einem Netzwerk von über 150 freiberuflichen Spezialist:innen zusammen – darunter Anwälte, Recruiter und HR Business Partner.
                   </p>
                   <p>
                     Im Kern versteht sich scaliify als Partner, der sowohl die übergeordnete Strategie als auch das operative Tagesgeschäft versteht – und sich nahtlos zwischen beidem bewegt.
@@ -330,16 +330,16 @@ export function AboutUsClient() {
               ) : (
                 <>
                   <p>
-                    scaliify was founded in 2022 by Ben and Sarah. We built it around one idea: most HR consultancies are either strong on strategy or strong on execution, rarely both. We combine the two.
+                    scaliify was founded in 2022 by Ben and Sarah. We built it around one idea: most HR consultancies are either strong on strategy or strong on execution. We combine the two.
                   </p>
                   <p>
                     We're specialised in the DACH region while also working internationally, including a growing presence in the UAE. This means we understand the local rules, culture, and everyday HR realities of these markets, not just the general theory.
                   </p>
                   <p>
-                    What makes us different is that our advice comes from real experience running HR functions, not just studying them. We don't just hand over a strategy and walk away. We stay involved until it actually works in practice.
+                    What makes us different is that our advice comes from real experience running HR functions, not just studying them. We don't simply deliver a strategy and leave our clients to figure it out alone. If desired, we stay by your side until the strategy has proven itself in practice.
                   </p>
                   <p>
-                    To support every project properly, we work with a network of over 150 freelance specialists, including lawyers, recruiters, and HR business partners. This lets us bring in exactly the right expertise for each client, without stretching a small team too thin.
+                    To support every project properly, we work with a network of over 150 freelance specialists, including lawyers, recruiters, and HR business partners.
                   </p>
                   <p>
                     At its core, scaliify exists as a partner who understands both the big-picture strategy and the everyday operational work, and can move easily between the two.
