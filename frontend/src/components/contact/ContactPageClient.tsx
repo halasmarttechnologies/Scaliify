@@ -8,6 +8,8 @@ import { useLocale } from "next-intl";
 import {
   Check,
   CheckCircle2,
+  Mail,
+  Copy,
 } from "lucide-react";
 import { companies } from "@/data/companies";
 import { SupportFromDayOne } from "@/components/common/SupportFromDayOne";
@@ -105,6 +107,14 @@ export function ContactPageClient() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigator.clipboard.writeText("sarah@scaliify.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const employeeRanges = isDe ? employeeRangesDe : employeeRangesEn;
   const europeanCountries = isDe ? europeanCountriesDe : europeanCountriesEn;
@@ -386,6 +396,38 @@ export function ContactPageClient() {
               </span>
             </div>
           ))}
+        </div>
+
+        {/* Direct Email Contact */}
+        <div className="mt-8 flex flex-col items-center gap-2">
+          <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-gray-400">
+            {isDe ? "Direkt schreiben" : "Or reach us directly"}
+          </p>
+          <div className="inline-flex items-center gap-3 bg-white border border-[#81D8D0]/50 rounded-2xl px-5 py-3 shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-8 h-8 rounded-xl bg-[#81D8D0]/25 flex items-center justify-center shrink-0">
+              <Mail className="w-4 h-4 text-[#05434B]" />
+            </div>
+            <a
+              href="mailto:sarah@scaliify.com"
+              className="text-sm font-bold text-gray-900 hover:text-[#05434B] transition-colors"
+            >
+              sarah@scaliify.com
+            </a>
+            <button
+              type="button"
+              onClick={handleCopyEmail}
+              title={isDe ? "E-Mail kopieren" : "Copy email"}
+              aria-label={isDe ? "E-Mail-Adresse kopieren" : "Copy email address"}
+              className="w-7 h-7 rounded-lg bg-gray-100 hover:bg-[#81D8D0]/30 flex items-center justify-center transition-colors cursor-pointer shrink-0"
+            >
+              <Copy className="w-3.5 h-3.5 text-gray-500" />
+            </button>
+            {copied && (
+              <span className="text-[11px] font-bold text-[#05434B] animate-in fade-in duration-150">
+                {isDe ? "Kopiert!" : "Copied!"}
+              </span>
+            )}
+          </div>
         </div>
       </div>
 
