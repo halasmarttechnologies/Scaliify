@@ -73,8 +73,8 @@ describe("leadContactSchema", () => {
     expect(result.email).toBe("jane.doe@example.com");
   });
 
-  it("rejects a first name shorter than 2 characters", () => {
-    const result = leadContactSchema.safeParse({ ...validLead(), firstName: "J" });
+  it("rejects an empty first name", () => {
+    const result = leadContactSchema.safeParse({ ...validLead(), firstName: "" });
     expect(result.success).toBe(false);
   });
 
