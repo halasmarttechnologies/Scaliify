@@ -446,7 +446,7 @@ export function ResourcesClient() {
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form id="resources-template-form" data-formid="Resources Template Request Form" onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <h2 className="text-lg sm:text-xl font-bold text-gray-950 mb-1">
                     {isDe ? "Ihre Vorlagen-Anfrage zusammenstellen" : "Build Your Template Request"}
@@ -461,12 +461,15 @@ export function ResourcesClient() {
                 {/* 3 Core Contact Inputs */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
                   <div>
-                    <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                    <label htmlFor="resource_name" className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1.5">
                       {isDe ? "Name *" : "Name *"}
                     </label>
                     <input
+                      id="resource_name"
+                      name="name"
                       type="text"
                       required
+                      autoComplete="name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder={isDe ? "Vor- & Nachname" : "Full Name"}
@@ -475,12 +478,15 @@ export function ResourcesClient() {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                    <label htmlFor="resource_email" className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1.5">
                       {isDe ? "Geschäftliche E-Mail *" : "Work Email *"}
                     </label>
                     <input
+                      id="resource_email"
+                      name="email"
                       type="email"
                       required
+                      autoComplete="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder={isDe ? "name@unternehmen.de" : "name@company.com"}
@@ -489,12 +495,15 @@ export function ResourcesClient() {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                    <label htmlFor="resource_company" className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1.5">
                       {isDe ? "Unternehmen *" : "Company *"}
                     </label>
                     <input
+                      id="resource_company"
+                      name="company_name"
                       type="text"
                       required
+                      autoComplete="organization"
                       value={company}
                       onChange={(e) => setCompany(e.target.value)}
                       placeholder={isDe ? "Firmenname GmbH" : "Company Inc."}

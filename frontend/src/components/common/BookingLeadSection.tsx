@@ -184,15 +184,18 @@ export function BookingLeadSection({
                 </button>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form id="booking-lead-form" data-formid="Booking Consultation Form" onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                   <div>
-                    <label className="block text-xs font-bold text-gray-800 mb-1">
+                    <label htmlFor="booking_first_name" className="block text-xs font-bold text-gray-800 mb-1">
                       {t("firstNameLabel")}
                     </label>
                     <input
+                      id="booking_first_name"
+                      name="first_name"
                       type="text"
                       required
+                      autoComplete="given-name"
                       placeholder={t("firstNamePlaceholder")}
                       value={formData.firstName}
                       onChange={(e) =>
@@ -202,12 +205,15 @@ export function BookingLeadSection({
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-gray-800 mb-1">
+                    <label htmlFor="booking_last_name" className="block text-xs font-bold text-gray-800 mb-1">
                       {t("lastNameLabel")}
                     </label>
                     <input
+                      id="booking_last_name"
+                      name="last_name"
                       type="text"
                       required
+                      autoComplete="family-name"
                       placeholder={t("lastNamePlaceholder")}
                       value={formData.lastName}
                       onChange={(e) =>
@@ -219,12 +225,15 @@ export function BookingLeadSection({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-800 mb-1">
+                  <label htmlFor="booking_email" className="block text-xs font-bold text-gray-800 mb-1">
                     {t("emailLabel")}
                   </label>
                   <input
+                    id="booking_email"
+                    name="email"
                     type="email"
                     required
+                    autoComplete="email"
                     placeholder={t("emailPlaceholder")}
                     value={formData.email}
                     onChange={(e) =>
@@ -235,12 +244,15 @@ export function BookingLeadSection({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-800 mb-1">
+                  <label htmlFor="booking_company_name" className="block text-xs font-bold text-gray-800 mb-1">
                     {t("companyLabel")}
                   </label>
                   <input
+                    id="booking_company_name"
+                    name="company_name"
                     type="text"
                     required
+                    autoComplete="organization"
                     placeholder={t("companyPlaceholder")}
                     value={formData.companyName}
                     onChange={(e) =>
@@ -251,11 +263,14 @@ export function BookingLeadSection({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-800 mb-1">
+                  <label htmlFor="booking_job_title" className="block text-xs font-bold text-gray-800 mb-1">
                     {t("jobTitleLabel")}
                   </label>
                   <input
+                    id="booking_job_title"
+                    name="job_title"
                     type="text"
+                    autoComplete="organization-title"
                     placeholder={t("jobTitlePlaceholder")}
                     value={formData.jobTitle}
                     onChange={(e) =>
@@ -266,10 +281,12 @@ export function BookingLeadSection({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-800 mb-1">
+                  <label htmlFor="booking_employees" className="block text-xs font-bold text-gray-800 mb-1">
                     {t("employeesLabel")}
                   </label>
                   <select
+                    id="booking_employees"
+                    name="employees"
                     value={formData.employees}
                     onChange={(e) =>
                       setFormData({ ...formData, employees: e.target.value })
@@ -285,11 +302,14 @@ export function BookingLeadSection({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-800 mb-1">
+                  <label htmlFor="booking_phone" className="block text-xs font-bold text-gray-800 mb-1">
                     {t("phoneLabel")}
                   </label>
                   <input
+                    id="booking_phone"
+                    name="phone"
                     type="tel"
+                    autoComplete="tel"
                     placeholder={t("phonePlaceholder")}
                     value={formData.phone}
                     onChange={(e) =>

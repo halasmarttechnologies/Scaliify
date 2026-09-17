@@ -174,10 +174,13 @@ export function LetsTalkClient() {
 
                 {/* Step 1: Email */}
                 {step === 1 && (
-                  <form onSubmit={handleStep1} className="flex flex-col gap-3.5">
+                  <form id="lets-talk-step-1" data-formid="Lets Talk - Step 1" onSubmit={handleStep1} className="flex flex-col gap-3.5">
                     <input
+                      id="lets_talk_email"
+                      name="email"
                       type="email"
                       required
+                      autoComplete="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder={t("emailPlaceholder")}
@@ -208,10 +211,24 @@ export function LetsTalkClient() {
 
                 {/* Step 2: Company */}
                 {step === 2 && (
-                  <form onSubmit={handleStep2} className="flex flex-col gap-3.5">
+                  <form id="lets-talk-step-2" data-formid="Lets Talk - Step 2" onSubmit={handleStep2} className="flex flex-col gap-3.5">
+                    {/* Carried-over email for GHL contact mapping */}
                     <input
+                      name="email"
+                      type="email"
+                      value={email}
+                      readOnly
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      className="sr-only"
+                      style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
+                    />
+                    <input
+                      id="lets_talk_company"
+                      name="company_name"
                       type="text"
                       required
+                      autoComplete="organization"
                       value={company}
                       onChange={(e) => setCompany(e.target.value)}
                       placeholder={t("companyPlaceholder")}
@@ -236,10 +253,34 @@ export function LetsTalkClient() {
 
                 {/* Step 3: Name */}
                 {step === 3 && (
-                  <form onSubmit={handleStep3} className="flex flex-col gap-3.5">
+                  <form id="lets-talk-step-3" data-formid="Lets Talk - Step 3" onSubmit={handleStep3} className="flex flex-col gap-3.5">
+                    {/* Carried-over email and company for complete GHL contact creation */}
                     <input
+                      name="email"
+                      type="email"
+                      value={email}
+                      readOnly
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      className="sr-only"
+                      style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
+                    />
+                    <input
+                      name="company_name"
+                      type="text"
+                      value={company}
+                      readOnly
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      className="sr-only"
+                      style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
+                    />
+                    <input
+                      id="lets_talk_name"
+                      name="name"
                       type="text"
                       required
+                      autoComplete="name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder={t("namePlaceholder")}

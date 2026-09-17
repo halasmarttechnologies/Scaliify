@@ -298,8 +298,8 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
             <div className="relative w-full my-6 flex flex-col items-center justify-center">
               
               {/* Central Interactive Search Bar */}
-              <form
-                onSubmit={handleSearchSubmit}
+              <div
+                role="search"
                 className="w-full max-w-md bg-white rounded-2xl p-1.5 pl-4 shadow-[0_8px_30px_rgba(5,67,75,0.1)] border border-[#76D8C8]/50 flex items-center gap-2.5 z-20 mb-4"
               >
                 <Search className="w-4 h-4 text-[#00D2C4] shrink-0" />
@@ -307,6 +307,12 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      e.preventDefault();
+                      handleSearchSubmit(e as any);
+                    }
+                  }}
                   placeholder={isDe ? "Themen oder Seiten suchen (z. B. HR, Management, DATEV)..." : "Search topics or pages (e.g. HR, management, DATEV)..."}
                   className="w-full bg-transparent text-xs sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none"
                 />
@@ -320,12 +326,13 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
                   </button>
                 )}
                 <button
-                  type="submit"
+                  type="button"
+                  onClick={() => handleSearchSubmit({ preventDefault: () => {} } as any)}
                   className="bg-[#00D2C4] hover:bg-[#76D8C8] text-[#05434B] font-extrabold text-xs px-3.5 py-2 rounded-xl shrink-0 transition-colors cursor-pointer active:scale-95"
                 >
                   {isDe ? "Finden" : "Search"}
                 </button>
-              </form>
+              </div>
 
               {/* Dynamic Content: Live Filtered Pages List OR Topic Pills */}
               {searchQuery.trim() ? (
@@ -563,7 +570,7 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleCommunitySubmit} className="space-y-4">
+              <form id="community-invite-form" data-formid="Community Invite Form" onSubmit={handleCommunitySubmit} className="space-y-4">
                 <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#05434B] bg-[#76D8C8]/30 px-3 py-1 rounded-full">
                   <Sparkles className="w-3.5 h-3.5 text-[#00D2C4]" />
                   <span>Scaliify People Leaders Circle</span>
@@ -582,12 +589,15 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
 
                 <div className="space-y-3 pt-1">
                   <div>
-                    <label className="block text-xs font-bold text-gray-700 mb-1">
+                    <label htmlFor="community_name" className="block text-xs font-bold text-gray-700 mb-1">
                       {isDe ? "Ihr Name *" : "Full Name *"}
                     </label>
                     <input
+                      id="community_name"
+                      name="name"
                       type="text"
                       required
+                      autoComplete="name"
                       value={communityName}
                       onChange={(e) => setCommunityName(e.target.value)}
                       placeholder={isDe ? "Vor- und Nachname" : "Jane Doe"}
@@ -596,12 +606,15 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-gray-700 mb-1">
+                    <label htmlFor="community_email" className="block text-xs font-bold text-gray-700 mb-1">
                       {isDe ? "Geschäftliche E-Mail *" : "Work Email *"}
                     </label>
                     <input
+                      id="community_email"
+                      name="email"
                       type="email"
                       required
+                      autoComplete="email"
                       value={communityEmail}
                       onChange={(e) => setCommunityEmail(e.target.value)}
                       placeholder={isDe ? "name@unternehmen.de" : "name@company.com"}
@@ -610,11 +623,14 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-gray-700 mb-1">
+                    <label htmlFor="community_company" className="block text-xs font-bold text-gray-700 mb-1">
                       {isDe ? "Unternehmen" : "Company Name"}
                     </label>
                     <input
+                      id="community_company"
+                      name="company_name"
                       type="text"
+                      autoComplete="organization"
                       value={communityCompany}
                       onChange={(e) => setCommunityCompany(e.target.value)}
                       placeholder={isDe ? "Ihr Unternehmen" : "Your Organization"}

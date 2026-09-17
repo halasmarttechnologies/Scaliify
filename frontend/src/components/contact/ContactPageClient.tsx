@@ -540,12 +540,15 @@ export function ContactPageClient() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+              <form id="contact-form" data-formid="Contact Form" onSubmit={handleSubmit} className="flex flex-col gap-3">
                 {/* Row: First / Last Name */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <input
+                    id="contact_first_name"
+                    name="first_name"
                     type="text"
                     required
+                    autoComplete="given-name"
                     value={formData.firstName}
                     onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                     placeholder={isDe ? "Vorname *" : "First Name *"}
@@ -553,8 +556,11 @@ export function ContactPageClient() {
                     className="w-full bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
                   />
                   <input
+                    id="contact_last_name"
+                    name="last_name"
                     type="text"
                     required
+                    autoComplete="family-name"
                     value={formData.lastName}
                     onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                     placeholder={isDe ? "Nachname *" : "Last Name *"}
@@ -565,8 +571,11 @@ export function ContactPageClient() {
 
                 {/* Business Email */}
                 <input
+                  id="contact_email"
+                  name="email"
                   type="email"
                   required
+                  autoComplete="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder={isDe ? "Geschäftliche E-Mail-Adresse *" : "Business Email Address *"}
@@ -576,8 +585,11 @@ export function ContactPageClient() {
 
                 {/* Company Name */}
                 <input
+                  id="contact_company_name"
+                  name="company_name"
                   type="text"
                   required
+                  autoComplete="organization"
                   value={formData.companyName}
                   onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                   placeholder={isDe ? "Unternehmen *" : "Company Name *"}
@@ -588,8 +600,11 @@ export function ContactPageClient() {
                 {/* Job Title / Required Position */}
                 {isInterim || isOutsourced ? (
                   <input
+                    id="contact_job_title"
+                    name="job_title"
                     type="text"
                     required
+                    autoComplete="organization-title"
                     value={formData.positionRequired}
                     onChange={(e) => setFormData({ ...formData, positionRequired: e.target.value })}
                     placeholder={
@@ -610,7 +625,10 @@ export function ContactPageClient() {
                   />
                 ) : (
                   <input
+                    id="contact_job_title"
+                    name="job_title"
                     type="text"
+                    autoComplete="organization-title"
                     value={formData.jobTitle}
                     onChange={(e) => setFormData({ ...formData, jobTitle: e.target.value })}
                     placeholder={isDe ? "Position" : "Job Title"}
@@ -623,6 +641,8 @@ export function ContactPageClient() {
                 {(isInterim || isOutsourced) && (
                   <div className="relative">
                     <select
+                      id="contact_start_date"
+                      name="start_date"
                       required
                       value={formData.startDate}
                       onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
@@ -659,6 +679,8 @@ export function ContactPageClient() {
                 {/* Number of Employees */}
                 <div className="relative">
                   <select
+                    id="contact_employees"
+                    name="employees"
                     required
                     value={formData.employees}
                     onChange={(e) => setFormData({ ...formData, employees: e.target.value })}
@@ -680,6 +702,9 @@ export function ContactPageClient() {
                 {/* Country */}
                 <div className="relative">
                   <select
+                    id="contact_country"
+                    name="country"
+                    autoComplete="country-name"
                     value={formData.country}
                     onChange={(e) => handleCountryChange(e.target.value)}
                     aria-label={isDe ? "Land" : "Country"}
@@ -700,6 +725,8 @@ export function ContactPageClient() {
                 <div className="flex gap-2">
                   <div className="relative shrink-0">
                     <select
+                      id="contact_dial_code"
+                      name="dial_code"
                       value={formData.dialCode}
                       onChange={(e) => setFormData({ ...formData, dialCode: e.target.value })}
                       aria-label={isDe ? "Ländervorwahl" : "Dial code"}
@@ -716,7 +743,10 @@ export function ContactPageClient() {
                     </div>
                   </div>
                   <input
+                    id="contact_phone"
+                    name="phone"
                     type="tel"
+                    autoComplete="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder={isDe ? "Telefonnummer" : "Phone Number"}
@@ -727,7 +757,7 @@ export function ContactPageClient() {
 
                 {/* Message / Describe IT setup or Integrations or Interim role or Outsourced HR or Advisory */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-bold text-gray-700">
+                  <label htmlFor="contact_message" className="text-xs font-bold text-gray-700">
                     {isImplementation
                       ? isDe
                         ? "Beschreiben Sie Ihr Implementierungs- oder Optimierungsvorhaben *"
@@ -761,6 +791,8 @@ export function ContactPageClient() {
                       : "Your message"}
                   </label>
                   <textarea
+                    id="contact_message"
+                    name="message"
                     rows={4}
                     required={isImplementation || isSelection || isOutsourced || isInterim || isAudit || isIntegrations || isAdvisory}
                     value={formData.message}
@@ -824,6 +856,7 @@ export function ContactPageClient() {
                   <input
                     type="checkbox"
                     id="consent"
+                    name="consent"
                     checked={formData.consentUpdates}
                     onChange={(e) => setFormData({ ...formData, consentUpdates: e.target.checked })}
                     className="mt-0.5 w-4 h-4 rounded border-gray-300 accent-brand-dark cursor-pointer"

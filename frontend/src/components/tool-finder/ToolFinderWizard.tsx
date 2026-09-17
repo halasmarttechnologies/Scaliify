@@ -244,7 +244,7 @@ export function ToolFinderWizard() {
               />
             )}
             {currentStep === 10 && (
-              <WizardLeadForm lead={lead} setLead={setLead} />
+              <WizardLeadForm lead={lead} setLead={setLead} onSubmit={submitAssessment} />
             )}
           </AnimatePresence>
 
@@ -263,6 +263,7 @@ export function ToolFinderWizard() {
             <div className="flex items-center gap-3 w-full sm:w-auto">
               {currentStep > 1 && (
                 <button
+                  type="button"
                   onClick={handleBack}
                   className="flex items-center justify-center w-12 h-12 bg-white/5 border border-white/20 text-white hover:bg-white/10 rounded-xl transition-colors cursor-pointer shrink-0"
                 >
@@ -271,6 +272,8 @@ export function ToolFinderWizard() {
               )}
 
               <button
+                type={currentStep === TOTAL_STEPS ? "submit" : "button"}
+                form={currentStep === TOTAL_STEPS ? "tool-finder-lead-form" : undefined}
                 onClick={
                   currentStep === TOTAL_STEPS
                     ? submitAssessment

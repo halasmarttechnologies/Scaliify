@@ -371,14 +371,17 @@ export function GuidesClient() {
                   </p>
                 </div>
 
-                <form onSubmit={handleModalSubmit} className="flex flex-col gap-3">
+                <form id="guide-request-form" data-formid="Guide Playbook Request Form" onSubmit={handleModalSubmit} className="flex flex-col gap-3">
                   <div>
-                    <label className="block text-[11px] font-bold text-gray-700 mb-1">
+                    <label htmlFor="guide_name" className="block text-[11px] font-bold text-gray-700 mb-1">
                       {isDe ? "Vollständiger Name *" : "Full Name *"}
                     </label>
                     <input
+                      id="guide_name"
+                      name="name"
                       type="text"
                       required
+                      autoComplete="name"
                       value={modalForm.name}
                       onChange={(e) => setModalForm({ ...modalForm, name: e.target.value })}
                       placeholder={isDe ? "z. B. Sarah Schmidt" : "e.g. Sarah Schmidt"}
@@ -387,12 +390,15 @@ export function GuidesClient() {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold text-gray-700 mb-1">
+                    <label htmlFor="guide_email" className="block text-[11px] font-bold text-gray-700 mb-1">
                       {isDe ? "Geschäftliche E-Mail *" : "Work Email *"}
                     </label>
                     <input
+                      id="guide_email"
+                      name="email"
                       type="email"
                       required
+                      autoComplete="email"
                       value={modalForm.email}
                       onChange={(e) => setModalForm({ ...modalForm, email: e.target.value })}
                       placeholder={isDe ? "name@unternehmen.de" : "name@company.com"}
@@ -402,12 +408,15 @@ export function GuidesClient() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-[11px] font-bold text-gray-700 mb-1">
+                      <label htmlFor="guide_company" className="block text-[11px] font-bold text-gray-700 mb-1">
                         {isDe ? "Unternehmen *" : "Company Name *"}
                       </label>
                       <input
+                        id="guide_company"
+                        name="company_name"
                         type="text"
                         required
+                        autoComplete="organization"
                         value={modalForm.company}
                         onChange={(e) => setModalForm({ ...modalForm, company: e.target.value })}
                         placeholder={isDe ? "Ihr Unternehmen" : "Company Ltd"}
@@ -416,11 +425,14 @@ export function GuidesClient() {
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-bold text-gray-700 mb-1">
+                      <label htmlFor="guide_job_title" className="block text-[11px] font-bold text-gray-700 mb-1">
                         {isDe ? "Position (optional)" : "Job Title (Optional)"}
                       </label>
                       <input
+                        id="guide_job_title"
+                        name="job_title"
                         type="text"
+                        autoComplete="organization-title"
                         value={modalForm.jobTitle}
                         onChange={(e) => setModalForm({ ...modalForm, jobTitle: e.target.value })}
                         placeholder={isDe ? "z. B. Head of People, COO" : "Head of People, COO"}

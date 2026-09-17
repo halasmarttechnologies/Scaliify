@@ -52,6 +52,8 @@ export function Hero() {
         {/* 3. Clean Input with Glossy Tiffany Blue CTA Button (No beam) */}
         <div className="mt-7 sm:mt-8 w-full max-w-sm sm:max-w-md relative p-[1px] rounded-2xl bg-white/20 border border-white/30 shadow-[0_4px_24px_rgba(0,0,0,0.4)]">
           <form
+            id="hero-email-form"
+            data-formid="Hero Email Form"
             onSubmit={(e) => {
               e.preventDefault();
               if (email) {
@@ -61,7 +63,10 @@ export function Hero() {
             className="relative z-10 bg-white rounded-[15px] p-1.5 pl-4 sm:pl-5 flex items-center justify-between transition-all"
           >
             <input
+              id="hero_email"
+              name="email"
               type="email"
+              autoComplete="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={t("emailPlaceholder")}
