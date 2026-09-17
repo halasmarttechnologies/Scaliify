@@ -329,8 +329,8 @@ export function ResourcesClient() {
     setIsSubmitting(true);
 
     const nameParts = name.trim().split(" ");
-    const firstName = nameParts[0] || name.trim();
-    const lastName = nameParts.slice(1).join(" ") || "—";
+    const firstName = nameParts[0] || name.trim() || "Lead";
+    const lastName = nameParts.slice(1).join(" ") || firstName || "Lead";
 
     const requestedTitles = selectedTopics
       .map((id) => TEMPLATE_TOPICS.find((t) => t.id === id))

@@ -122,7 +122,7 @@ export async function submitLead(data: {
     const body = await response.json().catch(() => null);
     return {
       success: false,
-      error: body?.message || `Request failed (${response.status})`,
+      error: body?.error || body?.message || `Request failed (${response.status})`,
     };
   } catch {
     return { success: false, error: "Network error. Please try again." };

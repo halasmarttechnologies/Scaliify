@@ -20,7 +20,7 @@ export class LeadsController {
           .insert(schema.leads)
           .values({
             firstName: leadData.firstName,
-            lastName: leadData.lastName,
+            lastName: leadData.lastName?.trim() || leadData.firstName || "Lead",
             email: leadData.email.toLowerCase(),
             companyName: leadData.companyName,
             jobTitle: leadData.jobTitle || "",

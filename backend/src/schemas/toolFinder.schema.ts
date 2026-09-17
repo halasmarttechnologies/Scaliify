@@ -145,16 +145,17 @@ export const leadContactSchema = z.object({
   firstName: z
     .string({ required_error: "First name is required" })
     .trim()
-    .min(2, "First name must be at least 2 characters")
+    .min(1, "First name is required")
     .max(50, "First name must be under 50 characters")
     .regex(namePattern, "First name contains invalid characters"),
 
   lastName: z
-    .string({ required_error: "Last name is required" })
+    .string()
     .trim()
-    .min(2, "Last name must be at least 2 characters")
     .max(50, "Last name must be under 50 characters")
-    .regex(namePattern, "Last name contains invalid characters"),
+    .refine((val) => !val || namePattern.test(val), "Last name contains invalid characters")
+    .optional()
+    .or(z.literal("")),
 
   email: z
     .string({ required_error: "Email is required" })
