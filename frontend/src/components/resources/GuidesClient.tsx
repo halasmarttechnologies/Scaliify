@@ -413,7 +413,7 @@ export function GuidesClient() {
                       </label>
                       <input
                         id="guide_company"
-                        name="company_name"
+                        name="company"
                         type="text"
                         required
                         autoComplete="organization"
@@ -421,6 +421,29 @@ export function GuidesClient() {
                         onChange={(e) => setModalForm({ ...modalForm, company: e.target.value })}
                         placeholder={isDe ? "Ihr Unternehmen" : "Company Ltd"}
                         className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors"
+                      />
+                      {/* Offscreen aliases for GHL built-in 'Business Name' and custom 'Company name' */}
+                      <label htmlFor="guide_company_name" className="sr-only">Company name</label>
+                      <input
+                        id="guide_company_name"
+                        name="company_name"
+                        type="text"
+                        tabIndex={-1}
+                        aria-hidden="true"
+                        readOnly
+                        value={modalForm.company}
+                        style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
+                      />
+                      <label htmlFor="guide_business_name" className="sr-only">Business Name</label>
+                      <input
+                        id="guide_business_name"
+                        name="business_name"
+                        type="text"
+                        tabIndex={-1}
+                        aria-hidden="true"
+                        readOnly
+                        value={modalForm.company}
+                        style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
                       />
                     </div>
 

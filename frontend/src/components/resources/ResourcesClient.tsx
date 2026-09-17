@@ -500,7 +500,7 @@ export function ResourcesClient() {
                     </label>
                     <input
                       id="resource_company"
-                      name="company_name"
+                      name="company"
                       type="text"
                       required
                       autoComplete="organization"
@@ -508,6 +508,29 @@ export function ResourcesClient() {
                       onChange={(e) => setCompany(e.target.value)}
                       placeholder={isDe ? "Firmenname GmbH" : "Company Inc."}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#05434B] focus:ring-1 focus:ring-[#05434B] bg-gray-50/50 transition-colors"
+                    />
+                    {/* Offscreen aliases for GHL built-in 'Business Name' and custom 'Company name' */}
+                    <label htmlFor="resource_company_name" className="sr-only">Company name</label>
+                    <input
+                      id="resource_company_name"
+                      name="company_name"
+                      type="text"
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      readOnly
+                      value={company}
+                      style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
+                    />
+                    <label htmlFor="resource_business_name" className="sr-only">Business Name</label>
+                    <input
+                      id="resource_business_name"
+                      name="business_name"
+                      type="text"
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      readOnly
+                      value={company}
+                      style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
                     />
                   </div>
                 </div>

@@ -244,12 +244,12 @@ export function BookingLeadSection({
                 </div>
 
                 <div>
-                  <label htmlFor="booking_company_name" className="block text-xs font-bold text-gray-800 mb-1">
+                  <label htmlFor="booking_company" className="block text-xs font-bold text-gray-800 mb-1">
                     {t("companyLabel")}
                   </label>
                   <input
-                    id="booking_company_name"
-                    name="company_name"
+                    id="booking_company"
+                    name="company"
                     type="text"
                     required
                     autoComplete="organization"
@@ -259,6 +259,40 @@ export function BookingLeadSection({
                       setFormData({ ...formData, companyName: e.target.value })
                     }
                     className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors"
+                  />
+                  {/* Offscreen aliases for GHL built-in 'Business Name' and custom 'Company name' */}
+                  <label htmlFor="booking_company_name" className="sr-only">Company name</label>
+                  <input
+                    id="booking_company_name"
+                    name="company_name"
+                    type="text"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                    readOnly
+                    value={formData.companyName}
+                    style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
+                  />
+                  <label htmlFor="booking_business_name" className="sr-only">Business Name</label>
+                  <input
+                    id="booking_business_name"
+                    name="business_name"
+                    type="text"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                    readOnly
+                    value={formData.companyName}
+                    style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
+                  />
+                  <label htmlFor="booking_companyName" className="sr-only">Company Name</label>
+                  <input
+                    id="booking_companyName"
+                    name="companyName"
+                    type="text"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                    readOnly
+                    value={formData.companyName}
+                    style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
                   />
                 </div>
 
@@ -281,12 +315,12 @@ export function BookingLeadSection({
                 </div>
 
                 <div>
-                  <label htmlFor="booking_employees" className="block text-xs font-bold text-gray-800 mb-1">
+                  <label htmlFor="booking_number_of_employees" className="block text-xs font-bold text-gray-800 mb-1">
                     {t("employeesLabel")}
                   </label>
                   <select
-                    id="booking_employees"
-                    name="employees"
+                    id="booking_number_of_employees"
+                    name="number_of_employees"
                     value={formData.employees}
                     onChange={(e) =>
                       setFormData({ ...formData, employees: e.target.value })
@@ -299,6 +333,29 @@ export function BookingLeadSection({
                     <option value="250–500">{t("employeeOptions.250_500")}</option>
                     <option value="500+">{t("employeeOptions.500_plus")}</option>
                   </select>
+                  {/* Offscreen aliases for GHL custom field matching */}
+                  <label htmlFor="booking_employees" className="sr-only">Number of employees</label>
+                  <input
+                    id="booking_employees"
+                    name="employees"
+                    type="text"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                    readOnly
+                    value={formData.employees}
+                    style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
+                  />
+                  <label htmlFor="booking_numberOfEmployees" className="sr-only">Number of Employees</label>
+                  <input
+                    id="booking_numberOfEmployees"
+                    name="numberOfEmployees"
+                    type="text"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                    readOnly
+                    value={formData.employees}
+                    style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
+                  />
                 </div>
 
                 <div>

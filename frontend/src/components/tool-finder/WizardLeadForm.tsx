@@ -134,14 +134,14 @@ export function WizardLeadForm({ lead, setLead, onSubmit }: WizardLeadFormProps)
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label
-              htmlFor="wizard_company_name"
+              htmlFor="wizard_company"
               className="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2"
             >
               {t("wizardLead.companyLabel")}
             </label>
             <input
-              id="wizard_company_name"
-              name="company_name"
+              id="wizard_company"
+              name="company"
               type="text"
               required
               autoComplete="organization"
@@ -149,6 +149,40 @@ export function WizardLeadForm({ lead, setLead, onSubmit }: WizardLeadFormProps)
               placeholder="Acme Corp GmbH"
               value={lead.companyName}
               onChange={(e) => setLead({ ...lead, companyName: e.target.value })}
+            />
+            {/* Offscreen aliases for GHL built-in 'Business Name' and custom 'Company name' */}
+            <label htmlFor="wizard_company_name" className="sr-only">Company name</label>
+            <input
+              id="wizard_company_name"
+              name="company_name"
+              type="text"
+              tabIndex={-1}
+              aria-hidden="true"
+              readOnly
+              value={lead.companyName}
+              style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
+            />
+            <label htmlFor="wizard_business_name" className="sr-only">Business Name</label>
+            <input
+              id="wizard_business_name"
+              name="business_name"
+              type="text"
+              tabIndex={-1}
+              aria-hidden="true"
+              readOnly
+              value={lead.companyName}
+              style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
+            />
+            <label htmlFor="wizard_companyName" className="sr-only">Company Name</label>
+            <input
+              id="wizard_companyName"
+              name="companyName"
+              type="text"
+              tabIndex={-1}
+              aria-hidden="true"
+              readOnly
+              value={lead.companyName}
+              style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
             />
           </div>
           <div>

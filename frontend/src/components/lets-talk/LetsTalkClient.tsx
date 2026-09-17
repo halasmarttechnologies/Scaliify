@@ -213,7 +213,9 @@ export function LetsTalkClient() {
                 {step === 2 && (
                   <form id="lets-talk-step-2" data-formid="Lets Talk - Step 2" onSubmit={handleStep2} className="flex flex-col gap-3.5">
                     {/* Carried-over email for GHL contact mapping */}
+                    <label htmlFor="lets_talk_email_s2" className="sr-only">Email</label>
                     <input
+                      id="lets_talk_email_s2"
                       name="email"
                       type="email"
                       value={email}
@@ -223,9 +225,10 @@ export function LetsTalkClient() {
                       className="sr-only"
                       style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
                     />
+                    <label htmlFor="lets_talk_company" className="sr-only">Company Name</label>
                     <input
                       id="lets_talk_company"
-                      name="company_name"
+                      name="company"
                       type="text"
                       required
                       autoComplete="organization"
@@ -234,6 +237,40 @@ export function LetsTalkClient() {
                       placeholder={t("companyPlaceholder")}
                       aria-label={isDe ? "Unternehmen" : "Company name"}
                       className="w-full border-b border-gray-300 focus:border-black py-2 text-sm text-black placeholder:text-gray-400 focus:outline-none bg-transparent transition-colors"
+                    />
+                    {/* Offscreen aliases for GHL built-in 'Business Name' and custom 'Company name' */}
+                    <label htmlFor="lets_talk_company_name" className="sr-only">Company name</label>
+                    <input
+                      id="lets_talk_company_name"
+                      name="company_name"
+                      type="text"
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      readOnly
+                      value={company}
+                      style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
+                    />
+                    <label htmlFor="lets_talk_business_name" className="sr-only">Business Name</label>
+                    <input
+                      id="lets_talk_business_name"
+                      name="business_name"
+                      type="text"
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      readOnly
+                      value={company}
+                      style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
+                    />
+                    <label htmlFor="lets_talk_companyName" className="sr-only">Company Name</label>
+                    <input
+                      id="lets_talk_companyName"
+                      name="companyName"
+                      type="text"
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      readOnly
+                      value={company}
+                      style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
                     />
                     <button
                       type="submit"
@@ -255,7 +292,9 @@ export function LetsTalkClient() {
                 {step === 3 && (
                   <form id="lets-talk-step-3" data-formid="Lets Talk - Step 3" onSubmit={handleStep3} className="flex flex-col gap-3.5">
                     {/* Carried-over email and company for complete GHL contact creation */}
+                    <label htmlFor="lets_talk_email_s3" className="sr-only">Email</label>
                     <input
+                      id="lets_talk_email_s3"
                       name="email"
                       type="email"
                       value={email}
@@ -265,7 +304,21 @@ export function LetsTalkClient() {
                       className="sr-only"
                       style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
                     />
+                    <label htmlFor="lets_talk_company_s3" className="sr-only">Company Name</label>
                     <input
+                      id="lets_talk_company_s3"
+                      name="company"
+                      type="text"
+                      value={company}
+                      readOnly
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      className="sr-only"
+                      style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
+                    />
+                    <label htmlFor="lets_talk_company_name_s3" className="sr-only">Company name</label>
+                    <input
+                      id="lets_talk_company_name_s3"
                       name="company_name"
                       type="text"
                       value={company}
@@ -275,6 +328,19 @@ export function LetsTalkClient() {
                       className="sr-only"
                       style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
                     />
+                    <label htmlFor="lets_talk_business_name_s3" className="sr-only">Business Name</label>
+                    <input
+                      id="lets_talk_business_name_s3"
+                      name="business_name"
+                      type="text"
+                      value={company}
+                      readOnly
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      className="sr-only"
+                      style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
+                    />
+                    <label htmlFor="lets_talk_name" className="sr-only">Full Name</label>
                     <input
                       id="lets_talk_name"
                       name="name"

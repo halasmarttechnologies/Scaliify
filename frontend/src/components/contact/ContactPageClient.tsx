@@ -543,103 +543,153 @@ export function ContactPageClient() {
               <form id="contact-form" data-formid="Contact Form" onSubmit={handleSubmit} className="flex flex-col gap-3">
                 {/* Row: First / Last Name */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label htmlFor="contact_first_name" className="sr-only">First Name</label>
+                    <input
+                      id="contact_first_name"
+                      name="first_name"
+                      type="text"
+                      required
+                      autoComplete="given-name"
+                      value={formData.firstName}
+                      onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                      placeholder={isDe ? "Vorname *" : "First Name *"}
+                      aria-label={isDe ? "Vorname" : "First name"}
+                      className="w-full bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="contact_last_name" className="sr-only">Last Name</label>
+                    <input
+                      id="contact_last_name"
+                      name="last_name"
+                      type="text"
+                      required
+                      autoComplete="family-name"
+                      value={formData.lastName}
+                      onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                      placeholder={isDe ? "Nachname *" : "Last Name *"}
+                      aria-label={isDe ? "Nachname" : "Last name"}
+                      className="w-full bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
+                    />
+                  </div>
+                </div>
+
+                {/* Business Email */}
+                <div>
+                  <label htmlFor="contact_email" className="sr-only">Email</label>
                   <input
-                    id="contact_first_name"
-                    name="first_name"
-                    type="text"
+                    id="contact_email"
+                    name="email"
+                    type="email"
                     required
-                    autoComplete="given-name"
-                    value={formData.firstName}
-                    onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                    placeholder={isDe ? "Vorname *" : "First Name *"}
-                    aria-label={isDe ? "Vorname" : "First name"}
-                    className="w-full bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
-                  />
-                  <input
-                    id="contact_last_name"
-                    name="last_name"
-                    type="text"
-                    required
-                    autoComplete="family-name"
-                    value={formData.lastName}
-                    onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                    placeholder={isDe ? "Nachname *" : "Last Name *"}
-                    aria-label={isDe ? "Nachname" : "Last name"}
+                    autoComplete="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder={isDe ? "Geschäftliche E-Mail-Adresse *" : "Business Email Address *"}
+                    aria-label={isDe ? "Geschäftliche E-Mail-Adresse" : "Business email address"}
                     className="w-full bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
                   />
                 </div>
 
-                {/* Business Email */}
-                <input
-                  id="contact_email"
-                  name="email"
-                  type="email"
-                  required
-                  autoComplete="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder={isDe ? "Geschäftliche E-Mail-Adresse *" : "Business Email Address *"}
-                  aria-label={isDe ? "Geschäftliche E-Mail-Adresse" : "Business email address"}
-                  className="w-full bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
-                />
-
-                {/* Company Name */}
-                <input
-                  id="contact_company_name"
-                  name="company_name"
-                  type="text"
-                  required
-                  autoComplete="organization"
-                  value={formData.companyName}
-                  onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                  placeholder={isDe ? "Unternehmen *" : "Company Name *"}
-                  aria-label={isDe ? "Unternehmen" : "Company name"}
-                  className="w-full bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
-                />
-
-                {/* Job Title / Required Position */}
-                {isInterim || isOutsourced ? (
+                {/* Company Name & GHL Mapping Aliases */}
+                <div>
+                  <label htmlFor="contact_company" className="sr-only">Company Name</label>
                   <input
-                    id="contact_job_title"
-                    name="job_title"
+                    id="contact_company"
+                    name="company"
                     type="text"
                     required
-                    autoComplete="organization-title"
-                    value={formData.positionRequired}
-                    onChange={(e) => setFormData({ ...formData, positionRequired: e.target.value })}
-                    placeholder={
-                      isOutsourced
-                        ? isDe
-                          ? "Ihre Position (z. B. Gründer:in, Geschäftsführer:in, COO, Head of Ops) *"
-                          : "Your Role / Position (e.g. Founder, CEO, COO, Managing Director) *"
-                        : isDe
-                        ? "Gesuchte Position (z. B. Interim Head of HR, Recruiter, VP People) *"
-                        : "Required Position (e.g. Interim Head of HR, Recruiter, VP People) *"
-                    }
-                    aria-label={
-                      isOutsourced
-                        ? isDe ? "Ihre Rolle oder Position" : "Your role or position"
-                        : isDe ? "Gesuchte Position" : "Required position"
-                    }
+                    autoComplete="organization"
+                    value={formData.companyName}
+                    onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                    placeholder={isDe ? "Unternehmen *" : "Company Name *"}
+                    aria-label={isDe ? "Unternehmen" : "Company name"}
                     className="w-full bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
                   />
-                ) : (
+                  {/* Offscreen aliases for GHL built-in 'Business Name' and custom 'Company name' */}
+                  <label htmlFor="contact_company_name" className="sr-only">Company name</label>
                   <input
-                    id="contact_job_title"
-                    name="job_title"
+                    id="contact_company_name"
+                    name="company_name"
                     type="text"
-                    autoComplete="organization-title"
-                    value={formData.jobTitle}
-                    onChange={(e) => setFormData({ ...formData, jobTitle: e.target.value })}
-                    placeholder={isDe ? "Position" : "Job Title"}
-                    aria-label={isDe ? "Position" : "Job title"}
-                    className="w-full bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                    readOnly
+                    value={formData.companyName}
+                    style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
                   />
-                )}
+                  <label htmlFor="contact_business_name" className="sr-only">Business Name</label>
+                  <input
+                    id="contact_business_name"
+                    name="business_name"
+                    type="text"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                    readOnly
+                    value={formData.companyName}
+                    style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
+                  />
+                  <label htmlFor="contact_companyName" className="sr-only">Company Name</label>
+                  <input
+                    id="contact_companyName"
+                    name="companyName"
+                    type="text"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                    readOnly
+                    value={formData.companyName}
+                    style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
+                  />
+                </div>
+
+                {/* Job Title / Required Position */}
+                <div>
+                  <label htmlFor="contact_job_title" className="sr-only">Job Title</label>
+                  {isInterim || isOutsourced ? (
+                    <input
+                      id="contact_job_title"
+                      name="job_title"
+                      type="text"
+                      required
+                      autoComplete="organization-title"
+                      value={formData.positionRequired}
+                      onChange={(e) => setFormData({ ...formData, positionRequired: e.target.value })}
+                      placeholder={
+                        isOutsourced
+                          ? isDe
+                            ? "Ihre Position (z. B. Gründer:in, Geschäftsführer:in, COO, Head of Ops) *"
+                            : "Your Role / Position (e.g. Founder, CEO, COO, Managing Director) *"
+                          : isDe
+                          ? "Gesuchte Position (z. B. Interim Head of HR, Recruiter, VP People) *"
+                          : "Required Position (e.g. Interim Head of HR, Recruiter, VP People) *"
+                      }
+                      aria-label={
+                        isOutsourced
+                          ? isDe ? "Ihre Rolle oder Position" : "Your role or position"
+                          : isDe ? "Gesuchte Position" : "Required position"
+                      }
+                      className="w-full bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
+                    />
+                  ) : (
+                    <input
+                      id="contact_job_title"
+                      name="job_title"
+                      type="text"
+                      autoComplete="organization-title"
+                      value={formData.jobTitle}
+                      onChange={(e) => setFormData({ ...formData, jobTitle: e.target.value })}
+                      placeholder={isDe ? "Position" : "Job Title"}
+                      aria-label={isDe ? "Position" : "Job title"}
+                      className="w-full bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
+                    />
+                  )}
+                </div>
 
                 {/* Desired Start Date for Interim and Outsourced HR */}
                 {(isInterim || isOutsourced) && (
                   <div className="relative">
+                    <label htmlFor="contact_start_date" className="sr-only">Target Start Date</label>
                     <select
                       id="contact_start_date"
                       name="start_date"
@@ -676,27 +726,53 @@ export function ContactPageClient() {
                   </div>
                 )}
 
-                {/* Number of Employees */}
-                <div className="relative">
-                  <select
+                {/* Number of Employees & GHL Mapping Aliases */}
+                <div>
+                  <label htmlFor="contact_number_of_employees" className="sr-only">Number of employees</label>
+                  <div className="relative">
+                    <select
+                      id="contact_number_of_employees"
+                      name="number_of_employees"
+                      required
+                      value={formData.employees}
+                      onChange={(e) => setFormData({ ...formData, employees: e.target.value })}
+                      aria-label={isDe ? "Anzahl der Mitarbeitenden" : "Number of employees"}
+                      className="w-full appearance-none bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all cursor-pointer"
+                    >
+                      <option value="" disabled>{isDe ? "Anzahl der Mitarbeitenden" : "Number of Employees"}</option>
+                      {employeeRanges.map((r) => (
+                        <option key={r} value={r}>{r}</option>
+                      ))}
+                    </select>
+                    <div className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2">
+                      <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </div>
+                  {/* Offscreen aliases for GHL custom field matching */}
+                  <label htmlFor="contact_employees" className="sr-only">Number of employees</label>
+                  <input
                     id="contact_employees"
                     name="employees"
-                    required
+                    type="text"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                    readOnly
                     value={formData.employees}
-                    onChange={(e) => setFormData({ ...formData, employees: e.target.value })}
-                    aria-label={isDe ? "Anzahl der Mitarbeitenden" : "Number of employees"}
-                    className="w-full appearance-none bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all cursor-pointer"
-                  >
-                    <option value="" disabled>{isDe ? "Anzahl der Mitarbeitenden" : "Number of Employees"}</option>
-                    {employeeRanges.map((r) => (
-                      <option key={r} value={r}>{r}</option>
-                    ))}
-                  </select>
-                  <div className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2">
-                    <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
+                    style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
+                  />
+                  <label htmlFor="contact_numberOfEmployees" className="sr-only">Number of Employees</label>
+                  <input
+                    id="contact_numberOfEmployees"
+                    name="numberOfEmployees"
+                    type="text"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                    readOnly
+                    value={formData.employees}
+                    style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", border: 0 }}
+                  />
                 </div>
 
                 {/* Country */}
