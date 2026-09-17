@@ -32,11 +32,12 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: `
       default-src 'self';
-      script-src 'self' 'unsafe-inline'${!isProd ? " 'unsafe-eval'" : ""};
+      script-src 'self' 'unsafe-inline' https://link.msgsndr.com${!isProd ? " 'unsafe-eval'" : ""};
       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
       font-src 'self' https://fonts.gstatic.com data:;
       img-src 'self' data: https: blob:;
-      connect-src 'self' ${!isProd ? "http://localhost:5000 http://127.0.0.1:5000 " : ""}https://api.scaliify.com;
+      connect-src 'self' ${!isProd ? "http://localhost:5000 http://127.0.0.1:5000 " : ""}https://api.scaliify.com https://backend.leadconnectorhq.com https://staging.backend.leadconnectorhq.com https://services.leadconnectorhq.com https://link.msgsndr.com;
+      frame-src 'self' https://link.msgsndr.com https://*.leadconnectorhq.com;
       frame-ancestors 'none';
       form-action 'self';
       base-uri 'self';

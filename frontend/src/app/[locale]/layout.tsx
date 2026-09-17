@@ -3,13 +3,13 @@ import { setRequestLocale } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import Script from "next/script";
 import { routing } from "@/i18n/routing";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { LenisProvider } from "@/components/providers/LenisProvider";
 import { SecurityProvider } from "@/components/providers/SecurityProvider";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
+import { GHLRouteTracker } from "@/components/analytics/GHLRouteTracker";
 import "../globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -58,10 +58,10 @@ export default async function LocaleLayout({
           </SecurityProvider>
         </NextIntlClientProvider>
         {/* HighLevel / msgsndr External Tracking */}
-        <Script
+        <GHLRouteTracker />
+        <script
           src="https://link.msgsndr.com/js/external-tracking.js"
           data-tracking-id="tk_d18c012d488e4216a8a01609b30fbc40"
-          strategy="afterInteractive"
         />
       </body>
     </html>
