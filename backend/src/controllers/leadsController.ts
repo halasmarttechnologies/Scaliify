@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { db, schema } from "../db/index.js";
 import { sendSuccess, sendError } from "../utils/response.js";
 import type { LeadContact } from "../schemas/toolFinder.schema.js";
+import { EmailService } from "../services/emailService.js";
 
 export class LeadsController {
   /**
@@ -14,6 +15,11 @@ export class LeadsController {
   public static async createLead(req: Request, res: Response) {
     try {
       const leadData = req.body as LeadContact;
+
+      // Dispatch Resend email notification asynchronously to Sarah & team
+      void EmailService.sendLeadNotification(leadData).catch((err) => {
+        console.error("Async email dispatch error in LeadsController:", err);
+      });
 
       try {
         const [newLead] = await db

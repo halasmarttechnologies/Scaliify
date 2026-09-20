@@ -91,7 +91,7 @@ export function ContactPageClient() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    email: "",
+    email: searchParams.get("email") || "",
     companyName: "",
     jobTitle: "",
     positionRequired: "",
@@ -111,7 +111,7 @@ export function ContactPageClient() {
 
   const handleCopyEmail = (e: React.MouseEvent) => {
     e.preventDefault();
-    navigator.clipboard.writeText("sarah@scaliify.com");
+    navigator.clipboard.writeText("info@scaliify.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -130,6 +130,16 @@ export function ContactPageClient() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!formData.consentUpdates) {
+      setSubmitError(
+        isDe
+          ? "Bitte bestätigen Sie die Einwilligung, um fortzufahren."
+          : "Please check the consent box to continue."
+      );
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitError(null);
 
@@ -408,10 +418,10 @@ export function ContactPageClient() {
               <Mail className="w-4 h-4 text-[#05434B]" />
             </div>
             <a
-              href="mailto:sarah@scaliify.com"
-              className="text-sm font-bold text-gray-900 hover:text-[#05434B] transition-colors"
+              href="mailto:info@scaliify.com"
+              className="text-xs sm:text-sm font-semibold text-gray-800 hover:text-black hover:underline transition-colors"
             >
-              sarah@scaliify.com
+              info@scaliify.com
             </a>
             <button
               type="button"
@@ -933,6 +943,7 @@ export function ContactPageClient() {
                     type="checkbox"
                     id="consent"
                     name="consent"
+                    required
                     checked={formData.consentUpdates}
                     onChange={(e) => setFormData({ ...formData, consentUpdates: e.target.checked })}
                     className="mt-0.5 w-4 h-4 rounded border-gray-300 accent-brand-dark cursor-pointer"

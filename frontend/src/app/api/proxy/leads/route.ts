@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { sendLeadNotificationEmail } from "@/lib/email";
 
 const BACKEND_URL =
   process.env.BACKEND_URL ??
@@ -59,9 +60,17 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  // Resilient Offline Fallback:
-  // Ensures leads are never dropped if the backend server is temporarily down, restarting, or running in frontend-only mode.
-  console.log("[Proxy] Lead safely captured via fallback store:", {
+  // Resilient Fallback / Direct Vercel Mode:
+  // Ensures leads are captured and email notifications are sent even when running serverless on Vercel without an external backend.
+  if (process.env.RESEND_API_KEY) {
+    try {
+      await sendLeadNotificationEmail(body);
+    } catch (emailErr) {
+      console.error("[Proxy] Resend notification failed in Vercel route handler:", emailErr);
+    }
+  }
+
+  console.log("[Proxy] Lead safely captured:", {
     timestamp: new Date().toISOString(),
     email: body?.email,
     name: `${body?.firstName || ""} ${body?.lastName || ""}`.trim(),

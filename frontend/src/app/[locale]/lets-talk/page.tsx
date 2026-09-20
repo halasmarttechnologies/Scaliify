@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { LetsTalkClient } from "@/components/lets-talk/LetsTalkClient";
@@ -29,7 +30,9 @@ export default async function LetsTalkPage({
           { name: "Request a Call", path: "/lets-talk" },
         ]}
       />
-      <LetsTalkClient />
+      <Suspense fallback={null}>
+        <LetsTalkClient />
+      </Suspense>
     </>
   );
 }

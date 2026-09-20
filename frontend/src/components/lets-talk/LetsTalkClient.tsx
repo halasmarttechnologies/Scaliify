@@ -1,16 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 import { submitLead } from "@/lib/api";
 import { useLocale, useTranslations } from "next-intl";
+import { useSearchParams } from "next/navigation";
 
 
 export function LetsTalkClient() {
   const locale = useLocale();
   const isDe = locale === "de";
   const t = useTranslations("letsTalk");
+  const searchParams = useSearchParams();
+  const paramEmail = searchParams.get("email");
 
   const steps = [
     {
@@ -71,13 +74,24 @@ export function LetsTalkClient() {
       author: t("marqueeCards.5.author"),
     },
   ];
-  const [email, setEmail] = useState("");
-  const [step, setStep] = useState(1);
+  const [email, setEmail] = useState(() => paramEmail?.trim() || "");
+  const [step, setStep] = useState(() => (paramEmail && paramEmail.includes("@") ? 2 : 1));
   const [company, setCompany] = useState("");
   const [name, setName] = useState("");
+  const [consentChecked, setConsentChecked] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (paramEmail && paramEmail.trim()) {
+      const trimmed = paramEmail.trim();
+      setEmail(trimmed);
+      if (trimmed.includes("@")) {
+        setStep(2);
+      }
+    }
+  }, [paramEmail]);
 
   const handleStep1 = (e: React.FormEvent) => {
     e.preventDefault();
@@ -91,6 +105,16 @@ export function LetsTalkClient() {
 
   const handleStep3 = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!consentChecked) {
+      setSubmitError(
+        isDe
+          ? "Bitte bestätigen Sie die Einwilligung, um fortzufahren."
+          : "Please check the consent box to continue."
+      );
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitError(null);
 
@@ -354,6 +378,38 @@ export function LetsTalkClient() {
                       disabled={isSubmitting}
                       className="w-full border-b border-gray-300 focus:border-black py-2 text-sm text-black placeholder:text-gray-400 focus:outline-none bg-transparent transition-colors disabled:opacity-50"
                     />
+                    {/* Consent Tick Checkbox */}
+                    <div className="flex items-start gap-2.5 pt-1 text-left">
+                      <input
+                        type="checkbox"
+                        id="lets_talk_consent"
+                        name="consent"
+                        required
+                        checked={consentChecked}
+                        onChange={(e) => setConsentChecked(e.target.checked)}
+                        className="mt-0.5 w-4 h-4 rounded border-gray-300 accent-black cursor-pointer"
+                      />
+                      <label htmlFor="lets_talk_consent" className="text-xs text-gray-700 leading-relaxed cursor-pointer select-none">
+                        {isDe ? (
+                          <>
+                            Ich stimme der Kontaktaufnahme und Verarbeitung meiner Angaben gemäß der{" "}
+                            <a href="/privacy" target="_blank" rel="noopener noreferrer" className="underline font-semibold text-black hover:text-gray-700">
+                              Datenschutzerklärung
+                            </a>{" "}
+                            zu. *
+                          </>
+                        ) : (
+                          <>
+                            I agree to the processing of my details and contact in accordance with the{" "}
+                            <a href="/privacy" target="_blank" rel="noopener noreferrer" className="underline font-semibold text-black hover:text-gray-700">
+                              privacy policy
+                            </a>
+                            . *
+                          </>
+                        )}
+                      </label>
+                    </div>
+
                     {submitError && (
                       <p className="text-sm text-red-600 text-center" role="alert">
                         {submitError}

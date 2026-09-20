@@ -8,6 +8,7 @@ import { sendSuccess, sendError } from "../utils/response.js";
 import { db, schema } from "../db/index.js";
 import { initialToolsData } from "../db/seeds/tools.seed.js";
 import type { ToolData } from "@scaliify/shared";
+import { EmailService } from "../services/emailService.js";
 
 export class ToolFinderController {
   /**
@@ -37,6 +38,11 @@ export class ToolFinderController {
       const ipAddress = (req.headers["x-forwarded-for"] as string) || req.socket.remoteAddress;
       const userAgent = req.headers["user-agent"];
       const savedInfo = await LeadService.saveAssessmentSubmission(lead, answers, results, ipAddress, userAgent);
+
+      // 5. Dispatch Assessment Notification via Resend asynchronously
+      void EmailService.sendAssessmentNotification(lead, answers, results.topRecommendations).catch((err) => {
+        console.error("Async email dispatch error in ToolFinderController:", err);
+      });
 
       return sendSuccess(
         res,

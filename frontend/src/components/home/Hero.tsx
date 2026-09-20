@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { HeroDashboardPreview } from "@/components/home/HeroDashboardPreview";
@@ -10,6 +11,7 @@ import { ROTATING_COMPANIES, COMPANY_ROTATION_INTERVAL_MS } from "@/lib/constant
 
 export function Hero() {
   const t = useTranslations("hero");
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [companyIndex, setCompanyIndex] = useState(0);
 
@@ -56,8 +58,8 @@ export function Hero() {
             data-formid="Hero Email Form"
             onSubmit={(e) => {
               e.preventDefault();
-              if (email) {
-                window.location.href = `/lets-talk?email=${encodeURIComponent(email)}`;
+              if (email.trim()) {
+                router.push(`/lets-talk?email=${encodeURIComponent(email.trim())}`);
               }
             }}
             className="relative z-10 bg-white rounded-[15px] p-1.5 pl-4 sm:pl-5 flex items-center justify-between transition-all"

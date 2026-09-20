@@ -12,7 +12,8 @@ const envSchema = z.object({
   DATABASE_URL: z.string().min(1, "DATABASE_URL is required"),
   FRONTEND_URL: z.string().url().default("http://localhost:3000"),
   RESEND_API_KEY: z.string().default(""),
-  NOTIFICATION_EMAIL: z.string().email().default("hello@scaliify.com"),
+  NOTIFICATION_EMAIL: z.string().default("sarah@scaliify.com"),
+  RESEND_FROM_EMAIL: z.string().default("Scaliify Notifications <notifications@scaliify.com>"),
 });
 
 const parsed = envSchema.safeParse(process.env);
@@ -35,6 +36,11 @@ if (!parsed.success && !process.env.DATABASE_URL) {
 
 const env = parsed.success ? parsed.data : envSchema.parse(process.env);
 
+const notificationEmails = (env.NOTIFICATION_EMAIL || "sarah@scaliify.com")
+  .split(",")
+  .map((email) => email.trim())
+  .filter((email) => email.length > 0 && email.includes("@"));
+
 export const config = {
   port: env.PORT,
   nodeEnv: env.NODE_ENV,
@@ -42,4 +48,6 @@ export const config = {
   databaseUrl: env.DATABASE_URL,
   resendApiKey: env.RESEND_API_KEY,
   notificationEmail: env.NOTIFICATION_EMAIL,
+  notificationEmails: notificationEmails.length > 0 ? notificationEmails : ["sarah@scaliify.com"],
+  resendFromEmail: env.RESEND_FROM_EMAIL,
 };
