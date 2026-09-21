@@ -26,14 +26,14 @@ export async function sendLeadNotificationEmail(lead: {
     return { success: false, error: "RESEND_API_KEY missing" };
   }
 
-  const rawRecipients = process.env.NOTIFICATION_EMAIL || "sarah@scaliify.com";
+  const rawRecipients = process.env.NOTIFICATION_EMAIL || "info@scaliify.com";
   const recipients = rawRecipients
     .split(",")
     .map((e) => e.trim())
     .filter((e) => e.includes("@"));
 
   if (recipients.length === 0) {
-    recipients.push("sarah@scaliify.com");
+    recipients.push("info@scaliify.com");
   }
 
   const fromEmail = process.env.RESEND_FROM_EMAIL || "Scaliify Notifications <notifications@scaliify.com>";

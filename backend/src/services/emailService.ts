@@ -26,7 +26,7 @@ export class EmailService {
   }
 
   /**
-   * Dispatches an executive notification email to configured team recipients (e.g. Sarah)
+   * Dispatches an executive notification email to configured team recipients (e.g. info@scaliify.com)
    * whenever a visitor submits any direct form on the website.
    */
   public static async sendLeadNotification(lead: LeadContact): Promise<{ success: boolean; id?: string; error?: string }> {

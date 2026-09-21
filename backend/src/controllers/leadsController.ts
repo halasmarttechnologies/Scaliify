@@ -16,7 +16,7 @@ export class LeadsController {
     try {
       const leadData = req.body as LeadContact;
 
-      // Dispatch Resend email notification asynchronously to Sarah & team
+      // Dispatch Resend email notification asynchronously to team (info@scaliify.com)
       void EmailService.sendLeadNotification(leadData).catch((err) => {
         console.error("Async email dispatch error in LeadsController:", err);
       });

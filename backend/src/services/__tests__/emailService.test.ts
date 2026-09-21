@@ -24,7 +24,7 @@ describe("EmailService", () => {
   it("configures notification recipients properly", () => {
     expect(config.notificationEmails).toBeDefined();
     expect(config.notificationEmails.length).toBeGreaterThan(0);
-    expect(config.notificationEmails).toContain("sarah@scaliify.com");
+    expect(config.notificationEmails).toContain("info@scaliify.com");
   });
 
   it("handles email dispatch without throwing an unhandled exception", async () => {
