@@ -35,6 +35,9 @@ export function buildMetadata({
   return {
     title,
     description,
+    verification: {
+      google: "lj-DHy43PNuXgoTmxPT5FghB3hjqfwQRmuP8O1svIyY",
+    },
     alternates: {
       canonical,
     },
