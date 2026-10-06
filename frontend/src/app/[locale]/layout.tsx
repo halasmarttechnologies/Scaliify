@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale, getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { Navbar } from "@/components/layout/Navbar";
@@ -84,7 +83,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <GHLRouteTracker />
         <script
           src="https://link.msgsndr.com/js/external-tracking.js"
-          data-tracking-id="tk_d18c012d488e4216a8a01609b30fbc40"
+          data-tracking-id="tk_5a24d3e94e7a4969a290180c20626bd7"
         />
       </body>
     </html>
