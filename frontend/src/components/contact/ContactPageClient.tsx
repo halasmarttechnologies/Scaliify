@@ -14,6 +14,7 @@ import {
 import { companies } from "@/data/companies";
 import { SupportFromDayOne } from "@/components/common/SupportFromDayOne";
 import { submitLead } from "@/lib/api";
+import { getCountries } from "@/data/countries";
 
 const employeeRangesEn = [
   "1–10 employees",
@@ -33,39 +34,7 @@ const employeeRangesDe = [
   "2.000+ Mitarbeitende",
 ];
 
-const europeanCountriesEn = [
-  { code: "DE", name: "Germany", dial: "+49" },
-  { code: "AT", name: "Austria", dial: "+43" },
-  { code: "CH", name: "Switzerland", dial: "+41" },
-  { code: "GB", name: "United Kingdom", dial: "+44" },
-  { code: "NL", name: "Netherlands", dial: "+31" },
-  { code: "FR", name: "France", dial: "+33" },
-  { code: "ES", name: "Spain", dial: "+34" },
-  { code: "IT", name: "Italy", dial: "+39" },
-  { code: "PL", name: "Poland", dial: "+48" },
-  { code: "SE", name: "Sweden", dial: "+46" },
-  { code: "DK", name: "Denmark", dial: "+45" },
-  { code: "BE", name: "Belgium", dial: "+32" },
-  { code: "PT", name: "Portugal", dial: "+351" },
-  { code: "Other", name: "Other", dial: "+" },
-];
 
-const europeanCountriesDe = [
-  { code: "DE", name: "Deutschland", dial: "+49" },
-  { code: "AT", name: "Österreich", dial: "+43" },
-  { code: "CH", name: "Schweiz", dial: "+41" },
-  { code: "GB", name: "Vereinigtes Königreich", dial: "+44" },
-  { code: "NL", name: "Niederlande", dial: "+31" },
-  { code: "FR", name: "Frankreich", dial: "+33" },
-  { code: "ES", name: "Spanien", dial: "+34" },
-  { code: "IT", name: "Italien", dial: "+39" },
-  { code: "PL", name: "Polen", dial: "+48" },
-  { code: "SE", name: "Schweden", dial: "+46" },
-  { code: "DK", name: "Dänemark", dial: "+45" },
-  { code: "BE", name: "Belgien", dial: "+32" },
-  { code: "PT", name: "Portugal", dial: "+351" },
-  { code: "Other", name: "Andere", dial: "+" },
-];
 
 export function ContactPageClient() {
   const locale = useLocale();
@@ -117,10 +86,10 @@ export function ContactPageClient() {
   };
 
   const employeeRanges = isDe ? employeeRangesDe : employeeRangesEn;
-  const europeanCountries = isDe ? europeanCountriesDe : europeanCountriesEn;
+  const countries = getCountries(isDe);
 
   const handleCountryChange = (code: string) => {
-    const found = europeanCountries.find((c) => c.code === code);
+    const found = countries.find((c) => c.code === code);
     setFormData({
       ...formData,
       country: code,
@@ -785,45 +754,40 @@ export function ContactPageClient() {
                   />
                 </div>
 
-                {/* Country */}
-                <div className="relative">
-                  <select
-                    id="contact_country"
-                    name="country"
-                    autoComplete="country-name"
-                    value={formData.country}
-                    onChange={(e) => handleCountryChange(e.target.value)}
-                    aria-label={isDe ? "Land" : "Country"}
-                    className="w-full appearance-none bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all cursor-pointer"
-                  >
-                    {europeanCountries.map((c) => (
-                      <option key={c.code} value={c.code}>{c.name}</option>
-                    ))}
-                  </select>
-                  <div className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2">
-                    <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
-                </div>
+                {/* Hidden country field for form submission/GHL tracking */}
+                <input
+                  type="hidden"
+                  id="contact_country"
+                  name="country"
+                  value={formData.country}
+                />
 
                 {/* Phone: Dial code + Number */}
                 <div className="flex gap-2">
                   <div className="relative shrink-0">
                     <select
                       id="contact_dial_code"
-                      name="dial_code"
-                      value={formData.dialCode}
-                      onChange={(e) => setFormData({ ...formData, dialCode: e.target.value })}
+                      name="dial_code_country"
+                      value={formData.country}
+                      onChange={(e) => handleCountryChange(e.target.value)}
                       aria-label={isDe ? "Ländervorwahl" : "Dial code"}
-                      className="appearance-none bg-white/80 border border-gray-200/70 rounded-2xl pl-4 pr-8 py-3 text-sm text-gray-800 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all cursor-pointer"
+                      className="appearance-none bg-white/80 border border-gray-200/70 rounded-2xl pl-3.5 pr-8 py-3 text-sm text-gray-800 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all cursor-pointer min-w-[115px] sm:min-w-[125px]"
                     >
-                      {europeanCountries.map((c) => (
-                        <option key={c.code} value={c.dial}>{c.dial}</option>
+                      {countries.map((c) => (
+                        <option key={c.code} value={c.code}>
+                          {c.flag} {c.dial} {c.code !== "Other" ? `(${c.code})` : ""}
+                        </option>
                       ))}
                     </select>
-                    <div className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2">
-                      <svg className="w-3 h-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    {/* Hidden input to pass dial_code to standard form submissions */}
+                    <input
+                      type="hidden"
+                      id="contact_dial_code_value"
+                      name="dial_code"
+                      value={formData.dialCode}
+                    />
+                    <div className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2">
+                      <svg className="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                       </svg>
                     </div>
@@ -837,7 +801,7 @@ export function ContactPageClient() {
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder={isDe ? "Telefonnummer" : "Phone Number"}
                     aria-label={isDe ? "Telefonnummer" : "Phone number"}
-                    className="flex-1 bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
+                    className="flex-1 min-w-0 bg-white/80 border border-gray-200/70 rounded-2xl px-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-brand-teal/60 focus:bg-white focus:outline-none transition-all"
                   />
                 </div>
 
