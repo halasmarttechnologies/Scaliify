@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { Link } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
+import { formInput, formTextarea, formLabel, formSubmit } from "@/lib/formStyles";
 import {
   FileText,
   CheckCircle2,
@@ -446,7 +447,7 @@ export function ResourcesClient() {
                 </div>
               </div>
             ) : (
-              <form id="resources-template-form" data-formid="Resources Template Request Form" onSubmit={handleSubmit} className="space-y-6">
+              <form id="resources-template-form" data-formid="Resources Template Request Form" onSubmit={handleSubmit} className="flex flex-col gap-5">
                 <div>
                   <h2 className="text-lg sm:text-xl font-bold text-gray-950 mb-1">
                     {isDe ? "Ihre Vorlagen-Anfrage zusammenstellen" : "Build Your Template Request"}
@@ -459,9 +460,9 @@ export function ResourcesClient() {
                 </div>
 
                 {/* 3 Core Contact Inputs */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <div>
-                    <label htmlFor="resource_name" className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                    <label htmlFor="resource_name" className="sr-only">
                       {isDe ? "Name *" : "Name *"}
                     </label>
                     <input
@@ -472,13 +473,13 @@ export function ResourcesClient() {
                       autoComplete="name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      placeholder={isDe ? "Vor- & Nachname" : "Full Name"}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#05434B] focus:ring-1 focus:ring-[#05434B] bg-gray-50/50 transition-colors"
+                      placeholder={isDe ? "Vollständiger Name *" : "Full Name *"}
+                      className={formInput}
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="resource_email" className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                    <label htmlFor="resource_email" className="sr-only">
                       {isDe ? "Geschäftliche E-Mail *" : "Work Email *"}
                     </label>
                     <input
@@ -489,13 +490,13 @@ export function ResourcesClient() {
                       autoComplete="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder={isDe ? "name@unternehmen.de" : "name@company.com"}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#05434B] focus:ring-1 focus:ring-[#05434B] bg-gray-50/50 transition-colors"
+                      placeholder={isDe ? "Geschäftliche E-Mail *" : "Business Email *"}
+                      className={formInput}
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="resource_company" className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                    <label htmlFor="resource_company" className="sr-only">
                       {isDe ? "Unternehmen *" : "Company *"}
                     </label>
                     <input
@@ -506,8 +507,8 @@ export function ResourcesClient() {
                       autoComplete="organization"
                       value={company}
                       onChange={(e) => setCompany(e.target.value)}
-                      placeholder={isDe ? "Firmenname GmbH" : "Company Inc."}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#05434B] focus:ring-1 focus:ring-[#05434B] bg-gray-50/50 transition-colors"
+                      placeholder={isDe ? "Unternehmen *" : "Company Name *"}
+                      className={formInput}
                     />
                     {/* Offscreen aliases for GHL built-in 'Business Name' and custom 'Company name' */}
                     <label htmlFor="resource_company_name" className="sr-only">Company name</label>
@@ -538,7 +539,7 @@ export function ResourcesClient() {
                 {/* Multi-Select Topic Pill Selection */}
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider">
+                    <label className="block text-xs font-bold text-gray-700">
                       {isDe ? "Gewünschte Themen (Mehrfachauswahl):" : "Requested Topics (Select all that apply):"}
                     </label>
                     <span className="text-[11px] font-semibold text-[#05434B]">
@@ -586,12 +587,13 @@ export function ResourcesClient() {
 
                 {/* Free-text field for custom request */}
                 <div>
-                  <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                  <label htmlFor="resource_custom_request" className={formLabel}>
                     {isDe
                       ? "Individueller Bedarf / Spezifische Frage (optional):"
                       : "Custom Request / Specific Questions (optional):"}
                   </label>
                   <textarea
+                    id="resource_custom_request"
                     rows={3}
                     value={customRequest}
                     onChange={(e) => setCustomRequest(e.target.value)}
@@ -600,7 +602,7 @@ export function ResourcesClient() {
                         ? "Haben Sie spezifische Systeme (z. B. Personio, HiBob, DATEV), bestimmte Betriebsvereinbarungen oder zeitkritische Termine? Beschreiben Sie kurz Ihren Bedarf."
                         : "Looking for specific systems (e.g., Personio, HiBob, DATEV), specific policy clauses, or time-sensitive projects? Let us know what you need."
                     }
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#05434B] focus:ring-1 focus:ring-[#05434B] bg-gray-50/50 transition-colors"
+                    className={formTextarea}
                   />
                 </div>
 
@@ -613,20 +615,19 @@ export function ResourcesClient() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full group relative bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark text-xs sm:text-sm font-extrabold px-6 py-3.5 rounded-xl border border-white/70 shadow-[0_4px_20px_rgba(129,216,208,0.55)] hover:shadow-[0_6px_28px_rgba(129,216,208,0.85)] hover:scale-[1.01] active:scale-[0.99] transition-all shrink-0 cursor-pointer overflow-hidden disabled:opacity-60 flex items-center justify-center gap-2"
+                  className={formSubmit}
                 >
-                  <span className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/70 to-transparent rounded-t-xl pointer-events-none" />
                   {isSubmitting ? (
                     <>
-                      <Loader2 className="w-4 h-4 animate-spin text-brand-dark" />
-                      <span className="relative z-10">
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>
                         {isDe ? "Wird übermittelt..." : "Submitting..."}
                       </span>
                     </>
                   ) : (
                     <>
-                      <Send className="w-3.5 h-3.5 relative z-10" />
-                      <span className="relative z-10">
+                      <Send className="w-4 h-4" />
+                      <span>
                         {isDe ? "Vorlagen & Checklisten anfordern" : "Request Templates & Checklists"}
                       </span>
                     </>

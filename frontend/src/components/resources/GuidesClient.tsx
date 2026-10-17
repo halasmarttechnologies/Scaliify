@@ -18,6 +18,7 @@ import { BookingLeadSection } from "@/components/common/BookingLeadSection";
 import { BlogSection } from "@/components/home/BlogSection";
 import { submitLead } from "@/lib/api";
 import { useLocale } from "next-intl";
+import { formInput, formStack, formRow, formSubmit } from "@/lib/formStyles";
 
 interface GuideItem {
   id: string;
@@ -371,9 +372,9 @@ export function GuidesClient() {
                   </p>
                 </div>
 
-                <form id="guide-request-form" data-formid="Guide Playbook Request Form" onSubmit={handleModalSubmit} className="flex flex-col gap-3">
+                <form id="guide-request-form" data-formid="Guide Playbook Request Form" onSubmit={handleModalSubmit} className={formStack}>
                   <div>
-                    <label htmlFor="guide_name" className="block text-[11px] font-bold text-gray-700 mb-1">
+                    <label htmlFor="guide_name" className="sr-only">
                       {isDe ? "Vollständiger Name *" : "Full Name *"}
                     </label>
                     <input
@@ -384,13 +385,13 @@ export function GuidesClient() {
                       autoComplete="name"
                       value={modalForm.name}
                       onChange={(e) => setModalForm({ ...modalForm, name: e.target.value })}
-                      placeholder={isDe ? "z. B. Sarah Schmidt" : "e.g. Sarah Schmidt"}
-                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors"
+                      placeholder={isDe ? "Vollständiger Name *" : "Full Name *"}
+                      className={formInput}
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="guide_email" className="block text-[11px] font-bold text-gray-700 mb-1">
+                    <label htmlFor="guide_email" className="sr-only">
                       {isDe ? "Geschäftliche E-Mail *" : "Work Email *"}
                     </label>
                     <input
@@ -401,14 +402,14 @@ export function GuidesClient() {
                       autoComplete="email"
                       value={modalForm.email}
                       onChange={(e) => setModalForm({ ...modalForm, email: e.target.value })}
-                      placeholder={isDe ? "name@unternehmen.de" : "name@company.com"}
-                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors"
+                      placeholder={isDe ? "Geschäftliche E-Mail-Adresse *" : "Business Email Address *"}
+                      className={formInput}
                     />
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className={formRow}>
                     <div>
-                      <label htmlFor="guide_company" className="block text-[11px] font-bold text-gray-700 mb-1">
+                      <label htmlFor="guide_company" className="sr-only">
                         {isDe ? "Unternehmen *" : "Company Name *"}
                       </label>
                       <input
@@ -419,8 +420,8 @@ export function GuidesClient() {
                         autoComplete="organization"
                         value={modalForm.company}
                         onChange={(e) => setModalForm({ ...modalForm, company: e.target.value })}
-                        placeholder={isDe ? "Ihr Unternehmen" : "Company Ltd"}
-                        className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors"
+                        placeholder={isDe ? "Unternehmen *" : "Company Name *"}
+                        className={formInput}
                       />
                       {/* Offscreen aliases for GHL built-in 'Business Name' and custom 'Company name' */}
                       <label htmlFor="guide_company_name" className="sr-only">Company name</label>
@@ -448,7 +449,7 @@ export function GuidesClient() {
                     </div>
 
                     <div>
-                      <label htmlFor="guide_job_title" className="block text-[11px] font-bold text-gray-700 mb-1">
+                      <label htmlFor="guide_job_title" className="sr-only">
                         {isDe ? "Position (optional)" : "Job Title (Optional)"}
                       </label>
                       <input
@@ -458,8 +459,8 @@ export function GuidesClient() {
                         autoComplete="organization-title"
                         value={modalForm.jobTitle}
                         onChange={(e) => setModalForm({ ...modalForm, jobTitle: e.target.value })}
-                        placeholder={isDe ? "z. B. Head of People, COO" : "Head of People, COO"}
-                        className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors"
+                        placeholder={isDe ? "Position" : "Job Title"}
+                        className={formInput}
                       />
                     </div>
                   </div>
@@ -467,22 +468,22 @@ export function GuidesClient() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full mt-2 inline-flex items-center justify-center gap-2 bg-gray-950 hover:bg-[#05434B] text-white text-xs sm:text-sm font-bold py-3 px-4 rounded-xl transition-all cursor-pointer shadow-md active:scale-[0.99] disabled:opacity-70"
+                    className={formSubmit}
                   >
                     {isSubmitting ? (
                       <>
-                        <Loader2 className="w-4 h-4 animate-spin text-[#81D8D0]" />
+                        <Loader2 className="w-4 h-4 animate-spin" />
                         <span>{isDe ? "Wird übermittelt…" : "Submitting…"}</span>
                       </>
                     ) : (
                       <>
-                        <Send className="w-4 h-4 text-[#81D8D0]" />
+                        <Send className="w-4 h-4" />
                         <span>{isDe ? "Leitfaden per E-Mail anfordern" : "Send Me This Guide"}</span>
                       </>
                     )}
                   </button>
 
-                  <p className="text-[10px] text-gray-400 text-center mt-1">
+                  <p className="text-xs text-gray-500 text-center">
                     {isDe
                       ? "Sofortiger Zugang • Keine Kreditkarte erforderlich • 100 % herstellerneutral"
                       : "Instant access • No credit card required • 100% vendor-neutral"}

@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { LeadContact } from "@/lib/api";
 import { useTranslations, useLocale } from "next-intl";
+import { formInput, formStack, formRow } from "@/lib/formStyles";
 
 interface WizardLeadFormProps {
   lead: LeadContact;
@@ -48,14 +49,11 @@ export function WizardLeadForm({ lead, setLead, onSubmit }: WizardLeadFormProps)
           e.preventDefault();
           if (onSubmit) onSubmit(e);
         }}
-        className="flex-1 flex flex-col gap-4"
+        className={`flex-1 ${formStack}`}
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className={formRow}>
           <div>
-            <label
-              htmlFor="wizard_first_name"
-              className="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2"
-            >
+            <label htmlFor="wizard_first_name" className="sr-only">
               {t("wizardLead.firstNameLabel")}
             </label>
             <input
@@ -64,17 +62,14 @@ export function WizardLeadForm({ lead, setLead, onSubmit }: WizardLeadFormProps)
               type="text"
               required
               autoComplete="given-name"
-              className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all"
-              placeholder={isDe ? "z. B. Anna" : "Jane"}
+              className={formInput}
+              placeholder={`${t("wizardLead.firstNameLabel")} *`}
               value={lead.firstName}
               onChange={(e) => setLead({ ...lead, firstName: e.target.value })}
             />
           </div>
           <div>
-            <label
-              htmlFor="wizard_last_name"
-              className="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2"
-            >
+            <label htmlFor="wizard_last_name" className="sr-only">
               {t("wizardLead.lastNameLabel")}
             </label>
             <input
@@ -83,20 +78,17 @@ export function WizardLeadForm({ lead, setLead, onSubmit }: WizardLeadFormProps)
               type="text"
               required
               autoComplete="family-name"
-              className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all"
-              placeholder={isDe ? "z. B. Müller" : "Doe"}
+              className={formInput}
+              placeholder={`${t("wizardLead.lastNameLabel")} *`}
               value={lead.lastName}
               onChange={(e) => setLead({ ...lead, lastName: e.target.value })}
             />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className={formRow}>
           <div>
-            <label
-              htmlFor="wizard_email"
-              className="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2"
-            >
+            <label htmlFor="wizard_email" className="sr-only">
               {t("wizardLead.emailLabel")}
             </label>
             <input
@@ -105,17 +97,14 @@ export function WizardLeadForm({ lead, setLead, onSubmit }: WizardLeadFormProps)
               type="email"
               required
               autoComplete="email"
-              className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all"
-              placeholder={isDe ? "anna@unternehmen.de" : "jane@company.com"}
+              className={formInput}
+              placeholder={`${t("wizardLead.emailLabel")} *`}
               value={lead.email}
               onChange={(e) => setLead({ ...lead, email: e.target.value })}
             />
           </div>
           <div>
-            <label
-              htmlFor="wizard_phone"
-              className="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2"
-            >
+            <label htmlFor="wizard_phone" className="sr-only">
               {t("wizardLead.phoneLabel")}
             </label>
             <input
@@ -123,20 +112,17 @@ export function WizardLeadForm({ lead, setLead, onSubmit }: WizardLeadFormProps)
               name="phone"
               type="tel"
               autoComplete="tel"
-              className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all"
-              placeholder="+49 151 12345678"
+              className={formInput}
+              placeholder={t("wizardLead.phoneLabel")}
               value={lead.phone}
               onChange={(e) => setLead({ ...lead, phone: e.target.value })}
             />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className={formRow}>
           <div>
-            <label
-              htmlFor="wizard_company"
-              className="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2"
-            >
+            <label htmlFor="wizard_company" className="sr-only">
               {t("wizardLead.companyLabel")}
             </label>
             <input
@@ -145,8 +131,8 @@ export function WizardLeadForm({ lead, setLead, onSubmit }: WizardLeadFormProps)
               type="text"
               required
               autoComplete="organization"
-              className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all"
-              placeholder="Acme Corp GmbH"
+              className={formInput}
+              placeholder={`${t("wizardLead.companyLabel")} *`}
               value={lead.companyName}
               onChange={(e) => setLead({ ...lead, companyName: e.target.value })}
             />
@@ -186,10 +172,7 @@ export function WizardLeadForm({ lead, setLead, onSubmit }: WizardLeadFormProps)
             />
           </div>
           <div>
-            <label
-              htmlFor="wizard_job_title"
-              className="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2"
-            >
+            <label htmlFor="wizard_job_title" className="sr-only">
               {t("wizardLead.jobTitleLabel")}
             </label>
             <input
@@ -197,8 +180,8 @@ export function WizardLeadForm({ lead, setLead, onSubmit }: WizardLeadFormProps)
               name="job_title"
               type="text"
               autoComplete="organization-title"
-              className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all"
-              placeholder={isDe ? "z. B. Head of HR" : "Head of HR"}
+              className={formInput}
+              placeholder={t("wizardLead.jobTitleLabel")}
               value={lead.jobTitle}
               onChange={(e) => setLead({ ...lead, jobTitle: e.target.value })}
             />

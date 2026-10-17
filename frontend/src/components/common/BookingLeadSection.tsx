@@ -14,6 +14,15 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { submitLead } from "@/lib/api";
+import {
+  formInput,
+  formSelect,
+  formStack,
+  formRow,
+  formHelpText,
+  formSubmit,
+  formError,
+} from "@/lib/formStyles";
 
 interface BookingLeadSectionProps {
   title?: string;
@@ -184,10 +193,10 @@ export function BookingLeadSection({
                 </button>
               </motion.div>
             ) : (
-              <form id="booking-lead-form" data-formid="Booking Consultation Form" onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              <form id="booking-lead-form" data-formid="Booking Consultation Form" onSubmit={handleSubmit} className={formStack}>
+                <div className={formRow}>
                   <div>
-                    <label htmlFor="booking_first_name" className="block text-xs font-bold text-gray-800 mb-1">
+                    <label htmlFor="booking_first_name" className="sr-only">
                       {t("firstNameLabel")}
                     </label>
                     <input
@@ -196,16 +205,16 @@ export function BookingLeadSection({
                       type="text"
                       required
                       autoComplete="given-name"
-                      placeholder={t("firstNamePlaceholder")}
+                      placeholder={t("firstNameLabel")}
                       value={formData.firstName}
                       onChange={(e) =>
                         setFormData({ ...formData, firstName: e.target.value })
                       }
-                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors"
+                      className={formInput}
                     />
                   </div>
                   <div>
-                    <label htmlFor="booking_last_name" className="block text-xs font-bold text-gray-800 mb-1">
+                    <label htmlFor="booking_last_name" className="sr-only">
                       {t("lastNameLabel")}
                     </label>
                     <input
@@ -214,18 +223,18 @@ export function BookingLeadSection({
                       type="text"
                       required
                       autoComplete="family-name"
-                      placeholder={t("lastNamePlaceholder")}
+                      placeholder={t("lastNameLabel")}
                       value={formData.lastName}
                       onChange={(e) =>
                         setFormData({ ...formData, lastName: e.target.value })
                       }
-                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors"
+                      className={formInput}
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="booking_email" className="block text-xs font-bold text-gray-800 mb-1">
+                  <label htmlFor="booking_email" className="sr-only">
                     {t("emailLabel")}
                   </label>
                   <input
@@ -234,17 +243,17 @@ export function BookingLeadSection({
                     type="email"
                     required
                     autoComplete="email"
-                    placeholder={t("emailPlaceholder")}
+                    placeholder={t("emailLabel")}
                     value={formData.email}
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors"
+                    className={formInput}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="booking_company" className="block text-xs font-bold text-gray-800 mb-1">
+                  <label htmlFor="booking_company" className="sr-only">
                     {t("companyLabel")}
                   </label>
                   <input
@@ -253,12 +262,12 @@ export function BookingLeadSection({
                     type="text"
                     required
                     autoComplete="organization"
-                    placeholder={t("companyPlaceholder")}
+                    placeholder={t("companyLabel")}
                     value={formData.companyName}
                     onChange={(e) =>
                       setFormData({ ...formData, companyName: e.target.value })
                     }
-                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors"
+                    className={formInput}
                   />
                   {/* Offscreen aliases for GHL built-in 'Business Name' and custom 'Company name' */}
                   <label htmlFor="booking_company_name" className="sr-only">Company name</label>
@@ -297,7 +306,7 @@ export function BookingLeadSection({
                 </div>
 
                 <div>
-                  <label htmlFor="booking_job_title" className="block text-xs font-bold text-gray-800 mb-1">
+                  <label htmlFor="booking_job_title" className="sr-only">
                     {t("jobTitleLabel")}
                   </label>
                   <input
@@ -305,34 +314,42 @@ export function BookingLeadSection({
                     name="job_title"
                     type="text"
                     autoComplete="organization-title"
-                    placeholder={t("jobTitlePlaceholder")}
+                    placeholder={t("jobTitleLabel")}
                     value={formData.jobTitle}
                     onChange={(e) =>
                       setFormData({ ...formData, jobTitle: e.target.value })
                     }
-                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors"
+                    className={formInput}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="booking_number_of_employees" className="block text-xs font-bold text-gray-800 mb-1">
+                  <label htmlFor="booking_number_of_employees" className="sr-only">
                     {t("employeesLabel")}
                   </label>
-                  <select
-                    id="booking_number_of_employees"
-                    name="number_of_employees"
-                    value={formData.employees}
-                    onChange={(e) =>
-                      setFormData({ ...formData, employees: e.target.value })
-                    }
-                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors cursor-pointer"
-                  >
-                    <option value="10–50">{t("employeeOptions.10_50")}</option>
-                    <option value="50–100">{t("employeeOptions.50_100")}</option>
-                    <option value="100–250">{t("employeeOptions.100_250")}</option>
-                    <option value="250–500">{t("employeeOptions.250_500")}</option>
-                    <option value="500+">{t("employeeOptions.500_plus")}</option>
-                  </select>
+                  <div className="relative">
+                    <select
+                      id="booking_number_of_employees"
+                      name="number_of_employees"
+                      value={formData.employees}
+                      onChange={(e) =>
+                        setFormData({ ...formData, employees: e.target.value })
+                      }
+                      aria-label={t("employeesLabel")}
+                      className={formSelect}
+                    >
+                      <option value="10–50">{t("employeeOptions.10_50")}</option>
+                      <option value="50–100">{t("employeeOptions.50_100")}</option>
+                      <option value="100–250">{t("employeeOptions.100_250")}</option>
+                      <option value="250–500">{t("employeeOptions.250_500")}</option>
+                      <option value="500+">{t("employeeOptions.500_plus")}</option>
+                    </select>
+                    <div className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2">
+                      <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </div>
                   {/* Offscreen aliases for GHL custom field matching */}
                   <label htmlFor="booking_employees" className="sr-only">Number of employees</label>
                   <input
@@ -359,7 +376,7 @@ export function BookingLeadSection({
                 </div>
 
                 <div>
-                  <label htmlFor="booking_phone" className="block text-xs font-bold text-gray-800 mb-1">
+                  <label htmlFor="booking_phone" className="sr-only">
                     {t("phoneLabel")}
                   </label>
                   <input
@@ -367,40 +384,37 @@ export function BookingLeadSection({
                     name="phone"
                     type="tel"
                     autoComplete="tel"
-                    placeholder={t("phonePlaceholder")}
+                    placeholder={t("phoneLabel")}
                     value={formData.phone}
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
                     }
-                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-gray-900 focus:outline-none focus:bg-white focus:border-[#05434B] transition-colors"
+                    className={formInput}
                   />
                 </div>
 
-                <p className="text-[10.5px] text-gray-500 leading-relaxed pt-1">
+                <p className={formHelpText}>
                   {t("consentText")}{" "}
-                  <Link href="/privacy" className="underline hover:text-black">
+                  <Link href="/privacy" className="underline underline-offset-2 hover:text-gray-900 transition-colors">
                     {t("consentPrivacy")}
                   </Link>
                   {t("consentEnd")}
                 </p>
 
                 {submitError && (
-                  <p className="text-xs text-red-600 text-center">{submitError}</p>
+                  <p className={formError}>{submitError}</p>
                 )}
 
-                <div className="pt-2">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="relative w-full inline-flex items-center justify-center gap-2 bg-gradient-to-b from-brand-teal-light via-brand-teal to-brand-teal-deep text-brand-dark text-sm font-bold py-3.5 rounded-xl sm:rounded-2xl shadow-[0_4px_18px_rgba(129,216,208,0.55)] hover:brightness-105 transition-all cursor-pointer active:scale-[0.98] border border-white/80 overflow-hidden disabled:opacity-70"
-                  >
-                    <span className="absolute inset-x-0 top-0 h-[45%] bg-gradient-to-b from-white/70 to-transparent rounded-t-2xl pointer-events-none" />
-                    <span className="relative z-10">
-                      {isSubmitting ? (isDe ? "Wird gesendet…" : "Submitting…") : t("submitButton")}
-                    </span>
-                    <ArrowRight className="relative z-10 w-4 h-4" />
-                  </button>
-                </div>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={formSubmit}
+                >
+                  <span>
+                    {isSubmitting ? (isDe ? "Wird gesendet…" : "Submitting…") : t("submitButton")}
+                  </span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
               </form>
             )}
           </div>

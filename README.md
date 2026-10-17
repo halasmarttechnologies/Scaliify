@@ -1,4 +1,4 @@
-# Scaliify
+# ScaleMy HR Platform (Scaliify)
 
 HR consultancy and technology advisory platform. Includes a marketing website, an interactive HR Tool Finder assessment, and a backend scoring API.
 

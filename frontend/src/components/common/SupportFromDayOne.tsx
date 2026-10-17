@@ -26,6 +26,7 @@ import {
   Target,
 } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
+import { formInput, formStack, formSubmit } from "@/lib/formStyles";
 
 interface SupportFromDayOneProps {
   className?: string;
@@ -587,9 +588,9 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
                   </p>
                 </div>
 
-                <div className="space-y-3 pt-1">
+                <div className={`${formStack} pt-1`}>
                   <div>
-                    <label htmlFor="community_name" className="block text-xs font-bold text-gray-700 mb-1">
+                    <label htmlFor="community_name" className="sr-only">
                       {isDe ? "Ihr Name *" : "Full Name *"}
                     </label>
                     <input
@@ -600,13 +601,13 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
                       autoComplete="name"
                       value={communityName}
                       onChange={(e) => setCommunityName(e.target.value)}
-                      placeholder={isDe ? "Vor- und Nachname" : "Jane Doe"}
-                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#00D2C4]"
+                      placeholder={isDe ? "Vor- und Nachname *" : "Full Name *"}
+                      className={formInput}
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="community_email" className="block text-xs font-bold text-gray-700 mb-1">
+                    <label htmlFor="community_email" className="sr-only">
                       {isDe ? "Geschäftliche E-Mail *" : "Work Email *"}
                     </label>
                     <input
@@ -617,13 +618,13 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
                       autoComplete="email"
                       value={communityEmail}
                       onChange={(e) => setCommunityEmail(e.target.value)}
-                      placeholder={isDe ? "name@unternehmen.de" : "name@company.com"}
-                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#00D2C4]"
+                      placeholder={isDe ? "Geschäftliche E-Mail-Adresse *" : "Business Email Address *"}
+                      className={formInput}
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="community_company" className="block text-xs font-bold text-gray-700 mb-1">
+                    <label htmlFor="community_company" className="sr-only">
                       {isDe ? "Unternehmen" : "Company Name"}
                     </label>
                     <input
@@ -633,8 +634,8 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
                       autoComplete="organization"
                       value={communityCompany}
                       onChange={(e) => setCommunityCompany(e.target.value)}
-                      placeholder={isDe ? "Ihr Unternehmen" : "Your Organization"}
-                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#00D2C4]"
+                      placeholder={isDe ? "Unternehmen" : "Company Name"}
+                      className={formInput}
                     />
                   </div>
                 </div>
@@ -642,9 +643,9 @@ export function SupportFromDayOne({ className = "" }: SupportFromDayOneProps) {
                 <button
                   type="submit"
                   disabled={communitySubmitting}
-                  className="w-full inline-flex items-center justify-center gap-2 bg-[#00D2C4] hover:bg-[#76D8C8] text-[#05434B] font-extrabold text-xs sm:text-sm py-3 px-4 rounded-xl transition-all shadow-md active:scale-98 cursor-pointer mt-2"
+                  className={formSubmit}
                 >
-                  <Send className="w-3.5 h-3.5" />
+                  <Send className="w-4 h-4" />
                   <span>
                     {communitySubmitting
                       ? isDe ? "Wird angemeldet..." : "Requesting Invite..."

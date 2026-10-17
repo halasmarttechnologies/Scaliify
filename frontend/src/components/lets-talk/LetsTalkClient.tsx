@@ -6,6 +6,14 @@ import { CheckCircle2 } from "lucide-react";
 import { submitLead } from "@/lib/api";
 import { useLocale, useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
+import {
+  formInput,
+  formStack,
+  formSubmit,
+  formCheckbox,
+  formCheckboxLabel,
+  formError,
+} from "@/lib/formStyles";
 
 
 export function LetsTalkClient() {
@@ -198,7 +206,7 @@ export function LetsTalkClient() {
 
                 {/* Step 1: Email */}
                 {step === 1 && (
-                  <form id="lets-talk-step-1" data-formid="Lets Talk - Step 1" onSubmit={handleStep1} className="flex flex-col gap-3.5">
+                  <form id="lets-talk-step-1" data-formid="Lets Talk - Step 1" onSubmit={handleStep1} className={formStack}>
                     <input
                       id="lets_talk_email"
                       name="email"
@@ -209,11 +217,11 @@ export function LetsTalkClient() {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder={t("emailPlaceholder")}
                       aria-label={isDe ? "Geschäftliche E-Mail-Adresse" : "Business email address"}
-                      className="w-full border-b border-gray-300 focus:border-black py-2 text-sm text-black placeholder:text-gray-400 focus:outline-none bg-transparent transition-colors"
+                      className={formInput}
                     />
                     <button
                       type="submit"
-                      className="w-full bg-black text-white text-sm font-bold py-3 rounded-xl hover:bg-gray-900 transition-colors mt-0.5 cursor-pointer active:scale-[0.99]"
+                      className={formSubmit}
                     >
                       {t("continue")}
                     </button>
@@ -235,7 +243,7 @@ export function LetsTalkClient() {
 
                 {/* Step 2: Company */}
                 {step === 2 && (
-                  <form id="lets-talk-step-2" data-formid="Lets Talk - Step 2" onSubmit={handleStep2} className="flex flex-col gap-3.5">
+                  <form id="lets-talk-step-2" data-formid="Lets Talk - Step 2" onSubmit={handleStep2} className={formStack}>
                     {/* Carried-over email for GHL contact mapping */}
                     <label htmlFor="lets_talk_email_s2" className="sr-only">Email</label>
                     <input
@@ -260,7 +268,7 @@ export function LetsTalkClient() {
                       onChange={(e) => setCompany(e.target.value)}
                       placeholder={t("companyPlaceholder")}
                       aria-label={isDe ? "Unternehmen" : "Company name"}
-                      className="w-full border-b border-gray-300 focus:border-black py-2 text-sm text-black placeholder:text-gray-400 focus:outline-none bg-transparent transition-colors"
+                      className={formInput}
                     />
                     {/* Offscreen aliases for GHL built-in 'Business Name' and custom 'Company name' */}
                     <label htmlFor="lets_talk_company_name" className="sr-only">Company name</label>
@@ -298,7 +306,7 @@ export function LetsTalkClient() {
                     />
                     <button
                       type="submit"
-                      className="w-full bg-black text-white text-sm font-bold py-3 rounded-xl hover:bg-gray-900 transition-colors mt-0.5 cursor-pointer active:scale-[0.99]"
+                      className={formSubmit}
                     >
                       {t("continue")}
                     </button>
@@ -314,7 +322,7 @@ export function LetsTalkClient() {
 
                 {/* Step 3: Name */}
                 {step === 3 && (
-                  <form id="lets-talk-step-3" data-formid="Lets Talk - Step 3" onSubmit={handleStep3} className="flex flex-col gap-3.5">
+                  <form id="lets-talk-step-3" data-formid="Lets Talk - Step 3" onSubmit={handleStep3} className={formStack}>
                     {/* Carried-over email and company for complete GHL contact creation */}
                     <label htmlFor="lets_talk_email_s3" className="sr-only">Email</label>
                     <input
@@ -376,7 +384,7 @@ export function LetsTalkClient() {
                       placeholder={t("namePlaceholder")}
                       aria-label={isDe ? "Vollständiger Name" : "Full name"}
                       disabled={isSubmitting}
-                      className="w-full border-b border-gray-300 focus:border-black py-2 text-sm text-black placeholder:text-gray-400 focus:outline-none bg-transparent transition-colors disabled:opacity-50"
+                      className={formInput}
                     />
                     {/* Consent Tick Checkbox */}
                     <div className="flex items-start gap-2.5 pt-1 text-left">
@@ -387,9 +395,9 @@ export function LetsTalkClient() {
                         required
                         checked={consentChecked}
                         onChange={(e) => setConsentChecked(e.target.checked)}
-                        className="mt-0.5 w-4 h-4 rounded border-gray-300 accent-black cursor-pointer"
+                        className={formCheckbox}
                       />
-                      <label htmlFor="lets_talk_consent" className="text-xs text-gray-700 leading-relaxed cursor-pointer select-none">
+                      <label htmlFor="lets_talk_consent" className={formCheckboxLabel}>
                         {isDe ? (
                           <>
                             Ich stimme der Kontaktaufnahme und Verarbeitung meiner Angaben gemäß der{" "}
@@ -411,14 +419,14 @@ export function LetsTalkClient() {
                     </div>
 
                     {submitError && (
-                      <p className="text-sm text-red-600 text-center" role="alert">
+                      <p className={formError} role="alert">
                         {submitError}
                       </p>
                     )}
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-black text-white text-sm font-bold py-3 rounded-xl hover:bg-gray-900 transition-colors mt-0.5 cursor-pointer active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed"
+                      className={formSubmit}
                     >
                       {isSubmitting ? t("submitting") : t("bookMyDemo")}
                     </button>
