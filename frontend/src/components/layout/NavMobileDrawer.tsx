@@ -131,6 +131,15 @@ export function NavMobileDrawer({
                     <span>{t("aboutUs")}</span>
                   </Link>
 
+                  {/* Partnerships Direct Link */}
+                  <Link
+                    href="/partnerships"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full flex items-center justify-between py-4 border-b border-gray-100 text-base font-bold text-gray-900 hover:text-brand-dark transition-colors"
+                  >
+                    <span>{t("partnerships")}</span>
+                  </Link>
+
                   {/* Insights Drill-down */}
                   <button
                     onClick={() => setMobileSubView("insights")}
@@ -273,13 +282,6 @@ export function NavMobileDrawer({
                         className="block hover:text-brand-teal transition-colors"
                       >
                         {t("guidesChecklists")}
-                      </Link>
-                      <Link
-                        href="/insights/resources"
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="block hover:text-brand-teal transition-colors"
-                      >
-                        {t("hrResources")}
                       </Link>
                     </div>
                   </div>

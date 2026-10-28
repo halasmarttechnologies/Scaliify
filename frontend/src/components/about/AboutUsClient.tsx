@@ -45,79 +45,67 @@ function LinkedInIcon({ className = "w-4 h-4" }: { className?: string }) {
 
 const milestonesEn = [
   {
-    year: "2021",
-    title: "Vision & Foundation",
-    description: "scaliify was founded to bridge the gap between ambitious growth and operational excellence, combining HR leadership with Big-4 consulting rigor.",
-    position: "top",
-  },
-  {
     year: "2022",
     title: "Rapid Expansion across DACH",
     description: "Scaled our first 30+ tech startups and mid-market European clients, establishing our vendor-neutral benchmark model.",
-    position: "bottom",
+    position: "top",
   },
   {
     year: "2023",
     title: "Global Specialist Network",
     description: "Curated a vetted network of project-specific lawyers, HRIS developers, and compensation strategists across Europe.",
-    position: "top",
+    position: "bottom",
   },
   {
     year: "2024",
     title: "Dubai Global Headquarters",
     description: "Established our global headquarters in Dubai, blending forward-thinking innovation with deep cultural agility to serve clients worldwide.",
-    position: "bottom",
+    position: "top",
   },
   {
     year: "2025",
     title: "150+ Network Specialists",
     description: "Expanded to over 150 on-demand HR specialists, providing turnkey interim leadership and outsourced HR operations.",
-    position: "top",
+    position: "bottom",
   },
   {
     year: "2026",
     title: "AI & Next-Gen HR Advisory",
     description: "Empowering scaling businesses with AI-driven workflows, independent HR technology selection, and high-impact people operations.",
-    position: "bottom",
+    position: "top",
   },
 ];
 
 const milestonesDe = [
   {
-    year: "2021",
-    title: "Vision & Gründung",
-    description: "scaliify wurde gegründet, um die Lücke zwischen ambitioniertem Wachstum und operativer Exzellenz zu schließen – mit praxisnaher HR-Führung und Big-4-Beratungskompetenz.",
-    position: "top",
-  },
-  {
     year: "2022",
     title: "Schnelle Expansion in DACH",
     description: "Erfolgreiche Skalierung unserer ersten 30+ Tech-Startups und mittelständischen Kunden in Deutschland, Österreich und der Schweiz.",
-    position: "bottom",
+    position: "top",
   },
   {
     year: "2023",
     title: "Globales Spezialisten-Netzwerk",
     description: "Aufbau eines kuratierten Netzwerks aus spezialisierten Arbeitsrechtler:innen, HRIS-Entwickler:innen und Vergütungsstrateg:innen in ganz Europa.",
-    position: "top",
+    position: "bottom",
   },
   {
     year: "2024",
     title: "Globaler Hauptsitz in Dubai",
     description: "Eröffnung unserer globalen Zentrale in Dubai – Verbindung von zukunftsorientierter Innovation mit internationaler Agilität.",
-    position: "bottom",
+    position: "top",
   },
   {
     year: "2025",
     title: "150+ Netzwerk-Spezialist:innen",
     description: "Ausbau auf über 150 on-demand HR-Fachkräfte für Interimsführung und ausgelagertes Personalmanagement.",
-    position: "top",
+    position: "bottom",
   },
   {
     year: "2026",
     title: "KI & Next-Gen HR-Beratung",
     description: "Begleitung von Unternehmen mit KI-gestützten Workflows, herstellerneutraler HR-Softwareauswahl und skalierbaren People Operations.",
-    position: "bottom",
+    position: "top",
   },
 ];
 

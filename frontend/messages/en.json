@@ -36,6 +36,10 @@
       "title": "HR Tool Finder — Find Your Perfect HR Software",
       "description": "Answer 9 questions and get recommendations benchmarked across 20+ platforms."
     },
+    "partnerships": {
+      "title": "Partnership Opportunities — Freelancers, HR Systems & Providers",
+      "description": "Partner with Scaliify. Collaborate as an independent HR freelancer, integrate as a software provider, or explore strategic HR alliances across Europe."
+    },
     "privacy": {
       "title": "Privacy Policy",
       "description": "Scaliify's privacy policy — how we collect, use, and protect your personal data."
@@ -101,7 +105,8 @@
     "guidesChecklistsSub": "HR playbooks & software guides",
     "hrResources": "HR Resources",
     "hrResourcesSub": "RFP templates & decision frameworks",
-    "knowledgeResources": "Knowledge & Resources"
+    "knowledgeResources": "Knowledge & Resources",
+    "partnerships": "Partnerships"
   },
   "footer": {
     "readySimplify": "Ready to simplify your HR?",
@@ -133,7 +138,8 @@
       "guidesChecklists": "Guides & Checklists",
       "hrResources": "HR Resources & Templates",
       "caseStudies": "Case Studies",
-      "hrToolFinder": "HR Tool Finder"
+      "hrToolFinder": "HR Tool Finder",
+      "partnerships": "Partnerships"
     }
   },
   "hero": {
@@ -382,8 +388,8 @@
     "expect2": "Discussion built around your team's top priorities and timeline",
     "expect3": "Direct, honest answers from senior HR & tech practitioners",
     "trustHeading": "Independent expertise European leaders trust:",
-    "trustBadge1Title": "Top HR Advisory",
-    "trustBadge1Sub": "SPRING 2026",
+    "trustBadge1Title": "Independent Advisory",
+    "trustBadge1Sub": "VENDOR-NEUTRAL",
     "trustBadge2Title": ">150 Specialists",
     "trustBadge2Sub": "VETTED NETWORK",
     "trustBadge3Title": "96% Outcome Rate",

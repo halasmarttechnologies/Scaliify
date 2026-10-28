@@ -85,6 +85,17 @@ export function NavDesktopMenu({ isScrolled, activeMenu, setActiveMenu }: NavDes
           {t("aboutUs")}
         </Link>
 
+        {/* 4b. Partnerships */}
+        <Link
+          href="/partnerships"
+          className={`whitespace-nowrap transition-colors px-1.5 py-1 ${
+            isScrolled ? "hover:text-white" : "hover:text-gray-900 hover:text-brand-dark"
+          }`}
+          onMouseEnter={() => setActiveMenu(null)}
+        >
+          {t("partnerships")}
+        </Link>
+
         {/* 5. Insights Dropdown Trigger */}
         <div
           className="py-1"
@@ -259,14 +270,6 @@ export function NavDesktopMenu({ isScrolled, activeMenu, setActiveMenu }: NavDes
               >
                 <div className="font-semibold text-gray-900">{t("guidesChecklists")}</div>
                 <div className="text-[11px] text-gray-500 font-normal mt-0.5">{t("guidesChecklistsSub")}</div>
-              </Link>
-              <Link
-                href="/insights/resources"
-                onClick={() => setActiveMenu(null)}
-                className="block px-3 py-2.5 rounded-xl hover:bg-gray-50 hover:text-brand-dark transition-colors"
-              >
-                <div className="font-semibold text-gray-900">{t("hrResources")}</div>
-                <div className="text-[11px] text-gray-500 font-normal mt-0.5">{t("hrResourcesSub")}</div>
               </Link>
             </div>
           </motion.div>

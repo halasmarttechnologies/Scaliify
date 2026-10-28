@@ -36,6 +36,10 @@
       "title": "HR Tool Finder — Finden Sie Ihre perfekte HR-Software",
       "description": "Beantworten Sie 9 Fragen und erhalten Sie Empfehlungen, die über 20+ Plattformen hinweg verglichen werden."
     },
+    "partnerships": {
+      "title": "Partnerschaften — Freelancer, HR-Systeme & Anbieter",
+      "description": "Werden Sie Partner von Scaliify. Arbeiten Sie als unabhängiger HR-Freelancer mit uns, integrieren Sie Ihr HR-System oder schließen Sie strategische Allianzen."
+    },
     "privacy": {
       "title": "Datenschutzerklärung",
       "description": "Datenschutzerklärung von Scaliify — wie wir Ihre personenbezogenen Daten erheben, verwenden und schützen."
@@ -101,7 +105,8 @@
     "guidesChecklistsSub": "HR-Playbooks & Software-Leitfäden",
     "hrResources": "HR-Ressourcen",
     "hrResourcesSub": "RFP-Vorlagen & Entscheidungsrahmen",
-    "knowledgeResources": "Wissen & Ressourcen"
+    "knowledgeResources": "Wissen & Ressourcen",
+    "partnerships": "Partnerschaften"
   },
   "footer": {
     "readySimplify": "Bereit, Ihr Personalwesen zu vereinfachen?",
@@ -133,7 +138,8 @@
       "guidesChecklists": "Leitfäden & Checklisten",
       "hrResources": "HR-Ressourcen & Vorlagen",
       "caseStudies": "Fallstudien",
-      "hrToolFinder": "HR Tool Finder"
+      "hrToolFinder": "HR Tool Finder",
+      "partnerships": "Partnerschaften"
     }
   },
   "hero": {
@@ -382,8 +388,8 @@
     "expect2": "Ein Gespräch, das auf die Prioritäten und den Zeitplan Ihres Teams zugeschnitten ist",
     "expect3": "Direkte, ehrliche Antworten von erfahrenen HR- & Tech-Praktiker:innen",
     "trustHeading": "Unabhängige Expertise, der europäische Führungskräfte vertrauen:",
-    "trustBadge1Title": "Top HR-Beratung",
-    "trustBadge1Sub": "FRÜHJAHR 2026",
+    "trustBadge1Title": "Unabhängige Beratung",
+    "trustBadge1Sub": "HERSTELLERNEUTRAL",
     "trustBadge2Title": ">150 Spezialist:innen",
     "trustBadge2Sub": "GEPRÜFTES NETZWERK",
     "trustBadge3Title": "96 % Erfolgsquote",

@@ -1,13 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 export function Footer() {
   const t = useTranslations("footer");
+  const pathname = usePathname();
+
+  if (pathname === "/partnerships" || pathname?.includes("partnerships")) {
+    return null;
+  }
 
   const servicesLinks = [
     { key: "hrItSelection", href: "/services/hr-it-selection" },
@@ -20,17 +25,16 @@ export function Footer() {
 
   const companyLinks = [
     { key: "aboutUs", href: "/about" },
+    { key: "partnerships", href: "/partnerships" },
     { key: "contactUs", href: "/contact" },
     { key: "letsTalk", href: "/lets-talk" },
     { key: "careers", href: "/contact" },
     { key: "blogInsights", href: "/blog" },
     { key: "pressKit", href: "/contact" },
-    { key: "partners", href: "/#companies" },
   ] as const;
 
   const resourceLinks = [
     { key: "guidesChecklists", href: "/insights/guides" },
-    { key: "hrResources", href: "/insights/resources" },
     { key: "caseStudies", href: "/case-studies" },
     { key: "hrToolFinder", href: "/tool-finder" },
     { key: "blogInsights", href: "/blog" },
@@ -179,6 +183,16 @@ export function Footer() {
             {t("connectWithUs")}
           </span>
           <div className="flex items-center gap-3">
+            {/* Email */}
+            <a
+              href="mailto:info@scaliify.com"
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-black hover:bg-brand-teal hover:border-brand-teal transition-all"
+              aria-label="Email"
+            >
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+              </svg>
+            </a>
             {/* LinkedIn */}
             <a
               href="https://www.linkedin.com/company/scaliify/"
